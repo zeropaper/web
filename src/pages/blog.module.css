@@ -1,8 +1,5 @@
 .page-title {
-  font-weight: 300;
-  font-size: 36px;
-  line-height: 126%;
-  color: var(--colors-base-dark);
+  margin-bottom: 64px;
 }
 
 .post-list {
@@ -30,23 +27,34 @@
   }
 }
 
-p.post-overline {
+p.info {
   color: var(--colors-base-text);
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 126%;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  line-height: 1.5;
   margin-bottom: 0;
+  font-weight: normal;
+  font-size: 0.833rem;
+
+  & .author {
+    color: var(--colors-base-grey);
+  }
 }
 
-h3.post-title {
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 168%;
-  margin-bottom: 16px;
+p.post-overline {
+  color: var(--colors-base-grey);
+  font-size: 0.579rem;
+  text-transform: uppercase;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  margin: 0;
+  font-weight: 600;
+}
+
+h2.post-title {
+  margin-top: 0;
+  font-size: 1.2rem;
 
   & a:any-link {
+    line-height: 0.5;
     transition: all ease 200ms;
     color: var(--colors-themed-default);
 
@@ -59,11 +67,7 @@ h3.post-title {
 }
 
 p.post-teaser {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 168%;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 p.post-link a:any-link {

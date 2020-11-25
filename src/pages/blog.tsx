@@ -8,15 +8,18 @@ import * as styles from './blog.module.css'
 
 const Post = ({
   node: {
-    frontmatter: { path, title, teaser, overline }
+    frontmatter: { path, title, teaser, overline, author, publishedAt }
   }
 }: any) => (
   <div>
     <p className={styles.postOverline}>{overline}</p>
-    <h3 className={styles.postTitle}>
+    <h2 className={styles.postTitle}>
       <Link to={path}>{title}</Link>
-    </h3>
+    </h2>
     <p className={styles.postTeaser}>{teaser}</p>
+    <p className={styles.info}>
+      <span className={styles.author}>{author}</span> - {publishedAt}
+    </p>
   </div>
 )
 
@@ -64,6 +67,8 @@ export const pageQuery = graphql`
               title
               description
             }
+            publishedAt(formatString: "MMMM DD, YYYY")
+            author
             path
             title
             teaser

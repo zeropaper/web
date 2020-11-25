@@ -1,15 +1,17 @@
 @import '../styles/properties.css';
 
 .section {
-  padding: 64px 0;
-
+  padding: 32px 0;
   background-color: var(--colors-base-white);
 
   & h2,
   & h3,
   & h4,
   & h5,
-  & h6,
+  & h6 {
+    margin-top: 1rem;
+  }
+
   & li,
   & code,
   & dl,
@@ -17,17 +19,11 @@
   & dt,
   & p {
     margin-top: 0;
-    color: var(--colors-base-dark);
+    color: var(--colors-base-black);
   }
 
   & p,
   & li {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 168%;
-    margin-top: 0;
-
     & strong {
       font-weight: 500;
     }
@@ -52,38 +48,6 @@
     margin-bottom: 16px;
   }
 
-  & h2 {
-    font-weight: 300;
-    font-size: 36px;
-    line-height: 126%;
-  }
-
-  & h3 {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 168%;
-  }
-
-  & h4 {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 168%;
-  }
-
-  & h5 {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 168%;
-  }
-
-  & h6 {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 168%;
-  }
-
   & p a {
     transition: all ease 200ms;
   }
@@ -94,8 +58,12 @@
 
   & p a:hover,
   & p a:active {
-    color: var(--colors-base-dark);
+    color: var(--colors-base-black);
     text-decoration: underline;
+  }
+
+  & p + p {
+    margin-top: -8px;
   }
 
   & img {
@@ -105,38 +73,35 @@
   }
 
   & :not(pre) > code[class*='language-'] {
-    padding: 0 4px;
+    padding: 0 6px;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 168%;
+    word-break: break-all;
     color: var(--colors-base-dark);
     font-family: 'IBM Plex Mono', monospace;
   }
 
-  & p + p {
-    margin-top: -16px;
+  & blockquote {
+    margin: 2rem 0 3rem 0;
+    padding-left: 2rem;
+    border-left: 1px solid var(--colors-themed-default);
   }
 
   & blockquote p {
     font-weight: 300;
-    font-size: 20px;
-    line-height: 168%;
-    padding-left: 34px;
-    margin-bottom: 32px;
-    border-left: 2px solid var(--colors-themed-default);
   }
 
   & figure {
+    margin: 2rem 0 3rem 0;
     padding-top: 16px;
+
     & img {
       margin-bottom: 16px;
     }
 
     & figcaption {
-      font-style: normal;
-      font-weight: normal;
-      font-size: 14px;
-      line-height: 168%;
+      text-align: center;
+      color: var(--colors-base-grey);
+      font-size: 0.694rem;
       margin-bottom: 32px;
     }
   }
@@ -144,12 +109,12 @@
 
 @media (--sm-viewport) {
   .section {
-    padding: 64px 0;
+    padding: 32px 0;
   }
 }
 
 @media (--md-viewport) {
   .section {
-    padding: 64px 0;
+    padding: 32px 0;
   }
 }

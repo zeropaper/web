@@ -4,7 +4,6 @@ declare const styles: {
   readonly topSm: string
   readonly middleSm: string
   readonly bottomSm: string
-  readonly justifyCenterSm: string
   readonly mobileOffset64: string
   readonly mobileOffset32: string
   readonly mobileOffset16: string
