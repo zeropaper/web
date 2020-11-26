@@ -56,7 +56,6 @@ const Layout = ({
     <Header appendix={appendix} menu={menu} icons={icons({ githubLink })} />
     <main>{children}</main>
     <Footer />
-    <GDPR />
   </div>
 )
 

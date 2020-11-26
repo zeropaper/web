@@ -237,29 +237,29 @@ module.exports = {
       }
     },
     `gatsby-plugin-force-trailing-slashes`,
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-
-        googleAnalytics: {
-          trackingId: 'UA-71865250-1',
-          cookieName: 'gdpr_cookie_analytics',
-          anonymize: true,
-          allowAdFeatures: false
-        },
-
-        googleTagManager: {
-          trackingId: '',
-          cookieName: 'gdpr_cookie_analytics'
-        },
-
-        facebookPixel: {
-          pixelId: '', // leave empty if you want to disable the tracker
-          cookieName: 'gdpr_cookie_analytics' // default
-        },
-
-        environments: ['production', 'development']
-      }
-    }
+    // {
+    //   resolve: `gatsby-plugin-gdpr-cookies`,
+    //   options: {
+    //
+    //     googleAnalytics: {
+    //       trackingId: 'UA-71865250-1',
+    //       cookieName: 'gdpr_cookie_analytics',
+    //       anonymize: true,
+    //       allowAdFeatures: false
+    //     },
+    //
+    //     googleTagManager: {
+    //       trackingId: '',
+    //       cookieName: 'gdpr_cookie_analytics'
+    //     },
+    //
+    //     facebookPixel: {
+    //       pixelId: '', // leave empty if you want to disable the tracker
+    //       cookieName: 'gdpr_cookie_analytics' // default
+    //     },
+    //
+    //     environments: ['production', 'development']
+    //   }
+    // }
   ]
 }

@@ -62,6 +62,24 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71865250-1" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-71865250-1');
+  gtag('config', 'GA_TRACKING_ID', { 'anonymize_ip': true });
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',  
+    'analytics_storage': 'denied'
+    'ads_data_redaction': true
+  });
+`,
+          }}
+        />
       </body>
     </html>
   )
