@@ -70,7 +70,7 @@ export default function HTML(props) {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-71865250-1');
+  gtag('config', 'G-9ZKQ6W782H');
   gtag('config', 'GA_TRACKING_ID', { 'anonymize_ip': true });
   gtag('consent', 'default', {
     'ad_storage': 'denied',  
