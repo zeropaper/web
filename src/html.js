@@ -50,7 +50,10 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {props.headComponents}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71865250-1" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-71865250-1"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -62,10 +65,10 @@ export default function HTML(props) {
   gtag('config', 'GA_TRACKING_ID', { 'anonymize_ip': true });
   gtag('consent', 'default', {
     'ad_storage': 'denied',  
-    'analytics_storage': 'denied'
+    'analytics_storage': 'denied',
     'ads_data_redaction': true
   });
-`,
+`
           }}
         />
       </head>
