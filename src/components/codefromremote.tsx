@@ -58,7 +58,7 @@ const transform = ({ startAt, endAt, src }: Props) => (content: string) => {
 
   const endIndex = findLine(endAt, lines)
   if (endIndex > 0) {
-    lines = [...lines.slice(0, endIndex+1), '// ...']
+    lines = [...lines.slice(0, endIndex + 1), '// ...']
   }
 
   const lang = detectLanguage(src)

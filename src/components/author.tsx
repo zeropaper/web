@@ -16,13 +16,17 @@ const authors: { [key: string]: Profile } = {
   }
 }
 
-const Author = ({ name, className }: { name: string, className?: string }) => {
+const Author = ({ name, className }: { name: string; className?: string }) => {
   const profile = authors[name]
   if (!profile) {
     return <span className={className}>{name}</span>
   }
 
-  return <a href={profile.github} className={className}>{profile.fullname}</a>
+  return (
+    <a href={profile.github} className={className}>
+      {profile.fullname}
+    </a>
+  )
 }
 
 export default Author
