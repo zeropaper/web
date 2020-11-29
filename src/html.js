@@ -61,7 +61,6 @@ export default function HTML(props) {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-71865250-1');
   gtag('config', 'UA-71865250-1', { 'anonymize_ip': true });
   gtag('consent', 'default', {
     'ad_storage': 'denied',  
