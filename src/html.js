@@ -50,6 +50,27 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {props.headComponents}
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+gtag('consent', 'default', {
+  'ad_storage': 'allowed',  
+  'analytics_storage': 'denied',
+  'ads_data_redaction': true
+});
+
+gtag('consent', 'default', {
+  'ad_storage': 'denied',  
+  'analytics_storage': 'denied',
+  'ads_data_redaction': true,
+  'region': ['BE','BG','CZ','DK','DE','EE','IE','EL','ES','FR','HR','IT','CY','LV','LT','LU','HU','MT','NL','AT','PL','PT','RO','SI','SK','FI','SE','US-CA']
+});
+`}}
+        />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=UA-71865250-1"
@@ -57,16 +78,11 @@ export default function HTML(props) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-  gtag('config', 'UA-71865250-1', { 'anonymize_ip': true });
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',  
-    'analytics_storage': 'denied',
-    'ads_data_redaction': true
-  });
+gtag('config', 'UA-71865250-1', { 'anonymize_ip': true });
 `
           }}
         />
