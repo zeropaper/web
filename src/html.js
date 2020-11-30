@@ -23,10 +23,10 @@ import icon17 from './images/icon/mstile-310x310.png'
 export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+    <head>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 
@@ -42,22 +42,36 @@ gtag('consent', 'default', {
   'ads_data_redaction': true,
   'region': ['BE','BG','CZ','DK','DE','EE','IE','EL','ES','FR','HR','IT','CY','LV','LT','LU','HU','MT','NL','AT','PL','PT','RO','SI','SK','FI','SE','US-CA']
 });
-`}}
-        />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-71865250-1"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+`
+        }}
+      />
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-71865250-1"
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 
 gtag('config', 'UA-71865250-1', { 'anonymize_ip': true });
 `
-          }}
+        }}
+      />
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-J01VQCC9Y9" />
+      <script
+        dangerouslySetInnerHTML={{
+        __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-J01VQCC9Y9');
+`
+      }}
         />
         <link rel="apple-touch-icon-precomposed" sizes="57x57" href={icon} />
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href={icon1} />
@@ -85,21 +99,21 @@ gtag('config', 'UA-71865250-1', { 'anonymize_ip': true });
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {props.headComponents}
-      </head>
-      <body {...props.bodyAttributes}>
-        {props.preBodyComponents}
-        <noscript key="noscript" id="gatsby-noscript">
-          This app works best with JavaScript enabled.
-        </noscript>
-        <div
-          key={`body`}
-          id="___gatsby"
-          dangerouslySetInnerHTML={{ __html: props.body }}
-        />
-        {props.postBodyComponents}
-      </body>
+    </head>
+    <body {...props.bodyAttributes}>
+    {props.preBodyComponents}
+    <noscript key="noscript" id="gatsby-noscript">
+      This app works best with JavaScript enabled.
+    </noscript>
+    <div
+      key={`body`}
+      id="___gatsby"
+      dangerouslySetInnerHTML={{ __html: props.body }}
+    />
+    {props.postBodyComponents}
+    </body>
     </html>
-  )
+)
 }
 
 HTML.propTypes = {
