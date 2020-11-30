@@ -65,11 +65,11 @@ gtag('config', 'UA-71865250-1', { 'anonymize_ip': true });
       <script
         dangerouslySetInnerHTML={{
         __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-          gtag('config', 'G-J01VQCC9Y9');
+gtag('config', 'G-J01VQCC9Y9', { 'anonymize_ip': true });
 `
       }}
         />
