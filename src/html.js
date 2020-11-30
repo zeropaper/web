@@ -24,33 +24,6 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
-        <link rel="apple-touch-icon-precomposed" sizes="57x57" href={icon} />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href={icon1} />
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href={icon2} />
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href={icon3} />
-        <link rel="apple-touch-icon-precomposed" sizes="60x60" href={icon4} />
-        <link rel="apple-touch-icon-precomposed" sizes="120x120" href={icon5} />
-        <link rel="apple-touch-icon-precomposed" sizes="76x76" href={icon6} />
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href={icon7} />
-        <link rel="icon" type="image/png" href={icon8} />
-        <link rel="icon" type="image/png" href={icon9} />
-        <link rel="icon" type="image/png" href={icon10} />
-        <link rel="icon" type="image/png" href={icon11} />
-        <link rel="icon" type="image/png" href={icon12} />
-        <meta name="msapplication-TileImage" content={icon13} />
-        <meta name="msapplication-square70x70logo" content={icon14} />
-        <meta name="msapplication-square150x150logo" content={icon15} />
-        <meta name="msapplication-wide310x150logo" content={icon16} />
-        <meta name="msapplication-square310x310logo" content={icon17} />
-
-        <meta charSet="utf-8" />
-        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        {props.headComponents}
-
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -86,6 +59,32 @@ gtag('config', 'UA-71865250-1', { 'anonymize_ip': true });
 `
           }}
         />
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href={icon} />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href={icon1} />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href={icon2} />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href={icon3} />
+        <link rel="apple-touch-icon-precomposed" sizes="60x60" href={icon4} />
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href={icon5} />
+        <link rel="apple-touch-icon-precomposed" sizes="76x76" href={icon6} />
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href={icon7} />
+        <link rel="icon" type="image/png" href={icon8} />
+        <link rel="icon" type="image/png" href={icon9} />
+        <link rel="icon" type="image/png" href={icon10} />
+        <link rel="icon" type="image/png" href={icon11} />
+        <link rel="icon" type="image/png" href={icon12} />
+        <meta name="msapplication-TileImage" content={icon13} />
+        <meta name="msapplication-square70x70logo" content={icon14} />
+        <meta name="msapplication-square150x150logo" content={icon15} />
+        <meta name="msapplication-wide310x150logo" content={icon16} />
+        <meta name="msapplication-square310x310logo" content={icon17} />
+
+        <meta charSet="utf-8" />
+        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
