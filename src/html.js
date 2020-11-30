@@ -60,7 +60,6 @@ gtag('config', 'UA-71865250-1', { 'anonymize_ip': true });
 `
         }}
       />
-      <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-J01VQCC9Y9" />
       <script
         dangerouslySetInnerHTML={{
