@@ -36,6 +36,8 @@ gtag('consent', 'default', {
   'ads_data_redaction': true
 });
 
+gtag('set', 'ads_data_redaction', true);
+
 gtag('consent', 'default', {
   'ad_storage': 'denied',  
   'analytics_storage': 'denied',
