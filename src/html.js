@@ -31,14 +31,14 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 
 gtag('consent', 'default', {
-  'ad_storage': 'allowed',  
-  'analytics_storage': 'denied',
+  'analytics_storage': 'allowed',
+  'ad_storage': 'denied',
   'ads_data_redaction': true
 });
 
 gtag('consent', 'default', {
-  'ad_storage': 'denied',  
   'analytics_storage': 'denied',
+  'ad_storage': 'denied',
   'ads_data_redaction': true,
   'region': ['BE','BG','CZ','DK','DE','EE','IE','EL','ES','FR','HR','IT','CY','LV','LT','LU','HU','MT','NL','AT','PL','PT','RO','SI','SK','FI','SE','US-CA']
 });
