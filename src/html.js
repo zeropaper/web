@@ -27,6 +27,7 @@ export default function HTML(props) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
+/*
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 
@@ -36,7 +37,6 @@ gtag('consent', 'default', {
   'ads_data_redaction': true
 });
 
-/*
 gtag('consent', 'default', {
   'analytics_storage': 'denied',
   'ad_storage': 'denied',
