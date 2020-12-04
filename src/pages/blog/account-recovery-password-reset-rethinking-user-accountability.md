@@ -1,13 +1,36 @@
-# Account Recovery and Password Reset: Rethinking User Accountability
+---
+path: '/account-recovery-password-reset-rethinking-user-accountability.md/'
+
+title: |
+  Account Recovery and Password Reset: Rethinking User Accountability
+
+teaser: |
+  Lorem ipsum
+
+seo:
+  title: |
+    Lorem ipsum
+  keywords: |
+    account, password, security
+
+publishedAt: '2020-12-02'
+author: tacurran
+
+overline: |
+  Account Recovery and Password Reset: Rethinking User Accountability
+---
+
+## Account Recovery and Password Reset: Rethinking User Accountability
 Ory Kratos
 
 by Pluto Allegory 
 
 With the release of Ory Kratos last month, we want to spend some time addressing some of the basics, the background and the overall approach. Hopefully, we can also help the community with this information.
 
+### 
 Background
-1985 Bjarne Stroustrup kicked off object orientation and C with "The C++ Programming Language," Richard Stallmann ignites the Free Software movement with the "GNU Manifesto," and Microsoft released Windows 1.0. There was a famous Super Bowl commercial featuring lemmings, and towards the end of the zear Steve Jobs left Apple Computer. Unix was one of the dominant operating systems at the time.
-In April, 1985 the Unites States Department of Defense published, as part of the "Rainbow Series" [https://web.archive.org/web/20110720190716/http://iaarchive.fi/rainbow.html] of books outlining and explaining computer security standards,the Password Management Guideline otherwise known as the "Green Book"  [CSC-STD-002-85, Library No. S-226,994][National Institute of Standards and Technology
+1985 Bjarne Stroustrup kicked off object orientation and C with "The C++ Programming Language," Richard Stallmann ignites the Free Software movement with the "GNU Manifesto," and Microsoft released Windows 1.0. There was a famous Super Bowl commercial featuring lemmings, and towards the end of the year Steve Jobs left Apple Computer. Unix was one of the dominant operating systems at the time.
+In April, 1985 the Unites States Department of Defense published, as part of the [Rainbow Series](https://web.archive.org/web/20110720190716/http://iaarchive.fi/rainbow.html) of books outlining and explaining computer security standards,the Password Management Guideline otherwise known as the "Green Book" [CSC-STD-002-85, Library No. S-226,994][National Institute of Standards and Technology
 https://fas.org/irp/nsa/rainbow/std002.htm] due the green colour of its cover.
 The Green Book made reference, as did every other book in the Rainbow Series, to the "Orange Book" [CSC-STD-001-83], or Trusted Computer System Evaluation Criteria (TCSEC).
 Department of Defense Trusted Computer System Evaluation Criteria.  That
@@ -22,11 +45,11 @@ The reason for mentioning the Green Book, other than the history, is the industr
 
 The Green Book outlines for example four areas
 of user responsibilities including: 
-Security awareness - keep passwords private and sign a statement to acknowledge
+- Security awareness - keep passwords private and sign a statement to acknowledge
 understanding these responsibilities;
-Changing passwords - change pw to assure low probability of compromise during a password's lifetime;
+- Changing passwords - change pw to assure low probability of compromise during a password's lifetime;
 Password lifetime passwords become weaker over time when used for authentication purposes, due to the increase probablitiy of exposure or theft; and 
-Change procedure - there should be a formal secure process in place to change a password.  There are clear recommendations for workflows such as setting a new password, or logging in with a expired password, all generating audit trials.
+- Change procedure - there should be a formal secure process in place to change a password.  There are clear recommendations for workflows such as setting a new password, or logging in with a expired password, all generating audit trials.
 
 Back in the 1980's many projects were driven or at least funded by the ARPA (Advanced Research Projects Agency , now known as DARPA). Fortunately today's development teams can build on an excellent body of thoughtful security work and approaches. Even though the materials mentioned above are almost all out of date some of the concepts such as "user accountability" remain central to systems. 
 
@@ -36,20 +59,20 @@ By 2008 Internet traffic was exploding (add data here) and communcation across a
 
 Around the same time Amazon Web Service, announced in 2006,  began to gain acceptance.  As the Internet traffic surged so did the desire to have commercially available computing infrastructure that could be used on top of the Internet to commoditise certain services such as database management and provide these services on demand. Amazon was one of the first companies to understand the deamns and go all in. This trend, sometimes called elastic computing, led to the emergance of the cloud as we know it today. The cloud could even ne called the Cloud Era
 
-Ory ws born in the Cloud Era. In 2020 Ory released it first cloud native comprehensive developer system for creating managing and using credentials combined with authorisation flows.
+Ory was born in the Cloud Era. In 2020 Ory released it first cloud native comprehensive developer system for creating managing and using credentials combined with authorisation flows.
 
 ORY Kratos is an API-first Identity and User Management system that is built according to cloud architecture best practices. It implements core use cases that almost every software application needs to deal with:
 
-Self-service Login and Registration: Allow end-users to create and sign into accounts (we call them identities) using Username / Email and password combinations, Social Sign In ("Sign in with Google, GitHub"), Passwordless flows, and others.
-Multi-Factor Authentication (MFA/2FA): Support protocols such as TOTP (RFC 6238 and IETF RFC 4226 - better known as Google Authenticator)
-Account Verification: Verify that an E-Mail address, phone number, or physical address actually belong to that identity.
-Account Recovery: Recover access using "Forgot Password" flows, Security Codes (in case of MFA device loss), and others.
+- Self-service Login and Registration: Allow end-users to create and sign into accounts (we call them identities) using Username / Email and password combinations, Social Sign In ("Sign in with Google, GitHub"), Passwordless flows, and others.
+- Multi-Factor Authentication (MFA/2FA): Support protocols such as TOTP (RFC 6238 and IETF RFC 4226 - better known as Google Authenticator)
+- Account Verification: Verify that an E-Mail address, phone number, or physical address actually belong to that identity.
+- Account Recovery: Recover access using "Forgot Password" flows, Security Codes (in case of MFA device loss), and others.
 Profile and Account Management: Update passwords, personal details, email addresses, linked social profiles using secure flows.
-Admin APIs: Import, update, delete identities.
+- Admin APIs: Import, update, delete identities.
 We highly recommend reading the ORY Kratos introduction docs to learn more about ORY Krato's background, feature set, and differentiation from other products.
 
 To set up account recovery, your Identity JSON Schema must have an email in its traits and add
-
+```
 {
   "ory.sh/kratos": {
     "recovery": {
@@ -57,8 +80,9 @@ To set up account recovery, your Identity JSON Schema must have an email in its 
     }
   }
 }
+```
 to it, for example:
-
+```
 {
   "$id": "https://schemas.ory.sh/presets/kratos/quickstart/email-password/identity.schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
@@ -83,15 +107,17 @@ to it, for example:
     }
   }
 }
+```
 Account recovery currently supports sending out a recovery link to an email address. For this to work, you must have the courier SMTP connection configured in your ORY Kratos Config File (kratos serve -c /home/kratos/.kratos.yml):
 
- # ORY Kratos Config File
-+courier:
+### ORY Kratos Config File
+```+courier:
 +  smtp:
 +    connection_uri: smtps://username:password@smtp-server:1234/
  # ...
+```
 You also need to enable account recovery and have the link strategy enabled:
-
+```
  selfservice:
    strategies:
      link:
@@ -106,6 +132,7 @@ You also need to enable account recovery and have the link strategy enabled:
 +      enabled: true
 +      ui_url: http://127.0.0.1:4455/recovery
  # ...
+```
 That all that's needed! For more information on implementing the UI and details about the payloads, head over to the Account Recovery Documentation!
 In 2015 Steve Lippner published a paper in the IEEE "The Birth and Death of the Orange Book@ that looks into the Orange Book|s legacy and meaning in some of today's standards.
 
