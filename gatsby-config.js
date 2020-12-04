@@ -242,7 +242,19 @@ module.exports = {
         }
       }
     },
-    `gatsby-plugin-force-trailing-slashes`
+    `gatsby-plugin-force-trailing-slashes`,
+    {
+      resolve: 'gatsby-plugin-matomo',
+      options: {
+        siteId: '1',
+        cookieDomain: '*.ory.sh',
+        // disableCookies: true,
+        matomoUrl: 'https://sqa-web.ory.sh',
+        siteUrl: 'https://www.ory.sh',
+        matomoPhpScript: 'np.php',
+        matomoJsScript: 'js/np.js'
+      }
+    }
     // {
     //   resolve: `gatsby-plugin-gdpr-cookies`,
     //   options: {

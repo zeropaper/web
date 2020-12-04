@@ -24,38 +24,6 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-
-gtag('set', 'url_passthrough', true)
-
-gtag('consent', 'default', {
-  'analytics_storage': 'denied',
-  'ad_storage': 'denied',
-  'region': ['BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'EL', 'ES', 'FR', 'HR', 'IT', 'CY', 'LV', 'LT', 'LU', 'HU', 'MT', 'NL', 'AT', 'PL', 'PT', 'RO', 'SI', 'SK', 'FI', 'SE', 'US-CA']
-})
-`
-          }}
-        />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-71865250-1"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', 'G-J01VQCC9Y9'); // automatically anonymized
-gtag('config', 'UA-71865250-1', { 'anonymize_ip': true });
-`
-          }}
-        />
         <link rel="apple-touch-icon-precomposed" sizes="57x57" href={icon} />
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href={icon1} />
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href={icon2} />
@@ -94,8 +62,6 @@ gtag('config', 'UA-71865250-1', { 'anonymize_ip': true });
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
-        <script async defer src="https://sqa-web.ory.sh/latest.js"></script>
-        <noscript><img src="https://sqa-web.ory.sh/noscript.gif" alt=""/></noscript>
       </body>
     </html>
   )
