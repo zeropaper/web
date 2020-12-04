@@ -27,10 +27,12 @@ export default function HTML(props) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-/*
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 
+gtag('set', 'url_passthrough', true);
+
+/*
 gtag('consent', 'default', {
   'analytics_storage': 'allowed',
   'ad_storage': 'denied',
