@@ -34,17 +34,14 @@ gtag('set', 'url_passthrough', true)
 
 gtag('consent', 'default', {
   'analytics_storage': 'allowed',
-  'ad_storage': 'denied'
+  'ad_storage': 'allowed'
 })
 
-/*
 gtag('consent', 'default', {
   'analytics_storage': 'denied',
   'ad_storage': 'denied',
-  'ads_data_redaction': true,
   'region': ['BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'EL', 'ES', 'FR', 'HR', 'IT', 'CY', 'LV', 'LT', 'LU', 'HU', 'MT', 'NL', 'AT', 'PL', 'PT', 'RO', 'SI', 'SK', 'FI', 'SE', 'US-CA']
 })
-*/
 `
           }}
         />
