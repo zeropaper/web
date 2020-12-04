@@ -94,6 +94,8 @@ gtag('config', 'UA-71865250-1', { 'anonymize_ip': true });
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
+        <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js" />
+        <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""/></noscript>
       </body>
     </html>
   )
