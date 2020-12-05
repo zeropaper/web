@@ -17,20 +17,16 @@ publishedAt: '2020-12-02'
 author: tacurran
 
 overline: |
-  Account Recovery and Password Reset: Rethinking User Accountability
+  Account Recovery and Password Reset: Rethinking User Accountability with Ory Kratos
 ---
 
-## Account Recovery and Password Reset: Rethinking User Accountability
-
-Ory Kratos
-
-by Pluto Allegory
+by Plutus Alighori
 
 With the release of Ory Kratos last month, we want to spend some time addressing
 some of the basics, the background and the overall approach. Hopefully, we can
 also help the community with this information.
 
-###
+### Background
 
 Background 1985 Bjarne Stroustrup kicked off object orientation and C with "The
 C++ Programming Language," Richard Stallmann ignites the Free Software movement
@@ -41,13 +37,11 @@ time. In April, 1985 the Unites States Department of Defense published, as part
 of the
 [Rainbow Series](https://web.archive.org/web/20110720190716/http://iaarchive.fi/rainbow.html)
 of books outlining and explaining computer security standards,the Password
-Management Guideline otherwise known as the "Green Book" [CSC-STD-002-85,
-Library No.
-S-226,994][national institute of standards and technology https://fas.org/irp/nsa/rainbow/std002.htm]
+Management Guideline otherwise known as the ["Green Book" CSC-STD-002-85,
+Library No. S-226,994](https://fas.org/irp/nsa/rainbow/std002.htm)
 due the green colour of its cover. The Green Book made reference, as did every
-other book in the Rainbow Series, to the "Orange Book" [CSC-STD-001-83], or
-Trusted Computer System Evaluation Criteria (TCSEC). Department of Defense
-Trusted Computer System Evaluation Criteria. That publication defines and
+other book in the Rainbow Series, to the "Orange Book" CSC-STD-001-83, or
+Trusted Computer System Evaluation Criteria (TCSEC). That publication defines and
 describes feature and assurance requirements for six hierarchical classes of
 enhanced security protection for computer systems that are to be used for
 processing classified or other sensitive information.
@@ -55,7 +49,7 @@ processing classified or other sensitive information.
 Username and password is a common combination used to create a credential to
 access computer systems. The combination of username, for Microsoft employees
 insert "user name" here, and password can either be created in part or in whole
-by the system admin or the user.
+by the system admin or the user. Most systems authenticate credentials using the password, biometrics, or a hardware key. MFA is an important topic that will be addressed in the next blogpost.
 
 The reason for mentioning the Green Book, other than the history, is the
 industry's emphasis on the user's accountability as one of the fundamental
@@ -102,13 +96,18 @@ commercially available computing infrastructure that could be used on top of the
 Internet to commoditise certain services such as database management and provide
 these services on demand. Amazon was one of the first companies to understand
 the deamns and go all in. This trend, sometimes called elastic computing, led to
-the emergance of the cloud as we know it today. The cloud could even ne called
+the emergance of the cloud as we know it today. The cloud could even be called
 the Cloud Era
 
+## Born in the Cloud Era
 Ory was born in the Cloud Era. In 2020 Ory released it first cloud native
 comprehensive developer system for creating managing and using credentials
-combined with authorisation flows.
+combined with authorisation flows. Basic security for cloud aplications includes the following four basic functions:
+identify, authenticate, authorise, analyse
 
+What about accountability?
+
+## New ID Stack
 ORY Kratos is an API-first Identity and User Management system that is built
 according to cloud architecture best practices. It implements core use cases
 that almost every software application needs to deal with:
@@ -220,3 +219,5 @@ Evaluation Criteria, CSC-STD-00183, 15 August 1983.]
 S. B. Lipner, "The Birth and Death of the Orange Book," in IEEE Annals of the
 History of Computing, vol. 37, no. 2, pp. 19-31, Apr.-June 2015, doi:
 10.1109/MAHC.2015.27.
+
+[national institute of standards and technology https://fas.org/irp/nsa/rainbow/std002.htm]
