@@ -246,7 +246,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-matomo',
       options: {
-        siteId: '1',
+        siteId: '2',
         cookieDomain: '*.ory.sh',
         // disableCookies: true,
         matomoUrl: 'https://sqa-web.ory.sh',
