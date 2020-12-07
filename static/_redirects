@@ -1,6 +1,6 @@
 # Redirect domain aliases to primary domain
 
-https://ory.sh/* https://www.ory.sh/:splat 302!
+# https://ory.sh/* https://www.ory.sh/:splat 302!
 https://www.ory.am/* https://www.ory.sh/:splat 302!
 https://ory.am/* https://www.ory.sh/:splat 302!
 
