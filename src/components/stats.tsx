@@ -9,12 +9,12 @@ import csvKetoHitsPerMonth from 'raw-loader!../stats/keto/hits-per-month.csv'
 import AnimatedCounter from './animated-counter'
 
 const countGitHubStars = (state: StateTypes) =>
-  (Object.keys(state.github) as Array<keyof GitHub>)
+  Object.keys(state.github)
     .map((repo) => state.github[repo])
     .reduce((p: number, n: number) => p + n, 0)
 
 const countDockerImagePulls = (state: StateTypes) =>
-  (Object.keys(state.docker) as Array<keyof Docker>)
+  Object.keys(state.docker)
     .map((repo) => state.docker[repo])
     .reduce((p: number, n: number) => p + n, 0)
 
@@ -82,25 +82,12 @@ const stats = (state: StateTypes) => [
 
 interface PropTypes {}
 
-type DockerImages =
-  | 'oryd/hydra'
-  | 'oryam/hydra'
-  | 'oryd/oathkeeper'
-  | 'oryd/keto'
-  | 'oryd/xgoreleaser'
-  | 'oryd/mailslurper'
-  | 'oryd/kratos'
-  | 'oryd/hydra-maester'
-  | 'oryd/hydra-login-consent-node'
-  | 'oryd/kratos-selfservice-ui-node'
-  | 'oryd/oathkeeper-maester'
-
 type GitHub = {
   [repo: string]: number
 }
 
 type Docker = {
-  [T in DockerImages]: number
+  [repo: string]: number
 }
 
 interface StateTypes {
@@ -115,19 +102,7 @@ interface StateTypes {
 class Stats extends Component<PropTypes, StateTypes> {
   state = {
     requests: { amount: 0, date: new Date() },
-    docker: {
-      'oryd/hydra': 8442239,
-      'oryam/hydra': 84625,
-      'oryd/oathkeeper': 1124223,
-      'oryd/keto': 254239,
-      'oryd/kratos': 4109,
-      'oryd/hydra-maester': 80570,
-      'oryd/hydra-login-consent-node': 24175,
-      'oryd/oathkeeper-maester': 76182,
-      'oryd/xgoreleaser': 1,
-      'oryd/mailslurper': 1,
-      'oryd/kratos-selfservice-ui-node': 1
-    },
+    docker: {},
     github: {}
   }
 
@@ -158,22 +133,42 @@ class Stats extends Component<PropTypes, StateTypes> {
       )
   }
 
-  fetchDockerImagePulls = (repo: DockerImages) => {
-    fetch(
-      `https://corsar.ory.sh/v2/repositories/${repo}/?__host=hub.docker.com&__proto=https`
-    )
+  fetchDockerImagePulls = (org: string, url?: string) => {
+    const endpoint =
+      url ||
+      `https://corsar.ory.sh/v2/repositories/${org}/?__host=hub.docker.com&__proto=https&page_size=100`
+    fetch(endpoint)
       .then((body) => body.json())
-      .then(({ pull_count }: { pull_count: number }) => {
-        this.setState((state) => ({
-          docker: {
-            ...state.docker,
-            [repo]: pull_count
+      .then(
+        ({
+          results,
+          previous
+        }: {
+          previous?: string
+          results: [
+            {
+              name: string
+              namespace: string
+              pull_count: number
+            }
+          ]
+        }) => {
+          results.forEach(({ name, namespace, pull_count }) => {
+            this.setState((state) => ({
+              docker: {
+                ...state.docker,
+                [`${name}/${namespace}`]: pull_count
+              }
+            }))
+          })
+          if (previous) {
+            this.fetchDockerImagePulls(org, previous)
           }
-        }))
-      })
+        }
+      )
       .catch((err) =>
         console.error(
-          `An error occurred while trying to fetch "${repo}": ${err}`
+          `An error occurred while trying to fetch "${org}": ${err}`
         )
       )
   }
@@ -215,9 +210,8 @@ class Stats extends Component<PropTypes, StateTypes> {
   }
 
   componentDidMount() {
-    ;(Object.keys(this.state.docker) as Array<keyof Docker>).forEach((repo) => {
-      this.fetchDockerImagePulls(repo)
-    })
+    this.fetchDockerImagePulls('oryd')
+    this.fetchDockerImagePulls('oryam')
 
     this.fetchGitHubStars(0)
     this.fetchRequests()
