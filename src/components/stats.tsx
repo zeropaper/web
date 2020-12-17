@@ -82,27 +82,6 @@ const stats = (state: StateTypes) => [
 
 interface PropTypes {}
 
-type GitHubRepos =
-  | 'hydra'
-  | 'fosite'
-  | 'ladon'
-  | 'dockertest'
-  | 'oathkeeper'
-  | 'keto'
-  | 'kratos'
-  | 'docs'
-  | 'go-acc'
-  | 'k8s'
-  | 'herodot'
-  | 'x'
-  | 'graceful'
-  | 'kratos-selfservice-ui-node'
-  | 'oathkeeper-maester'
-  | 'sdk'
-  | 'hydra-maester'
-  | 'examples'
-  | 'hydra-login-consent-node'
-
 type DockerImages =
   | 'oryd/hydra'
   | 'oryam/hydra'
@@ -117,7 +96,7 @@ type DockerImages =
   | 'oryd/oathkeeper-maester'
 
 type GitHub = {
-  [T in GitHubRepos]: number
+  [repo: string]: number
 }
 
 type Docker = {
@@ -149,41 +128,28 @@ class Stats extends Component<PropTypes, StateTypes> {
       'oryd/mailslurper': 1,
       'oryd/kratos-selfservice-ui-node': 1
     },
-    github: {
-      hydra: 0,
-      fosite: 0,
-      ladon: 0,
-      dockertest: 0,
-      oathkeeper: 0,
-      keto: 0,
-      kratos: 0,
-      docs: 0,
-      'go-acc': 0,
-      k8s: 0,
-      herodot: 0,
-      x: 0,
-      graceful: 0,
-      'kratos-selfservice-ui-node': 0,
-      'oathkeeper-maester': 0,
-      sdk: 0,
-      'hydra-maester': 0,
-      examples: 0,
-      'hydra-login-consent-node': 0
-    }
+    github: {}
   }
 
-  fetchGitHubStars = (repo: GitHubRepos) => {
-    const url = `https://corsar.ory.sh/repos/ory/${repo}?__host=api.github.com&__proto=https`
-    // const url = `https://api.github.com/repos/ory/${repo}`
+  fetchGitHubStars = (page = 0) => {
+    const url = `https://corsar.ory.sh/orgs/ory/repos?__host=api.github.com&__proto=https&per_page=100&page=${page}`
     fetch(url)
       .then((body) => body.json())
-      .then(({ stargazers_count }) => {
-        this.setState((state) => ({
-          github: {
-            ...state.github,
-            [repo]: stargazers_count
-          }
-        }))
+      .then((repos) => {
+        repos.forEach(({ stargazers_count, name }: any) => {
+          this.setState((state) => {
+            return {
+              github: {
+                ...state.github,
+                [name]: stargazers_count
+              }
+            }
+          })
+        })
+
+        if (repos.length >= 100) {
+          this.fetchGitHubStars(page + 1)
+        }
       })
       .catch((err) =>
         console.error(
@@ -252,10 +218,8 @@ class Stats extends Component<PropTypes, StateTypes> {
     ;(Object.keys(this.state.docker) as Array<keyof Docker>).forEach((repo) => {
       this.fetchDockerImagePulls(repo)
     })
-    ;(Object.keys(this.state.github) as Array<keyof GitHub>).forEach((repo) => {
-      this.fetchGitHubStars(repo)
-    })
 
+    this.fetchGitHubStars(0)
     this.fetchRequests()
   }
 
