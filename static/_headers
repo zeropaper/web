@@ -1,3 +1,7 @@
 /*
   X-Frame-Options: SAMEORIGIN
   X-XSS-Protection: 1
+  Content-Security-Policy: default-src 'unsafe-inline' https://www.youtube.com https://s.ytimg.com; child-src https://www.youtube.com; style-src fonts.googleapis.com; font-src fonts.gstatic.com
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer 'none'; ambient-light-sensor 'none'; battery 'none'; camera 'none'; display-capture 'none'; encrypted-media 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; geolocation 'none'; midi 'none'; payment 'none'
