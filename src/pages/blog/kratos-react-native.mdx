@@ -1,8 +1,8 @@
 ---
-path: '/react-native-login-registration-auth/'
+path: '/react-native-authentication-login-signup/'
 
 title: |
-  Authentication and Profile Management for Desktop and Mobile Apps in React Native
+  Add Authentication to your React Native App
 
 teaser: |
   Implement your own auth, login, registration, user and profile management for native mobile
@@ -11,13 +11,13 @@ teaser: |
 
 seo:
   title: |
-    Add Login, Registration, 2FA to React Native with Open Source
+    Add Authentication to React Native with Open Source Examples
   description: |
-    Use open source to add login, registration, user management, phone verification to your
-    React Native mobile app. Available as a React Native Expo template!
+    Add authentication (login, sign up, 2fa, jwt) to your react native application using open source ORY Kratos.
+    Available as a React Native Expo template!
   keywords: |
     login, auth, authentication, registration, react native, native mobile, native desktop,
-    open source
+    open source, ory, ory kratos
 
 publishedAt: '2020-11-20'
 author: aeneasr
@@ -32,11 +32,11 @@ import loginVideoWebm from '../../images/articles/react-native/login.webm'
 import signupVideoMP4 from '../../images/articles/react-native/signup-profile-settings.mp4'
 import signupVideoWebm from '../../images/articles/react-native/signup-profile-settings.webm'
 
-This guide explains step-by-step how to add login, registration, logout, profile
-management, password change, and many other profile-related flows to a React
-Native application using the open source
-[ORY Kratos](https://github.com/ory/kratos) Identity and User Management Go
-server.
+This guide explains step-by-step how to add authentication (login, registration,
+logout), user management (update profile, change password, forgot password), and
+many other profile-related flows to a React Native application using the open
+source [ORY Kratos](https://github.com/ory/kratos) Identity and User Management
+Go server.
 
 <p>
   <figure>
@@ -51,8 +51,8 @@ server.
       <source src={loginVideoWebm} type="video/webm" />
     </video>
     <figcaption>
-      React Native Mobile App with Login and User Management using ORY Kratos as
-      a backend.
+      React Native Mobile App with Authentication (Sign In, Sign Up) and User
+      Management using ORY Kratos as a backend.
     </figcaption>
   </figure>
 </p>
@@ -104,7 +104,7 @@ In the future, this guide will also cover Two-Factor-Authentication (2FA/MFA),
 verification, "Sign in with GitHub", "Sign in with Facebook" and many other
 flows.
 
-## Auth, Login, Registration, User Management React Native Template for Expo
+## React Native with Authentication (Login, Registration) and User Management for Expo
 
 This guide assumes that you have worked with React and React Native before as we
 will not cover React fundamentals and focus on implementing login, registration
@@ -156,7 +156,7 @@ available in part two of this article.
 
 :::
 
-## Native Mobile Profile Management
+## React Native Profile Management and Update Password Flow
 
 This short screen capture shows using the apps' user login, user registration,
 dashboard, and profile management features:
@@ -179,7 +179,7 @@ dashboard, and profile management features:
   </figure>
 </p>
 
-## User Management / Identity Management
+## User Management and Identity Management Admin API
 
 To manage identities, you may use the ORY Kratos CLI. An overview of all
 commands can be found in the
@@ -247,6 +247,21 @@ $ docker run oryd/kratos:v0.5.4-alpha.1 \
 To learn more about administration of ORY Kratos' identities, head over to the
 [Managing Users and Identities Documentation](https://www.ory.sh/kratos/docs/admin/managing-users-identities)!
 
+### JSON Web Tokens versus ORY Kratos Session Tokens
+
+ORY Kratos does not issue JSON Web Tokens but instead so-called opaque ORY
+Kratos Session Tokens. You can still convert those tokens to JSON Web Tokens if
+you want, but ORY Kratos Session Tokens are more secure because:
+
+1. **JSON Web Tokens can not hold secrets**: Unless encrypted, JSON Web Tokens
+   can be read by everyone, including 3rd Parties. Therefore, they can not keep
+   secrets.
+2. **JSON Web Tokens can not be revoked / invalidated / logged out**: Well, you
+   can revoke them, but they will be considered valid until the "expiry" of the
+   token is reached. Unless, of course, you have a blacklist or check with Hydra
+   if the token was revoked, which however defeats the purpose of using JSON Web
+   Tokens in the first place.
+
 ## Run ORY Kratos Login, Registration, 2FA Server Locally in Docker
 
 Instead of using the hosted demo environment, you can also deploy your own ORY
@@ -295,7 +310,7 @@ $ KRATOS_URL=<the-ngrok-url> npm start
 
 Now your app will use the local deployment of ORY Kratos with your own database!
 
-## React Native Navigation with Authentication Session
+## React Navigation with Authentication Session
 
 The entrypoint for the app is
 [`App.tsx`](https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/App.tsx).
@@ -345,7 +360,7 @@ dashboard or login / registration screens:
   src="https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/src/components/Navigation.tsx"
 />
 
-## React Native Screens
+## React Native Authentication Screens
 
 Let's take a look at the different screens: In order for us to not write a form
 renderer for every component - including styling - we abstracted the form
@@ -355,7 +370,7 @@ rendering into their own components, which you can find in
 There isn't anything special happening there, but you can have a look if you
 intend to change the layout for example.
 
-### Login Navigation Component
+### React Native Sign In Component Example
 
 The User Login component uses the ORY Kratos TypeScript SDK and the
 [User Login API Flow](https://www.ory.sh/kratos/docs/self-service/flows/user-login).
@@ -366,7 +381,7 @@ The User Login component uses the ORY Kratos TypeScript SDK and the
   src="https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/src/components/Routes/Login.tsx"
 />
 
-### Registration Navigation Component
+### React Native Sign Up Component Example
 
 The User Registration component performs a
 [User Registration API Flow](https://www.ory.sh/kratos/docs/self-service/flows/user-registration).
@@ -377,7 +392,7 @@ The User Registration component performs a
   src="https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/src/components/Routes/Registration.tsx"
 />
 
-### Home Navigation Component
+### React Navigation Home Component Example
 
 The Home component receives the user's authentication session and displays all
 relevant information. To learn more about ORY Kratos' Identity and User
@@ -390,7 +405,7 @@ Management check out the
   src="https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/src/components/Routes/Home.tsx"
 />
 
-### Settings Navigation Component
+### React Navigation User Settings Component Example
 
 The User Settings component performs a
 [User Settings API Flow](https://www.ory.sh/kratos/docs/self-service/flows/user-settings).
@@ -401,7 +416,7 @@ The User Settings component performs a
   src="https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/src/components/Routes/Settings.tsx"
 />
 
-## Writing Login and Registration for a React Native App From Scratch
+## Writing Auth with Login and Registration for a React Native App From Scratch
 
 Granted, using a template is the easiest way to get started. However,
 understanding how everything works is better. Let's have a look at the project
@@ -414,7 +429,7 @@ $ expo init login-signup-app --npm
 $ cd login-signup-app
 ```
 
-### React Native Navigation
+### React Navigation
 
 To set up screen navigation, we use the standard React Native navigation
 component:
@@ -491,12 +506,12 @@ completeness we added this to the guide.
 
 ### Conclusion
 
-We have now implemented ORY Kratos Login, Registration and 2FA Server in React
-Native!
+We have now implemented ORY Kratos Authentication with Login, Registration,
+Profile Management in React Native!
 
 Thanks for taking the time to follow this guide and hopefully it helps you build
 secure apps more smoothly. Should you have further questions or feedback, visit
-the [community forum](https://community.ory.sh/) or
+the [community forum](https://github.com/ory/kratos/discussions/) or
 [chat](https://www.ory.sh/chat).
 
 ORY Kratos is open-source and freely available on
