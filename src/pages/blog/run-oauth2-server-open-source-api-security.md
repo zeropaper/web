@@ -41,9 +41,43 @@ like in the gif on the right, or more specifically:
   [Twitter](https://dev.twitter.com/web/sign-in).
 - You need to federate (delegate) authentication or authorization.
 
-We will use open source [ORY Hydra](https://github.com/ory/hydra) (7k+ GitHub
-Stars, 5M+ Docker Downloads), a hardened production-ready, security-first OAuth2
-Server and OpenID Connect Provider written in Go (Golang).
+We will use open source [ORY Hydra](https://github.com/ory/hydra), a hardened
+production-ready, security-first OAuth2 Server and OpenID Connect Provider
+written in Go (Golang). As the user and consent UI we will be using the
+exemplary
+[ORY Hydra User Login and Consent Flow Reference Application](https://github.com/ory/hydra-login-consent-node).
+Both projects are currently maintained by
+[@aeneasr](https://github.com/aeneasr).
+
+<div className="container-fluid">
+  <div className="row justify-center-sm">
+    <div className="col-sm-6">
+      <p>
+        <a href="https://github.com/ory/hydra" rel="nofollow noopener">
+          <img
+            loading="lazy"
+            alt="ORY Hydra GitHub Card"
+            src="https://gh-card.dev/repos/ory/hydra.svg?fullname="
+          />
+        </a>
+      </p>
+    </div>
+    <div className="col-sm-6">
+      <p>
+        <a
+          href="https://github.com/ory/hydra-login-consent-node"
+          rel="nofollow noopener"
+        >
+          <img
+            loading="lazy"
+            alt="ORY Hydra ExpressJS UI Reference GitHub Card"
+            src="https://gh-card.dev/repos/ory/hydra-login-consent-node.svg?fullname="
+          />
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
 
 Also check out the video on the
 [ORY Hydra 5 Minute Tutorial](https://www.ory.sh/hydra/docs/5min-tutorial):
