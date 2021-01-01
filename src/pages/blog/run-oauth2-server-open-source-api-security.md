@@ -10,7 +10,7 @@ seo:
   title: >
     Run your own OAuth2 Server using open source - step by step
 
-publishedAt: '2019-08-29'
+publishedAt: '2021-01-01'
 author: aeneasr
 overline: >
   API Security & OAuth Server
