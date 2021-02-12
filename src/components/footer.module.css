@@ -1,13 +1,13 @@
 @import '../styles/properties.css';
 
 .footer {
-  background-color: var(--colors-base-dark);
-  padding: 36px 0;
-  color: var(--colors-base-white);
+  background-color: var(--colors-base-white);
+  padding: 2.5rem 0;
+  font-size: 0.75rem;
 }
 
 .footer a:any-link {
-  color: var(--colors-base-white);
+  color: var(--colors-base-grey);
 
   &:hover,
   &:active,
@@ -17,33 +17,30 @@
 }
 
 .footer .contact {
+  color: var(--colors-base-text);
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 168%;
   margin-bottom: 8px;
   margin-top: 32px;
 }
 
 .footer .copyright {
-  color: var(--colors-base-grey);
+  color: var(--colors-base-text);
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
   line-height: 168%;
   margin-bottom: 16px;
 }
 
 .footer .divider {
-  border-top: 1px solid var(--colors-base-grey);
-  margin: 32px 0;
+  border-top: 2px solid var(--colors-base-light);
+  margin: 2rem 0;
 }
 
 .list-title {
-  color: var(--colors-base-white);
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.833rem;
   line-height: 168%;
   margin-bottom: 16px;
   padding: 0;
@@ -57,7 +54,6 @@
 .item {
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
   line-height: 168%;
   margin-bottom: 8px;
   padding: 0;
@@ -65,38 +61,28 @@
 }
 
 .menu-row {
-  justify-content: flex-end;
-}
-
-.menu-row a:any-link {
-  color: var(--colors-base-light);
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: var(--colors-themed-default);
-  }
+  margin-left: auto;
+  justify-content: space-between;
 }
 
 .menu-item {
-  margin-right: 64px;
-
   &:last-child {
     margin-right: 0 !important;
   }
 }
 
 .comp-row {
+  color: var(--colors-base-text);
   justify-content: flex-end;
 }
 
 .comp-row a:any-link {
-  color: var(--colors-base-grey);
+  color: var(--colors-base-text);
 
   &:hover,
   &:active,
   &:focus {
-    color: var(--colors-themed-default);
+    color: var(--colors-base-black);
   }
 }
 
@@ -105,7 +91,6 @@
   display: block;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
   line-height: 168%;
   margin-bottom: 8px;
   margin-right: 64px;

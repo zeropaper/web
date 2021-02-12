@@ -1,30 +1,41 @@
 import React from 'react'
 import cn from 'classnames'
-import * as styles from './thin-project.module.css'
+import * as styles from './large-feature.module.css'
 import Link from '../components/link'
+
+import Opensource from '../images/illustrations/opensource.svg'
+import Standards from '../images/illustrations/standards.svg'
+import Developer from '../images/illustrations/developer.svg'
+import Integration from '../images/illustrations/integration.svg'
+import Support from '../images/illustrations/support.svg'
+import Docs from '../images/illustrations/docs.svg'
 
 interface PropTypes {
   title: string
   description: string
   learn: string
-  theme?: string
-  visual: string
   href: string
-  alternate?: boolean
+  visual:
+    | 'opensource'
+    | 'standards'
+    | 'developer'
+    | 'integration'
+    | 'support'
+    | 'docs'
   openInNewWindow?: boolean
+  alternate?: boolean
 }
 
-const ThinProject = ({
+const LargeFeature = ({
   title,
   description,
   learn,
-  theme,
   href,
+  openInNewWindow,
   visual,
-  alternate,
-  openInNewWindow
+  alternate
 }: PropTypes) => (
-  <div className={cn(`theme-${theme}`, styles.thinProject)}>
+  <div className={cn(styles.largeFeature)}>
     <div className="container-fluid">
       <div
         className={cn('row middle-lg', styles.divider, {
@@ -62,7 +73,25 @@ const ThinProject = ({
           }
         >
           <Link to={href} openInNewWindow={openInNewWindow}>
-            <img loading="lazy" src={visual} alt={`${title} visualized`} />
+            <img
+              loading="lazy"
+              src={
+                visual === 'opensource'
+                  ? Opensource
+                  : visual === 'standards'
+                  ? Standards
+                  : visual === 'developer'
+                  ? Developer
+                  : visual === 'integration'
+                  ? Integration
+                  : visual === 'support'
+                  ? Support
+                  : visual === 'docs'
+                  ? Docs
+                  : ''
+              }
+              alt={`${title}`}
+            />
           </Link>
         </div>
       </div>
@@ -70,4 +99,4 @@ const ThinProject = ({
   </div>
 )
 
-export default ThinProject
+export default LargeFeature

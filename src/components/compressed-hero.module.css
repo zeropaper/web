@@ -1,35 +1,35 @@
 @import '../styles/properties.css';
 
 .compressed-hero {
-  background-color: var(--colors-themed-default);
+  background-color: var(--colors-base-white);
   padding: 112px 0;
 
   & h2 {
     font-weight: 400;
-    font-size: 1.44rem;
+    font-size: 1.22rem;
   }
 
   & :global a.cta.secondary:any-link {
-    color: var(--colors-base-dark);
-    border-color: var(--colors-base-dark);
+    color: var(--colors-themed-default);
+    border-color: var(--colors-themed-default);
 
     &:hover {
-      border-color: var(--colors-base-white);
-      color: var(--colors-base-white);
+      border-color: var(--colors-base-black);
+      color: var(--colors-base-black);
     }
   }
 
   & :global a.cta.primary:any-link {
     color: var(--colors-base-white);
-    background-color: var(--colors-base-dark);
-    border-color: var(--colors-base-dark);
+    background-color: var(--colors-themed-default);
+    border-color: var(--colors-themed-default);
 
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--colors-base-white);
-      border-color: var(--colors-base-white);
-      color: var(--colors-themed-default);
+      background-color: var(--colors-base-black);
+      border-color: var(--colors-base-black);
+      color: var(--colors-base-white);
     }
   }
 }
@@ -48,7 +48,7 @@
     padding: 64px 0;
 
     & h2 {
-      font-size: 1.266rem;
+      font-size: 1.18rem;
     }
   }
 }

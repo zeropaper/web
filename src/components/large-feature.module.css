@@ -1,8 +1,6 @@
 @import '../styles/properties.css';
 
-@import '../styles/properties.css';
-
-.thin-project {
+.large-feature {
   background-color: var(--colors-base-white);
   padding-top: 6rem;
 
@@ -32,7 +30,7 @@
 .divider {
   padding-bottom: 6rem;
   border-bottom: 2px solid;
-  border-color: var(--colors-base-light);
+  border-color: var(--colors-themed-light);
 }
 
 .alternate {

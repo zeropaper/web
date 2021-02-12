@@ -1,7 +1,7 @@
 declare const styles: {
   readonly adopters: string
-  readonly list: string
-  readonly logos: string
-  readonly logosInner: string
+  readonly adoptersInner: string
+  readonly divider: string
+  readonly adoptersBox: string
 }
 export = styles

@@ -1,5 +1,5 @@
 declare const styles: {
-  readonly thinProject: string
+  readonly largeFeature: string
   readonly divider: string
   readonly alternate: string
 }
