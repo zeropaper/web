@@ -23,12 +23,12 @@ const HeroIllustration = () => (
 const DeveloperPage = () => (
   <Layout>
     <SEO
-      description="Add OAuth 2.0, OpenID Connect and User Management to your Apps with Ory. Use Zero Trust, open standards and open source."
-      title="Ory for Developers - Add Open Source OAuth 2.0, OpenID Connect, User Management and Zero Trust Networking to your application"
+      description="Add OAuth 2.0, OpenID Connect and User Management to your product with Ory. Use Zero Trust, open standards and open source."
+      title="Developers - Add Open Source OAuth 2.0, OpenID Connect, User Management and Zero Trust Networking to your application"
     />
     <CompressedHero
-      title="Be a hero in your company."
-      subtitle="Ory has everything you need to solve identity problems and add authentication, authorization, and user management to your apps."
+      title="Build with the best."
+      subtitle="Ory develops superior authentication, authorization, and user management solutions for other excellent products."
       cta={[
         {
           title: 'Documentation',
@@ -65,7 +65,7 @@ const DeveloperPage = () => (
       alternate
       title={'Extensive documentation'}
       description={
-        'Everything you need to know about how to integrate Ory technology is in the documentation. Take a dive in.'
+        'Everything you need to know about Orys technology is in the documentation.'
       }
       learn={'Go to the Ory docs'}
       href={'/docs'}
@@ -94,9 +94,9 @@ const DeveloperPage = () => (
 
     <LargeFeature
       alternate
-      title={'Use Ory Open Source'}
+      title={'Ory Open Source Software'}
       description={
-        'Ory is an extensive set of open source projects. Together they represent Kratos, Hydra, Oathkeeper, Keto.'
+        'Ory is an extensive set of open source software projects. Together they represent Kratos, Hydra, Oathkeeper, Keto.'
       }
       learn={'Explore Ory Open Source'}
       href={'https://github.com/ory/'}
@@ -118,7 +118,7 @@ const DeveloperPage = () => (
         },
         {
           title: 'Contact Us →',
-          href: 'mailto:jared@ory.sh',
+          href: 'mailto:office@ory.sh',
           style: 'secondary',
           openInNewWindow: true
         }
@@ -126,7 +126,7 @@ const DeveloperPage = () => (
       quick={[
         {
           description:
-            'Start your integration. Our documentation makes integrating Ory a snap.',
+            'Start your integration. Our documentation explains how to integrate with Ory.',
           learn: 'Go to our Docs',
           href: '/docs',
           openInNewWindow: true,
@@ -134,7 +134,7 @@ const DeveloperPage = () => (
         },
         {
           description:
-            'Learn about what’s new at Ory and great stuff being worked on.',
+            'Learn about what’s new at Ory.',
           learn: 'Go to our Blog',
           href: '/blog',
           icon: 'blog'
