@@ -1,30 +1,35 @@
 declare const styles: {
-  readonly secondary: string
+  readonly styleLinkInlineLight: string
+  readonly light: string
   readonly cta: string
   readonly primary: string
   readonly visited: string
+  readonly secondary: string
   readonly remarkEmoji: string
-  readonly fontBase: string
+  readonly fontNowrap: string
   readonly fontBold: string
   readonly fontHero: string
+  readonly mute85: string
+  readonly mute60: string
+  readonly mute40: string
   readonly fontH1: string
   readonly fontH2: string
   readonly fontH3: string
   readonly fontH4: string
   readonly fontH5: string
   readonly fontH6: string
+  readonly fontQuote: string
   readonly fontOverline: string
-  readonly fontSubtitle: string
   readonly fontBtn: string
-  readonly fontBtnLg: string
-  readonly fontBtnMd: string
-  readonly fontBtnSm: string
   readonly fontLink: string
-  readonly fontLinkLg: string
   readonly fontLinkMd: string
-  readonly fontLinkSm: string
   readonly fontP: string
+  readonly fontPLg: string
+  readonly fontPSm: string
+  readonly fontPXs: string
   readonly fontMono: string
   readonly fontMonoS: string
+  readonly fontMenu: string
+  readonly fontCategory: string
 }
 export = styles

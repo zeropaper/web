@@ -1,0 +1,26 @@
+.faq {
+  padding: 128px 0;
+  background-color: var(--colors-base-grey--next);
+}
+
+.faq-highlight {
+  color: var(--colors-base-white--next);
+  &:hover {
+    color: var(--colors-themed-primary--next);
+    transition: color ease 200ms;
+  }
+  &:focus,
+  &:active {
+    color: var(--colors-themed-dark--next);
+  }
+}
+
+.faq-heading {
+  flex: 0 1 85%;
+  cursor: pointer;
+}
+
+.faq-heading-icon {
+  display: flex;
+  margin-left: auto;
+}

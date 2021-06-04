@@ -1,13 +1,13 @@
-import Layout from '../components/layout'
+import Layout from '../components/layouts/layout/layout'
 import React from 'react'
-import SEO from '../components/seo'
+import SEO from '../components/layouts/seo/seo'
 import Team from '../components/team'
 
 const AboutPage = () => (
   <Layout>
     <SEO
-      description="Implement OAuth 2.0 and OpenID Connect in minutes with open source from ORY. Works in both new and existing systems."
-      title="ORY - Open Source OAuth2 and OpenID Connect Access Control & API Security"
+      description="Secure open source IAM and access control infrastructure for the cloud."
+      title="Ory - A modern open source identity solution"
     />
     <Team />
   </Layout>

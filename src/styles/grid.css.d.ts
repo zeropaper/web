@@ -25,5 +25,9 @@ declare const styles: {
   readonly bottomLg: string
   readonly colLg: string
   readonly colLgOffset: string
+  readonly hiddenXsNext: string
+  readonly hiddenSmNext: string
+  readonly hiddenMdNext: string
+  readonly hiddenLgNext: string
 }
 export = styles

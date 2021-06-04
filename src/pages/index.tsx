@@ -1,185 +1,273 @@
+import {
+  ArrowRight,
+  BookOpen,
+  CirclesThreePlus,
+  Code,
+  GitMerge,
+  LockOpen,
+  RocketLaunch,
+  Terminal,
+  UserPlus
+} from 'phosphor-react'
 import React from 'react'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import Newsletter from '../components/newsletter'
-import Adopters from '../components/adopters'
-import Stats from '../components/stats'
-import CompressedHero from '../components/compressed-hero'
-import Highlights from '../components/highlights'
-import LargeFeature from '../components/large-feature'
-import Quicklinks from '../components/quicklinks'
+import Button from '../components/freestanding/button/button'
+import Adopters from '../components/layouts/adopters/adopters'
+import Coding from '../components/layouts/coding/coding'
+import FeatureImage from '../components/layouts/feature-image/feature-image'
+import Hero from '../components/layouts/hero/hero'
+import Layout from '../components/layouts/layout/layout'
+import Quickstart from '../components/layouts/quickstart/quickstart'
+import { quickstartDefault } from '../components/layouts/quickstart/quickstart-content'
+import Security from '../components/layouts/security/security'
+import Stats from '../components/layouts/stats/stats'
+import Features from '../components/layouts/features/features'
+import Quotes from '../components/layouts/quotes/quotes'
+import { quotesDefault } from '../components/layouts/quotes/quotes-content'
 import heroIllustration from '../images/illustrations/hero.svg'
-import Link from '../components/link'
+import headlessIllustration from '../images/illustrations/examplelogin.svg'
+import dashboardIllustration from '../images/illustrations/dashboard.svg'
+import codeboxIllustration from '../images/illustrations/codebox.svg'
 
-const HeroIllustration = () => (
-  <img
-    loading="lazy"
-    alt="Open source identity infrastructure and services by Ory"
-    className="responsive"
-    src={heroIllustration}
-  />
-)
+import SEO from '../components/layouts/seo/seo'
+import { adoptersDefault } from '../components/layouts/adopters/adopters-content'
 
 const IndexPage = () => (
   <Layout>
     <SEO
-      description="Implement OAuth 2.0 and OpenID Connect in minutes with open source from Ory. Works in both new and existing systems."
-      title="Ory - Open Source OAuth2 and OpenID Connect Access Control & API Security"
-    />
-    <CompressedHero
-      title="The new identity platform."
-      subtitle="Give your customers rich experiences and easy secure ways to register and sign in across your mobile and web apps."
-      cta={[
-        {
-          title: 'Learn more',
-          href: '/products',
-          style: 'primary'
-        },
-        {
-          title: 'For developers →',
-          href: '/developer',
-          style: 'secondary'
-        }
-      ]}
-      visual={<HeroIllustration />}
-    />
-
-    <Highlights
-      highlight={[
-        {
-          visual: 'hydra',
-          title: 'OAuth 2.0 and OpenID Connect',
-          href: '/hydra',
-          content:
-            'Keep threats out and easily verify who is a customer, and customize sign in flows that fit you and your customers.'
-        },
-        {
-          visual: 'keto',
-          title: 'Authorization',
-          href: '/keto',
-          content:
-            'Personalize experiences using customer specific access rules, define roles, and give customers individual access to your service.'
-        },
-        {
-          visual: 'kratos',
-          title: 'User management',
-          href: '/kratos',
-          content:
-            'Grow your customers, easily register and manage customer identities, using custom flows in your look and feel.'
-        },
-        {
-          visual: 'oathkeeper',
-          title: 'Zero trust networking',
-          href: '/oathkeeper',
-          content:
-            'Be in full control - secure web-facing applications and services by implementing Zero-Trust Network Architecture.'
-        }
-      ]}
-    />
-
-    <Adopters onlyFeatured />
-
-    <LargeFeature
-      title={'Powered by Open Source'}
       description={
-        'You can rely on open source software that is built together in a world-wide community of developers. Ory software is peer reviewed, vetted by expert developers, and tried, tested and used in companies of all sizes all over the world.'
+        'Ory is a certified and battle-tested identity solution backed by a large Open Source community and trusted by Fortune500 orgs.'
       }
-      learn={'Explore Ory open source'}
-      href={'https://github.com/ory'}
-      visual={'opensource'}
-      openInNewWindow={true}
+      title={
+        'Ory - Open Source Identity Solutions For Everyone'
+      }
+      keywords={
+        'authentication, open source, login, authorization, security, session management, Json web tokens, access control, OAuth2.0 server, identity server, AuthN, AuthZ'
+      }
     />
 
-    <LargeFeature
-      alternate
-      title={'Rely on open standards'}
+    <Hero
+      title={'Never Build Auth Again'}
+      description={
+        'Login, register and manage your users with a reliable and certified solution trusted by Fortune 500 companies.'
+      }
+      buttons={
+        <Button
+          to={'https://console.ory.sh/registration'}
+          style={'filled'}
+          iconLeft={<RocketLaunch size={24} />}
+        >
+          Get Started
+        </Button>
+      }
+      image={
+        <img
+          width={'100%'}
+          height={'100%'}
+          loading="lazy"
+          alt=""
+          src={heroIllustration}
+        />
+      }
+    />
+
+    <Adopters {...adoptersDefault} />
+
+    <FeatureImage
+      mirror={true}
+      overline={'Security'}
+      title={<>Ory as a service</>}
       description={
         <>
-          Give your customers secure choices for how they register and sign in
-          with you. Rely on{' '}
-          <Link to={'https://oauth.net/2/'} openInNewWindow={true}>
-            Oauth 2.0
-          </Link>{' '}
-          and{' '}
-          <Link to={'https://openid.net/connect/'} openInNewWindow={true}>
-            OpenID Connect
-          </Link>{' '}
-          and web standard best practices to secure you and your customers.
+          Authenticate and manage users, set and check permissions, protect
+          APIs, applications and data. Ory as a Service comes with a dashboard
+          for metrics and insights and can be managed from the user interface or
+          CLI.
         </>
       }
-      learn={'Learn more'}
-      href={'/docs/ecosystem/software-architecture-philosophy'}
-      visual={'standards'}
-      openInNewWindow={true}
-    />
-
-    <LargeFeature
-      title={'Are you a developer?'}
-      description={
-        'Be a hero at your company. Ory has everything you need to add authentication, authorization, and user management to your apps. Create your own identity provider or run your own Oauth server.'
+      buttons={
+        <Button to={'https://console.ory.sh'} style={'filled'}>
+          Get Started
+        </Button>
       }
-      learn={'Start building with Ory'}
-      href={'/developer'}
-      visual={'developer'}
-      openInNewWindow={true}
-    />
-
-    <LargeFeature
-      alternate
-      title={'Easy integrations'}
-      description={
-        'Ory already works with what you’re doing. Lots of easy ways to make tools, software, platforms and coding languages your business uses work with Ory.'
+      image={
+        <img
+          width={'100%'}
+          height={'100%'}
+          loading="lazy"
+          alt=""
+          src={dashboardIllustration}
+        />
       }
-      learn={'Integrate with Ory'}
-      href={'https://github.com/ory/sdk'}
-      visual={'integration'}
-      openInNewWindow={true}
     />
 
-    <Stats />
+    <FeatureImage
+      overline={'Flexibility'}
+      title={<>Bring your own UX</>}
+      description={
+        <>
+          You want to brand user facing UIs and use your styles and design? No
+          problem with headless integration. You want custom auth flows? Done.
+          This feature is included without extra charges.
+        </>
+      }
+      buttons={
+        <Button to={'https://console.ory.sh'} style={'filled'}>
+          Get Started
+        </Button>
+      }
+      image={
+        <img
+          width={'100%'}
+          height={'100%'}
+          loading="lazy"
+          alt=""
+          src={headlessIllustration}
+        />
+      }
+    />
 
-    <Newsletter />
-
-    <Quicklinks
-      cta={[
+    <Coding
+      overline={'Made for developers'}
+      title={<>Improve your developer experience</>}
+      description={
+        <>
+          At Ory, our mission is to improve the overall developer experience. We
+          provide SDKs, documentation, tutorials, CLIs and community support.
+          Our open source approach lets you to participate in API and
+          architecture discussions - your next PR will be shipped in Ory.
+        </>
+      }
+      buttons={
+        <>
+          <Button
+            to={'/docs/get-started'}
+            style={'filled'}
+            iconLeft={<BookOpen size={24} weight={'duotone'} />}
+          >
+            Get started
+          </Button>
+        </>
+      }
+      visual={
+        <img
+          width={'100%'}
+          height={'100%'}
+          loading="lazy"
+          alt=""
+          src={codeboxIllustration}
+        />
+      }
+      content={[
         {
-          title: 'Start building',
-          href: '/docs',
-          style: 'primary'
+          icon: <Terminal size={32} weight={'duotone'} />,
+          title: <>Powerful tools</>,
+          description: (
+            <>
+              Ory ships REST APIs, gRPC APIs, SDKs, and CLIs for all operating
+              systems and CPUs.
+            </>
+          ),
+          button: (
+            <Button
+              to={'/docs/guides/ory-cli-install-use'}
+              style={'link'}
+              theme={'dark'}
+              iconRight={<ArrowRight size={16} weight={'bold'} />}
+            >
+              Install the CLI
+            </Button>
+          )
         },
         {
-          title: 'Contact Us →',
-          href: 'mailto:jared@ory.sh',
-          style: 'secondary',
-          openInNewWindow: true
+          icon: <GitMerge size={32} weight={'duotone'} />,
+          title: <>Based on Open Source</>,
+          description: (
+            <>
+              Participate in discussions, feature requests, and PRs on GitHub.
+            </>
+          ),
+          button: (
+            <Button
+              to={'https://github.com/ory/'}
+              style={'link'}
+              theme={'dark'}
+              iconRight={<ArrowRight size={16} weight={'bold'} />}
+            >
+              Star us on GitHub
+            </Button>
+          )
         }
       ]}
-      quick={[
+    />
+
+    <Stats
+      title={<>Billions of Identities</>}
+      description={
+        <>
+          Companies from all over the world rely on Ory for their identity
+          needs. Ory technology secures billions of identity requests.
+        </>
+      }
+    />
+
+    <Features
+      overline={'Modular Integration'}
+      title={<>Auth integration in 1.. 2.. done</>}
+      buttons={
+        <Button
+          to={'https://console.ory.sh/registration'}
+          style={'link'}
+          iconRight={<ArrowRight size={16} weight={'bold'} />}
+        >
+          Get Started
+        </Button>
+      }
+      feature={[
         {
-          description:
-            'Start your integration. Our documentation makes integrating Ory a snap.',
-          learn: 'Go to our Docs',
-          href: '/docs',
-          openInNewWindow: true,
-          icon: 'docs'
+          icon: <Code size={32} weight={'duotone'} />,
+          title: <>Ory is open source</>,
+          description: (
+            <>
+              Ory's heart and soul are rooted in Open Source. Our commitment to
+              open software will stay unchanged.
+            </>
+          )
         },
         {
-          description:
-            'Learn about what’s new at Ory and great stuff being worked on.',
-          learn: 'Read the Developer Blog',
-          href: '/blog',
-          icon: 'blog'
+          icon: <UserPlus size={32} weight={'duotone'} />,
+          title: <>No limits on identities</>,
+          description: (
+            <>
+              Dont pay for Monthly Active Users. Pay for what you use.Choose a
+              transparent plan that adapts to your needs.
+            </>
+          )
         },
         {
-          description:
-            'We’re hiring. Work on the most exciting stuff in software with us!',
-          learn: 'Work with us',
-          href: 'https://github.com/ory/jobs',
-          openInNewWindow: true,
-          icon: 'jobs'
+          icon: <CirclesThreePlus size={32} weight={'duotone'} />,
+          title: <>More features</>,
+          description: (
+            <>
+              Ory draws from a large set of features: IAM, Permissions and
+              Roles, Zero-Trust, OAuth2, OIDC, Integrations and more.
+            </>
+          )
+        },
+        {
+          icon: <LockOpen size={32} weight={'duotone'} />,
+          title: <>No lock in</>,
+          description: (
+            <>
+              We support the migration from Ory open source to Ory as a Service,
+              and the other way around. Don't worry about lock in.
+            </>
+          )
         }
       ]}
     />
+
+    <Quotes {...quotesDefault} />
+    <Quickstart {...quickstartDefault} />
   </Layout>
 )
 

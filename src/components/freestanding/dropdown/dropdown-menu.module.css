@@ -1,0 +1,18 @@
+.dropdown-menu {
+  background-color: var(--colors-base-grey-25--next);
+  box-shadow: var(--elevation-large);
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 80px;
+  z-index: 999;
+  width: 100%;
+  padding: 24px 0;
+  visibility: visible;
+  transform: none;
+}
+
+.dropdown-menu-hide {
+  visibility: hidden;
+  transform: translate(0, 0);
+}

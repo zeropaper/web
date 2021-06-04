@@ -1,34 +1,35 @@
-import Layout from '../components/layout'
+import {
+  ArrowRight,
+  BookOpen,
+  CirclesThreePlus,
+  Code,
+  GitMerge,
+  LockOpen,
+  RocketLaunch,
+  Terminal,
+  UserPlus,
+  Users
+} from 'phosphor-react'
 import React from 'react'
-import CompressedHero from '../components/compressed-hero'
+import Button from '../components/freestanding/button/button'
+import ColourWrapper from '../components/freestanding/colour/colour-wrapper'
+import Molecule from '../components/freestanding/molecule/molecule'
+import Adopters from '../components/layouts/adopters/adopters'
+import Coding from '../components/layouts/coding/coding'
+import FeatureImage from '../components/layouts/feature-image/feature-image'
 import Newsletter from '../components/newsletter'
-import CompressedSection from '../components/compressed-section'
-import SEO from '../components/seo'
-import Stats from '../components/stats'
-import { brandPrefix } from '../config'
-import Collaborator from '../components/collaborator'
-import ketoProcess from '../images/keto/keto.svg'
+import Footer from '../components/layouts/footer/footer'
+import Hero from '../components/layouts/hero/hero'
+import Layout from '../components/layouts/layout/layout'
+import Quickstart from '../components/layouts/quickstart/quickstart'
 import ketoPolyglot from '../images/keto/keto_p.svg'
-import Adopters from '../components/adopters'
+import ketoProcess from '../images/keto/keto.svg'
 import CodeBox, { Languages } from '../components/codebox'
-
-const KetoAnimation = () => (
-  <img
-    loading="lazy"
-    alt="The Ory Access and Policy Server"
-    className="responsive"
-    src={ketoProcess}
-  />
-)
-
-const KetoSdk = () => (
-  <img
-    loading="lazy"
-    alt="Ory Keto SDKs"
-    className="responsive"
-    src={ketoPolyglot}
-  />
-)
+import cn from 'classnames'
+import SEO from '../components/layouts/seo/seo'
+import { adoptersDefault } from '../components/layouts/adopters/adopters-content'
+import Stats from '../components/layouts/stats/stats'
+import { quickstartOpenSource } from '../components/layouts/quickstart/quickstart-content'
 
 const IntegrationCodeBox = () => (
   <CodeBox
@@ -107,102 +108,84 @@ checkClient.check(checkRequest, (error, resp) => {
   />
 )
 
-const KetoPage = () => (
-  <Layout
-    theme="keto"
-    appendix={'Keto'}
-    githubLink="https://github.com/ory/keto"
-    discussionsLink="https://github.com/ory/keto/discussions"
-  >
+const IndexPage = () => (
+  <Layout>
     <SEO
-      description="Authorization Server based on Google Zanzibar, providing RBAC, ABAC and ACL"
-      title={`${brandPrefix}Keto Permission and Role Management`}
+      description={
+        'Authorization Server based on Google Zanzibar, providing RBAC, ABAC and ACL.'
+      }
+      title={`Ory Keto - Permission and Role Management`}
     />
-    <CompressedHero
-      title="Global access control"
-      subtitle="Manage user roles, rights, and permissions with ACL based on Google Zanzibar"
-      cta={[
-        {
-          title: 'Get started',
-          href: 'https://www.ory.sh/docs/keto/install',
-          style: 'primary'
-        },
-        {
-          title: 'GitHub',
-          href: 'https://github.com/ory/keto',
-          style: 'secondary'
-        }
-      ]}
-      visual={<KetoAnimation />}
+    <Hero
+      title={'Global access control'}
+      description={
+        'Manage user roles, rights, and permissions with ACL based on Google Zanzibar.'
+      }
+      image={<img loading="lazy" alt="" src={ketoProcess} />}
     />
 
-    <Newsletter preselect={'keto'} />
-    <CompressedSection
-      expanded
-      left={
+    <Newsletter preselect="keto" />
+
+    <FeatureImage
+      overline={'Start in minutes'}
+      title={<>Easy Integration</>}
+      description={
         <>
-          <h3>Easy integration</h3>
-          <p>
-            {brandPrefix}Keto is a global and consistent permission &
-            authorization server with an easy and granular permission language
-            and sub 10-millisecond latency. It is based on Google Zanzibar,
-            written in Go, and ships gRPC and REST APIs.
-          </p>
-          <p>
-            Take a look at our{' '}
-            <a href="https://www.ory.sh/docs/keto">documentation</a> and learn
-            more.{' '}
-          </p>
+          Ory / Keto is a global and consistent permission & authorization
+          server with an easy and granular permission language and sub
+          10-millisecond latency. It is based on Google Zanzibar, written in Go,
+          and ships gRPC and REST APIs.
         </>
       }
-      right={<IntegrationCodeBox />}
-      mobile={[
-        <h3>Easy integration</h3>,
-        <IntegrationCodeBox />,
-        <div className={'mobile-offset-32'}>
-          <p>
-            {brandPrefix}Keto is a global and consistent permission &
-            authorization server with an easy and granular permission language
-            and sub 10-millisecond latency. It is based on Google Zanzibar,
-            written in Go, and ships gRPC and REST APIs.
-          </p>
-          <p>
-            Take a look at our{' '}
-            <a href="https://www.ory.sh/docs/keto">documentation</a> to learn
-            more.
-          </p>
-        </div>
-      ]}
-    />
-    <CompressedSection
-      right={<KetoSdk />}
-      left={
+      buttons={
         <>
-          <h3>Polyglot</h3>
-          <p>
-            {brandPrefix}Keto is written in Go and we provide SDKs for every
-            language. Our{' '}
-            <a href="https://www.ory.sh/keto/docs/sdk/index">documentation</a>{' '}
-            makes integrating {brandPrefix}Keto a snap.
-          </p>
+          <Button
+            to={'/docs/keto/'}
+            style={'link'}
+            iconRight={<ArrowRight size={16} />}
+          >
+            Check out the docs
+          </Button>
         </>
       }
-      mobile={[
-        <h3>Polyglot</h3>,
-        <KetoSdk />,
-        <p className="mobile-offset-32">
-          {brandPrefix}Keto is written in Go and we provide SDKs for every
-          language. Our{' '}
-          <a href="https://www.ory.sh/keto/docs/sdk/index">documentation</a>{' '}
-          makes integrating {brandPrefix}Keto a snap.
-        </p>
-      ]}
+      image={<IntegrationCodeBox />}
     />
 
-    <Collaborator />
-    <Adopters />
-    <Stats />
+    <FeatureImage
+      mirror={true}
+      overline={'Polyglot'}
+      title={<>SDKs for all languages</>}
+      description={
+        <>
+          Ory / Keto is written in Go and we provide SDKs for every language.
+          Our documentation makes integrating Ory / Keto a snap.
+        </>
+      }
+      buttons={
+        <>
+          <Button
+            to={'/docs/keto/install/'}
+            style={'link'}
+            iconRight={<ArrowRight size={16} />}
+          >
+            Install Ory / Keto
+          </Button>
+        </>
+      }
+      image={<img loading="lazy" alt="" src={ketoPolyglot} />}
+    />
+    <Adopters {...adoptersDefault} />
+    <Stats
+      title={<>Billions of Identities</>}
+      description={
+        <>
+          Companies from all over the world rely on Ory for their identity
+          needs. Ory technology secures billions of identity requests.
+        </>
+      }
+    />
+    <Quickstart {...quickstartOpenSource} />
   </Layout>
 )
 
-export default KetoPage
+export default IndexPage

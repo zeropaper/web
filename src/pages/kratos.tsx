@@ -1,34 +1,35 @@
-import Layout from '../components/layout'
+import {
+  ArrowRight,
+  BookOpen,
+  CirclesThreePlus,
+  Code,
+  GitMerge,
+  LockOpen,
+  RocketLaunch,
+  Terminal,
+  UserPlus,
+  Users
+} from 'phosphor-react'
 import React from 'react'
-import CompressedHero from '../components/compressed-hero'
+import Button from '../components/freestanding/button/button'
+import ColourWrapper from '../components/freestanding/colour/colour-wrapper'
+import Molecule from '../components/freestanding/molecule/molecule'
+import Adopters from '../components/layouts/adopters/adopters'
+import Coding from '../components/layouts/coding/coding'
+import FeatureImage from '../components/layouts/feature-image/feature-image'
 import Newsletter from '../components/newsletter'
-import CompressedSection from '../components/compressed-section'
-import SEO from '../components/seo'
-import Stats from '../components/stats'
-import CodeBox, { Languages } from '../components/codebox'
-import { brandPrefix } from '../config'
-import Collaborator from '../components/collaborator'
-import kratosProcess from '../images/kratos/kratos.svg'
+import Footer from '../components/layouts/footer/footer'
+import Hero from '../components/layouts/hero/hero'
+import Layout from '../components/layouts/layout/layout'
+import Quickstart from '../components/layouts/quickstart/quickstart'
 import kratosPolyglot from '../images/kratos/kratos_p.svg'
-import Adopters from '../components/adopters'
-
-const KratosAnimation = () => (
-  <img
-    loading="lazy"
-    alt="The ORY Kratos user login and registration service"
-    className="responsive"
-    src={kratosProcess}
-  />
-)
-
-const KratosSdk = () => (
-  <img
-    loading="lazy"
-    alt="ORY Kratos SDKs"
-    className="responsive"
-    src={kratosPolyglot}
-  />
-)
+import kratosProcess from '../images/kratos/kratos.svg'
+import CodeBox, { Languages } from '../components/codebox'
+import cn from 'classnames'
+import SEO from '../components/layouts/seo/seo'
+import { adoptersDefault } from '../components/layouts/adopters/adopters-content'
+import Stats from '../components/layouts/stats/stats'
+import { quickstartOpenSource } from '../components/layouts/quickstart/quickstart-content'
 
 const IntegrationCodeBox = () => (
   <CodeBox
@@ -77,111 +78,87 @@ export const registrationRoute = (req, res) => {
   />
 )
 
-const KratosPage = () => (
-  <Layout
-    theme="kratos"
-    appendix={'Kratos'}
-    githubLink="https://github.com/ory/kratos"
-    discussionsLink="https://github.com/ory/kratos/discussions"
-  >
+const IndexPage = () => (
+  <Layout>
     <SEO
-      description=""
-      title={`${brandPrefix}Kratos Cloud Native Identity and User Management System`}
+      description="Open source user management and identity server."
+      title={`Ory Kratos - Cloud Native Identity and User Management System`}
+    />
+    <Hero
+      title={'Identity and User Management System'}
+      description={
+        ' Use configurable authentication mechanisms and master user management in the cloud.'
+      }
+      image={<img loading="lazy" alt="" src={kratosProcess} />}
     />
 
-    <CompressedHero
-      title="Cloud Native Identity and User Management System"
-      subtitle="Use configurable authentication mechanisms and master user management in the cloud."
-      cta={[
-        {
-          title: 'Get started',
-          href: 'https://www.ory.sh/docs/kratos/quickstart',
-          style: 'primary',
-          openInNewWindow: true
-        },
-        {
-          title: 'GitHub',
-          href: 'https://github.com/ory/kratos',
-          style: 'secondary'
-        }
-      ]}
-      visual={<KratosAnimation />}
-    />
+    <Newsletter preselect="kratos" />
 
-    <Newsletter preselect={'kratos'} />
-    <CompressedSection
-      expanded
-      left={
+    <FeatureImage
+      overline={'Start in minutes'}
+      title={<>Easy Integration</>}
+      description={
         <>
-          <h3>Easy integration</h3>
-          <p>
-            {brandPrefix}Kratos is a cloud native user management system. It
-            provides user login and registration, multi-factor authentication,
-            and user information storage with a headless API. It is fully
-            configurable and supports a wide range of protocols such as Google
-            Authenticator, and stores user information using JSON Schema.
-          </p>
-          <p>
-            {brandPrefix}Kratos works with any UI framework and only a few lines
-            of code are required. Take a look at our{' '}
-            <a href="https://www.ory.sh/docs/kratos">documentation</a> and learn
-            more.{' '}
-          </p>
+          Ory / Kratos is a cloud native user management system. It provides
+          user login and registration, multi-factor authentication, and user
+          information storage with a headless API. It is fully configurable and
+          supports a wide range of protocols such as Google Authenticator, and
+          stores user information using JSON Schema. Ory / Kratos works with any
+          UI framework and only a few lines of code are required. Take a look at
+          our documentation and learn more.
         </>
       }
-      right={<IntegrationCodeBox />}
-      mobile={[
-        <h3>Easy integration</h3>,
-        <IntegrationCodeBox />,
-        <div className={'mobile-offset-32'}>
-          <p>
-            {brandPrefix}Kratos is a cloud native user management system. It
-            provides user login and registration, multi-factor authentication,
-            and user information storage with a headless API. It is fully
-            configurable and supports a wide range of protocols such as Google
-            Authenticator, and stores user information using JSON Schema.
-          </p>
-          <p>
-            {brandPrefix}Kratos works with any UI framework and only a few lines
-            of code are required. Take a look at our{' '}
-            <a href="https://www.ory.sh/docs/kratos">documentation</a> and learn
-            more.{' '}
-          </p>
-        </div>
-      ]}
-    />
-
-    <CompressedSection
-      right={<KratosSdk />}
-      left={
+      buttons={
         <>
-          <h3>Polyglot</h3>
-          <p>
-            {brandPrefix}Kratos is written in Go and we provide SDKs for every
-            language. We work with any UI framework and interfacing with the
-            login, registration and profile management is easy. Our{' '}
-            <a href="https://www.ory.sh/docs/kratos/sdk">documentation</a> makes
-            integrating {brandPrefix}Kratos a snap.
-          </p>
+          <Button
+            to={'/docs/kratos/'}
+            style={'link'}
+            iconRight={<ArrowRight size={16} />}
+          >
+            Check out the docs
+          </Button>
         </>
       }
-      mobile={[
-        <h3>Polyglot</h3>,
-        <KratosSdk />,
-        <p className="mobile-offset-32">
-          {brandPrefix}Kratos is written in Go and we provide SDKs for every
-          language. We work with any UI framework and interfacing with the
-          login, registration and profile management is easy. Our{' '}
-          <a href="https://www.ory.sh/docs/kratos/sdk">documentation</a> makes
-          integrating {brandPrefix}Kratos a snap.
-        </p>
-      ]}
+      image={<IntegrationCodeBox />}
     />
 
-    <Collaborator />
-    <Adopters />
-    <Stats />
+    <FeatureImage
+      mirror={true}
+      overline={'Polyglot'}
+      title={<>SDKs for all languages</>}
+      description={
+        <>
+          Ory / Kratos is written in Go and we provide SDKs for every language.
+          We work with any UI framework and interfacing with the login,
+          registration and profile management is easy. Our documentation makes
+          integrating Ory / Kratos a snap.
+        </>
+      }
+      buttons={
+        <>
+          <Button
+            to={'/docs/kratos/install/'}
+            style={'link'}
+            iconRight={<ArrowRight size={16} />}
+          >
+            Install Ory / Kratos
+          </Button>
+        </>
+      }
+      image={<img loading="lazy" alt="" src={kratosPolyglot} />}
+    />
+    <Adopters {...adoptersDefault} />
+    <Stats
+      title={<>Billions of Identities</>}
+      description={
+        <>
+          Companies from all over the world rely on Ory for their identity
+          needs. Ory technology secures billions of identity requests.
+        </>
+      }
+    />
+    <Quickstart {...quickstartOpenSource} />
   </Layout>
 )
 
-export default KratosPage
+export default IndexPage

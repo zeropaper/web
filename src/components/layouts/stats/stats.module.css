@@ -1,0 +1,29 @@
+.stats {
+  background-color: var(--colors-themed-primary--next);
+  padding: 64px 0;
+}
+
+.stats-row {
+  margin-bottom: unset;
+}
+
+@media (--md) {
+  .stats-row {
+    margin-bottom: 32px;
+  }
+}
+
+@media (--sm) {
+  .stats-row {
+    margin-bottom: 32px;
+  }
+}
+
+@media (--xs) {
+  .stats-row {
+    margin-bottom: 32px;
+  }
+  .stats-items {
+    margin-bottom: 32px;
+  }
+}
