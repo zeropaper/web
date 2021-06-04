@@ -261,7 +261,7 @@ module.exports = {
         matomoUrl: 'https://sqa-web.ory.sh',
         siteUrl: 'https://www.ory.sh',
         matomoPhpScript: 'np.php',
-        matomoJsScript: 'js/np.js',
+        matomoJsScript: 'js/np.min.js',
         disableCookies: true
       }
     }
