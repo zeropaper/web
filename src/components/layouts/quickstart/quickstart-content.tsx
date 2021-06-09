@@ -1,14 +1,21 @@
 import Button from '../../freestanding/button/button'
-import {
-  ArrowRight,
-  BookOpen,
-  ChatsCircle,
-  RocketLaunch,
-  SlackLogo,
-  Users
-} from 'phosphor-react'
 import React from 'react'
-import Quickstart from './quickstart'
+import IconWrapper from '../../freestanding/icon/icon-wrapper'
+
+const RocketLaunch = (
+  <IconWrapper color={'base-white'} icon={'RocketLaunch'} size={'24'} />
+)
+const BookOpen = (
+  <IconWrapper color={'base-white'} icon={'BookOpenDuotone'} size={'24'} />
+)
+const ArrowRight = (
+  <IconWrapper color={'themed-primary'} icon={'ArrowRightBold'} size={'16'} />
+)
+const Users = (
+  <IconWrapper color={'themed-primary'} icon={'UsersDuotone'} size={'32'} />
+)
+const SlackLogo = <IconWrapper color={'themed-primary'} icon={'SlackLogoDuotone'} size={'32'} />
+const ChatsCircle = <IconWrapper color={'themed-primary'} icon={'ChatsCircleDuotone'} size={'32'} />
 
 export const quickstartDefault = {
   title: <>Ready to get started?</>,
@@ -23,7 +30,7 @@ export const quickstartDefault = {
       <Button
         style={'filled'}
         to={'https://console.ory.sh/registration'}
-        iconLeft={<RocketLaunch size={24} />}
+        iconLeft={RocketLaunch}
       >
         Get started
       </Button>
@@ -31,7 +38,7 @@ export const quickstartDefault = {
   ),
   content: [
     {
-      icon: <BookOpen size={32} weight={'duotone'} />,
+      icon: <IconWrapper color={'themed-primary'} icon={'BookOpenDuotone'} size={'32'} />,
       title: <>Check out our docs</>,
       description: (
         <>
@@ -40,17 +47,13 @@ export const quickstartDefault = {
         </>
       ),
       button: (
-        <Button
-          to={'/docs'}
-          style={'link'}
-          iconRight={<ArrowRight size={16} weight={'bold'} />}
-        >
+        <Button to={'/docs'} style={'link'} iconRight={ArrowRight}>
           Read the docs
         </Button>
       )
     },
     {
-      icon: <Users size={32} weight={'duotone'} />,
+      icon: Users,
       title: <>Join a diverse community</>,
       description: (
         <>
@@ -62,7 +65,7 @@ export const quickstartDefault = {
         <Button
           to={'https://slack.ory.sh'}
           style={'link'}
-          iconRight={<ArrowRight size={16} weight={'bold'} />}
+          iconRight={ArrowRight}
         >
           Join the chat
         </Button>
@@ -85,7 +88,7 @@ export const quickstartOpenSource = {
       <Button
         style={'filled'}
         to={'/docs/ecosystem/projects'}
-        iconLeft={<BookOpen size={24} weight={'duotone'} />}
+        iconLeft={BookOpen}
       >
         Documentation
       </Button>
@@ -93,7 +96,7 @@ export const quickstartOpenSource = {
   ),
   content: [
     {
-      icon: <SlackLogo size={32} weight={'duotone'} />,
+      icon: SlackLogo,
       title: <>Developer Chat on Slack</>,
       description: (
         <>
@@ -105,14 +108,14 @@ export const quickstartOpenSource = {
         <Button
           to={'https://slack.ory.sh/'}
           style={'link'}
-          iconRight={<ArrowRight size={16} weight={'bold'} />}
+          iconRight={ArrowRight}
         >
           Join the chat
         </Button>
       )
     },
     {
-      icon: <ChatsCircle size={32} weight={'duotone'} />,
+      icon: ChatsCircle,
       title: <>GitHub Discussions</>,
       description: (
         <>
@@ -124,7 +127,7 @@ export const quickstartOpenSource = {
         <Button
           to={'https://github.com/ory/'}
           style={'link'}
-          iconRight={<ArrowRight size={16} weight={'bold'} />}
+          iconRight={ArrowRight}
         >
           Explore our GitHub
         </Button>

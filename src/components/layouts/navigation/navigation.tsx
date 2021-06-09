@@ -2,37 +2,22 @@ import React, { useState } from 'react'
 import * as styles from './navigation.module.css'
 import cn from 'classnames'
 import Container from '../../freestanding/containers/container'
-import Grid from '../../freestanding/containers/grid'
 import Button from '../../freestanding/button/button'
-import { ArrowRight, List } from 'phosphor-react'
 import ContentText from '../../freestanding/content/content-text'
-import ColourWrapper from '../../freestanding/colour/colour-wrapper'
 import MenuItem from '../../freestanding/dropdown/menu-item'
 import DropdownMenu from '../../freestanding/dropdown/dropdown-menu'
 import DropdownItem from '../../freestanding/dropdown/dropdown-item'
-import {
-  pb24,
-  pb32,
-  pb64,
-  pb8,
-  pl8,
-  pr16,
-  pr32,
-  pr8,
-  pt32,
-  pt8
-} from '../../freestanding/utils/padding.module.css'
+import { pb24, pb8, pr32 } from '../../freestanding/utils/padding.module.css'
 import MoleculeSeparator from '../../freestanding/molecule/molecule-separator'
 import {
   DropdownMobileMenu,
   DropdownMobileMenuSection
 } from '../../freestanding/dropdown/dropdown-mobile-menu'
 import DropdownMobileItem from '../../freestanding/dropdown/dropdown-mobile-item'
-import { Chunks } from '../../../util'
-import MoleculeInteraction from '../../freestanding/molecule/molecule-interaction'
 import { useEffect } from 'react'
 import { useRef } from 'react'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+import IconWrapper from '../../freestanding/icon/icon-wrapper'
 
 export interface DropdownMenuItem {
   title: string | React.ReactElement
@@ -75,25 +60,31 @@ interface PropTypes {
   sideNav: React.ReactNodeArray
 }
 
-const onClickOutsideRef = (refs: Array<React.MutableRefObject<any>>, handler: (e: MouseEvent | TouchEvent) => void) => {
+const onClickOutsideRef = (
+  refs: Array<React.MutableRefObject<any>>,
+  handler: (e: MouseEvent | TouchEvent) => void
+) => {
   useEffect(() => {
     const listener = (event: MouseEvent | TouchEvent) => {
       // Do nothing if clicking ref's element or descendent elements
-      if (refs.filter(value => !value.current || value.current.contains(event.target)).length > 0) {
-        return;
+      if (
+        refs.filter(
+          (value) => !value.current || value.current.contains(event.target)
+        ).length > 0
+      ) {
+        return
       }
-      
+
       handler(event)
     }
-  
-    document.addEventListener("mousedown", listener);
-    document.addEventListener("touchstart", listener);
-    
+
+    document.addEventListener('mousedown', listener)
+    document.addEventListener('touchstart', listener)
+
     return () => {
-      document.removeEventListener("mousedown", listener);
-      document.removeEventListener("touchstart", listener);
-    };
-    
+      document.removeEventListener('mousedown', listener)
+      document.removeEventListener('touchstart', listener)
+    }
   })
 }
 
@@ -105,27 +96,33 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
   const currentNode = useRef<any>(null)
   const currentMobileNavBtnNode = useRef<any>(null)
   const currentMobileNode = useRef<any>(null)
-  
+
   let mobileNav = cn(styles.mobileContainer)
   if (mobileOpenNav) {
     mobileNav = cn(styles.mobileNavActive)
   }
-  
+
+  const List = (
+    <IconWrapper color={'themed-primary'} icon={'List'} size={'32'} />
+  )
+
   // once clicked outside of the nav the menu will close
-  onClickOutsideRef([currentNode, currentMobileNode, currentMobileNavBtnNode], () => {
-    setOpenMenu('')
-    setMobileOpenNav(false)
-  })
-  
-  
+  onClickOutsideRef(
+    [currentNode, currentMobileNode, currentMobileNavBtnNode],
+    () => {
+      setOpenMenu('')
+      setMobileOpenNav(false)
+    }
+  )
+
   useScrollPosition(
     ({ prevPos, currPos }) => {
       console.log(`prevPos: ${prevPos.y}\ncurrPos: ${currPos.y}`)
       if (prevPos.y > -300 || currPos.y > -300) {
-        setHideOnScroll(true);
-        return;
+        setHideOnScroll(true)
+        return
       }
-      
+
       const isShow = currPos.y > prevPos.y
       if (isShow !== hideOnScroll) {
         setHideOnScroll(isShow)
@@ -140,7 +137,7 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
     false,
     100
   )
-  
+
   return (
     <div
       className={cn(styles.navigation, !hideOnScroll && styles.navigationHide)}
@@ -207,24 +204,30 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
         </nav>
 
         <Container justify={'end'} smHidden={true} xsHidden={true}>
-          {sideNav && sideNav.map((x, index) => (
-            <div className={cn(styles.sidenavButtons)} key={index}>
-              {x}
-            </div>
-          ))}
+          {sideNav &&
+            sideNav.map((x, index) => (
+              <div className={cn(styles.sidenavButtons)} key={index}>
+                {x}
+              </div>
+            ))}
         </Container>
 
-        <Container lgHidden={true} mdHidden={true} ref={currentMobileNavBtnNode}>
-          <Button to={() => setMobileOpenNav((current) => !current)}
-           style={'link'}>
-            <List size={32} />
+        <Container
+          lgHidden={true}
+          mdHidden={true}
+          ref={currentMobileNavBtnNode}
+        >
+          <Button
+            to={() => setMobileOpenNav((current) => !current)}
+            style={'link'}
+          >
+            {List}
           </Button>
         </Container>
       </Container>
-      
+
       <div className={cn(mobileNav)} ref={currentMobileNode}>
         <DropdownMobileMenu>
-  
           <div className={cn(pb8)}>
             {sideNav.map((x, index) => (
               <div className={cn(pb8)} key={index}>
@@ -232,9 +235,9 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
               </div>
             ))}
           </div>
-          
-          <MoleculeSeparator style={'horizontal'}/>
-          
+
+          <MoleculeSeparator style={'horizontal'} />
+
           <DropdownMobileMenuSection>
             {mobileMenu.headline.map((headline, index) => (
               <DropdownMobileItem
@@ -245,9 +248,9 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
               />
             ))}
           </DropdownMobileMenuSection>
-      
+
           <MoleculeSeparator style={'horizontal'} />
-      
+
           <p className={cn('font-p-sm')}>{mobileMenu.main.title}</p>
           <DropdownMobileMenuSection>
             {mobileMenu.main.buttons.map((button, index) => (
@@ -258,9 +261,9 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
               />
             ))}
           </DropdownMobileMenuSection>
-      
+
           <MoleculeSeparator style={'horizontal'} />
-      
+
           <DropdownMobileMenuSection>
             {mobileMenu.extra.map((button, index) => (
               <DropdownMobileItem
@@ -270,10 +273,8 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
               />
             ))}
           </DropdownMobileMenuSection>
-      
+
           <MoleculeSeparator style={'horizontal'} />
-      
-          
         </DropdownMobileMenu>
       </div>
     </div>

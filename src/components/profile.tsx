@@ -1,15 +1,10 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import cn from 'classnames'
-import {
-  IconProps,
-  GithubLogo,
-  LinkedinLogo,
-  TwitterLogo
-} from 'phosphor-react'
 import * as styles from './profile.module.css'
 import Button from './freestanding/button/button'
 import { pb16, pb8, pr16, pr8 } from './freestanding/utils/padding.module.css'
+import IconWrapper from './freestanding/icon/icon-wrapper'
 
 interface PropTypes {
   name: string
@@ -29,7 +24,7 @@ type SocialLinks = {
 }
 
 type resolvedSocial = {
-  Icon: React.ElementType<IconProps>
+  Icon: React.ReactElement
   href: string
   alt: string
 }
@@ -39,15 +34,15 @@ const socialWithIcon = ({ href, network }: SocialLinks): resolvedSocial => {
   let alt
   switch (network) {
     case SocialNetworks.github:
-      Icon = GithubLogo
+      Icon = <IconWrapper color={'base-grey-400'} icon={'GithubLogoDuotone'} size={'24'} />
       alt = 'GitHub'
       break
     case SocialNetworks.linkedin:
-      Icon = LinkedinLogo
+      Icon = <IconWrapper color={'base-grey-400'} icon={'LinkedinLogoDuotone'} size={'24'} />
       alt = 'Linkedin'
       break
     case SocialNetworks.twitter:
-      Icon = TwitterLogo
+      Icon = <IconWrapper color={'base-grey-400'} icon={'TwitterLogoDuotone'} size={'24'} />
       alt = 'Twitter'
       break
   }
@@ -69,7 +64,7 @@ const Profile = ({ name, img, social }: PropTypes) => (
       <>
         {social.map(socialWithIcon).map(({ Icon, href }) => (
           <Button to={href} style={'none'} key={href} className={cn(pr8)}>
-            <Icon size={24} weight={'duotone'} />
+            {Icon}
           </Button>
         ))}
       </>

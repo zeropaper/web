@@ -1,22 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import cn from 'classnames'
-
-type Greys = '25' | '50' | '75' | '200' | '400' | '600' | '800' | '900'
-type ThemeTypes = 'primary' | 'dark' | 'light' | 'darkmode' | 'background'
-type Base = 'base-white' | 'base-black' | 'base-grey' | `base-grey-${Greys}`
-type Themes =
-  | `themed-${ThemeTypes}`
-  | `info-${ThemeTypes}`
-  | `success-${ThemeTypes}`
-  | `warning-${ThemeTypes}`
-  | `error-${ThemeTypes}`
-  | `hydra-${ThemeTypes}`
-  | `kratos-${ThemeTypes}`
-  | `keto-${ThemeTypes}`
-  | `dockertest-${ThemeTypes}`
-  | `oathkeeper-${ThemeTypes}`
-  | Base
+import { Themes } from '../shared-types'
+import { hexToCSSFilter } from 'hex-to-css-filter/dist/es2015'
+import ReactDOM from 'react-dom'
 
 interface PropType {
   children: React.ReactNode
@@ -34,9 +21,9 @@ interface ColourProps {
 
 const Colour = styled.div<ColourProps>`
   > * {
-    color: var(${(props) => props.text || ''});
-    background: var(${(props) => props.background || ''});
-    /*filter: var(${(props) => props.fill || ''});*/
+    color: ${(props) => props.text || ''};
+    background: ${(props) => props.background || ''};
+    filter: ${(props) => props.fill || ''};
   }
 `
 
@@ -51,19 +38,32 @@ const ColourWrapper = ({
   text,
   fill
 }: PropType) => {
-  let props: ColourProps = {}
+  const [props, setProps] = useState<ColourProps>({})
 
-  if (text) {
-    props.text = getVariable(text)
-  }
+  useEffect(() => {
+    if (window !== undefined) {
+      const colourVariables = window.getComputedStyle(document.documentElement)
+      const p: ColourProps = {}
 
-  if (background) {
-    props.background = getVariable(background)
-  }
+      if (text) {
+        p.text = colourVariables.getPropertyValue(getVariable(text)).trim()
+      }
 
-  if (fill) {
-    props.fill = getVariable(fill)
-  }
+      if (background) {
+        p.background = colourVariables
+          .getPropertyValue(getVariable(background))
+          .trim()
+      }
+
+      if (fill) {
+        p.fill = hexToCSSFilter(
+          colourVariables.getPropertyValue(getVariable(fill)).trim()
+        ).filter
+      }
+
+      setProps(p)
+    }
+  }, [])
 
   return (
     <Colour className={cn(className && className)} {...props}>
