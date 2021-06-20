@@ -14,6 +14,7 @@ import { adoptersDefault } from '../components/layouts/adopters/adopters-content
 import Adopters from '../components/layouts/adopters/adopters'
 import Stats from '../components/layouts/stats/stats'
 import IconWrapper from '../components/freestanding/icon/icon-wrapper'
+import YoutubeEmbed from '../components/layouts/embed/embed'
 
 const IntegrationCodeBox = () => (
   <CodeBox
@@ -74,16 +75,42 @@ const IndexPage = () => {
         }
         image={<img loading="lazy" alt="" src={hydraProcess} />}
       />
+
       <Newsletter preselect="hydra" />
 
       <FeatureImage
+        overline={'Proven Scalability'}
+        title={<>Scale to millions</>}
+        description={
+          <>
+            Ory Hydra powers Sainsbury's My ID with millions of
+            customers and serving hundreds of users per second.
+            Watch the video to learn more!
+          </>
+        }
+        buttons={
+          <>
+            <Button
+              to={'/hydra/docs/5min-tutorial'}
+              style={'link'}
+              iconRight={ArrowRight}
+            >
+              Get started
+            </Button>
+          </>
+        }
+        image={<YoutubeEmbed embedId="xcOjpLjy_rY?modestbranding=1&autohide=1&showinfo=0&controls=0" />}
+      />
+
+      <FeatureImage
+        mirror={true}
         overline={'Start in minutes'}
         title={<>Easy Integration</>}
         description={
           <>
-            Ory / Hydra is Open Source and OpenID Connect Certified® technology
+            Ory Hydra is Open Source and OpenID Connect Certified® technology
             that integrates with any login system. Get started in minutes, and
-            provide secure access to your application and API endpoints. Ory /
+            provide secure access to your application and API endpoints. Ory
             Hydra works with any login system and only a few lines of code are
             required. Head over to our documentation and learn more.
           </>
@@ -99,26 +126,25 @@ const IndexPage = () => {
       />
 
       <FeatureImage
-        mirror={true}
         overline={'Polyglot'}
         title={<>SDKs for all languages</>}
         description={
           <>
-            Ory / Hydra is written in Go and we provide SDKs for almost every
+            Ory Hydra is written in Go and we provide SDKs for almost every
             language including Dart, .NET, Go, Java, PHP, Python, Ruby, Rust and
             Typescript. We work with any login system and it is easy to
             customize the login experience. Our documentation makes integrating
-            Ory / Hydra a snap.
+            Ory Hydra a snap.
           </>
         }
         buttons={
           <>
             <Button
-              to={'/docs/keto/install/'}
+              to={'/docs/hydra/install/'}
               style={'link'}
               iconRight={ArrowRight}
             >
-              Install Ory / Hydra
+              Install Ory Hydra
             </Button>
           </>
         }
