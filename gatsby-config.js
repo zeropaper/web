@@ -264,6 +264,8 @@ module.exports = {
         siteUrl: 'https://www.ory.sh',
         matomoPhpScript: 'np.php',
         matomoJsScript: 'js/np.min.js',
+        trackLoad: true,
+        enableJSErrorTracking: true,
         disableCookies: true
       }
     }
