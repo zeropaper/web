@@ -111,7 +111,12 @@ const IndexPage = () => {
           'Manage user roles, rights, and permissions with ACL based on Google Zanzibar.'
         }
         image={
-          <img className="responsive" loading="lazy" alt="" src={ketoProcess} />
+          <img
+            className="responsive"
+            loading="lazy"
+            alt="Example use of Keto authorisation methods inside a UI"
+            src={ketoProcess}
+          />
         }
       />
 
@@ -163,7 +168,7 @@ const IndexPage = () => {
           <img
             className="responsive"
             loading="lazy"
-            alt=""
+            alt="Keto SDKs for any programming language"
             src={ketoPolyglot}
           />
         }

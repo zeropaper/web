@@ -81,7 +81,7 @@ const IndexPage = () => {
           <img
             className="responsive"
             loading="lazy"
-            alt=""
+            alt="Examples of headless Login and Registrations forms with different styles using Kratos"
             src={kratosProcess}
           />
         }
@@ -140,7 +140,7 @@ const IndexPage = () => {
           <img
             className="responsive"
             loading="lazy"
-            alt=""
+            alt="Kratos SDKs for any programming language"
             src={kratosPolyglot}
           />
         }
