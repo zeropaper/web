@@ -70,7 +70,9 @@ module.exports = {
         path: `${__dirname}/src/pages/blog`
       }
     },
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
@@ -99,8 +101,9 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 860,
-              tracedSVG: false,
-              loading: 'lazy'
+              tracedSVG: true,
+              loading: 'lazy',
+              withWebp: true
             }
           },
           {
@@ -122,7 +125,7 @@ module.exports = {
                     const iframeSrc = getYouTubeIFrameSrc(url)
                     const id = getYoutubeID(url)
 
-                    return `<div class="youtube"><iframe loading="lazy" width="${width}" height="${height}" src="${iframeSrc}" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen srcdoc="<style>*{padding: 0; margin: 0; overflow: hidden}html, body{height: 100%}img, span{position: absolute; width: 100%; top: 0; bottom: 0; margin: auto}span{height: 1.5em; text-align: center; font: 48px/1.5 sans-serif; color: white; text-shadow: 0 0 0.5em black}</style><a href='${iframeSrc}&autoplay=1'><img src='https://img.youtube.com/vi/${id}/hqdefault.jpg'/><span>▶</span></a>"></iframe></div>`
+                    return `<div class='youtube'><iframe loading='lazy' width='${width}' height='${height}' src='${iframeSrc}' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen srcdoc="<style>*{padding: 0; margin: 0; overflow: hidden}html, body{height: 100%}img, span{position: absolute; width: 100%; top: 0; bottom: 0; margin: auto}span{height: 1.5em; text-align: center; font: 48px/1.5 sans-serif; color: white; text-shadow: 0 0 0.5em black}</style><a href='${iframeSrc}&autoplay=1'><img src='https://img.youtube.com/vi/${id}/hqdefault.jpg'/><span>▶</span></a>"></iframe></div>`
                   },
                   name: 'YouTube'
                 }
@@ -154,17 +157,17 @@ module.exports = {
         ]
       }
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
         siteUrl: `https://www.ory.sh`
-      },
+      }
     },
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
+        cssLoaderOptions: {},
         postCssPlugins: [
           require('postcss-for'),
           require('postcss-color-mod-function')(),

@@ -1,76 +1,41 @@
+import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
+
 import Button from '../components/freestanding/button/button'
 import Adopters from '../components/layouts/adopters/adopters'
+import { adoptersDefault } from '../components/layouts/adopters/adopters-content'
 import Coding from '../components/layouts/coding/coding'
 import FeatureImage from '../components/layouts/feature-image/feature-image'
+import Features from '../components/layouts/features/features'
 import Hero from '../components/layouts/hero/hero'
 import Layout from '../components/layouts/layout/layout'
 import Quickstart from '../components/layouts/quickstart/quickstart'
 import { quickstartDefault } from '../components/layouts/quickstart/quickstart-content'
-import Security from '../components/layouts/security/security'
-import Stats from '../components/layouts/stats/stats'
-import Features from '../components/layouts/features/features'
 import Quotes from '../components/layouts/quotes/quotes'
 import { quotesDefault } from '../components/layouts/quotes/quotes-content'
-import heroIllustration from '../images/illustrations/hero.png'
-import headlessIllustration from '../images/illustrations/examplelogin.png'
-import dashboardIllustration from '../images/illustrations/dashboard.png'
-import codeboxIllustration from '../images/illustrations/codebox.png'
-
 import SEO from '../components/layouts/seo/seo'
-import { adoptersDefault } from '../components/layouts/adopters/adopters-content'
-import IconWrapper from '../components/freestanding/icon/icon-wrapper'
+import Stats from '../components/layouts/stats/stats'
+
+import CodeBoxImage from '../images/illustrations/codebox.png'
 
 const IndexPage = () => {
-  const RocketLaunch = (
-    <IconWrapper color={'base-white'} icon={'RocketLaunch'} size={'24'} />
-  )
+  const RocketLaunch = <i className="ph-rocket-launch base-white size24" />
   const BookOpen = (
-    <IconWrapper color={'base-white'} icon={'BookOpenDuotone'} size={'24'} />
+    <i className="ph-book-open ph-book-open-duotone base-white size24" />
   )
   const ArrowRightWhite = (
-    <IconWrapper color={'base-white'} icon={'ArrowRightBold'} size={'16'} />
+    <i className="ph-arrow-right-bold base-white size16" />
   )
   const ArrowRightThemed = (
-    <IconWrapper color={'themed-primary'} icon={'ArrowRightBold'} size={'16'} />
+    <i className="ph-arrow-right-bold themed-primary size16" />
   )
-  const Terminal = (
-    <IconWrapper
-      color={'themed-primary'}
-      icon={'TerminalDuotone'}
-      size={'32'}
-    />
-  )
-  const GitMerge = (
-    <IconWrapper
-      color={'themed-primary'}
-      icon={'GitMergeDuotone'}
-      size={'32'}
-    />
-  )
-  const Code = (
-    <IconWrapper color={'themed-primary'} icon={'CodeDuotone'} size={'32'} />
-  )
-  const LockOpen = (
-    <IconWrapper
-      color={'themed-primary'}
-      icon={'LockOpenDuotone'}
-      size={'32'}
-    />
-  )
-  const UserPlus = (
-    <IconWrapper
-      color={'themed-primary'}
-      icon={'UserPlusDuotone'}
-      size={'32'}
-    />
-  )
+  const Terminal = <i className="ph-terminal themed-primary size32" />
+  const GitMerge = <i className="ph-git-merge themed-primary size32" />
+  const Code = <i className="ph-code themed-primary size32" />
+  const LockOpen = <i className="ph-lock-open themed-primary size32" />
+  const UserPlus = <i className="ph-user-plus themed-primary size32" />
   const CirclesThreePlus = (
-    <IconWrapper
-      color={'themed-primary'}
-      icon={'CirclesThreePlusDuotone'}
-      size={'32'}
-    />
+    <i className="ph-circles-three-plus themed-primary size32" />
   )
 
   return (
@@ -100,13 +65,11 @@ const IndexPage = () => {
           </Button>
         }
         image={
-          <img
-            width={'100%'}
-            height={'100%'}
+          <StaticImage
+            src="../images/illustrations/hero.png"
             loading="lazy"
-            className="responsive"
             alt="Overview of the Ory Console"
-            src={heroIllustration}
+            className="responsive"
           />
         }
       />
@@ -131,13 +94,11 @@ const IndexPage = () => {
           </Button>
         }
         image={
-          <img
-            width={'100%'}
-            height={'100%'}
+          <StaticImage
             loading="lazy"
             className="responsive"
             alt="Ory Project Dashboard"
-            src={dashboardIllustration}
+            src="../images/illustrations/dashboard.png"
           />
         }
       />
@@ -158,13 +119,11 @@ const IndexPage = () => {
           </Button>
         }
         image={
-          <img
-            width={'100%'}
-            height={'100%'}
+          <StaticImage
             loading="lazy"
             className="responsive"
             alt="Individual styling on user interfaces"
-            src={headlessIllustration}
+            src="../images/illustrations/examplelogin.png"
           />
         }
       />
@@ -193,12 +152,10 @@ const IndexPage = () => {
         }
         visual={
           <img
-            width={'100%'}
-            height={'100%'}
             loading="lazy"
             className="responsive"
             alt="Example code and terminal response when integrating Ory"
-            src={codeboxIllustration}
+            src={CodeBoxImage}
           />
         }
         content={[

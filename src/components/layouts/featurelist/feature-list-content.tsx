@@ -1,6 +1,6 @@
 import React from 'react'
+
 import Button from '../../freestanding/button/button'
-import IconWrapper from '../../../components/freestanding/icon/icon-wrapper'
 
 export interface Features {
   title: string
@@ -9,20 +9,14 @@ export interface Features {
 }
 
 const CircleThreePlus = (
-  <IconWrapper color={'base-white'} icon={'CirclesThreePlus'} size={'24'} />
+  <i className={'ph-circles-three-plus base-white size24'} />
 )
 const CheckCircle = (
-  <IconWrapper icon={'CheckCircleBold'} size={'16'} color={'success-primary'} />
+  <i className={'ph-check-circle-bold success-primary size16'} />
 )
-const PlusCircle = (
-  <IconWrapper icon={'PlusCircleBold'} size={'16'} color={'base-grey-400'} />
-)
-const ArrowRight = (
-  <IconWrapper color={'themed-primary'} icon={'ArrowRight'} size={'16'} />
-)
-const MapTriFold = (
-  <IconWrapper color={'base-white'} icon={'MapTrifold'} size={'24'} />
-)
+const PlusCircle = <i className={'ph-plus-circle-bold base-grey-400 size16'} />
+const ArrowRight = <i className={'ph-arrow-right themed-primary size16'} />
+const MapTriFold = <i className={'ph-map-trifold base-white size24'} />
 
 export const featureListPricing = {
   features: [
@@ -165,8 +159,8 @@ export const featureListKratos = {
       description: (
         <>
           Most software applications need to deal with user and identity
-          management. Ory Kratos serves common flows, so you don't need to rewrite
-          everything yourself.
+          management. Ory Kratos serves common flows, so you don't need to
+          rewrite everything yourself.
         </>
       ),
       button: (
@@ -236,9 +230,9 @@ export const featureListKratos = {
           title: 'Account Verification and Recovery',
           description: (
             <>
-              Verify an identity by checking the email, phone number, or physical
-              address of that user. Provide recovery of accounts using "Forgot
-              Password" flows, security codes, etc.
+              Verify an identity by checking the email, phone number, or
+              physical address of that user. Provide recovery of accounts using
+              "Forgot Password" flows, security codes, etc.
             </>
           ),
           icon: CheckCircle
