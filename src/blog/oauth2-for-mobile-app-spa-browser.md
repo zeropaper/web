@@ -98,10 +98,10 @@ on this topic.
 <table width="100%">
     <tr>
         <td width="50%">
-            <img loading="lazy" alt="Legitimate Application without Browser Authorization" src="../../images/articles/mobile-oauth2/login-app.png"/>
+            <img loading="lazy" alt="Legitimate Application without Browser Authorization" src="../images/articles/mobile-oauth2/login-app.png"/>
         </td>
         <td width="50%">
-            <img loading="lazy" alt="Legitimate Application without Browser Authorization" src="../../images/articles/mobile-oauth2/login-app.png"/>
+            <img loading="lazy" alt="Legitimate Application without Browser Authorization" src="../images/articles/mobile-oauth2/login-app.png"/>
         </td>
     </tr>
     <tr align="center">
@@ -121,10 +121,10 @@ site and which one isn’t.
 <table width="100%">
     <tr>
         <td width="50%">
-            <img loading="lazy" alt="Legitimate Application with Browser Authorization" src="../../images/articles/mobile-oauth2/login-app-legitimate.png"/>
+            <img loading="lazy" alt="Legitimate Application with Browser Authorization" src="../images/articles/mobile-oauth2/login-app-legitimate.png"/>
         </td>
         <td width="50%">
-            <img loading="lazy" alt="Illegitimate Application with Browser Authorization" src="../../images/articles/mobile-oauth2/login-app-counterfeit.png"/>
+            <img loading="lazy" alt="Illegitimate Application with Browser Authorization" src="../images/articles/mobile-oauth2/login-app-counterfeit.png"/>
         </td>
     </tr>
     <tr align="center">
@@ -232,7 +232,7 @@ and registers a custom URI scheme that is also used by the legitimate
 application, it is possible for the attacker to intercept the authorize code and
 obtain its access token.
 
-![Stylized PKCE Flow](../../images/articles/mobile-oauth2/pkce.png)
+![Stylized PKCE Flow](../images/articles/mobile-oauth2/pkce.png)
 
 To mitigate this attack, the legitimate app generates a so-called code challenge
 and code verifier. The code verifier is derived from the code challenge. There

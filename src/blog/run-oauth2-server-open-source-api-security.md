@@ -104,8 +104,8 @@ repositories you want to grant access to and if it is ok to grant other data
 <p>
 <figure>
   <video autoplay muted loop playsInline>
-     <source src="../../images/articles/oauth2/oauth2-flow.mp4" type="video/mp4"/>
-     <source src="../../images/articles/oauth2/oauth2-flow.webm" type="video/webm"/>
+     <source src="../images/articles/oauth2/oauth2-flow.mp4" type="video/mp4"/>
+     <source src="../images/articles/oauth2/oauth2-flow.webm" type="video/webm"/>
   </video>
   <figcaption>
     A typical OAuth2 Flow with GitHub acting as the OAuth2 Server
@@ -577,7 +577,7 @@ asking you to authorize the application. If you remember the CircleCI example
 from the beginning of the article, this would be the "Log In with GitHub"
 button.
 
-![Consent App showing the login screen](../../images/articles/oauth2/consent-1.png)
+![Consent App showing the login screen](../images/articles/oauth2/consent-1.png)
 
 After clicking "Authorize application" you will be asked to log in. The screen
 you are seeing is provided by the exemplary User Login & Consent app
@@ -587,7 +587,7 @@ noted, the exemplary application has just one user. In a real-world scenario,
 you could probably sign up for a new account or use a social login provider
 (e.g. Google, Facebook) to sign in.
 
-![Consent App showing the login screen](../../images/articles/oauth2/consent-2.png)
+![Consent App showing the login screen](../images/articles/oauth2/consent-2.png)
 
 The consent screen is the second important screen shown by the User Login &
 Consent app. It asks the end user for permission to authorize. If a user has
@@ -595,7 +595,7 @@ privacy concerns, he/she could not grant access to personal details. Since the
 example only requests very basic permissions, so that all can be granted without
 concern.
 
-![Consent App asking the user to grant the requested scopes to the application](../../images/articles/oauth2/consent-3.png)
+![Consent App asking the user to grant the requested scopes to the application](../images/articles/oauth2/consent-3.png)
 
 Once logged in and authorized, Ory Hydra will issue an access, a refresh if
 scope `offline` was granted, and an ID token if scope `openid` was granted.

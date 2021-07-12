@@ -80,7 +80,7 @@ Find out what the company pays for directly and indirectly.
 
 Here’s the rough diagram:
 
-![Scenario](../../images/articles/looking-at-keto/keto-scenario-diagram.png)
+![Scenario](../images/articles/looking-at-keto/keto-scenario-diagram.png)
 
 ## ORY Keto in Docker Compose
 

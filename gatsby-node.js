@@ -33,6 +33,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
+  console.log(JSON.stringify(result.data.allMdx.edges))
+
   result.data.allMdx.edges
     .forEach(({ node }) => {
       const template = node.fileAbsolutePath.indexOf('pages/blog') > -1
@@ -73,6 +75,8 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
     'https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/src/components/Routes/Login.tsx',
     'https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/src/components/Routes/Registration.tsx',
     'https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/src/components/Routes/Home.tsx',
+    'https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/src/components/Routes/Verification.tsx',
+    'https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/src/components/Routes/Recovery.tsx',
     'https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/src/components/Routes/Settings.tsx',
     'https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/app.config.js',
     'https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/src/helpers/sdk.tsx'
