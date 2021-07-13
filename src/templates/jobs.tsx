@@ -3,7 +3,6 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React from 'react'
 
 import MDXBody from '../components/layouts/MDXbody/mdx-body'
-import BlogHero from '../components/layouts/blog/blog-hero'
 import Layout from '../components/layouts/layout/layout'
 import SEO from '../components/layouts/seo/seo'
 
@@ -13,13 +12,12 @@ export default function PageTemplate(props: any) {
 
   return (
     <Layout>
-      <SEO description={fn.metaDescription || ''} title={fn.metaTitle} />
-      <BlogHero
-        title={fn.title}
-        author={fn.author}
-        date={fn.lastUpdatedAt && `Last updated at ${fn.lastUpdatedAt}`}
+      <SEO
+        description={fn.seo?.description || fn.description}
+        title={fn.seo?.title || fn.title}
+        keywords={fn.seo?.keywords || ''}
       />
-      <MDXBody padded={false}>
+      <MDXBody padded={true}>
         <MDXRenderer>{body}</MDXRenderer>
       </MDXBody>
     </Layout>
@@ -33,9 +31,14 @@ export const pageQuery = graphql`
       frontmatter {
         path
         title
-        metaTitle
-        metaDescription
-        lastUpdatedAt
+        description
+        position
+        location
+        seo {
+          title
+          description
+          keywords
+        }
       }
     }
   }
