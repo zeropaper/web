@@ -25,10 +25,10 @@
 }
 
 .team-image {
-    padding-top: 0;
+  padding-top: 0;
 }
 
-@media (--lg),(--xl) {
+@media (--lg), (--xl) {
   .team-content {
     &:nth-child(3n) {
       margin-right: unset;
