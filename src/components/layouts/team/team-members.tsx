@@ -180,6 +180,10 @@ export const teamMembers = {
         {
           network: SocialNetworks.github,
           href: 'https://github.com/Demonsthere'
+        },
+        {
+          network: SocialNetworks.linkedin,
+          href: 'https://www.linkedin.com/in/jakub-błaszczyk-31b786129/'
         }
       ],
       img: (
