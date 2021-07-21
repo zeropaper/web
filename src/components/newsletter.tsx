@@ -53,7 +53,7 @@ class Newsletter extends Component<PropTypes, StateTypes> {
     const { special } = this.props
 
     return (
-      <div className={cn(styles.newsletter)}>
+      <div className={cn(styles.newsletter, 'light')}>
         <Container fluid={true} justify={'center'}>
           <Grid lg={5} md={8} sm={10} xs={12} className={cn(pb32)}>
             <ContentText>
@@ -62,10 +62,8 @@ class Newsletter extends Component<PropTypes, StateTypes> {
                   special
                 ) : (
                   <>
-                    <h3 className={cn('font-h3', 'light', pb32)}>
-                      Never miss a patch
-                    </h3>
-                    <p className={cn('font-p', 'mute-85', 'light', pb32)}>
+                    <h3 className={cn('font-h3', pb32)}>Never miss a patch</h3>
+                    <p className={cn('font-p', pb32)}>
                       Ory ships regular product patches and updates. Subscribe
                       to our newsletter to get the good stuff, and stay up to
                       date.
@@ -85,7 +83,7 @@ class Newsletter extends Component<PropTypes, StateTypes> {
                   value={this.state.email}
                 />
                 <input
-                  className={cn('font-link', 'light')}
+                  className={cn('font-link')}
                   type="button"
                   name={'submit'}
                   value={'Subscribe'}

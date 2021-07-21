@@ -2,15 +2,12 @@ import React from 'react'
 
 import Button from '../../freestanding/button/button'
 
-const ArrowRightThemed = (
-  <i className={'themed-primary ph-arrow-right-bold size16'} />
-)
-
-const Code = <i className={'themed-primary ph-code size32'} />
-const LockOpen = <i className={'themed-primary ph-lock-open size32'} />
-const UserPlus = <i className={'themed-primary ph-user-plus size32'} />
+const ArrowRight = <i className={'ph-arrow-right-bold themed-primary size16'} />
+const Code = <i className={'ph-code-fill themed-primary size32'} />
+const LockOpen = <i className={'ph-lock-open-fill themed-primary size32'} />
+const UserPlus = <i className={'ph-user-plus-fill themed-primary size32'} />
 const CirclesThreePlus = (
-  <i className={'themed-primary ph-circles-three-plus size32'} />
+  <i className={'ph-circles-three-plus-fill themed-primary size32'} />
 )
 
 export const featuresDefault = {
@@ -20,7 +17,7 @@ export const featuresDefault = {
     <Button
       to={'https://console.ory.sh/registration'}
       style={'link'}
-      iconRight={ArrowRightThemed}
+      iconRight={ArrowRight}
     >
       Request Access
     </Button>

@@ -27,7 +27,7 @@ const SimpleText = ({ title, small, text, className }: PropTypes) => (
             )}
           </Grid>
           <Grid lg={8} md={8} sm={12} xs={12}>
-            <p className={cn('font-p-lg', 'mute-85')}>{text}</p>
+            <p className={cn('font-p-large')}>{text}</p>
           </Grid>
         </Container>
       </Grid>

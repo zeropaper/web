@@ -85,15 +85,15 @@ const BlogList = ({ title }: PropTypes) => {
               >
                 <Grid lg={6} md={6} sm={12} xs={12}>
                   <div className={cn(pb16)}>
-                    <h2 className={cn('font-overline', 'primary', pb16)}>
+                    <h2 className={cn('font-overline', pb16)}>
                       {node.frontmatter.overline}
                     </h2>
                     <h3 className={cn('font-h5', pb8)}>
                       {node.frontmatter.title}
                     </h3>
-                    <p className={cn('font-p-xs', 'mute-40')}>
+                    <p className={cn('font-p-smaller')}>
                       <AuthorName
-                        className={cn('font-p-xs')}
+                        className={cn('font-p-smaller')}
                         name={node.frontmatter.author}
                       />{' '}
                       - {node.frontmatter.publishedAt}
@@ -101,8 +101,9 @@ const BlogList = ({ title }: PropTypes) => {
                   </div>
                 </Grid>
                 <Grid lg={6} md={6} sm={12} xs={12}>
-                  <p className={cn('font-p-sm', 'mute-85')}>
-                    {node.frontmatter.teaser} <b>Read more</b>
+                  <p className={cn('font-p-small', 'is-secondary-text')}>
+                    {node.frontmatter.teaser}{' '}
+                    <span className={'is-semibold'}>Read more</span>
                   </p>
                 </Grid>
               </Button>

@@ -34,17 +34,11 @@ type Edge = {
 }
 
 const MapPinLine = () => (
-  <i
-    className={'themed-primary ph-map-pin-line ph-map-pin-line-duotone size16'}
-  />
+  <i className={'ph-map-pin-line-fill themed-primary size16'} />
 )
 
 const ClockClockwise = () => (
-  <i
-    className={
-      'themed-primary ph-clock-clockwise ph-clock-clockwise-duotone size16'
-    }
-  />
+  <i className={'ph-clock-clockwise-fill themed-primary size16'} />
 )
 
 const JobsList = ({ title, description }: PropTypes) => {
@@ -84,7 +78,7 @@ const JobsList = ({ title, description }: PropTypes) => {
               className={cn(styles.jobHeading, pb64)}
             >
               <h2 className={cn('font-h3', pb32)}>{title}</h2>
-              <p className={cn('font-p', 'mute-85')}>{description}</p>
+              <p className={cn('font-p')}>{description}</p>
             </Grid>
           </Container>
           <Container>
@@ -100,23 +94,38 @@ const JobsList = ({ title, description }: PropTypes) => {
                     <h3 className={cn('font-h5', pb8)}>
                       {node.frontmatter.title}
                     </h3>
-                    <div className={cn(styles.jobDetails)}>
+                    <div className={cn(styles.jobDetails, 'is-secondary-text')}>
                       <MapPinLine />
-                      <p className={cn('font-p-xs', pl8)}>
-                        <b>{node.frontmatter.location}</b>
+                      <p
+                        className={cn(
+                          'font-p-smaller',
+                          'is-secondary-text',
+                          pl8
+                        )}
+                      >
+                        <span className={'is-semibold'}>
+                          {node.frontmatter.location}
+                        </span>
                       </p>
                     </div>
                     <div className={cn(styles.jobDetails)}>
                       <ClockClockwise />
-                      <p className={cn('font-p-xs', pl8)}>
+                      <p
+                        className={cn(
+                          'font-p-smaller',
+                          'is-secondary-text',
+                          pl8
+                        )}
+                      >
                         {node.frontmatter.position}
                       </p>
                     </div>
                   </div>
                 </Grid>
                 <Grid lg={6} md={6} sm={12} xs={12}>
-                  <p className={cn('font-p-sm', 'mute-85')}>
-                    {node.frontmatter.description} <b>Learn more</b>
+                  <p className={cn('font-p-small', 'is-secondary-text')}>
+                    {node.frontmatter.description}{' '}
+                    <span className={'is-semibold'}>Learn more</span>
                   </p>
                 </Grid>
               </Button>

@@ -3,13 +3,13 @@
   padding: 112px 0;
 
   & a:any-link i {
-    color: var(--colors-base-grey-600--next);
+    color: var(--colors-base-grey-600);
     transition: all ease 200ms;
 
     &:hover,
     &:active,
     &:focus {
-      color: var(--colors-themed-primary--next);
+      color: var(--colors-themed-primary);
     }
   }
 

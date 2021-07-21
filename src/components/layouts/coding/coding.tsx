@@ -42,16 +42,16 @@ const Coding = ({
   visual,
   content
 }: PropTypes) => (
-  <div className={cn(coding)}>
+  <div className={cn(coding, 'light')}>
     <Container fluid={true}>
       <Grid lg={6} md={6} sm={12} xs={12}>
         <Container flexContainer={'column'}>
           <ContentText className={cn(pb64)}>
-            <h3 className={cn('font-overline', 'light', pb16)}>{overline}</h3>
-            <h2 className={cn('font-h3', 'light', pb32)}>{title}</h2>
-            <p className={cn('font-p', 'light', 'mute-85', pb32)}>
-              {description}
-            </p>
+            <h3 className={cn('font-overline', 'is-primary-text', pb16)}>
+              {overline}
+            </h3>
+            <h2 className={cn('font-h3', pb32)}>{title}</h2>
+            <p className={cn('font-p', pb32)}>{description}</p>
             {buttons && (
               <MoleculeInteraction className={''}>
                 {buttons}
@@ -78,10 +78,8 @@ const Coding = ({
                       >
                         {icon}
                       </ColourWrapper>
-                      <h4 className={cn('font-h5', 'light', pb8)}>{title}</h4>
-                      <p className={cn('font-p-sm', 'mute-85', 'light', pb8)}>
-                        {description}
-                      </p>
+                      <h4 className={cn('font-h5', pb8)}>{title}</h4>
+                      <p className={cn('font-p-small', pb8)}>{description}</p>
                     </Molecule>
                     <MoleculeInteraction>{button}</MoleculeInteraction>
                   </MoleculeTextInteraction>

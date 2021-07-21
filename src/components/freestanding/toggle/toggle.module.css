@@ -11,14 +11,14 @@
 
 .toggle-enabled {
   justify-content: flex-end;
-  background: var(--colors-themed-primary--next);
+  background: var(--colors-themed-primary);
 
   &:hover {
-    background: var(--colors-themed-dark--next);
+    background: var(--colors-themed-dark);
   }
 
   &:focus {
-    border: 4px solid var(--colors-themed-light--next);
+    border: 4px solid var(--colors-themed-light);
   }
 
   &:disabled {
@@ -27,14 +27,14 @@
 }
 
 .toggle-disabled {
-  background: var(--colors-base-grey-400--next);
+  background: var(--colors-base-grey-400);
 
   &:hover {
-    background: var(--colors-base-grey-600--next);
+    background: var(--colors-base-grey-600);
   }
 
   &:focus {
-    border: 4px solid var(--colors-themed-light--next);
+    border: 4px solid var(--colors-themed-light);
   }
 
   &:disabled {
@@ -47,21 +47,21 @@
   height: 32px;
   box-sizing: border-box;
   border-radius: 40px;
-  background: var(--colors-base-white--next);
+  background: var(--colors-base-white);
   transition: all 50ms ease-in 0s;
 }
 
 .toggle-disabled > .toggle-rectangle {
-  border: 2px solid var(--colors-base-grey-400--next);
+  border: 2px solid var(--colors-base-grey-400);
 }
 .toggle-enabled > .toggle-rectangle {
-  border: 2px solid var(--colors-themed-primary--next);
+  border: 2px solid var(--colors-themed-primary);
 }
 
 .toggle-text-disabled {
-  color: var(--colors-base-grey-600--next);
+  color: var(--colors-base-grey-600);
 }
 
 .toggle-text-enabled {
-  color: var(--colors-base-grey--next);
+  color: var(--colors-base-dark);
 }

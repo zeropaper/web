@@ -18,7 +18,7 @@
   & h5,
   & h6,
   & p {
-    color: var(--colors-base-grey--next);
+    color: var(--colors-base-dark);
   }
 
   & h1 {
@@ -103,12 +103,12 @@
   }
 
   & a:any-link {
-    color: var(--colors-themed-default);
+    color: var(--colors-themed-primary);
   }
 
   & p a:hover,
   & p a:active {
-    color: var(--colors-themed-dark--next);
+    color: var(--colors-themed-dark);
   }
 
   & img {
@@ -121,7 +121,7 @@
     padding: 0 6px;
     font-weight: 500;
     word-break: break-all;
-    color: var(--colors-base-dark);
+    color: var(--colors-base-black);
     font-family: 'IBM Plex Mono', monospace;
   }
 
@@ -129,8 +129,8 @@
     margin-top: 2rem;
     margin-bottom: 3rem;
     padding-left: 2rem;
-    border-left: 3px solid var(--colors-themed-primary--next);
-    background-color: var(--colors-themed-background--next);
+    border-left: 3px solid var(--colors-themed-primary);
+    background-color: var(--colors-themed-background);
   }
 
   & blockquote p {
@@ -144,7 +144,7 @@
 
     & figcaption {
       text-align: center;
-      color: var(--colors-base-grey);
+      color: var(--colors-base-grey-800);
       font-size: 0.694rem;
       margin: 16px 0 32px;
     }

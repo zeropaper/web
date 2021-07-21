@@ -2,28 +2,14 @@ import React from 'react'
 
 import Button from '../../freestanding/button/button'
 
-const RocketLaunch = <i className={'base-white ph-rocket-launch size24'} />
-const BookOpen = (
-  <i className={'base-white ph-book-open ph-book-open-duotone size24'} />
-)
-const ArrowRight = <i className={'themed-primary ph-arrow-right-bold size16'} />
-const Users = (
-  <i className={'themed-primary ph-users ph-users-duotone size32'} />
-)
-const SlackLogo = (
-  <i className={'themed-primary ph-slack-logo ph-slack-logo-duotone size32'} />
-)
-const ChatsCircle = (
-  <i
-    className={'themed-primary ph-chats-circle ph-chats-circle-duotone size32'}
-  />
-)
+const RocketLaunch = <i className={'ph-rocket-launch-fill base-white size24'} />
+const BookOpen = <i className={'ph-book-open-fill base-white size24'} />
+const ArrowRight = <i className={'ph-arrow-right-bold themed-primary size16'} />
+const Users = <i className={'ph-users-fill themed-primary size32'} />
+const SlackLogo = <i className={' ph-slack-logo-fill themed-primary size32'} />
+const ChatsCircle = <i className={'ph-chats-circle-fill size32'} />
 const PaperPlaneTilt = (
-  <i
-    className={
-      'base-white ph-paper-plane-tilt ph-paper-plane-tilt-duotone size32'
-    }
-  />
+  <i className={'ph-paper-plane-tilt-fill base-white size32'} />
 )
 const UsersThree = (
   <i
@@ -52,11 +38,7 @@ export const quickstartDefault = {
   ),
   content: [
     {
-      icon: (
-        <i
-          className={'themed-primary ph-book-open ph-book-open-duotone size32'}
-        />
-      ),
+      icon: <i className={'ph-book-open-fill themed-primary size32'} />,
       title: <>Check out our docs</>,
       description: (
         <>

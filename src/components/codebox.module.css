@@ -1,5 +1,5 @@
 .box {
-  background-color: var(--colors-base-dark);
+  background-color: var(--colors-base-black);
   box-shadow: 0 4px 8px rgba(00, 00, 00, 0.4);
   padding: 0 16px;
   border-radius: 3px;
@@ -27,7 +27,7 @@
     display: inline;
 
     &.selected {
-      color: var(--colors-themed-default);
+      color: var(--colors-themed-primary);
     }
   }
 }
@@ -42,11 +42,11 @@
     width: 8px;
     height: 8px;
     border-radius: 4px;
-    background-color: var(--colors-base-grey);
+    background-color: var(--colors-base-grey-800);
     margin-right: 5px;
 
     &.primary {
-      background-color: var(--colors-themed-default);
+      background-color: var(--colors-themed-primary);
     }
   }
 }
@@ -68,14 +68,14 @@
   & code,
   & pre[class*='language'] > code[class*='language'],
   & pre > code {
-    color: var(--colors-base-light);
+    color: var(--colors-base-white);
     font-family: 'Inconsolata', monospace;
     text-shadow: none;
     font-style: normal;
     font-weight: 400;
     font-size: 0.875rem;
     line-height: 175%;
-    background-color: var(--colors-base-dark);
+    background-color: var(--colors-base-black);
 
     word-wrap: break-word;
     white-space: pre-wrap;
@@ -83,6 +83,6 @@
 
   & pre code :global .token.operator {
     color: var(--colors-base-white);
-    background-color: var(--colors-base-dark);
+    background-color: var(--colors-base-black);
   }
 }

@@ -1,5 +1,5 @@
 .quote {
-  background: var(--colors-base-grey-25--next);
+  background: var(--colors-base-grey-25);
 }
 
 .quote-block {
@@ -7,7 +7,7 @@
   justify-content: center;
   min-height: 30rem;
   padding: 4rem;
-  background: var(--colors-base-white--next);
+  background: var(--colors-base-white);
   box-sizing: border-box;
   text-align: left;
 }

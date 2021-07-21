@@ -232,17 +232,13 @@ class Stats extends Component<PropTypes, StateTypes> {
 
   render() {
     return (
-      <div className={styles.stats}>
+      <div className={cn(styles.stats, 'light')}>
         <Container fluid={true} justify={'space-between'}>
           <Grid className={cn(styles.statsRow)} lg={4} md={3} sm={12} xs={12}>
             <ContentText>
               <Molecule>
-                <h3 className={cn('font-h3', 'light', pb32)}>
-                  {this.props.title}
-                </h3>
-                <p className={cn('font-p', 'light', 'mute-85')}>
-                  {this.props.description}
-                </p>
+                <h3 className={cn('font-h3', pb32)}>{this.props.title}</h3>
+                <p className={cn('font-p')}>{this.props.description}</p>
               </Molecule>
             </ContentText>
           </Grid>
@@ -257,15 +253,11 @@ class Stats extends Component<PropTypes, StateTypes> {
                     >
                       <ContentText>
                         <Molecule>
-                          <h5 className={cn('font-h1', 'light')}>
+                          <h5 className={cn('font-h1')}>
                             <AnimatedCounter countTo={amount} />
                           </h5>
-                          <p className={cn('font-p-sm', 'light', 'mute-85')}>
-                            {title}
-                          </p>
-                          <p className={cn('font-p-sm', 'light', 'mute-60')}>
-                            {description}
-                          </p>
+                          <p className={cn('font-p-small')}>{title}</p>
+                          <p className={cn('font-p-small')}>{description}</p>
                         </Molecule>
                       </ContentText>
                     </Container>

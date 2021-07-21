@@ -53,7 +53,7 @@ const HeroFeatures = ({
                 <h2 className={cn('font-h3', pb32)}>{title}</h2>
               )}
               {description && (
-                <p className={cn('font-p-lg', 'mute-85', pb8)}>{description}</p>
+                <p className={cn('font-p-large', pb8)}>{description}</p>
               )}
             </Grid>
           </Container>
@@ -79,9 +79,7 @@ const HeroFeatures = ({
                     )}
                     <ContentText>
                       <h4 className={cn('font-h5', pb8)}>{f.title}</h4>
-                      <p className={cn('font-p-sm', 'mute-60', pb8)}>
-                        {f.description}
-                      </p>
+                      <p className={cn('font-p-small', pb8)}>{f.description}</p>
                     </ContentText>
                   </Container>
                 </Grid>
@@ -105,7 +103,7 @@ const HeroFeatures = ({
                 <h2 className={cn('font-h3', pb32)}>{title}</h2>
               )}
               {description && (
-                <p className={cn('font-p-lg', 'mute-85', pb8)}>{description}</p>
+                <p className={cn('font-p-large', pb8)}>{description}</p>
               )}
             </Grid>
           </Container>
@@ -131,9 +129,7 @@ const HeroFeatures = ({
                     )}
                     <ContentText>
                       <h4 className={cn('font-h5', pb8)}>{f.title}</h4>
-                      <p className={cn('font-p-sm', 'mute-60', pb8)}>
-                        {f.description}
-                      </p>
+                      <p className={cn('font-p-small', pb8)}>{f.description}</p>
                     </ContentText>
                   </Container>
                 </Grid>

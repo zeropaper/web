@@ -14,7 +14,7 @@ import ResourceBox from './content/resource-box'
 
 import * as styles from './resource.module.css'
 
-const ArrowRight = <i className={'ph-arrow-right base-white size32'} />
+const ArrowRight = <i className={'ph-arrow-right-bold base-white size32'} />
 
 const resources = [
   {

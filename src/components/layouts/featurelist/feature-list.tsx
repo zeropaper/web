@@ -11,6 +11,7 @@ import MoleculeInteraction from '../../freestanding/molecule/molecule-interactio
 import FeatureListItem, { Features } from './feature-list-item'
 
 import {
+  pb24,
   pb32,
   pb48,
   pb64,
@@ -47,9 +48,7 @@ const FeatureList = ({ className, features }: PropTypes) => (
                 <Molecule>
                   <MoleculeIconWrapper>{section.icon}</MoleculeIconWrapper>
                   <h3 className={cn('font-h3', pb32, pt32)}>{section.title}</h3>
-                  <p className={cn('font-p', 'mute-85')}>
-                    {section.description}
-                  </p>
+                  <p className={cn('font-p', pb24)}>{section.description}</p>
                 </Molecule>
                 {section.button && (
                   <MoleculeInteraction>{section.button}</MoleculeInteraction>

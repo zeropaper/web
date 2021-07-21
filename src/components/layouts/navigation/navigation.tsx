@@ -104,7 +104,7 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
     mobileNav = cn(styles.mobileNavActive)
   }
 
-  const List = <i className={'ph-list themed-primary size32'} />
+  const List = <i className={'ph-list-fill themed-primary size32'} />
 
   // once clicked outside of the nav the menu will close
   onClickOutsideRef(
@@ -191,7 +191,7 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
                       {sideMenu.map(({ description, button }, index) => (
                         <ContentText key={index} className={cn(pb24)}>
                           {button}
-                          <p className={cn('font-p-sm')}>{description}</p>
+                          <p className={cn('font-p-small')}>{description}</p>
                         </ContentText>
                       ))}
                     </Container>
@@ -250,7 +250,7 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
 
           <MoleculeSeparator style={'horizontal'} />
 
-          <p className={cn('font-p-sm')}>{mobileMenu.main.title}</p>
+          <p className={cn('font-p-small')}>{mobileMenu.main.title}</p>
           <DropdownMobileMenuSection>
             {mobileMenu.main.buttons.map((button, index) => (
               <DropdownMobileItem

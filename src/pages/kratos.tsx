@@ -67,8 +67,12 @@ export const registrationRoute = (req, res) => {
 )
 
 const IndexPage = () => {
-  const ArrowRight = <i className={'themed-primary ph-arrow-right size16'} />
-  const CheckCircleHero = <i className={'base-white ph-check-circle size24'} />
+  const ArrowRight = (
+    <i className={'ph-arrow-right-bold themed-primary size16'} />
+  )
+  const CheckCircleHero = (
+    <i className={'ph-check-circle-fill base-white size24'} />
+  )
   return (
     <Layout>
       <SEO

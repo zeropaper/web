@@ -37,7 +37,7 @@ const Quickstart = ({ title, description, buttons, content }: PropType) => (
         <ContentText>
           <Molecule>
             <h3 className={cn('font-h3', pb32)}>{title}</h3>
-            <p className={cn('font-p', 'mute-85', pb32)}>{description}</p>
+            <p className={cn('font-p', pb32)}>{description}</p>
           </Molecule>
           <MoleculeInteraction>{buttons}</MoleculeInteraction>
         </ContentText>
@@ -59,9 +59,7 @@ const Quickstart = ({ title, description, buttons, content }: PropType) => (
                 </ColourWrapper>
                 <ContentText>
                   <h4 className={cn('font-h5', pb8)}>{title}</h4>
-                  <p className={cn('font-p-sm', 'mute-60', pb8)}>
-                    {description}
-                  </p>
+                  <p className={cn('font-p-small', pb8)}>{description}</p>
                   <MoleculeInteraction>{button}</MoleculeInteraction>
                 </ContentText>
               </Container>

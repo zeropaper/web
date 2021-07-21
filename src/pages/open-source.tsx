@@ -17,16 +17,10 @@ import Stats from '../components/layouts/stats/stats'
 import codeboxIllustration from '../images/illustrations/codebox.svg'
 
 const IndexPage = () => {
-  const BookOpen = (
-    <i className={'base-white ph-book-open ph-book-open-duotone size24'} />
-  )
-  const Terminal = (
-    <i className={'themed-primary ph-terminal ph-terminal-duotone size32'} />
-  )
-  const ArrowRight = <i className={'base-white ph-arrow-right-bold size16'} />
-  const GitMerge = (
-    <i className={'themed-primary ph-git-merge ph-git-merge-duotone size32'} />
-  )
+  const BookOpen = <i className={'ph-book-open-fill base-white size24'} />
+  const Terminal = <i className={'ph-terminal-fill themed-primary size32'} />
+  const ArrowRight = <i className={'ph-arrow-right-bold base-white size16'} />
+  const GitMerge = <i className={'ph-git-merge-fill themed-primary size32'} />
 
   return (
     <Layout>
@@ -75,7 +69,7 @@ const IndexPage = () => {
             <Button
               to={'/docs/open-source'}
               style={'filled'}
-              iconLeft={BookOpen}
+              iconRight={BookOpen}
             >
               Get started
             </Button>

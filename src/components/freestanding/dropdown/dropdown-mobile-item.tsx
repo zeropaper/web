@@ -32,7 +32,7 @@ const DropdownMobileItem = ({
     ) : (
       <div onClick={onClick}>{title}</div>
     )}
-    {description && <p className={cn('font-p-sm')}>{description}</p>}
+    {description && <p className={cn('font-p-small')}>{description}</p>}
     <div onClick={onClick}>{button && button}</div>
   </Container>
 )

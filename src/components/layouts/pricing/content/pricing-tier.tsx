@@ -52,6 +52,7 @@ interface PropTypes {
 }
 
 interface Theme {
+  text?: string
   fonth2: string
   fonth3: string
   fontp: string
@@ -72,7 +73,7 @@ const PricingContent = ({
     <Container flexContainer={'column'} alignItems={'start'}>
       <ContentText className={cn(pb48)}>
         <Molecule>
-          <h3 className={cn(classes.fonth3, pb16)}>{title}</h3>
+          <h3 className={cn('font-h3', pb16)}>{title}</h3>
           <p className={cn(classes.fontp)}>{description}</p>
         </Molecule>
       </ContentText>
@@ -119,24 +120,27 @@ const PricingTier = ({
     classes = {
       fonth2: 'font-h2',
       fonth3: 'font-h3',
-      fontp: 'font-p mute-60',
-      fontp2: 'font-p mute-85',
-      fontpsm: 'font-p-sm mute-60',
+      fontp: 'font-p',
+      fontp2: 'font-p',
+      fontpsm: 'font-p-small',
       background: styles.tierLight
     }
   } else {
     classes = {
-      fonth2: 'font-h2 light',
-      fonth3: 'font-h3 light',
-      fontp: 'font-p light mute-85',
-      fontp2: 'font-p light mute-85',
-      fontpsm: 'font-p-sm light mute-85',
+      text: 'light',
+      fonth2: 'font-h2',
+      fonth3: 'font-h3',
+      fontp: 'font-p',
+      fontp2: 'font-p',
+      fontpsm: 'font-p-small',
       background: styles.tierDark
     }
   }
 
   return (
-    <div className={cn(classes.background, className && className)}>
+    <div
+      className={cn(classes.background, classes.text, className && className)}
+    >
       <Container
         flexContainer={featuresContainer}
         justify={'start'}

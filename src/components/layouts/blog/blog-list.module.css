@@ -8,14 +8,13 @@
 }
 
 .blog-item {
-  background: var(--colors-themed-background--next);
-  color: var(--colors-base-grey--next);
+  background: var(--colors-themed-background);
   border: 1px solid transparent;
   padding: 2rem;
   margin-bottom: 2rem;
 
   &:hover {
-    border-color: var(--colors-themed-primary--next);
+    border-color: var(--colors-themed-primary);
   }
   &:last-child {
     margin-bottom: unset;

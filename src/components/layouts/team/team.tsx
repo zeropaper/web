@@ -52,31 +52,23 @@ const socialWithIcon = ({ href, network }: SocialLinks): resolvedSocial => {
   let alt
   switch (network) {
     case SocialNetworks.github:
-      Icon = (
-        <i className="ph-github-logo ph-github-logo-duotone base-grey-400 size24" />
-      )
+      Icon = <i className="ph-github-logo-fill base-grey-400 size24" />
       alt = 'GitHub'
       break
     case SocialNetworks.linkedin:
-      Icon = (
-        <i className="ph-linkedin-logo ph-linkedin-logo-duotone base-grey-400 size24" />
-      )
+      Icon = <i className="ph-linkedin-logo-fill base-grey-400 size24" />
       alt = 'Linkedin'
       break
     case SocialNetworks.twitter:
-      Icon = (
-        <i className="ph-twitter-logo ph-twitter-logo-duotone base-grey-400 size24" />
-      )
+      Icon = <i className="ph-twitter-logo-fill base-grey-400 size24" />
       alt = 'Twitter'
       break
     case SocialNetworks.instagram:
-      Icon = (
-        <i className="ph-instagram-logo ph-instagram-logo-duotone base-grey-400 size24" />
-      )
+      Icon = <i className="ph-instagram-logo-fill base-grey-400 size24" />
       alt = 'Instagram'
       break
     case SocialNetworks.web:
-      Icon = <i className="ph-globe ph-globe-duotone base-grey-400 size24" />
+      Icon = <i className="ph-globe-fill base-grey-400 size24" />
       alt = 'Website'
       break
   }
@@ -101,7 +93,7 @@ const Profile = ({ name, position, img, social }: Profiles) => (
     <Grid lg={12} md={12} sm={12} xs={12} className={cn(styles.profileInfo)}>
       <div>
         <h3 className={cn('font-h5')}>{name}</h3>
-        <p className={cn('font-p-sm', 'mute-85', pb8)}>{position}</p>
+        <p className={cn('font-p-small', pb8)}>{position}</p>
       </div>
       <div>
         <>

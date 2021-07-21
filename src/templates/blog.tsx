@@ -35,10 +35,8 @@ export default function BlogTemplate(props: any) {
       <Newsletter
         special={
           <>
-            <h3 className={cn('font-h3', 'light', pb32)}>
-              Never miss an article
-            </h3>
-            <p className={cn('font-p', 'mute-85', 'light', pb32)}>
+            <h3 className={cn('font-h3', pb32)}>Never miss an article</h3>
+            <p className={cn('font-p', pb32)}>
               Ory ships regular product patches and updates. Subscribe to our
               newsletter to get the good stuff, and stay up to date.
             </p>

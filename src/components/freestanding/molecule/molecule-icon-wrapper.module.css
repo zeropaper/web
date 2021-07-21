@@ -1,6 +1,6 @@
 .molecule-icon-wrapper {
-  background: var(--colors-themed-primary--next);
-  color: var(--colors-base-white--next);
+  background: var(--colors-themed-primary);
+  color: var(--colors-base-white);
   display: flex;
   flex-direction: row;
   justify-content: center;

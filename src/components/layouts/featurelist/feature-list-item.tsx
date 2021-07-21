@@ -32,15 +32,13 @@ const FeatureListItem = ({ className, features }: PropType) => (
             {feature.icon}
             <ContentText className={cn(pb4, pl8)}>
               <Molecule>
-                <p className={cn('font-p font-bold')}>{feature.title}</p>
+                <p className={cn('font-p is-semibold')}>{feature.title}</p>
               </Molecule>
             </ContentText>
             <Container flexContainer={'column'} className={cn(pl24)}>
               <ContentText>
                 <Molecule>
-                  <p className={cn('font-p-sm', 'mute-85')}>
-                    {feature.description}
-                  </p>
+                  <p className={cn('font-p-small')}>{feature.description}</p>
                 </Molecule>
               </ContentText>
             </Container>

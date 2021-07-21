@@ -26,17 +26,13 @@ const BlogHero = ({ title, date, author, overline, subtitle }: PropTypes) => (
         <ContentText>
           <Molecule>
             {overline && (
-              <h3 className={cn('font-overline', 'primary', pb16)}>
-                {overline}
-              </h3>
+              <h3 className={cn('font-overline', pb16)}>{overline}</h3>
             )}
             <h2 className={cn('font-h3', pb32)}>{title}</h2>
-            {subtitle && (
-              <p className={cn('font-p-sm', 'mute-85', pb24)}>{subtitle}</p>
-            )}
-            <p className={cn('font-p-xs')}>
+            {subtitle && <p className={cn('font-p-small', pb24)}>{subtitle}</p>}
+            <p className={cn('font-p-smaller')}>
               <AuthorLink name={author} /> -{' '}
-              <span className={cn('mute-85')}>{date}</span>
+              <span className={cn('is-mute-text')}>{date}</span>
             </p>
           </Molecule>
         </ContentText>

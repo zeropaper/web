@@ -20,17 +20,13 @@ import Stats from '../components/layouts/stats/stats'
 import CodeBoxImage from '../images/illustrations/codebox.png'
 
 const IndexPage = () => {
-  const RocketLaunch = <i className="ph-rocket-launch base-white size24" />
-  const BookOpen = (
-    <i className="ph-book-open ph-book-open-duotone base-white size24" />
-  )
+  const RocketLaunch = <i className="ph-rocket-launch-fill base-white size24" />
+  const BookOpen = <i className="ph-book-open-fill base-white size24" />
 
-  const ArrowRightWhite = (
-    <i className="ph-arrow-right-bold base-white size16" />
-  )
+  const ArrowRight = <i className="ph-arrow-right-bold base-white size16" />
 
-  const Terminal = <i className="ph-terminal themed-primary size32" />
-  const GitMerge = <i className="ph-git-merge themed-primary size32" />
+  const Terminal = <i className="ph-terminal-fill themed-primary size32" />
+  const GitMerge = <i className="ph-git-merge-fill themed-primary size32" />
 
   return (
     <Layout>
@@ -138,7 +134,7 @@ const IndexPage = () => {
             <Button
               to={'/docs/get-started'}
               style={'filled'}
-              iconLeft={BookOpen}
+              iconRight={BookOpen}
             >
               Get started
             </Button>
@@ -167,7 +163,7 @@ const IndexPage = () => {
                 to={'/docs/guides/ory-cli-install-use'}
                 style={'link'}
                 theme={'dark'}
-                iconRight={ArrowRightWhite}
+                iconRight={ArrowRight}
               >
                 Install the CLI
               </Button>
@@ -186,7 +182,7 @@ const IndexPage = () => {
                 to={'https://github.com/ory/'}
                 style={'link'}
                 theme={'dark'}
-                iconRight={ArrowRightWhite}
+                iconRight={ArrowRight}
               >
                 Star us on GitHub
               </Button>

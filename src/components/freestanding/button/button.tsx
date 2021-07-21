@@ -42,14 +42,14 @@ const Button = ({
   }
 
   if (style == 'link') {
-    classes = classes.concat(['font-link', 'font-link-md'])
+    classes = classes.concat(['font-link'])
   } else {
-    classes.push('font-btn')
+    classes.push('font-button')
   }
 
   if (style == 'link-inline') {
     classes = classes.filter(
-      (val) => !['font-btn', styles.btnBase].includes(val)
+      (val) => !['font-button', styles.btnBase].includes(val)
     )
   }
 

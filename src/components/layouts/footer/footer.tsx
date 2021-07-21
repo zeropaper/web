@@ -64,7 +64,7 @@ const FooterMain = ({ className, logo, contact, links }: FooterMain) => (
           <Container alignItems={'start'} justify={'space-between'}>
             {links.map((l, index) => (
               <ContentText key={index} className={cn(footerCategories)}>
-                <p className={cn('font-p-sm', pb16)}>{l.title}</p>
+                <p className={cn('font-p-small', pb16)}>{l.title}</p>
                 {l.links.map((i, index) => (
                   <ColourWrapper key={index} className={cn(footerFont)}>
                     {i as React.ReactElement}
@@ -99,7 +99,7 @@ const FooterSub = ({ className, copyright, social, legal }: FooterSub) => (
             justify={['start-lg', 'start-md', 'start-sm', 'center-xs']}
           >
             <ColourWrapper text={'base-grey-400'}>
-              <p className={cn('font-p-sm')}>{copyright}</p>
+              <p className={cn('font-p-small')}>{copyright}</p>
             </ColourWrapper>
           </Container>
         </Grid>

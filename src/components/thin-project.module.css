@@ -10,14 +10,14 @@
     color: var(--colors-base-black);
   }
   & p {
-    color: var(--colors-base-dark);
+    color: var(--colors-base-black);
     margin-bottom: 16px;
   }
 
   & :global a.cta.primary:any-link {
     color: var(--colors-base-white);
-    background-color: var(--colors-themed-default);
-    border-color: var(--colors-themed-default);
+    background-color: var(--colors-themed-primary);
+    border-color: var(--colors-themed-primary);
 
     &:hover,
     &:focus,
@@ -32,7 +32,7 @@
 .divider {
   padding-bottom: 6rem;
   border-bottom: 2px solid;
-  border-color: var(--colors-base-light);
+  border-color: var(--colors-base-white);
 }
 
 .alternate {

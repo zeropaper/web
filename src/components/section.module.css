@@ -16,26 +16,26 @@
 
     & h3,
     & p {
-      color: var(--colors-base-dark);
+      color: var(--colors-base-black);
     }
 
     & a:any-link {
-      color: var(--colors-themed-default);
+      color: var(--colors-themed-primary);
 
       &:hover,
       &:active,
       &:focus {
-        color: var(--colors-base-dark);
+        color: var(--colors-base-black);
       }
     }
   }
 
   &.dark {
     color: var(--colors-base-white);
-    background-color: var(--colors-base-dark);
+    background-color: var(--colors-base-black);
 
     & a:any-link {
-      color: var(--colors-themed-default);
+      color: var(--colors-themed-primary);
 
       &:hover,
       &:active,

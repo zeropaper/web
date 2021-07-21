@@ -1,5 +1,5 @@
 .newsletter {
-  background-color: var(--colors-base-grey--next);
+  background-color: var(--colors-base-dark);
   padding: 4rem 0;
 }
 
@@ -41,11 +41,11 @@
     transition: color ease 200ms, background-color ease 200ms,
       border-color ease 200ms;
 
-    background-color: var(--colors-themed-default);
+    background-color: var(--colors-themed-primary);
 
     &:hover,
     &:focus {
-      color: var(--colors-themed-default);
+      color: var(--colors-themed-primary);
       background-color: var(--colors-base-white);
     }
 
@@ -56,11 +56,11 @@
 
   & input[type='email'] {
     border-radius: 100px;
-    background-color: var(--colors-base-grey-800--next);
+    background-color: var(--colors-base-grey-800);
     width: 60%;
 
     &::placeholder {
-      color: var(--colors-base-grey-400--next);
+      color: var(--colors-base-grey-400);
     }
   }
 }

@@ -1,26 +1,12 @@
 import React from 'react'
 
-const Code = <i className={'themed-primary size32 ph-code ph-code-duotone'} />
+const Code = <i className={'ph-code-fill themed-primary size32'} />
 const CirclesThreePlus = (
-  <i
-    className={
-      'themed-primary size32 ph-circles-three-plus ph-circles-three-plus-duotone'
-    }
-  />
+  <i className={'ph-circles-three-plus-fill themed-primary size32'} />
 )
-const GitPR = (
-  <i
-    className={
-      'themed-primary size32 ph-git-pull-request ph-git-pull-request-duotone'
-    }
-  />
-)
+const GitPR = <i className={'ph-git-pull-request-fill themed-primary size32'} />
 const RocketLaunch = (
-  <i
-    className={
-      'themed-primary size32 ph-rocket-launch ph-rocket-launch-duotone'
-    }
-  />
+  <i className={' ph-rocket-launch-fill themed-primary size32'} />
 )
 
 export const heroFeaturesJobsBenefits = {

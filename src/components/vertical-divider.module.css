@@ -2,7 +2,7 @@
   border-left: 1px solid;
   position: absolute;
   left: 50%;
-  border-color: var(--colors-themed-default);
+  border-color: var(--colors-themed-primary);
 }
 
 @media (--sm-viewport) {

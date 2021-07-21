@@ -16,7 +16,7 @@ import Stats from '../components/layouts/stats/stats'
 
 const PricingPage = () => {
   const CheckCircle = (
-    <i className="success-primary size16 ph-check-circle-bold" />
+    <i className={'ph-check-circle-fill themed-primary size16'} />
   )
 
   return (
@@ -170,18 +170,26 @@ const PricingPage = () => {
         description={
           <>
             If you cant find your question here, reach out to us on&nbsp;
-            <Button style={'link-inline'} to={'https://github.com/ory'}>
+            <Button
+              style={'link-inline'}
+              theme={'dark'}
+              to={'https://github.com/ory'}
+            >
               GitHub
             </Button>
             , our&nbsp;
-            <Button style={'link-inline'} to={'https://slack.ory.sh/'}>
+            <Button
+              style={'link-inline'}
+              theme={'dark'}
+              to={'https://slack.ory.sh/'}
+            >
               Slack Channel
             </Button>
             &nbsp;or&nbsp;
             <Button
               style={'link-inline'}
+              theme={'dark'}
               to={'mailto:office@ory.sh'}
-              className={cn('link link-md link-news')}
             >
               via email.
             </Button>
@@ -219,7 +227,11 @@ const PricingPage = () => {
                 within 48 hours after disclosure, see details in our security
                 policy. Live details on the Ory Network, including uptime and
                 status updates can be found on our {''}
-                <Button style={'link-inline'} to={'https://status.ory.sh/'}>
+                <Button
+                  style={'link-inline'}
+                  theme={'dark'}
+                  to={'https://status.ory.sh/'}
+                >
                   status page
                 </Button>
                 .

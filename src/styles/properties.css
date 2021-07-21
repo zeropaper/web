@@ -1,3 +1,50 @@
 :root {
   --nav-height: 48px;
+
+  /*Sizes*/
+  /*Multiples of 4*/
+  --size-px: 1px;
+  --size-0: 0;
+  --size-1: 0.25rem;
+  --size-2: 0.5rem;
+  --size-3: 0.75rem;
+  --size-4: 1rem;
+  --size-5: 1.25rem;
+  --size-6: 1.5rem;
+  --size-8: 2rem;
+  --size-10: 2.5rem;
+  --size-12: 3rem;
+  --size-16: 4rem;
+  --size-20: 5rem;
+  --size-24: 6rem;
+  --size-32: 8rem;
+  --size-full: 100%;
+
+  /*Spacing*/
+  /*Multiples of 8*/
+  --space-0: var(--size-0);
+  --space-1: var(--size-2);
+  --space-2: var(--size-4);
+  --space-3: var(--size-6);
+  --space-4: var(--size-8);
+  --space-5: var(--size-10);
+  --space-6: var(--size-12);
+
+  /*Radii*/
+  --radius-none: var(--size-0);
+  --radius-smaller: var(--size-1);
+  --radius-small: var(--size-2);
+  --radius-default: var(--size-4);
+  --radius-large: var(--size-6);
+  --radius-larger: var(--size-8);
+
+  /*z-index*/
+  /*Multiples of 8*/
+  --z-index-auto: auto;
+  --z-index-0: 0;
+  --z-index-1: 10;
+  --z-index-2: 20;
+  --z-index-3: 30;
+  --z-index-4: 40;
+  --z-index-5: 50;
 }

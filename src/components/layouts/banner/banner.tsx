@@ -38,7 +38,7 @@ const Banner = ({ title, text, button, small }: PropTypes) => (
             )}
           </Grid>
           <Grid lg={8} md={8} sm={12} xs={12}>
-            <p className={cn('font-p-lg', 'mute-85', pb16)}>{text}</p>
+            <p className={cn('font-p-large', pb16)}>{text}</p>
             <MoleculeInteraction>{button}</MoleculeInteraction>
           </Grid>
         </Container>

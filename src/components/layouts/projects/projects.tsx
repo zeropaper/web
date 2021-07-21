@@ -39,9 +39,7 @@ const Projects = ({ overline, title, description, buttons }: PropTypes) => {
         <Grid lg={4} md={3} sm={12} xs={12} className={cn(pb64)}>
           <ContentText>
             <Molecule>
-              <h3 className={cn('font-overline', 'primary', pb16)}>
-                {overline}
-              </h3>
+              <h3 className={cn('font-overline', pb16)}>{overline}</h3>
               <h1 className={cn('font-h3')}>{title}</h1>
               {description && (
                 <p className={cn('font-p', pt32)}>{description}</p>
@@ -73,11 +71,11 @@ const Projects = ({ overline, title, description, buttons }: PropTypes) => {
                     {project.icon}
                   </ColourWrapper>
                   <ContentText>
-                    <h3 className={cn('font-overline', 'primary', pb16)}>
+                    <h3 className={cn('font-overline', pb16)}>
                       {project.descriptiveTitle}
                     </h3>
                     <h2 className={cn('font-h5', pb8)}>{project.title}</h2>
-                    <p className={cn('font-p-sm', 'mute-60', pb8)}>
+                    <p className={cn('font-p-small', pb8)}>
                       {project.description}
                     </p>
                     <Button

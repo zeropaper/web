@@ -1,6 +1,6 @@
 .resource-box {
-  color: var(--colors-base-white--next);
-  background: var(--colors-keto-darkmode--next);
+  color: var(--colors-base-white);
+  background: var(--colors-keto-darkmode);
   box-shadow: var(--elevation-xl);
   border-radius: 10px;
   display: flex;
@@ -9,17 +9,17 @@
 }
 
 .resource-box-keto {
-  background-color: var(--colors-keto-darkmode--next);
+  background-color: var(--colors-keto-darkmode);
 }
 
 .resource-box-dockertest {
-  background-color: var(--colors-dockertest-darkmode--next);
+  background-color: var(--colors-dockertest-darkmode);
 }
 
 .resource-box-kratos {
-  background-color: var(--colors-kratos-darkmode--next);
+  background-color: var(--colors-kratos-darkmode);
 }
 
 .resource-box-hydra {
-  background-color: var(--colors-hydra-darkmode--next);
+  background-color: var(--colors-hydra-darkmode);
 }

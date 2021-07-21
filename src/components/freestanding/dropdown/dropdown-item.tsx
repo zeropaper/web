@@ -47,7 +47,7 @@ const DropdownItem = ({
           {button}
         </div>
       )}
-      <p className={cn('font-p-sm')}>{description}</p>
+      <p className={cn('font-p-small')}>{description}</p>
     </ContentText>
   </div>
 )

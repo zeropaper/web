@@ -56,7 +56,7 @@ interface StylingProps {
 }
 
 const getColorVariable = (name: string | undefined) => {
-  return `--colors-${name}--next`
+  return `--colors-${name}`
 }
 
 const Style = styled.div<StylingProps>`

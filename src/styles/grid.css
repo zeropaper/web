@@ -138,25 +138,25 @@
 /* NEXT */
 
 @media (--xs) {
-  .hidden-xs--next {
+  .hidden-xs {
     display: none !important;
   }
 }
 
 @media (--sm-viewport) {
-  .hidden-sm--next {
+  .hidden-sm {
     display: none !important;
   }
 }
 
 @media (--md-viewport) {
-  .hidden-md--next {
+  .hidden-md {
     display: none !important;
   }
 }
 
 @media (--lg-viewport) {
-  .hidden-lg--next {
+  .hidden-lg {
     display: none !important;
   }
 }

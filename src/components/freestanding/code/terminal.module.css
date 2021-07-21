@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: flex-start;
   /*padding: 8px 24px;*/
-  background-color: var(--colors-base-black--next) !important;
+  background-color: var(--colors-base-black) !important;
 }
 
 .terminal-container {
@@ -11,8 +11,8 @@
 }
 
 .terminal-code {
-  color: var(--colors-themed-darkmode--next) !important;
-  background-color: var(--colors-base-black--next) !important;
+  color: var(--colors-themed-darkmode) !important;
+  background-color: var(--colors-base-black) !important;
   opacity: inherit !important;
   text-decoration: none !important;
   text-shadow: none !important;

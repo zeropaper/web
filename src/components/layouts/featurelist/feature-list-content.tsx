@@ -9,14 +9,14 @@ export interface Features {
 }
 
 const CircleThreePlus = (
-  <i className={'ph-circles-three-plus base-white size24'} />
+  <i className={'ph-circles-three-plus-fill base-white size24'} />
 )
 const CheckCircle = (
-  <i className={'ph-check-circle-bold success-primary size16'} />
+  <i className={'ph-check-circle-fill themed-primary size16'} />
 )
-const PlusCircle = <i className={'ph-plus-circle-bold base-grey-400 size16'} />
-const ArrowRight = <i className={'ph-arrow-right themed-primary size16'} />
-const MapTriFold = <i className={'ph-map-trifold base-white size24'} />
+const PlusCircle = <i className={'ph-plus-circle-fill base-grey-400 size16'} />
+const ArrowRight = <i className={'ph-arrow-right-bold themed-primary size16'} />
+const MapTriFold = <i className={'ph-map-trifold-fill base-white size24'} />
 
 export const featureListPricing = {
   features: [

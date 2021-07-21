@@ -2,7 +2,7 @@ import React from 'react'
 
 import Button from '../../freestanding/button/button'
 
-const ArrowRight = <i className={'base-white ph-arrow-right-bold size16'} />
+const ArrowRight = <i className={'ph-arrow-right-bold base-white size16'} />
 
 export const bannerContentJobs = {
   title: "We're hiring!",

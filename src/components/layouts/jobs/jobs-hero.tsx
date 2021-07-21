@@ -24,11 +24,9 @@ const JobsHero = ({ title, description, position, location }: PropTypes) => (
           <Molecule>
             <h2 className={cn('font-h3', pb32)}>{title}</h2>
             {description && (
-              <p className={cn('font-overline', 'primary', pb16)}>
-                {description}
-              </p>
+              <p className={cn('font-overline', pb16)}>{description}</p>
             )}
-            <p className={cn('font-p-sm')}>
+            <p className={cn('font-p-small')}>
               {position} - {location}
             </p>
           </Molecule>

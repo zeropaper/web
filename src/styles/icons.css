@@ -1,17 +1,17 @@
 i.base-white {
-  color: var(--colors-base-white--next);
+  color: var(--colors-base-white);
 }
 
 i.themed-primary {
-  color: var(--colors-themed-primary--next);
+  color: var(--colors-themed-primary);
 }
 
 i.base-grey-400 {
-  color: var(--colors-base-grey-400--next);
+  color: var(--colors-base-grey-400);
 }
 
 i.success-primary {
-  color: var(--colors-success-primary--next);
+  color: var(--colors-success-primary);
 }
 
 i.size24 {

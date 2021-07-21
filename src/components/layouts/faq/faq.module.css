@@ -1,17 +1,17 @@
 .faq {
   padding: 128px 0;
-  background-color: var(--colors-base-grey--next);
+  background-color: var(--colors-base-dark);
 }
 
 .faq-highlight {
-  color: var(--colors-base-white--next);
+  color: var(--colors-base-white);
   &:hover {
-    color: var(--colors-themed-primary--next);
+    color: var(--colors-themed-primary);
     transition: color ease 200ms;
   }
   &:focus,
   &:active {
-    color: var(--colors-themed-dark--next);
+    color: var(--colors-themed-dark);
   }
 }
 

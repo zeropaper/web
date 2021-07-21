@@ -30,7 +30,7 @@ const MoleculeNotification = ({
     )}
   >
     <span className={cn(`icon-${variant}`)}>{icon}</span>
-    <p className={cn('font-p-sm', `text-${variant}`)}>{text}</p>
+    <p className={cn('font-p-small', `text-${variant}`)}>{text}</p>
     <a href={linkHref} className={cn(`link-${variant}`)}>
       {linkTitle}
     </a>

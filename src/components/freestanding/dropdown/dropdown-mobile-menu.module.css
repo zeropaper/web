@@ -4,7 +4,7 @@
   align-items: flex-start;
   flex: 1 1 auto;
   padding: 24px;
-  background: var(--colors-base-white--next);
+  background: var(--colors-base-white);
   box-shadow: var(--elevation-large);
 }
 

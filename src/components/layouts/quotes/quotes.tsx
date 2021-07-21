@@ -35,8 +35,8 @@ const QuoteBlock = ({
     <ContentText className={cn(quoteBlock, className && className)}>
       <div className={cn(quoteImg, pb64)}>{logo}</div>
       <h4 className={cn('font-quote', pb32)}>{description}</h4>
-      <h5 className={cn('font-h6', 'mute-60')}>{person}</h5>
-      <p className={cn('font-p-sm', 'mute-40')}>{jobTitle}</p>
+      <h5 className={cn('font-h6')}>{person}</h5>
+      <p className={cn('font-p-small')}>{jobTitle}</p>
     </ContentText>
   </Container>
 )

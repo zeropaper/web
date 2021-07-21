@@ -36,19 +36,19 @@ const Faq = ({ title, description, content }: PropTypes) => {
   const [expanded, setExpanded] = useState<Array<string>>(['0'])
 
   const Minus = (
-    <i className={cn(pl8, faqHeadingIcon, 'ph-minus base-white size32')} />
+    <i className={cn(pl8, faqHeadingIcon, 'ph-minus-fill base-white size32')} />
   )
   const Plus = (
-    <i className={cn(pl8, faqHeadingIcon, 'ph-plus base-white size32')} />
+    <i className={cn(pl8, faqHeadingIcon, 'ph-plus-fill base-white size32')} />
   )
 
   return (
-    <div className={cn(faq)}>
+    <div className={cn(faq, 'light')}>
       <Container fluid={true} alignItems={['start']}>
         <Grid lg={4} md={3} sm={12} xs={12} className={pb48}>
           <ContentText>
-            <h3 className={cn('font-h3', 'light', pb32)}>{title}</h3>
-            <p className={cn('font-p', 'light')}>{description}</p>
+            <h3 className={cn('font-h3', pb32)}>{title}</h3>
+            <p className={cn('font-p')}>{description}</p>
           </ContentText>
         </Grid>
         <Grid lg={6} md={8} sm={12} xs={12}>
@@ -78,9 +78,7 @@ const Faq = ({ title, description, content }: PropTypes) => {
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
-                  <p className={cn('font-p', 'light', 'mute-85', pb16)}>
-                    {answer}
-                  </p>
+                  <p className={cn('font-p', pb16)}>{answer}</p>
                 </AccordionItemPanel>
                 <MoleculeSeparator style={'horizontal'} />
               </AccordionItem>
