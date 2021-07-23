@@ -162,7 +162,6 @@ const IndexPage = () => {
               <Button
                 to={'/docs/guides/ory-cli-install-use'}
                 style={'link'}
-                theme={'dark'}
                 iconRight={ArrowRight}
               >
                 Install the CLI
@@ -181,7 +180,6 @@ const IndexPage = () => {
               <Button
                 to={'https://github.com/ory/'}
                 style={'link'}
-                theme={'dark'}
                 iconRight={ArrowRight}
               >
                 Star us on GitHub

@@ -28,6 +28,10 @@
   --colors-themed-darkmode: #bba9ff;
   --colors-themed-background: #faf9ff;
 
+  --colors-link-primary: var(--colors-themed-primary);
+  --colors-link-hover: var(--colors-themed-dark);
+  --colors-link-active: var(--colors-text-primary);
+
   --colors-oathkeeper-background: #fdf9fe;
   --colors-oathkeeper-light: #f8ecfd;
   --colors-oathkeeper-darkmode: #e3b1f8;
@@ -144,6 +148,9 @@
   --colors-text-secondary: var(--colors-text-light-secondary);
   --colors-text-mute: var(--colors-text-light-mute);
   --colors-text-muter: var(--colors-text-light-muter);
+  --colors-link-primary: var(--colors-themed-darkmode);
+  --colors-link-hover: var(--colors-themed-primary);
+  --colors-link-active: var(--colors-text-primary);
 }
 
 .theme-hydra {

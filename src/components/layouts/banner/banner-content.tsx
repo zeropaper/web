@@ -15,7 +15,7 @@ export const bannerContentJobs = {
   ),
   button: (
     <>
-      <Button to={'/jobs'} theme={'dark'} style={'link'} iconRight={ArrowRight}>
+      <Button to={'/jobs'} style={'link'} iconRight={ArrowRight}>
         Join Our Team
       </Button>
     </>

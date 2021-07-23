@@ -13,6 +13,7 @@ declare const styles: {
   readonly fontLink: string
   readonly fontQuote: string
   readonly fontButton: string
+  readonly fontNowrap: string
   readonly isMonospace: string
   readonly isSemibold: string
   readonly isMedium: string
@@ -21,13 +22,8 @@ declare const styles: {
   readonly isSecondaryText: string
   readonly isMuteText: string
   readonly isMuterText: string
-  readonly styleLinkInlineLight: string
-  readonly light: string
-  readonly cta: string
-  readonly primary: string
-  readonly visited: string
-  readonly secondary: string
+  readonly isThemedPrimary: string
+  readonly pill: string
   readonly remarkEmoji: string
-  readonly fontNowrap: string
 }
 export = styles

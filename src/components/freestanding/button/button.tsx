@@ -11,39 +11,33 @@ export interface PropTypes {
   children?: React.ReactNode
   className?: string
   style: 'filled' | 'outlined' | 'text' | 'none' | 'link' | 'link-inline'
-  theme?: 'light' | 'dark' | 'grey'
   to: string | (() => void)
   openInNewWindow?: boolean
-  disabled?: boolean
   iconRight?: React.ReactElement
   iconLeft?: React.ReactElement
 }
 
 const buttonVariants = ['filled', 'outlined', 'text']
-const linkVariants = ['link', 'link-inline']
 
 const Button = ({
   children,
   className,
   style = 'filled',
-  theme = 'light',
   to,
   openInNewWindow = false,
-  disabled = false,
   iconRight,
   iconLeft
 }: PropTypes) => {
-  const getStyle = (style: string, theme: string): string => {
+  const getStyle = (style: string): string => {
     // @ts-ignore
-    return styles[`style${ParseCase(style)}${ParseCase(theme)}`]
+    return styles[`style${ParseCase(style)}`]
   }
 
   const classes = cn(className, {
-    [getStyle(style, theme)]: style !== 'none',
+    [getStyle(style)]: style !== 'none',
     'font-link': style === 'link',
     'font-button': buttonVariants.includes(style),
-    [styles.btnBase]: buttonVariants.includes(style),
-    [styles.disabled]: disabled
+    [styles.btnBase]: buttonVariants.includes(style) || style === 'link'
   })
 
   const content = (

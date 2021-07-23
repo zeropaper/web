@@ -183,14 +183,14 @@ const Layout = ({ children }: PropTypes) => {
           },
           {
             title: (
-              <Button to={'/pricing'} style={'none'}>
+              <Button to={'/pricing'} style={'link'}>
                 Pricing
               </Button>
             )
           },
           {
             title: (
-              <Button to={'/docs'} style={'none'}>
+              <Button to={'/docs'} style={'link'}>
                 Docs
               </Button>
             )
@@ -439,15 +439,15 @@ const Layout = ({ children }: PropTypes) => {
         legal={[
           <Button
             to={'https://status.ory.sh/'}
-            style={'none'}
+            style={'link'}
             openInNewWindow={true}
           >
             Status
           </Button>,
-          <Button to={'/privacy'} style={'none'}>
+          <Button to={'/privacy'} style={'link'}>
             Privacy
           </Button>,
-          <Button to={'/tos'} style={'none'}>
+          <Button to={'/tos'} style={'link'}>
             Terms
           </Button>
         ]}
@@ -456,59 +456,28 @@ const Layout = ({ children }: PropTypes) => {
             title: 'Product',
             links: [
               <Button
-                className={cn('font-p-small')}
                 to={'https://console.ory.sh/registration'}
-                style={'none'}
+                style={'link'}
                 openInNewWindow={true}
               >
                 Cloud
               </Button>,
-              <Button
-                className={cn('font-p-small')}
-                to={'/open-source'}
-                style={'none'}
-                openInNewWindow={true}
-              >
+              <Button to={'/open-source'} style={'link'} openInNewWindow={true}>
                 Open Source
               </Button>,
-              <Button
-                className={cn('font-p-small')}
-                to={'/hydra'}
-                style={'none'}
-                openInNewWindow={true}
-              >
+              <Button to={'/hydra'} style={'link'} openInNewWindow={true}>
                 Hydra
               </Button>,
-              <Button
-                className={cn('font-p-small')}
-                to={'/kratos'}
-                style={'none'}
-                openInNewWindow={true}
-              >
+              <Button to={'/kratos'} style={'link'} openInNewWindow={true}>
                 Kratos
               </Button>,
-              <Button
-                className={cn('font-p-small')}
-                to={'/keto'}
-                style={'none'}
-                openInNewWindow={true}
-              >
+              <Button to={'/keto'} style={'link'} openInNewWindow={true}>
                 Keto
               </Button>,
-              <Button
-                className={cn('font-p-small')}
-                to={'/oathkeeper'}
-                style={'none'}
-                openInNewWindow={true}
-              >
+              <Button to={'/oathkeeper'} style={'link'} openInNewWindow={true}>
                 Oathkeeper
               </Button>,
-              <Button
-                className={cn('font-p-small')}
-                to={'/pricing'}
-                style={'none'}
-                openInNewWindow={true}
-              >
+              <Button to={'/pricing'} style={'link'} openInNewWindow={true}>
                 Pricing
               </Button>
             ]
@@ -516,36 +485,24 @@ const Layout = ({ children }: PropTypes) => {
           {
             title: 'Developers',
             links: [
-              <Button
-                className={cn('font-p-small')}
-                to={'/docs'}
-                style={'none'}
-                openInNewWindow={true}
-              >
+              <Button to={'/docs'} style={'link'} openInNewWindow={true}>
                 Documentation
               </Button>,
               <Button
-                className={cn('font-p-small')}
                 to={'/docs/ecosystem/community/'}
-                style={'none'}
+                style={'link'}
                 openInNewWindow={true}
               >
                 Community
               </Button>,
               <Button
-                className={cn('font-p-small')}
                 to={'https://github.com/ory'}
-                style={'none'}
+                style={'link'}
                 openInNewWindow={true}
               >
                 GitHub
               </Button>,
-              <Button
-                className={cn('font-p-small')}
-                to={'/blog'}
-                style={'none'}
-                openInNewWindow={true}
-              >
+              <Button to={'/blog'} style={'link'} openInNewWindow={true}>
                 Blog
               </Button>
             ]
@@ -553,27 +510,16 @@ const Layout = ({ children }: PropTypes) => {
           {
             title: 'Company',
             links: [
-              <Button
-                className={cn('font-p-small')}
-                to={'/about'}
-                style={'none'}
-                openInNewWindow={true}
-              >
+              <Button to={'/about'} style={'link'} openInNewWindow={true}>
                 About Us
               </Button>,
-              <Button
-                className={cn('font-p-small')}
-                to={'/jobs'}
-                style={'none'}
-                openInNewWindow={true}
-              >
+              <Button to={'/jobs'} style={'link'} openInNewWindow={true}>
                 Jobs&nbsp;
                 <span className={cn('pill')}>hiring</span>
               </Button>,
               <Button
-                className={cn('font-p-small')}
                 to={'mailto:office@ory.sh'}
-                style={'none'}
+                style={'link'}
                 openInNewWindow={true}
               >
                 Contact Us
