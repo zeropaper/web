@@ -19,6 +19,9 @@ export interface PropTypes {
   iconLeft?: React.ReactElement
 }
 
+const buttonVariants = ['filled', 'outlined', 'text']
+const linkVariants = ['link', 'link-inline']
+
 const Button = ({
   children,
   className,
@@ -35,74 +38,50 @@ const Button = ({
     return styles[`style${ParseCase(style)}${ParseCase(theme)}`]
   }
 
-  let classes: Array<string> = []
+  const classes = cn(className, {
+    [getStyle(style, theme)]: style !== 'none',
+    'font-link': style === 'link',
+    'font-button': buttonVariants.includes(style),
+    [styles.btnBase]: buttonVariants.includes(style),
+    [styles.disabled]: disabled
+  })
 
-  if (style !== 'none') {
-    classes = classes.concat([styles.btnBase, getStyle(style, theme)])
-  }
-
-  if (style == 'link') {
-    classes = classes.concat(['font-link'])
-  } else {
-    classes.push('font-button')
-  }
-
-  if (style == 'link-inline') {
-    classes = classes.filter(
-      (val) => !['font-button', styles.btnBase].includes(val)
-    )
-  }
-
-  if (disabled) {
-    classes.push(styles.disabled)
-  }
-
-  if (className) {
-    classes.push(className)
-  }
+  const content = (
+    <>
+      {iconLeft && (
+        <span className={cn(pr8, styles.btnTextContainer)}>{iconLeft}</span>
+      )}
+      <span className={cn(styles.btnTextContainer)}>{children}</span>
+      {iconRight && (
+        <span className={cn(pl8, styles.btnTextContainer)}>{iconRight}</span>
+      )}
+    </>
+  )
 
   if (typeof to === 'string') {
-    return to.startsWith('/') && !to.startsWith('/docs') ? (
+    return to.startsWith('/') && to.indexOf('/docs/') < 0 ? (
       <GatsbyLink
         to={to}
-        className={cn(...classes)}
+        className={classes}
         rel={openInNewWindow ? 'noopener noreferrer' : ''}
         target={openInNewWindow ? '_blank' : ''}
       >
-        {iconLeft && (
-          <span className={cn(pr8, styles.btnTextContainer)}>{iconLeft}</span>
-        )}
-        <span className={cn(styles.btnTextContainer)}>{children}</span>
-        {iconRight && (
-          <span className={cn(pl8, styles.btnTextContainer)}>{iconRight}</span>
-        )}
+        {content}
       </GatsbyLink>
     ) : (
       <a
         href={to}
-        className={cn(...classes)}
+        className={classes}
         rel={openInNewWindow ? 'noopener noreferrer' : ''}
         target={openInNewWindow ? '_blank' : ''}
       >
-        {iconLeft && (
-          <span className={cn(pr8, styles.btnTextContainer)}>{iconLeft}</span>
-        )}
-        <span className={cn(styles.btnTextContainer)}>{children}</span>
-        {iconRight && (
-          <span className={cn(pl8, styles.btnTextContainer)}>{iconRight}</span>
-        )}
+        {content}
       </a>
     )
   } else {
     return (
-      <a className={cn(...classes)} onClick={to}>
-        {iconLeft && (
-          <span className={cn(pr8, styles.btnTextContainer)}>{iconLeft}</span>
-        )}
-        <span className={cn(styles.btnTextContainer)}>{children}</span>
-        {iconRight && (
-          <span className={cn(pl8, styles.btnTextContainer)}>{iconRight}</span>
-        )}
+      <a className={classes} onClick={to}>
+        {content}
       </a>
     )
   }

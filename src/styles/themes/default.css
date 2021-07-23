@@ -1,175 +1,175 @@
 :root {
-    --colors-base-white: #ffffff;
-    --colors-base-grey-25: #f9f9fa;
-    --colors-base-grey-50: #f3f4f5;
-    --colors-base-grey-75: #edeef0;
-    --colors-base-grey-200: #cfd2d7;
-    --colors-base-grey-400: #9ea5b0;
-    --colors-base-grey-600: #6e7888;
-    --colors-base-grey-800: #3d4b61;
-    --colors-base-grey-900: #25354d;
-    --colors-base-grey: #0d1f39;
-    --colors-base-dark: #06111c;
-    --colors-base-black: #000000;
+  --colors-base-white: #ffffff;
+  --colors-base-grey-25: #f9f9fa;
+  --colors-base-grey-50: #f3f4f5;
+  --colors-base-grey-75: #edeef0;
+  --colors-base-grey-200: #cfd2d7;
+  --colors-base-grey-400: #9ea5b0;
+  --colors-base-grey-600: #6e7888;
+  --colors-base-grey-800: #3d4b61;
+  --colors-base-grey-900: #25354d;
+  --colors-base-grey: #0d1f39;
+  --colors-base-dark: #06111c;
+  --colors-base-black: #000000;
 
-    --colors-text-primary: #06111cff; /*alpha 1*/
-    --colors-text-secondary: #06111cd9; /*alpha .85*/
-    --colors-text-mute: #06111c99; /*alpha .60*/
-    --colors-text-muter: #06111c66; /*alpha .40*/
+  --colors-text-primary: #06111cff; /*alpha 1*/
+  --colors-text-secondary: #06111cd9; /*alpha .85*/
+  --colors-text-mute: #06111c99; /*alpha .60*/
+  --colors-text-muter: #06111c66; /*alpha .40*/
 
-    --colors-text-light-primary: #ffffffff; /*alpha 1*/
-    --colors-text-light-secondary: #ffffffe6; /*alpha .90*/
-    --colors-text-light-mute: #ffffffb3; /*alpha .70*/
-    --colors-text-light-muter: #ffffff80; /*alpha .50*/
+  --colors-text-light-primary: #ffffffff; /*alpha 1*/
+  --colors-text-light-secondary: #ffffffe6; /*alpha .90*/
+  --colors-text-light-mute: #ffffffb3; /*alpha .70*/
+  --colors-text-light-muter: #ffffff80; /*alpha .50*/
 
-    --colors-themed-primary: #5528ff;
-    --colors-themed-dark: #331899;
-    --colors-themed-light: #eeeaff;
-    --colors-themed-darkmode: #bba9ff;
-    --colors-themed-background: #faf9ff;
+  --colors-themed-primary: #5528ff;
+  --colors-themed-dark: #331899;
+  --colors-themed-light: #eeeaff;
+  --colors-themed-darkmode: #bba9ff;
+  --colors-themed-background: #faf9ff;
 
-    --colors-oathkeeper-background: #fdf9fe;
-    --colors-oathkeeper-light: #f8ecfd;
-    --colors-oathkeeper-darkmode: #e3b1f8;
-    --colors-oathkeeper-primary: #b93dee;
-    --colors-oathkeeper-dark: #6f258f;
+  --colors-oathkeeper-background: #fdf9fe;
+  --colors-oathkeeper-light: #f8ecfd;
+  --colors-oathkeeper-darkmode: #e3b1f8;
+  --colors-oathkeeper-primary: #b93dee;
+  --colors-oathkeeper-dark: #6f258f;
 
-    --colors-dockertest-background: #f7feff;
-    --colors-dockertest-light: #e6fcfe;
-    --colors-dockertest-darkmode: #9bf1f9;
-    --colors-dockertest-primary: #04ddf1;
-    --colors-dockertest-dark: #028491;
+  --colors-dockertest-background: #f7feff;
+  --colors-dockertest-light: #e6fcfe;
+  --colors-dockertest-darkmode: #9bf1f9;
+  --colors-dockertest-primary: #04ddf1;
+  --colors-dockertest-dark: #028491;
 
-    --colors-keto-background: #f7fefb;
-    --colors-keto-light: #e6fcf2;
-    --colors-keto-darkmode: #99f3c9;
-    --colors-keto-primary: #00e078;
-    --colors-keto-dark: #008648;
+  --colors-keto-background: #f7fefb;
+  --colors-keto-light: #e6fcf2;
+  --colors-keto-darkmode: #99f3c9;
+  --colors-keto-primary: #00e078;
+  --colors-keto-dark: #008648;
 
-    --colors-kratos-background: #fffbf8;
-    --colors-kratos-light: #fff3e9;
-    --colors-kratos-darkmode: #ffcfa5;
-    --colors-kratos-primary: #ff871f;
-    --colors-kratos-dark: #995113;
+  --colors-kratos-background: #fffbf8;
+  --colors-kratos-light: #fff3e9;
+  --colors-kratos-darkmode: #ffcfa5;
+  --colors-kratos-primary: #ff871f;
+  --colors-kratos-dark: #995113;
 
-    --colors-hydra-background: #fffbfa;
-    --colors-hydra-light: #fff0ee;
-    --colors-hydra-darkmode: #ffc4b9;
-    --colors-hydra-primary: #ff6b51;
-    --colors-hydra-dark: #994031;
+  --colors-hydra-background: #fffbfa;
+  --colors-hydra-light: #fff0ee;
+  --colors-hydra-darkmode: #ffc4b9;
+  --colors-hydra-primary: #ff6b51;
+  --colors-hydra-dark: #994031;
 
-    --colors-error-background: #fff7f7;
-    --colors-error-light: #ffe6e6;
-    --colors-error-darkmode: #ff9999;
-    --colors-error-primary: #ff0000;
-    --colors-error-dark: #990000;
+  --colors-error-background: #fff7f7;
+  --colors-error-light: #ffe6e6;
+  --colors-error-darkmode: #ff9999;
+  --colors-error-primary: #ff0000;
+  --colors-error-dark: #990000;
 
-    --colors-warning-background: #fffef9;
-    --colors-warning-light: #fffdea;
-    --colors-warning-darkmode: #fef6ab;
-    --colors-warning-primary: #fde82c;
-    --colors-warning-dark: #988b1b;
+  --colors-warning-background: #fffef9;
+  --colors-warning-light: #fffdea;
+  --colors-warning-darkmode: #fef6ab;
+  --colors-warning-primary: #fde82c;
+  --colors-warning-dark: #988b1b;
 
-    --colors-success-background: #fafef8;
-    --colors-success-light: #eefbe8;
-    --colors-success-darkmode: #bcf0a2;
-    --colors-success-primary: #57d916;
-    --colors-success-dark: #34820d;
+  --colors-success-background: #fafef8;
+  --colors-success-light: #eefbe8;
+  --colors-success-darkmode: #bcf0a2;
+  --colors-success-primary: #57d916;
+  --colors-success-dark: #34820d;
 
-    --colors-info-background: #f7fdff;
-    --colors-info-light: #e6f8ff;
-    --colors-info-darkmode: #99e3ff;
-    --colors-info-primary: #00baff;
-    --colors-info-dark: #007099;
+  --colors-info-background: #f7fdff;
+  --colors-info-light: #e6f8ff;
+  --colors-info-darkmode: #99e3ff;
+  --colors-info-primary: #00baff;
+  --colors-info-dark: #007099;
 
-    --gradient-ory: radial-gradient(
-            100% 114.57% at 0% 0%,
-            #9bf1f9 0%,
-            #5528ff 100%
-    );
-    --gradient-oathkeeper: radial-gradient(
-            100% 114.57% at 0% 0%,
-            #bba9ff 0%,
-            #b93dee 100%
-    );
-    --gradient-dockertest: radial-gradient(
-            100% 114.57% at 0% 0%,
-            #99f3c9 0%,
-            #04ddf1 100%
-    );
-    --gradient-keto: radial-gradient(
-            100% 114.57% at 0% 0%,
-            #fef6ab 0%,
-            #00e078 100%
-    );
-    --gradient-kratos: radial-gradient(
-            100% 114.57% at 0% 0%,
-            #ffc4b9 0%,
-            #ff871f 100%
-    );
-    --gradient-hydra: radial-gradient(
-            100% 114.57% at 0% 0%,
-            #e3b1f8 0%,
-            #ff6b51 100%
-    );
-    --gradient-white: radial-gradient(
-            100% 114.57% at 0% 0%,
-            #f9f9fa 0%,
-            #cfd2d7 100%
-    );
-    --gradient-grey: radial-gradient(
-            100% 114.57% at 0% 0%,
-            #6e7888 0%,
-            #0d1f39 100%
-    );
-    --gradient-primary-light: radial-gradient(
-            100% 114.57% at 0% 0%,
-            #f9f9fa 0%,
-            #faf9ff 100%
-    );
+  --gradient-ory: radial-gradient(
+    100% 114.57% at 0% 0%,
+    #9bf1f9 0%,
+    #5528ff 100%
+  );
+  --gradient-oathkeeper: radial-gradient(
+    100% 114.57% at 0% 0%,
+    #bba9ff 0%,
+    #b93dee 100%
+  );
+  --gradient-dockertest: radial-gradient(
+    100% 114.57% at 0% 0%,
+    #99f3c9 0%,
+    #04ddf1 100%
+  );
+  --gradient-keto: radial-gradient(
+    100% 114.57% at 0% 0%,
+    #fef6ab 0%,
+    #00e078 100%
+  );
+  --gradient-kratos: radial-gradient(
+    100% 114.57% at 0% 0%,
+    #ffc4b9 0%,
+    #ff871f 100%
+  );
+  --gradient-hydra: radial-gradient(
+    100% 114.57% at 0% 0%,
+    #e3b1f8 0%,
+    #ff6b51 100%
+  );
+  --gradient-white: radial-gradient(
+    100% 114.57% at 0% 0%,
+    #f9f9fa 0%,
+    #cfd2d7 100%
+  );
+  --gradient-grey: radial-gradient(
+    100% 114.57% at 0% 0%,
+    #6e7888 0%,
+    #0d1f39 100%
+  );
+  --gradient-primary-light: radial-gradient(
+    100% 114.57% at 0% 0%,
+    #f9f9fa 0%,
+    #faf9ff 100%
+  );
 
-    --elevation-base: 0px 1px 3px rgba(0, 0, 0, 0.1),
+  --elevation-base: 0px 1px 3px rgba(0, 0, 0, 0.1),
     0px 1px 2px rgba(0, 0, 0, 0.06);
-    --elevation-medium: 0px 4px 6px -1px rgba(0, 0, 0, 0.1),
+  --elevation-medium: 0px 4px 6px -1px rgba(0, 0, 0, 0.1),
     0px 2px 4px rgba(0, 0, 0, 0.06);
-    --elevation-large: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+  --elevation-large: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
     0px 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --elevation-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1),
+  --elevation-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1),
     0px 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --elevation-xxl: 0px 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --elevation-xxl: 0px 25px 50px -12px rgba(0, 0, 0, 0.15);
 }
 
 .light {
-    --colors-text-primary: var(--colors-text-light-primary);
-    --colors-text-secondary: var(--colors-text-light-secondary);
-    --colors-text-mute: var(--colors-text-light-mute);
-    --colors-text-muter: var(--colors-text-light-muter);
+  --colors-text-primary: var(--colors-text-light-primary);
+  --colors-text-secondary: var(--colors-text-light-secondary);
+  --colors-text-mute: var(--colors-text-light-mute);
+  --colors-text-muter: var(--colors-text-light-muter);
 }
 
 .theme-hydra {
-    --colors-themed-primary: var(--colors-hydra-primary);
-    --colors-themed-light: var(--colors-hydra-light);
-    --colors-themed-background: var(--colors-hydra-background);
-    --colors-themed-dark: var(--colors-hydra-dark);
+  --colors-themed-primary: var(--colors-hydra-primary);
+  --colors-themed-light: var(--colors-hydra-light);
+  --colors-themed-background: var(--colors-hydra-background);
+  --colors-themed-dark: var(--colors-hydra-dark);
 }
 
 .theme-oathkeeper {
-    --colors-themed-primary: var(--colors-oathkeeper-primary);
-    --colors-themed-light: var(--colors-oathkeeper-light);
-    --colors-themed-background: var(--colors-oathkeeper-background);
-    --colors-themed-dark: var(--colors-oathkeeper-dark);
+  --colors-themed-primary: var(--colors-oathkeeper-primary);
+  --colors-themed-light: var(--colors-oathkeeper-light);
+  --colors-themed-background: var(--colors-oathkeeper-background);
+  --colors-themed-dark: var(--colors-oathkeeper-dark);
 }
 
 .theme-kratos {
-    --colors-themed-primary: var(--colors-kratos-primary);
-    --colors-themed-light: var(--colors-kratos-light);
-    --colors-themed-background: var(--colors-kratos-background);
-    --colors-themed-dark: var(--colors-kratos-dark);
+  --colors-themed-primary: var(--colors-kratos-primary);
+  --colors-themed-light: var(--colors-kratos-light);
+  --colors-themed-background: var(--colors-kratos-background);
+  --colors-themed-dark: var(--colors-kratos-dark);
 }
 
 .theme-keto {
-    --colors-themed-primary: var(--colors-keto-primary);
-    --colors-themed-light: var(--colors-keto-light);
-    --colors-themed-background: var(--colors-keto-background);
-    --colors-themed-dark: var(--colors-keto-dark);
+  --colors-themed-primary: var(--colors-keto-primary);
+  --colors-themed-light: var(--colors-keto-light);
+  --colors-themed-background: var(--colors-keto-background);
+  --colors-themed-dark: var(--colors-keto-dark);
 }

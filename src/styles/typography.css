@@ -272,11 +272,11 @@ a,
 }
 
 .is-primary-text {
-  color: var(--colors-text-primary)
+  color: var(--colors-text-primary);
 }
 
 .is-secondary-text {
-  color: var(--colors-text-secondary)
+  color: var(--colors-text-secondary);
 }
 
 .is-mute-text {
@@ -293,7 +293,7 @@ a,
 
 .pill {
   background-color: var(--colors-themed-primary);
-  padding: var(--size-1)var(--size-2) ;
+  padding: var(--size-1) var(--size-2);
   margin: 0 var(--size-px);
   border-radius: var(--radius-large);
   color: var(--colors-base-white);
@@ -316,4 +316,3 @@ a:any-link {
   display: inline !important;
   margin-top: 1px;
 }
-
