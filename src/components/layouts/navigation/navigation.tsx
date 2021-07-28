@@ -141,14 +141,9 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
     <div
       className={cn(styles.navigation, !hideOnScroll && styles.navigationHide)}
     >
-      <Container fluid={true} noWrap={true}>
-        <Button to={'/'} style={'none'}>
-          <img
-            className={cn(styles.navLogo)}
-            src={logo}
-            loading={'eager'}
-            alt={'Ory logo'}
-          />
+      <Container fluid={true} noWrap={true} alignItems={'center'}>
+        <Button to={'/'} style={'none'} className={cn(styles.navLogo)}>
+          <img src={logo} loading={'eager'} alt={'Ory logo'} />
         </Button>
 
         <nav role={'navigation'} ref={currentNode}>

@@ -34,8 +34,10 @@
 .nav-logo {
   display: flex;
   align-items: center;
-  width: 64px;
-  padding-right: 32px;
+  & img {
+    width: 64px;
+    padding-right: 32px;
+  }
 }
 
 .mobile-container {
@@ -43,7 +45,6 @@
   opacity: 0;
   display: none;
   position: absolute;
-  /*transition: all 200ms ease;*/
 }
 
 .mobile-nav-active {
