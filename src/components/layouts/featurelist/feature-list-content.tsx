@@ -257,7 +257,7 @@ export const featureListHydra = {
       button: (
         <Button
           style={'link'}
-          to={'/docs/hydra/quickstart/'}
+          to={'/hydra/docs/5min-tutorial/'}
           iconRight={ArrowRight}
         >
           Get started
