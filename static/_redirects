@@ -246,4 +246,7 @@ https://www.ory.sh/blog/testing-sql-migrations/ https://www.ory.sh/testing-sql-m
 https://www.ory.sh/blog/web-api-cloud-access-control-authentication/ https://www.ory.sh/web-api-cloud-access-control-authentication/ 302!
 https://www.ory.sh/blog/why-new-user-login-registration/ https://www.ory.sh/why-new-user-login-registration/ 302!
 
-api-access-control-kubernetes-cloud-native
+# Ory Docs Change: https://github.com/ory/docs/pull/446
+
+https://www.ory.sh/docs/guides/ory-cli-install-use/ https://www.ory.sh/docs/start-building/ory-cli-install-use/ 302!
+https://www.ory.sh/docs/guides/integrate-nodejs/ https://www.ory.sh/docs/start-building/integrate-nodejs/ 302!
