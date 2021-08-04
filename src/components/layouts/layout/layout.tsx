@@ -144,9 +144,8 @@ const Layout = ({ children, theme }: PropTypes) => {
                 description: 'Be a part of the Ory Community',
                 button: (
                   <Button
-                    to={'/docs/ecosystem/community/'}
+                    to={'/community'}
                     style={'link'}
-                    openInNewWindow={false}
                     iconRight={ArrowRight}
                   >
                     Community
@@ -286,9 +285,8 @@ const Layout = ({ children, theme }: PropTypes) => {
               button: (
                 <Button
                   className={cn('font-h5')}
-                  to={'/docs/ecosystem/community/'}
+                  to={'/community'}
                   style={'link'}
-                  openInNewWindow={true}
                 >
                   Community
                 </Button>
@@ -508,11 +506,7 @@ const Layout = ({ children, theme }: PropTypes) => {
               <Button to={'/docs/'} style={'link'} openInNewWindow={true}>
                 Documentation
               </Button>,
-              <Button
-                to={'/docs/ecosystem/community/'}
-                style={'link'}
-                openInNewWindow={true}
-              >
+              <Button to={'/community'} style={'link'}>
                 Community
               </Button>,
               <Button

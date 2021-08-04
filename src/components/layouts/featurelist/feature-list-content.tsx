@@ -530,3 +530,199 @@ export const featureListOathkeeper = {
     }
   ]
 }
+
+export const featureListCommunityProjects = {
+  features: [
+    {
+      icon: CircleThreePlus,
+      title: 'Ory Community Projects',
+      description: (
+        <>
+          The Ory Open Source community has built many projects around Ory
+          software over the years. Please note that community projects are not
+          maintained by the Ory team. For a complete list of projects visit the
+        </>
+      ),
+      button: (
+        <Button
+          style={'link'}
+          to={'/docs/ecosystem/community/#open-source-software'}
+          iconRight={ArrowRight}
+        >
+          Overview
+        </Button>
+      ),
+      features: [
+        {
+          title: 'Reference Docker Compose',
+          description: (
+            <>
+              A collection of reference docker-compose examples for the full Ory
+              Stack:{' '}
+              <Button
+                style={'link-inline'}
+                to={'https://github.com/radekg/ory-reference-compose'}
+              >
+                {' '}
+                radekg/ory-reference-compose
+              </Button>
+              .
+            </>
+          ),
+          icon: CheckCircle
+        },
+        {
+          title: 'Svelte & Ory Kratos',
+          description: (
+            <>
+              A basic SvelteKit example using Ory Kratos for authentication:{' '}
+              <Button
+                style={'link-inline'}
+                to={'https://github.com/drejohnson/sveltekit-kratos'}
+              >
+                drejohnson/sveltekit-kratos
+              </Button>
+              .
+            </>
+          ),
+          icon: CheckCircle
+        },
+        {
+          title: 'Werther LDAP',
+          description: (
+            <>
+              Werther is an identity provider for Ory Hydra over LDAP / Active
+              Directory:{' '}
+              <Button
+                style={'link-inline'}
+                to={'https://github.com/i-core/werther'}
+              >
+                i-core/werther
+              </Button>
+              .
+            </>
+          ),
+          icon: CheckCircle
+        },
+        {
+          title: 'Ory Kratos React Example',
+          description: (
+            <>
+              A React example for Ory Kratos example; written in TypeScript:{' '}
+              <Button
+                style={'link-inline'}
+                to={'https://github.com/realStandal/kratos-react-example'}
+              >
+                realStandal/kratos-react-example
+              </Button>{' '}
+              .
+            </>
+          ),
+          icon: CheckCircle
+        }
+      ]
+    }
+  ]
+}
+
+export const featureListCommunityArticles = {
+  features: [
+    {
+      icon: CircleThreePlus,
+      title: 'Ory Community Articles',
+      description: (
+        <>
+          The Ory Community has written numerous articles, tutorials, and
+          introductions. If you want your content to be featured, please reach
+          out to us! For a complete list, visit the
+        </>
+      ),
+      button: (
+        <Button
+          style={'link'}
+          to={'/docs/ecosystem/community/#blog-postsarticles'}
+          iconRight={ArrowRight}
+        >
+          Overview
+        </Button>
+      ),
+      features: [
+        {
+          title: 'Open source authentication with Ory Hydra and Ory Kratos',
+          description: (
+            <>
+              An in-depth look at using Ory Open Source as a complete
+              authentication platform:{' '}
+              <Button
+                style={'link-inline'}
+                to={'https://blog.px.dev/open-source-auth/ossauth/'}
+              >
+                {' '}
+                Read the article
+              </Button>
+              .
+            </>
+          ),
+          icon: CheckCircle
+        },
+        {
+          title: 'Implementing OAuth 2.0 using Ory Hydra',
+          description: (
+            <>
+              Implementing your own OAuth 2.0 server is not easy, but this
+              article will help you out:{' '}
+              <Button
+                style={'link-inline'}
+                to={
+                  'https://yusufs.medium.com/practical-example-of-implementing-oauth-2-0-using-ory-hydra-fbaa2765d94f'
+                }
+              >
+                Read the article
+              </Button>
+              .
+            </>
+          ),
+          icon: CheckCircle
+        },
+        {
+          title: 'Ory Keto Next Generation',
+          description: (
+            <>
+              A critical look at Ory Keto, the first open source implementation
+              of Google Zanzibar:{' '}
+              <Button
+                style={'link-inline'}
+                to={
+                  'https://gruchalski.com/posts/2021-04-11-looking-at-zanzibar-through-ory-keto/'
+                }
+              >
+                Read the article
+              </Button>
+              .
+            </>
+          ),
+          icon: CheckCircle
+        },
+        {
+          title: 'Integrating Kratos with your Go App',
+          description: (
+            <>
+              This article explains how to write an application that integrates
+              Kratos in Go:{' '}
+              <Button
+                style={'link-inline'}
+                to={
+                  'https://stories.abletech.nz/integrating-third-party-provider-kratos-f5514b53af66'
+                }
+              >
+                realStandal/kratos-react-example
+              </Button>{' '}
+              .
+            </>
+          ),
+          icon: CheckCircle
+        }
+      ]
+    }
+  ]
+}

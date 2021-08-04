@@ -73,6 +73,94 @@ export const quickstartDefault = {
   ]
 }
 
+export const quickstartCommunity = {
+  title: <>Participate, Learn, Grow</>,
+  description: (
+    <>
+      Ory is built in cooperation with its developer community. Our projects are only possible
+      because of your dedication to open and free software! We
+      maintain discussion boards on GitHub and an active Slack channel. Chat
+      about code, best practices, and more:
+    </>
+  ),
+  content: [
+    {
+      icon: SlackLogo,
+      title: <>Dev Chat</>,
+      description: (
+        <>
+          Ask questions, help out others with your knowledge and connect with
+          developers working on the same problem.
+        </>
+      ),
+      button: (
+        <Button
+          to={'https://slack.ory.sh/'}
+          style={'link'}
+          iconRight={ArrowRight}
+        >
+          Join the chat
+        </Button>
+      )
+    },
+    {
+      icon: ChatsCircle,
+      title: <>Discussions</>,
+      description: (
+        <>
+          Make yourself heard and discuss ideas, code, and feedback directly on
+          GitHub. All contributions are welcome!
+        </>
+      ),
+      button: (
+        <Button
+          to={'https://github.com/discussions?discussions_q=org%3Aory+sort%3Aupdated-desc+'}
+          style={'link'}
+          iconRight={ArrowRight}
+        >
+          Explore discussions
+        </Button>
+      )
+    },
+    {
+      icon: ChatsCircle,
+      title: <>Articles & Projects</>,
+      description: (
+        <>
+          The Ory community builds open source projects and writes articles and guides around
+          the Ory Ecosystem. Reach out if you want your content to be
+          featured!
+        </>
+      ),
+      button: (
+        <Button
+          to={'https://www.ory.sh/docs/ecosystem/community/#community-projects'}
+          style={'link'}
+          iconRight={ArrowRight}
+        >
+          Take a look
+        </Button>
+      )
+    },
+    {
+      icon: ChatsCircle,
+      title: <>Code of Conduct</>,
+      description: <>The Ory community provides a welcoming space for developers from different backgrounds. To ensure a safe experience for all, we follow a Code Of Conduct:</>,
+      button: (
+        <Button
+          to={
+            'https://github.com/ory/meta/blob/master/CODE_OF_CONDUCT.md'
+          }
+          style={'link'}
+          iconRight={ArrowRight}
+        >
+          Review the CoC
+        </Button>
+      )
+    }
+  ]
+}
+
 export const quickstartOpenSource = {
   title: <>Ready to get started?</>,
   description: (
