@@ -540,7 +540,7 @@ export const featureListCommunityProjects = {
         <>
           The Ory Open Source community has built many projects around Ory
           software over the years. Please note that community projects are not
-          maintained by the Ory team. For a complete list of projects visit the
+          maintained by the Ory team. For a complete list of projects visit the overview in our docs.
         </>
       ),
       button: (
@@ -549,7 +549,7 @@ export const featureListCommunityProjects = {
           to={'/docs/ecosystem/community/#open-source-software'}
           iconRight={ArrowRight}
         >
-          Overview
+          Projects overview
         </Button>
       ),
       features: [
@@ -634,7 +634,7 @@ export const featureListCommunityArticles = {
         <>
           The Ory Community has written numerous articles, tutorials, and
           introductions. If you want your content to be featured, please reach
-          out to us! For a complete list, visit the
+          out to us! For a complete list, visit the overview in our docs.
         </>
       ),
       button: (
@@ -643,7 +643,7 @@ export const featureListCommunityArticles = {
           to={'/docs/ecosystem/community/#blog-postsarticles'}
           iconRight={ArrowRight}
         >
-          Overview
+          Article overview
         </Button>
       ),
       features: [
@@ -715,7 +715,7 @@ export const featureListCommunityArticles = {
                   'https://stories.abletech.nz/integrating-third-party-provider-kratos-f5514b53af66'
                 }
               >
-                realStandal/kratos-react-example
+                Read the article
               </Button>{' '}
               .
             </>

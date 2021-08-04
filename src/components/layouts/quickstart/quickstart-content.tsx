@@ -145,7 +145,7 @@ export const quickstartCommunity = {
     {
       icon: ChatsCircle,
       title: <>Code of Conduct</>,
-      description: <>The Ory community provides a welcoming space for developers from different backgrounds. To ensure a safe experience for all, we follow a Code Of Conduct:</>,
+      description: <>The Ory community provides a welcoming space for developers from different backgrounds. To ensure a safe experience for all, we follow a Code Of Conduct.</>,
       button: (
         <Button
           to={
