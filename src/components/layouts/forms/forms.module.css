@@ -1,0 +1,42 @@
+.multiline {
+  & input[type='email'],
+  & input[type='text'] {
+    width: calc(100% - (var(--space-3) * 2));
+  }
+  & input[type='submit'] {
+    margin-top: var(--size-4);
+  }
+  &:nth-child(even) {
+    margin-right: unset;
+  }
+}
+
+.single-line {
+  & input[type='email'],
+  & input[type='text'] {
+    flex: 7 0;
+    margin-right: var(--size-8);
+  }
+
+  & input[type='button'] {
+    flex: 3 0;
+  }
+}
+
+@media (--xs) {
+  .single-line {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+
+    & input[type='email'],
+    & input[type='text'] {
+      margin-right: unset;
+    }
+  }
+
+  .multiline input[type='submit'] {
+    width: 100%;
+  }
+}

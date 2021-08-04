@@ -42,7 +42,7 @@ const Coding = ({
   visual,
   content
 }: PropTypes) => (
-  <div className={cn(coding, 'light')}>
+  <div className={cn(coding, 'background-is-dark')}>
     <Container fluid={true}>
       <Grid lg={6} md={6} sm={12} xs={12}>
         <Container flexContainer={'column'}>
@@ -72,12 +72,7 @@ const Coding = ({
                 <ContentText>
                   <MoleculeTextInteraction>
                     <Molecule>
-                      <ColourWrapper
-                        text={'themed-primary'}
-                        className={cn(pb8)}
-                      >
-                        {icon}
-                      </ColourWrapper>
+                      <div className={cn(pb8)}>{icon}</div>
                       <h4 className={cn('font-h5', pb8)}>{title}</h4>
                       <p className={cn('font-p-small', pb8)}>{description}</p>
                     </Molecule>

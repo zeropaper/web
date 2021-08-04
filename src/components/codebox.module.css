@@ -1,13 +1,15 @@
 .box {
-  background-color: var(--colors-base-black);
-  box-shadow: 0 4px 8px rgba(00, 00, 00, 0.4);
-  padding: 0 16px;
-  border-radius: 3px;
-  height: 392px;
+  background-color: var(--colors-base-dark);
+  box-shadow: var(--elevation-large);
+  padding: 0 var(--size-4);
+  border-radius: var(--radius-default);
+  height: var(--size-128);
+  align-content: start;
 }
 
 .editor-header {
   display: flex;
+  width: var(--size-full);
   align-items: center;
   color: var(--colors-base-white);
   position: sticky;
@@ -17,7 +19,6 @@
   }
 
   & .tab {
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 11px;
@@ -35,15 +36,15 @@
 .window-actions {
   display: flex;
   align-items: center;
-  height: 36px;
-  margin-right: 16px;
+  height: var(--size-8);
+  margin-right: var(--size-4);
 
   & .window-action {
-    width: 8px;
-    height: 8px;
-    border-radius: 4px;
-    background-color: var(--colors-base-grey-800);
-    margin-right: 5px;
+    width: var(--size-2);
+    height: var(--size-2);
+    border-radius: var(--radius-default);
+    background-color: var(--colors-themed-dark);
+    margin-right: var(--size-1);
 
     &.primary {
       background-color: var(--colors-themed-primary);
@@ -52,10 +53,18 @@
 }
 
 .content {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   max-height: 85%;
+  max-width: var(--size-full);
   overflow: auto;
+  width: var(--size-full);
 
   & pre {
+    width: 100%;
     display: none;
 
     &.active {
@@ -68,21 +77,15 @@
   & code,
   & pre[class*='language'] > code[class*='language'],
   & pre > code {
-    color: var(--colors-base-white);
-    font-family: 'Inconsolata', monospace;
     text-shadow: none;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 175%;
-    background-color: var(--colors-base-black);
-
+    background-color: inherit;
+    color: var(--colors-base-white);
     word-wrap: break-word;
     white-space: pre-wrap;
   }
 
   & pre code :global .token.operator {
     color: var(--colors-base-white);
-    background-color: var(--colors-base-black);
+    background-color: inherit;
   }
 }

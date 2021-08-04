@@ -29,6 +29,11 @@ export const adoptersDefault = {
       url: 'https://segment.com/'
     },
     {
+      title: `Sainsbury's`,
+      image: sainsburys,
+      url: 'https://www.sainsburys.co.uk/'
+    },
+    {
       title: 'Raspberry Pi',
       image: raspberrypi,
       url: 'https://www.raspberrypi.org/'
@@ -37,11 +42,6 @@ export const adoptersDefault = {
       title: `Discogs`,
       image: discogs,
       url: 'https://www.discogs.com/'
-    },
-    {
-      title: `Sainsbury's`,
-      image: sainsburys,
-      url: 'https://www.sainsburys.co.uk/'
     },
     {
       title: 'Hootsuite',

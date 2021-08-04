@@ -2,18 +2,21 @@ import React from 'react'
 
 import CodeBox, { Languages } from '../components/codebox'
 import Button from '../components/freestanding/button/button'
-import IconWrapper from '../components/freestanding/icon/icon-wrapper'
 import Adopters from '../components/layouts/adopters/adopters'
 import { adoptersDefault } from '../components/layouts/adopters/adopters-content'
-import FeatureImage from '../components/layouts/feature-image/feature-image'
+import FeatureContent from '../components/layouts/feature-image/feature-content'
 import FeatureList from '../components/layouts/featurelist/feature-list'
 import { featureListKeto } from '../components/layouts/featurelist/feature-list-content'
 import Hero from '../components/layouts/hero/hero'
+import { heroKeto } from '../components/layouts/hero/hero-content'
 import Layout from '../components/layouts/layout/layout'
 import Quickstart from '../components/layouts/quickstart/quickstart'
 import { quickstartOpenSource } from '../components/layouts/quickstart/quickstart-content'
+import Quotes from '../components/layouts/quotes/quotes'
+import { quotesDefault } from '../components/layouts/quotes/quotes-content'
 import SEO from '../components/layouts/seo/seo'
 import Stats from '../components/layouts/stats/stats'
+import { statsDefault } from '../components/layouts/stats/stats-content'
 import Newsletter from '../components/newsletter'
 
 import ketoProcess from '../images/keto/keto.svg'
@@ -97,50 +100,23 @@ checkClient.check(checkRequest, (error, resp) => {
 )
 
 const IndexPage = () => {
-  const ArrowRight = (
-    <i className={'ph-arrow-right-bold themed-primary size16'} />
-  )
-  const CheckCircleHero = (
-    <i className={'ph-check-circle-fill base-white size24'} />
-  )
+  const ArrowRight = <i className={'ph-arrow-right-bold size16'} />
 
   return (
-    <Layout>
+    <Layout theme={'keto'}>
       <SEO
         description={
           'Authorization Server based on Google Zanzibar, providing RBAC, ABAC and ACL.'
         }
         title={`Ory Keto - Permission and Role Management`}
       />
-      <Hero
-        title={'Global Access Control'}
-        description={
-          'Manage user roles, rights, and permissions with access-control lists.'
-        }
-        buttons={
-          <Button
-            to={'/keto/docs/quickstart/'}
-            style={'filled'}
-            iconRight={CheckCircleHero}
-          >
-            Get Started
-          </Button>
-        }
-        image={
-          <img
-            className="responsive"
-            loading="lazy"
-            alt="Example use of Keto authorisation methods inside a UI"
-            src={ketoProcess}
-          />
-        }
-      />
+      <Hero {...heroKeto} />
 
       <Newsletter preselect="keto" />
 
       <FeatureList {...featureListKeto} />
 
-      <FeatureImage
+      <FeatureContent
         overline={'Start in minutes'}
         title={<>Easy Integration</>}
         description={
@@ -158,11 +134,10 @@ const IndexPage = () => {
             </Button>
           </>
         }
-        image={<IntegrationCodeBox />}
+        content={<IntegrationCodeBox />}
       />
 
-      <FeatureImage
-        mirror={true}
+      <FeatureContent
         overline={'Polyglot'}
         title={<>SDKs for all languages</>}
         description={
@@ -182,7 +157,7 @@ const IndexPage = () => {
             </Button>
           </>
         }
-        image={
+        content={
           <img
             className="responsive"
             loading="lazy"
@@ -191,16 +166,9 @@ const IndexPage = () => {
           />
         }
       />
+      <Quotes {...quotesDefault} />
       <Adopters {...adoptersDefault} />
-      <Stats
-        title={<>Billions of Identities</>}
-        description={
-          <>
-            Companies from all over the world rely on Ory for their identity
-            needs. Ory technology secures billions of identity requests.
-          </>
-        }
-      />
+      <Stats {...statsDefault} />
       <Quickstart {...quickstartOpenSource} />
     </Layout>
   )

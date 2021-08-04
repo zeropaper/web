@@ -1,5 +1,6 @@
 declare const styles: {
   readonly baseWhite: string
+  readonly textPrimary: string
   readonly themedPrimary: string
   readonly baseGrey400: string
   readonly successPrimary: string

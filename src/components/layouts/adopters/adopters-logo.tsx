@@ -1,6 +1,8 @@
 import cn from 'classnames'
 import React from 'react'
 
+import Container from '../../freestanding/containers/container'
+
 import * as styles from './adopters-logo.module.css'
 
 interface PropTypes {
@@ -9,9 +11,9 @@ interface PropTypes {
 }
 
 const AdoptersLogo = ({ children, className }: PropTypes) => (
-  <div className={cn(styles.adoptersLogo, className && className)}>
+  <Container className={cn(styles.adoptersLogo, className && className)}>
     {children}
-  </div>
+  </Container>
 )
 
 export default AdoptersLogo

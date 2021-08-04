@@ -2,22 +2,24 @@ import React from 'react'
 
 import CodeBox, { Languages } from '../components/codebox'
 import Button from '../components/freestanding/button/button'
-import IconWrapper from '../components/freestanding/icon/icon-wrapper'
 import Adopters from '../components/layouts/adopters/adopters'
 import { adoptersDefault } from '../components/layouts/adopters/adopters-content'
 import YoutubeEmbed from '../components/layouts/embed/embed'
-import FeatureImage from '../components/layouts/feature-image/feature-image'
+import FeatureContent from '../components/layouts/feature-image/feature-content'
 import FeatureList from '../components/layouts/featurelist/feature-list'
 import { featureListHydra } from '../components/layouts/featurelist/feature-list-content'
 import Hero from '../components/layouts/hero/hero'
+import { heroHydra } from '../components/layouts/hero/hero-content'
 import Layout from '../components/layouts/layout/layout'
 import Quickstart from '../components/layouts/quickstart/quickstart'
 import { quickstartOpenSource } from '../components/layouts/quickstart/quickstart-content'
+import Quotes from '../components/layouts/quotes/quotes'
+import { quotesDefault } from '../components/layouts/quotes/quotes-content'
 import SEO from '../components/layouts/seo/seo'
 import Stats from '../components/layouts/stats/stats'
+import { statsDefault } from '../components/layouts/stats/stats-content'
 import Newsletter from '../components/newsletter'
 
-import hydraProcess from '../images/hydra/hydra.svg'
 import hydraPolyglot from '../images/hydra/hydra_p.svg'
 
 const IntegrationCodeBox = () => (
@@ -57,15 +59,10 @@ const IntegrationCodeBox = () => (
 )
 
 const IndexPage = () => {
-  const ArrowRight = (
-    <i className={'ph-arrow-right-bold themed-primary size16'} />
-  )
-  const CheckCircleHero = (
-    <i className={'ph-check-circle-fill base-white size24'} />
-  )
+  const ArrowRight = <i className={'ph-arrow-right-bold size16'} />
 
   return (
-    <Layout>
+    <Layout theme={'hydra'}>
       <SEO
         description="Open Source OAuth 2.0 and OpenID Connect Server - gethydra.sh."
         title={
@@ -75,33 +72,9 @@ const IndexPage = () => {
         }
       />
 
-      <Hero
-        title={'OAuth 2.0 and OIDC Certified® Server'}
-        description={
-          'Authenticate third party users and secure access to your Apps and APIs.'
-        }
-        buttons={
-          <Button
-            to={'/hydra/docs/5min-tutorial/'}
-            style={'filled'}
-            iconRight={CheckCircleHero}
-          >
-            Get Started
-          </Button>
-        }
-        image={
-          <img
-            className="responsive"
-            loading="lazy"
-            alt="Example OAuth2 flow with headless UI using Hydra"
-            src={hydraProcess}
-          />
-        }
-      />
-
+      <Hero {...heroHydra} />
       <Newsletter preselect="hydra" />
-
-      <FeatureImage
+      <FeatureContent
         overline={'Proven Scalability'}
         title={<>Scale to millions</>}
         description={
@@ -121,13 +94,12 @@ const IndexPage = () => {
             </Button>
           </>
         }
-        image={<YoutubeEmbed embedId="xcOjpLjy_rY" />}
+        content={<YoutubeEmbed embedId="xcOjpLjy_rY" />}
       />
 
       <FeatureList {...featureListHydra} />
 
-      <FeatureImage
-        mirror={true}
+      <FeatureContent
         overline={'Start in minutes'}
         title={<>Easy Integration</>}
         description={
@@ -144,10 +116,10 @@ const IndexPage = () => {
             </Button>
           </>
         }
-        image={<IntegrationCodeBox />}
+        content={<IntegrationCodeBox />}
       />
 
-      <FeatureImage
+      <FeatureContent
         overline={'Polyglot'}
         title={<>SDKs for all languages</>}
         description={
@@ -170,7 +142,7 @@ const IndexPage = () => {
             </Button>
           </>
         }
-        image={
+        content={
           <img
             className="responsive"
             loading="lazy"
@@ -179,16 +151,9 @@ const IndexPage = () => {
           />
         }
       />
+      <Quotes {...quotesDefault} />
       <Adopters {...adoptersDefault} />
-      <Stats
-        title={<>Billions of Identities</>}
-        description={
-          <>
-            Companies from all over the world rely on Ory for their identity
-            needs. Ory technology secures billions of identity requests.
-          </>
-        }
-      />
+      <Stats {...statsDefault} />
       <Quickstart {...quickstartOpenSource} />
     </Layout>
   )

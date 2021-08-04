@@ -12,6 +12,8 @@
   --colors-base-dark: #06111c;
   --colors-base-black: #000000;
 
+  --colors-base-background: var(--colors-base-white);
+
   --colors-text-primary: #06111cff; /*alpha 1*/
   --colors-text-secondary: #06111cd9; /*alpha .85*/
   --colors-text-mute: #06111c99; /*alpha .60*/
@@ -31,6 +33,17 @@
   --colors-link-primary: var(--colors-themed-primary);
   --colors-link-hover: var(--colors-themed-dark);
   --colors-link-active: var(--colors-text-primary);
+
+  --colors-button-text: var(--colors-base-white);
+  --colors-button-primary: var(--colors-themed-primary);
+  --colors-button-hover: var(--colors-themed-dark);
+  --colors-button-active: var(--colors-text-primary);
+  --colors-button-border: var(--colors-themed-light);
+
+  --colors-input-primary: var(--colors-base-grey-50);
+  --colors-input-hover: var(--colors-themed-background);
+  --colors-input-text-active: var(--colors-base-dark);
+  --colors-input-text-inactive: var(--colors-base-grey-600);
 
   --colors-oathkeeper-background: #fdf9fe;
   --colors-oathkeeper-light: #f8ecfd;
@@ -143,21 +156,24 @@
   --elevation-xxl: 0px 25px 50px -12px rgba(0, 0, 0, 0.15);
 }
 
-.light {
-  --colors-text-primary: var(--colors-text-light-primary);
-  --colors-text-secondary: var(--colors-text-light-secondary);
-  --colors-text-mute: var(--colors-text-light-mute);
-  --colors-text-muter: var(--colors-text-light-muter);
-  --colors-link-primary: var(--colors-themed-darkmode);
-  --colors-link-hover: var(--colors-themed-primary);
-  --colors-link-active: var(--colors-text-primary);
-}
-
 .theme-hydra {
   --colors-themed-primary: var(--colors-hydra-primary);
   --colors-themed-light: var(--colors-hydra-light);
   --colors-themed-background: var(--colors-hydra-background);
   --colors-themed-dark: var(--colors-hydra-dark);
+  --colors-themed-darkmode: var(--colors-hydra-darkmode);
+
+  --colors-link-primary: var(--colors-hydra-primary);
+  --colors-link-hover: var(--colors-hydra-dark);
+  --colors-link-active: var(--colors-text-primary);
+
+  --colors-button-text: var(--colors-base-white);
+  --colors-button-primary: var(--colors-hydra-primary);
+  --colors-button-hover: var(--colors-hydra-dark);
+  --colors-button-active: var(--colors-text-primary);
+  --colors-button-border: var(--colors-hydra-light);
+
+  --colors-input-hover: var(--colors-hydra-background);
 }
 
 .theme-oathkeeper {
@@ -165,6 +181,19 @@
   --colors-themed-light: var(--colors-oathkeeper-light);
   --colors-themed-background: var(--colors-oathkeeper-background);
   --colors-themed-dark: var(--colors-oathkeeper-dark);
+  --colors-themed-darkmode: var(--colors-oathkeeper-darkmode);
+
+  --colors-link-primary: var(--colors-oathkeeper-primary);
+  --colors-link-hover: var(--colors-oathkeeper-dark);
+  --colors-link-active: var(--colors-text-primary);
+
+  --colors-button-text: var(--colors-base-white);
+  --colors-button-primary: var(--colors-oathkeeper-primary);
+  --colors-button-hover: var(--colors-oathkeeper-dark);
+  --colors-button-active: var(--colors-text-primary);
+  --colors-button-border: var(--colors-oathkeeper-light);
+
+  --colors-input-hover: var(--colors-oathkeeper-background);
 }
 
 .theme-kratos {
@@ -172,6 +201,19 @@
   --colors-themed-light: var(--colors-kratos-light);
   --colors-themed-background: var(--colors-kratos-background);
   --colors-themed-dark: var(--colors-kratos-dark);
+  --colors-themed-darkmode: var(--colors-kratos-darkmode);
+
+  --colors-link-primary: var(--colors-kratos-primary);
+  --colors-link-hover: var(--colors-kratos-dark);
+  --colors-link-active: var(--colors-text-primary);
+
+  --colors-button-text: var(--colors-base-white);
+  --colors-button-primary: var(--colors-kratos-primary);
+  --colors-button-hover: var(--colors-kratos-dark);
+  --colors-button-active: var(--colors-text-primary);
+  --colors-button-border: var(--colors-kratos-light);
+
+  --colors-input-hover: var(--colors-kratos-background);
 }
 
 .theme-keto {
@@ -179,4 +221,53 @@
   --colors-themed-light: var(--colors-keto-light);
   --colors-themed-background: var(--colors-keto-background);
   --colors-themed-dark: var(--colors-keto-dark);
+  --colors-themed-darkmode: var(--colors-keto-darkmode);
+
+  --colors-link-primary: var(--colors-keto-primary);
+  --colors-link-hover: var(--colors-keto-dark);
+  --colors-link-active: var(--colors-text-primary);
+
+  --colors-button-text: var(--colors-base-white);
+  --colors-button-primary: var(--colors-keto-primary);
+  --colors-button-hover: var(--colors-keto-dark);
+  --colors-button-active: var(--colors-text-primary);
+  --colors-button-border: var(--colors-keto-light);
+
+  --colors-input-hover: var(--colors-keto-background);
+}
+
+.background-is-dark,
+.background-is-themed {
+  --colors-text-primary: var(--colors-text-light-primary);
+  --colors-text-secondary: var(--colors-text-light-secondary);
+  --colors-text-mute: var(--colors-text-light-mute);
+  --colors-text-muter: var(--colors-text-light-muter);
+}
+
+.background-is-dark {
+  --colors-base-background: var(--colors-base-dark);
+
+  --colors-link-primary: var(--colors-themed-light);
+  --colors-link-hover: var(--colors-themed-primary);
+  --colors-link-active: var(--colors-text-primary);
+
+  --colors-input-primary: var(--colors-base-grey-25);
+  --colors-input-hover: var(--colors-themed-light);
+}
+
+.background-is-themed {
+  --colors-base-background: var(--colors-themed-primary);
+
+  --colors-link-primary: var(--colors-themed-light);
+  --colors-link-hover: var(--colors-themed-background);
+  --colors-link-active: var(--colors-text-primary);
+
+  --colors-button-text: var(--colors-themed-primary);
+  --colors-button-primary: var(--colors-base-white);
+  --colors-button-hover: var(--colors-themed-light);
+  --colors-button-active: var(--colors-themed-light);
+  --colors-button-border: var(--colors-themed-primary);
+
+  --colors-input-primary: var(--colors-base-grey-25);
+  --colors-input-hover: var(--colors-themed-light);
 }

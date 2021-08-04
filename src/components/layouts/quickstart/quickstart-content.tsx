@@ -1,21 +1,20 @@
 import React from 'react'
 
 import Button from '../../freestanding/button/button'
+import { heroFormOreilly } from '../hero/hero-form-content'
 
 const RocketLaunch = <i className={'ph-rocket-launch-fill base-white size24'} />
 const BookOpen = <i className={'ph-book-open-fill base-white size24'} />
 const ArrowRight = <i className={'ph-arrow-right-bold themed-primary size16'} />
 const Users = <i className={'ph-users-fill themed-primary size32'} />
 const SlackLogo = <i className={' ph-slack-logo-fill themed-primary size32'} />
-const ChatsCircle = <i className={'ph-chats-circle-fill size32'} />
+const ChatsCircle = (
+  <i className={'ph-chats-circle-fill themed-primary size32'} />
+)
 const PaperPlaneTilt = (
-  <i className={'ph-paper-plane-tilt-fill base-white size32'} />
+  <i className={'ph-paper-plane-tilt-fill base-white size24'} />
 )
-const UsersThree = (
-  <i
-    className={'themed-primary ph-users-three ph-users-three-duotone size32'}
-  />
-)
+const UsersThree = <i className={'ph-users-three-fill themed-primary size32'} />
 
 export const quickstartDefault = {
   title: <>Ready to get started?</>,
@@ -47,7 +46,7 @@ export const quickstartDefault = {
         </>
       ),
       button: (
-        <Button to={'/docs'} style={'link'} iconRight={ArrowRight}>
+        <Button to={'/docs/'} style={'link'} iconRight={ArrowRight}>
           Read the docs
         </Button>
       )
@@ -251,6 +250,66 @@ export const quickstartJobs = {
         >
           Explore our codebase
         </Button>
+      )
+    }
+  ]
+}
+
+export const quickstartOreilly = {
+  title: <>Identity In Modern Applications</>,
+  description: (
+    <>
+      Learn how identity technology is constantly evolving to keep up with
+      modern software development. Understand how systems of trust play a role
+      in creating secure apps and systems.
+    </>
+  ),
+  buttons: (
+    <>
+      <Button style={'filled'} to={`#${heroFormOreilly.id}`}>
+        Get the report
+      </Button>
+    </>
+  ),
+  content: [
+    {
+      icon: SlackLogo,
+      title: <>Mapping Identity</>,
+      description: (
+        <>
+          Learn about the methods of mapping a person, place, or thing to a
+          software resource in a verifiable manner.
+        </>
+      )
+    },
+    {
+      icon: ChatsCircle,
+      title: <>Examples</>,
+      description: (
+        <>
+          Explore real-world examples of authentication methods and best
+          practices.
+        </>
+      )
+    },
+    {
+      icon: ChatsCircle,
+      title: <>AuthN/AuthZ</>,
+      description: (
+        <>
+          Understand authentication, authorization, the differences, and why
+          every method has its flaws.
+        </>
+      )
+    },
+    {
+      icon: ChatsCircle,
+      title: <>Single Or Multi?</>,
+      description: (
+        <>
+          Learn more about the differences between single-factor and multifactor
+          authentication.
+        </>
       )
     }
   ]

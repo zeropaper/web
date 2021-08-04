@@ -1,5 +1,5 @@
 .btn-base {
-  color: var(--colors-base-white);
+  color: var(--colors-button-text);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -16,21 +16,24 @@
 .style-filled {
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-smaller);
-  background: var(--colors-themed-primary);
+  background: var(--colors-button-primary);
   border: var(--size-px) solid transparent;
 
+  & i {
+    color: inherit;
+  }
+
   &:hover {
-    background: var(--colors-themed-dark);
+    background: var(--colors-button-hover);
   }
 
   &:focus {
-    background: var(--colors-themed-primary);
-    border: var(--size-px) solid var(--colors-themed-light);
+    border: var(--size-px) solid var(--colors-button-border);
   }
 
   &:active {
-    background: var(--colors-base-dark);
-    border: var(--size-px) solid var(--colors-themed-light);
+    background: var(--colors-button-active);
+    border: var(--size-px) solid var(--colors-button-border);
   }
 }
 
@@ -41,6 +44,10 @@
   color: var(--colors-link-primary);
   border: var(--size-px) solid var(--colors-themed-primary);
   box-sizing: border-box;
+
+  & i {
+    color: inherit;
+  }
 
   &:hover {
     color: var(--colors-link-hover);
@@ -57,6 +64,7 @@
 }
 
 .style-link-inline {
+  font-weight: var(--font-weight-semibold);
   color: var(--colors-link-primary);
 
   &:hover {
@@ -74,6 +82,10 @@
   background: transparent;
   color: var(--colors-themed-primary);
   border: var(--size-px) solid transparent;
+
+  & i {
+    color: inherit;
+  }
 
   &:hover {
     color: var(--colors-themed-dark);
@@ -94,6 +106,7 @@
 
   & img,
   & i {
+    color: inherit;
     transition: transform ease 200ms;
     transform: translateX(0);
   }

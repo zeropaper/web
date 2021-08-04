@@ -5,15 +5,19 @@ import Button from '../components/freestanding/button/button'
 import IconWrapper from '../components/freestanding/icon/icon-wrapper'
 import Adopters from '../components/layouts/adopters/adopters'
 import { adoptersDefault } from '../components/layouts/adopters/adopters-content'
-import FeatureImage from '../components/layouts/feature-image/feature-image'
+import FeatureContent from '../components/layouts/feature-image/feature-content'
 import FeatureList from '../components/layouts/featurelist/feature-list'
 import { featureListKratos } from '../components/layouts/featurelist/feature-list-content'
 import Hero from '../components/layouts/hero/hero'
+import { heroKratos } from '../components/layouts/hero/hero-content'
 import Layout from '../components/layouts/layout/layout'
 import Quickstart from '../components/layouts/quickstart/quickstart'
 import { quickstartOpenSource } from '../components/layouts/quickstart/quickstart-content'
+import Quotes from '../components/layouts/quotes/quotes'
+import { quotesDefault } from '../components/layouts/quotes/quotes-content'
 import SEO from '../components/layouts/seo/seo'
 import Stats from '../components/layouts/stats/stats'
+import { statsDefault } from '../components/layouts/stats/stats-content'
 import Newsletter from '../components/newsletter'
 
 import kratosProcess from '../images/kratos/kratos.svg'
@@ -67,47 +71,19 @@ export const registrationRoute = (req, res) => {
 )
 
 const IndexPage = () => {
-  const ArrowRight = (
-    <i className={'ph-arrow-right-bold themed-primary size16'} />
-  )
-  const CheckCircleHero = (
-    <i className={'ph-check-circle-fill base-white size24'} />
-  )
+  const ArrowRight = <i className={'ph-arrow-right-bold size16'} />
   return (
-    <Layout>
+    <Layout theme={'kratos'}>
       <SEO
         description="Open source user management and identity server."
         title={`Ory Kratos - Cloud Native Identity and User Management System`}
       />
-      <Hero
-        title={'Identity & User Management'}
-        description={
-          'Use configurable authentication and master user management in the cloud.'
-        }
-        buttons={
-          <Button
-            to={'/kratos/docs/quickstart'}
-            style={'filled'}
-            iconRight={CheckCircleHero}
-          >
-            Get Started
-          </Button>
-        }
-        image={
-          <img
-            className="responsive"
-            loading="lazy"
-            alt="Examples of headless Login and Registrations forms with different styles using Kratos"
-            src={kratosProcess}
-          />
-        }
-      />
-
+      <Hero {...heroKratos} />
       <Newsletter preselect="kratos" />
 
       <FeatureList {...featureListKratos} />
 
-      <FeatureImage
+      <FeatureContent
         overline={'Start in minutes'}
         title={<>Easy Integration</>}
         description={
@@ -127,11 +103,10 @@ const IndexPage = () => {
             </Button>
           </>
         }
-        image={<IntegrationCodeBox />}
+        content={<IntegrationCodeBox />}
       />
 
-      <FeatureImage
-        mirror={true}
+      <FeatureContent
         overline={'Polyglot'}
         title={<>SDKs for all languages</>}
         description={
@@ -153,7 +128,7 @@ const IndexPage = () => {
             </Button>
           </>
         }
-        image={
+        content={
           <img
             className="responsive"
             loading="lazy"
@@ -162,16 +137,9 @@ const IndexPage = () => {
           />
         }
       />
+      <Quotes {...quotesDefault} />
       <Adopters {...adoptersDefault} />
-      <Stats
-        title={<>Billions of Identities</>}
-        description={
-          <>
-            Companies from all over the world rely on Ory for their identity
-            needs. Ory technology secures billions of identity requests.
-          </>
-        }
-      />
+      <Stats {...statsDefault} />
       <Quickstart {...quickstartOpenSource} />
     </Layout>
   )

@@ -1,6 +1,11 @@
 .adopters {
-  background-color: var(--colors-base-grey-25);
-  padding: 64px 0;
+  background-color: var(--colors-base-background);
+  padding: 0 0 var(--size-24);
+}
+
+.adopters-separator {
+  padding: var(--size-8) 0;
+  border-bottom: var(--size-px) solid var(--colors-text-primary);
 }
 
 .adopters-link {
@@ -8,23 +13,23 @@
 }
 
 .adopters-container {
-  flex: 0 calc(100% / 5);
+  flex: 1 calc(100% / 5);
 }
 
 @media (--md) {
   .adopters-container {
-    flex: 0 calc(100% / 4);
+    flex: 1 calc(100% / 4);
   }
 }
 
 @media (--sm) {
   .adopters-container {
-    flex: 0 calc(100% / 3);
+    flex: 1 calc(100% / 3);
   }
 }
 
 @media (--xs) {
   .adopters-container {
-    flex: 0 calc(100% / 2);
+    flex: 0 100%;
   }
 }

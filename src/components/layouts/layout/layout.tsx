@@ -11,7 +11,6 @@ import 'prismjs/components/prism-yaml'
 import React from 'react'
 
 import Button from '../../freestanding/button/button'
-import ColourWrapper from '../../freestanding/colour/colour-wrapper'
 import Footer from '../footer/footer'
 import Navigation from '../navigation/navigation'
 
@@ -21,10 +20,11 @@ import logoOryFooter from '../../../images/logo-ory-footer.svg'
 import oryLogoPrimary from '../../../images/logo-ory-primary.svg'
 
 interface PropTypes {
+  theme?: string
   children?: React.ReactNode
 }
 
-const Layout = ({ children }: PropTypes) => {
+const Layout = ({ children, theme }: PropTypes) => {
   const ArrowRight = <i className="ph-arrow-right-bold themed-primary size16" />
   const SignIn = <i className="ph-sign-in themed-primary size24" />
 
@@ -62,7 +62,7 @@ const Layout = ({ children }: PropTypes) => {
                     openInNewWindow={false}
                     iconRight={ArrowRight}
                   >
-                    Ory as a Service
+                    Ory Cloud
                   </Button>
                 )
               },
@@ -190,7 +190,7 @@ const Layout = ({ children }: PropTypes) => {
           },
           {
             title: (
-              <Button to={'/docs'} style={'link'}>
+              <Button to={'/docs/'} style={'link'}>
                 Docs
               </Button>
             )
@@ -236,6 +236,19 @@ const Layout = ({ children }: PropTypes) => {
                     Jobs!
                   </Button>
                 )
+              },
+              {
+                description: '',
+                button: (
+                  <Button
+                    to={'/identity-in-modern-applications-oreilly'}
+                    style={'link'}
+                    openInNewWindow={false}
+                    iconRight={ArrowRight}
+                  >
+                    Identity Report
+                  </Button>
+                )
               }
             ]
           }
@@ -251,7 +264,7 @@ const Layout = ({ children }: PropTypes) => {
                   style={'link'}
                   openInNewWindow={true}
                 >
-                  Ory as a Service
+                  Ory Cloud
                 </Button>
               )
             },
@@ -260,7 +273,7 @@ const Layout = ({ children }: PropTypes) => {
               button: (
                 <Button
                   className={cn('font-h5')}
-                  to={'/docs'}
+                  to={'/docs/'}
                   style={'link'}
                   openInNewWindow={true}
                 >
@@ -375,11 +388,18 @@ const Layout = ({ children }: PropTypes) => {
               openInNewWindow={true}
             >
               Jobs
+            </Button>,
+            <Button
+              to={'/identity-in-modern-applications-oreilly'}
+              style={'link'}
+              openInNewWindow={false}
+            >
+              Identity Report
             </Button>
           ]
         }}
       />
-      <main>{children}</main>
+      <main className={`theme-${theme}`}>{children}</main>
       <Footer
         logo={
           <img
@@ -485,7 +505,7 @@ const Layout = ({ children }: PropTypes) => {
           {
             title: 'Developers',
             links: [
-              <Button to={'/docs'} style={'link'} openInNewWindow={true}>
+              <Button to={'/docs/'} style={'link'} openInNewWindow={true}>
                 Documentation
               </Button>,
               <Button
@@ -523,6 +543,13 @@ const Layout = ({ children }: PropTypes) => {
                 openInNewWindow={true}
               >
                 Contact Us
+              </Button>,
+              <Button
+                to={'/identity-in-modern-applications-oreilly'}
+                style={'link'}
+                openInNewWindow={false}
+              >
+                Identity Report
               </Button>
             ]
           }

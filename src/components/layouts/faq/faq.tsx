@@ -43,7 +43,7 @@ const Faq = ({ title, description, content }: PropTypes) => {
   )
 
   return (
-    <div className={cn(faq, 'light')}>
+    <div className={cn(faq, 'background-is-dark')}>
       <Container fluid={true} alignItems={['start']}>
         <Grid lg={4} md={3} sm={12} xs={12} className={pb48}>
           <ContentText>

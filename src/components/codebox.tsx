@@ -2,6 +2,8 @@ import cn from 'classnames'
 import Prism from 'prismjs'
 import React, { Component } from 'react'
 
+import Container from './freestanding/containers/container'
+
 import * as styles from './codebox.module.css'
 
 export enum Languages {
@@ -57,8 +59,8 @@ class CodeBox extends Component<PropTypes, StateTypes> {
   render() {
     const { tabs } = this.state
     return (
-      <div className={styles.box}>
-        <div className={styles.editorHeader}>
+      <Container alignItems={'start'} xsHidden={true} className={styles.box}>
+        <Container justify={'start'} className={styles.editorHeader}>
           <div className={styles.windowActions}>
             <div className={cn(styles.windowAction, styles.primary)} />
             <div className={cn(styles.windowAction)} />
@@ -77,20 +79,25 @@ class CodeBox extends Component<PropTypes, StateTypes> {
               </div>
             ))}
           </div>
-        </div>
-        <div className={styles.content}>
+        </Container>
+        <Container alignItems={'start'} className={styles.content}>
           {tabs.map(({ filename, code, language }, index) => (
             <pre
               key={filename}
-              className={cn(`language-${language}`, {
-                [styles.active]: index === this.state.active
-              })}
+              className={cn(
+                `language-${language}`,
+                'font-p-small',
+                'is-monospace',
+                {
+                  [styles.active]: index === this.state.active
+                }
+              )}
             >
               <code dangerouslySetInnerHTML={{ __html: `${code}` }} />
             </pre>
           ))}
-        </div>
-      </div>
+        </Container>
+      </Container>
     )
   }
 }

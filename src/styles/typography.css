@@ -190,7 +190,6 @@ h6,
 
 p,
 li,
-input,
 a,
 .font-p-large,
 .font-p,
@@ -228,7 +227,7 @@ a,
   letter-spacing: var(--font-spacing-wide);
   line-height: var(--font-lineheight-normal);
   font-style: normal;
-  color: inherit;
+  color: var(--colors-text-secondary);
 }
 
 .font-button,
@@ -253,10 +252,6 @@ a,
 
 .is-monospace {
   font-family: var(--font-monospace);
-}
-
-.is-semibold {
-  font-weight: var(--font-weight-bold);
 }
 
 .is-semibold {

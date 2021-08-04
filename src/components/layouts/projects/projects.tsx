@@ -7,7 +7,6 @@ import ColourWrapper from '../../freestanding/colour/colour-wrapper'
 import Container from '../../freestanding/containers/container'
 import Grid from '../../freestanding/containers/grid'
 import ContentText from '../../freestanding/content/content-text'
-import IconWrapper from '../../freestanding/icon/icon-wrapper'
 import Molecule from '../../freestanding/molecule/molecule'
 import MoleculeInteraction from '../../freestanding/molecule/molecule-interaction'
 
@@ -36,7 +35,7 @@ const Projects = ({ overline, title, description, buttons }: PropTypes) => {
   return (
     <div className={cn(features)}>
       <Container fluid={true} alignItems={'start'}>
-        <Grid lg={4} md={3} sm={12} xs={12} className={cn(pb64)}>
+        <Grid lg={5} md={12} sm={12} xs={12} className={cn(pb64)}>
           <ContentText>
             <Molecule>
               <h3 className={cn('font-overline', pb16)}>{overline}</h3>
@@ -50,7 +49,7 @@ const Projects = ({ overline, title, description, buttons }: PropTypes) => {
             </MoleculeInteraction>
           </ContentText>
         </Grid>
-        <Grid lg={6} md={8} sm={12} xs={12}>
+        <Grid lg={6} md={12} sm={12} xs={12}>
           <Container alignItems={'start'} justify={'start'}>
             {projects.map((project, index) => (
               <Grid
@@ -58,7 +57,7 @@ const Projects = ({ overline, title, description, buttons }: PropTypes) => {
                 md={6}
                 sm={6}
                 xs={12}
-                className={cn(pb48, featuresContent)}
+                className={cn(pb48, featuresContent, `theme-${project.id}`)}
                 key={index}
               >
                 <Container
@@ -74,7 +73,9 @@ const Projects = ({ overline, title, description, buttons }: PropTypes) => {
                     <h3 className={cn('font-overline', pb16)}>
                       {project.descriptiveTitle}
                     </h3>
-                    <h2 className={cn('font-h5', pb8)}>{project.title}</h2>
+                    <h2 className={cn('font-h5', 'is-themed-primary', pb8)}>
+                      {project.title}
+                    </h2>
                     <p className={cn('font-p-small', pb8)}>
                       {project.description}
                     </p>

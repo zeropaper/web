@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Button from '../components/freestanding/button/button'
-import FeatureImage from '../components/layouts/feature-image/feature-image'
+import FeatureContent from '../components/layouts/feature-image/feature-content'
 import Layout from '../components/layouts/layout/layout'
 import img404 from '../images/404.mp4'
 
 const NotFoundPage = () => (
   <Layout>
-    <FeatureImage
+    <FeatureContent
       overline={'404 - not found'}
       title={<>We couldn't find the page you were looking for</>}
       description={
@@ -28,7 +28,7 @@ const NotFoundPage = () => (
           Return home
         </Button>
       }
-      image={
+      content={
         <video
           width="100%"
           autoPlay

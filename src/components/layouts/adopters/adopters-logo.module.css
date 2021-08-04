@@ -3,12 +3,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 24px;
+  padding: var(--size-4) var(--size-1);
 
   & a img,
   & a i {
     transition: all ease 200ms;
-    max-height: 1.8rem;
+    max-width: var(--size-32);
+    max-height: var(--size-8);
+    width: auto;
+    filter: invert(0.5) brightness(2) opacity(0.75);
   }
 
   & a:any-link {
@@ -17,7 +20,7 @@
     &:focus {
       & img,
       & i {
-        filter: invert(1);
+        filter: invert(0) brightness(1) opacity(1);
       }
     }
   }

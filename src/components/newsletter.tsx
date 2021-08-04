@@ -4,20 +4,17 @@ import React, {
   MouseEvent,
   Component,
   ReactNode,
-  FormEvent
+  FormEvent,
+  useState
 } from 'react'
 
 import Container from './freestanding/containers/container'
 import Grid from './freestanding/containers/grid'
 import ContentText from './freestanding/content/content-text'
-import Molecule from './freestanding/molecule/molecule'
+import Form from './layouts/forms/forms'
 
 import { pb32 } from './freestanding/utils/padding.module.css'
 import * as styles from './newsletter.module.css'
-
-interface StateTypes {
-  email: string
-}
 
 const projects = {
   kratos: '&group[17097][4]=1',
@@ -31,71 +28,66 @@ interface PropTypes {
   preselect?: keyof typeof projects
 }
 
-class Newsletter extends Component<PropTypes, StateTypes> {
-  state = { email: '' }
+const Newsletter = ({ preselect, special }: PropTypes) => {
+  const [email, setEmail] = useState('')
 
-  private onSubmit = (
+  const onSubmit = (
     e: MouseEvent<HTMLInputElement> | FormEvent<HTMLFormElement>
   ) => {
     e.preventDefault()
     window.open(
       'https://ory.us10.list-manage.com/subscribe?u=ffb1a878e4ec6c0ed312a3480&id=f605a41b53&MERGE0=' +
-        encodeURIComponent(this.state.email) +
-        (this.props.preselect ? projects[this.props.preselect] : '')
+        encodeURIComponent(email) +
+        (preselect ? projects[preselect] : '')
     )
   }
 
-  onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    this.setState({ email: e.target.value })
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value)
   }
 
-  render() {
-    const { special } = this.props
-
-    return (
-      <div className={cn(styles.newsletter, 'light')}>
-        <Container fluid={true} justify={'center'}>
-          <Grid lg={5} md={8} sm={10} xs={12} className={cn(pb32)}>
-            <ContentText>
-              <Container justify={'center'} className={cn(styles.textAlign)}>
-                {special ? (
-                  special
-                ) : (
-                  <>
-                    <h3 className={cn('font-h3', pb32)}>Never miss a patch</h3>
-                    <p className={cn('font-p', pb32)}>
-                      Ory ships regular product patches and updates. Subscribe
-                      to our newsletter to get the good stuff, and stay up to
-                      date.
-                    </p>
-                  </>
-                )}
-              </Container>
-            </ContentText>
-            <Molecule>
-              <form className={styles.form} onSubmit={this.onSubmit}>
-                <input
-                  type="email"
-                  name={'email'}
-                  placeholder={'Enter your email'}
-                  required
-                  onChange={this.onChange}
-                  value={this.state.email}
-                />
-                <input
-                  className={cn('font-link')}
-                  type="button"
-                  name={'submit'}
-                  value={'Subscribe'}
-                  onClick={this.onSubmit}
-                />
-              </form>
-            </Molecule>
-          </Grid>
-        </Container>
-      </div>
-    )
-  }
+  return (
+    <div className={cn(styles.newsletter, 'background-is-dark')}>
+      <Container fluid={true} justify={'center'}>
+        <Grid lg={5} md={8} sm={10} xs={12} className={cn(pb32)}>
+          <ContentText>
+            <Container justify={'center'} className={cn(styles.textAlign)}>
+              {special ? (
+                special
+              ) : (
+                <>
+                  <h3 className={cn('font-h3', pb32)}>Never miss a patch</h3>
+                  <p className={cn('font-p', pb32)}>
+                    Ory ships regular product patches and updates. Subscribe to
+                    our newsletter to get the good stuff, and stay up to date.
+                  </p>
+                </>
+              )}
+            </Container>
+          </ContentText>
+          <Form
+            isSingleLine={true}
+            content={[
+              {
+                type: 'email',
+                name: 'email',
+                placeholder: 'Enter your email',
+                required: true,
+                onChange: onChange,
+                value: email
+              },
+              {
+                type: 'submit',
+                name: 'submit',
+                value: 'Subscribe'
+              }
+            ]}
+            onSubmit={onSubmit}
+          />
+        </Grid>
+      </Container>
+    </div>
+  )
 }
 
 export default Newsletter

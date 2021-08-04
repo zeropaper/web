@@ -1,82 +1,108 @@
-// requires a loader
 import cn from 'classnames'
 import React from 'react'
-import { Carousel } from 'react-responsive-carousel'
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 import Container from '../../freestanding/containers/container'
 import Grid from '../../freestanding/containers/grid'
 import ContentText from '../../freestanding/content/content-text'
 
-import { pb32, pt32, pb64 } from '../../freestanding/utils/padding.module.css'
-import { quote, quoteBlock, quoteImg } from './quote.module.css'
+import { pb32, pb16 } from '../../freestanding/utils/padding.module.css'
+import * as styles from './quote.module.css'
 
 interface PropTypes {
-  title: React.ReactElement
   quotes: Array<Quote>
 }
 
 export interface Quote {
-  logo: React.ReactElement
+  big?: boolean
   description: React.ReactElement
   person: string
   jobTitle: string
   className?: string
 }
 
+const Quote = () => <i className={'ph-quotes-fill text-primary size32'} />
+const QuoteThemed = () => (
+  <i className={'ph-quotes-fill themed-primary size32'} />
+)
+
 const QuoteBlock = ({
   className,
-  logo,
+  big,
   description,
   person,
   jobTitle
 }: Quote) => (
   <Container>
-    <ContentText className={cn(quoteBlock, className && className)}>
-      <div className={cn(quoteImg, pb64)}>{logo}</div>
-      <h4 className={cn('font-quote', pb32)}>{description}</h4>
-      <h5 className={cn('font-h6')}>{person}</h5>
-      <p className={cn('font-p-small')}>{jobTitle}</p>
-    </ContentText>
+    <Grid
+      lg={12}
+      md={12}
+      sm={12}
+      xs={12}
+      className={cn(className && className)}
+    >
+      {!big ? (
+        <div>
+          <div className={cn(pb16)}>
+            <Quote />
+          </div>
+          <h4 className={cn('font-quote', pb16)}>{description}</h4>
+        </div>
+      ) : (
+        <div>
+          <div className={cn(pb16)}>
+            <QuoteThemed />
+          </div>
+          <h2 className={cn('font-h2', pb32)}>{description}</h2>
+        </div>
+      )}
+      <p className={cn('font-p-small')}>
+        <span
+          className={cn(!big ? 'is-semibold' : 'is-semibold is-themed-primary')}
+        >
+          {person}{' '}
+        </span>
+        // {jobTitle}
+      </p>
+    </Grid>
   </Container>
 )
 
-const Quotes = ({ quotes, title }: PropTypes) => (
-  <>
-    <div className={cn(quote)}>
-      <Container fluid={true}>
-        <Grid lg={4} md={3} sm={12} xs={12} className={cn(pb32, pt32)}>
-          <h3 className={cn('font-h3')}>{title}</h3>
-        </Grid>
-        <Grid lg={6} md={8} sm={12} xs={12}>
-          <Carousel
-            centerMode={false}
-            autoPlay={true}
-            interval={10000}
-            swipeable={false}
-            transitionTime={500}
-            showArrows={false}
-            showIndicators={false}
-            showStatus={false}
-            showThumbs={false}
-            infiniteLoop={true}
-            useKeyboardArrows={false}
-            stopOnHover={true}
+const QuoteColumn = ({ quotes, big }: PropTypes & { big: boolean }) => (
+  <Grid lg={big ? 5 : 6} md={12} sm={12} xs={12} xsHidden={!big}>
+    <Container alignItems={'start'} justify={'start'}>
+      {quotes
+        .filter((quote) => !!quote.big === big)
+        .map((quote, index) => (
+          <Grid
+            lg={12}
+            md={big ? 12 : 6}
+            sm={12}
+            xs={12}
+            className={cn(styles.quoteBlock)}
+            key={index}
           >
-            {quotes.map((quote, index) => (
+            <Container flexContainer={'row'} alignItems={'start'}>
               <QuoteBlock
-                logo={quote.logo}
+                big={quote.big}
                 description={quote.description}
                 person={quote.person}
                 jobTitle={quote.jobTitle}
                 key={index}
               />
-            ))}
-          </Carousel>
-        </Grid>
-      </Container>
-    </div>
-  </>
+            </Container>
+          </Grid>
+        ))}
+    </Container>
+  </Grid>
+)
+
+const Quotes = ({ quotes }: PropTypes) => (
+  <div className={cn(styles.quote, 'background-is-dark')}>
+    <Container fluid={true}>
+      <QuoteColumn quotes={quotes} big={true} />
+      <QuoteColumn quotes={quotes} big={false} />
+    </Container>
+  </div>
 )
 
 export default Quotes

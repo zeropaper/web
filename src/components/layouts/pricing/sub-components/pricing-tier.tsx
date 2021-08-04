@@ -10,8 +10,6 @@ import {
   pb16,
   pb48,
   pb64,
-  pb8,
-  pr4,
   pr8
 } from '../../../freestanding/utils/padding.module.css'
 import * as styles from './pricing-tier.module.css'
@@ -127,7 +125,7 @@ const PricingTier = ({
     }
   } else {
     classes = {
-      text: 'light',
+      text: 'background-is-dark',
       fonth2: 'font-h2',
       fonth3: 'font-h3',
       fontp: 'font-p',

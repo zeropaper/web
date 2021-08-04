@@ -1,5 +1,13 @@
+i {
+  color: var(--colors-text-primary);
+}
+
 i.base-white {
   color: var(--colors-base-white);
+}
+
+i.text-primary {
+  color: var(--colors-text-primary);
 }
 
 i.themed-primary {

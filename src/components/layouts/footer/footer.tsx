@@ -57,7 +57,7 @@ const FooterMain = ({ className, logo, contact, links }: FooterMain) => (
             <ColourWrapper text={'base-grey-600'}>
               {contact.contactEmail}
             </ColourWrapper>
-            <p className={cn('p-sm')}>{contact.contactText}</p>
+            <p className={cn('font-p-small')}>{contact.contactText}</p>
           </Container>
         </Grid>
         <Grid lg={6} md={8} sm={12} xs={12}>
@@ -155,7 +155,7 @@ const Footer = ({
         logo={logo}
       />
     </div>
-    <div className={cn(footerSub)}>
+    <div className={cn(footerSub, 'background-is-dark')}>
       <FooterSub
         className={cn(footerContainer)}
         copyright={copyright}

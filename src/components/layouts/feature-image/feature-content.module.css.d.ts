@@ -1,4 +1,4 @@
 declare const styles: {
-  readonly featureImage: string
+  readonly featureContent: string
 }
 export = styles

@@ -1,4 +1,3 @@
-import cn from 'classnames'
 import React from 'react'
 
 import Button from '../components/freestanding/button/button'
@@ -9,16 +8,18 @@ import FeatureList from '../components/layouts/featurelist/feature-list'
 import { featureListPricing } from '../components/layouts/featurelist/feature-list-content'
 import Layout from '../components/layouts/layout/layout'
 import Pricing from '../components/layouts/pricing/pricing'
+import {
+  pricingDefault,
+  pricingTiersOpenSource,
+  pricingTiersSaas
+} from '../components/layouts/pricing/pricing-content'
 import Quotes from '../components/layouts/quotes/quotes'
 import { quotesDefault } from '../components/layouts/quotes/quotes-content'
 import SEO from '../components/layouts/seo/seo'
 import Stats from '../components/layouts/stats/stats'
+import { statsDefault } from '../components/layouts/stats/stats-content'
 
 const PricingPage = () => {
-  const CheckCircle = (
-    <i className={'ph-check-circle-fill themed-primary size16'} />
-  )
-
   return (
     <Layout>
       <SEO
@@ -32,148 +33,29 @@ const PricingPage = () => {
       />
 
       <Pricing
-        title={<>No limits on identity</>}
-        description={
-          <>
-            Ory is based on mature open source software and open standards. And
-            it’s affordable for everyone. We also offer individual plans for
-            enterprise customers, please contact us to learn more!
-          </>
-        }
-        saas={[
-          {
-            theme: 'dark',
-            title: 'Early Access',
-            description: 'Get early access to the full Ory platform now',
-            price: '$99',
-            priceDescription: 'per Project/Member',
-            button: (
-              <Button
-                to={'https://console.ory.sh/registration'}
-                style={'filled'}
-              >
-                Request Access
-              </Button>
-            ),
-            features: [
-              {
-                icon: CheckCircle,
-                title: 'Flexible identity model *'
-              },
-              {
-                icon: CheckCircle,
-                title: '1 Member & Project'
-              },
-              {
-                icon: CheckCircle,
-                title: '100k API Calls / 24 hours'
-              },
-              {
-                icon: CheckCircle,
-                title: 'UI & Dashboard'
-              },
-              {
-                icon: CheckCircle,
-                title: 'Ory CLI'
-              },
-              {
-                icon: CheckCircle,
-                title: 'Community Support'
-              }
-            ]
-          },
-          {
-            theme: 'light',
-            title: 'Enterprise',
-            description: 'Ory with dedicated support & custom hosting options',
-            price: 'Individual',
-            priceDescription: 'per Project/Member',
-            button: (
-              <Button to={'mailto:sales@ory.sh'} style={'outlined'}>
-                Contact sales
-              </Button>
-            ),
-            features: [
-              {
-                icon: CheckCircle,
-                title: 'Flexible identity model *'
-              },
-              {
-                icon: CheckCircle,
-                title: '>1 Member & Project'
-              },
-              {
-                icon: CheckCircle,
-                title: 'No limits on API calls'
-              },
-              {
-                icon: CheckCircle,
-                title: 'UI & Dashboard'
-              },
-              {
-                icon: CheckCircle,
-                title: 'Ory CLI'
-              },
-              {
-                icon: CheckCircle,
-                title: 'HyperCare Support'
-              }
-            ]
-          }
-        ]}
-        opensource={[
-          {
-            theme: 'light',
-            title: 'Self-hosted',
-            description:
-              'Try out Ory locally or deploy self-hosted without any limits.',
-            price: 'Free',
-            priceDescription: '',
-            button: (
-              <Button to={'/docs'} style={'filled'}>
-                Get Started
-              </Button>
-            ),
-            featuresContainer: 'row',
-            features: [
-              {
-                icon: CheckCircle,
-                title: 'No Limits'
-              },
-              {
-                icon: CheckCircle,
-                title: 'Self-hosted'
-              },
-              {
-                icon: CheckCircle,
-                title: 'Write your own UI'
-              },
-              {
-                icon: CheckCircle,
-                title: 'Community Support'
-              }
-            ]
-          }
-        ]}
+        {...pricingDefault}
+        {...pricingTiersSaas}
+        {...pricingTiersOpenSource}
       />
 
+      <Quotes {...quotesDefault} />
       <Adopters {...adoptersDefault} />
-
+      <Stats {...statsDefault} />
       <FeatureList {...featureListPricing} />
 
       <Faq
         title={<>Frequently Asked Questions</>}
         description={
           <>
-            If you cant find your question here, reach out to us on&nbsp;
+            If you cant find your question here, reach out to us on {''}
             <Button style={'link-inline'} to={'https://github.com/ory'}>
               GitHub
             </Button>
-            , our&nbsp;
+            , our {''}
             <Button style={'link-inline'} to={'https://slack.ory.sh/'}>
               Slack Channel
             </Button>
-            &nbsp;or&nbsp;
+            {''} or {''}
             <Button style={'link-inline'} to={'mailto:office@ory.sh'}>
               via email.
             </Button>
@@ -261,18 +143,6 @@ const PricingPage = () => {
           }
         ]}
       />
-
-      <Stats
-        title={<>Billions of Identities</>}
-        description={
-          <>
-            Companies from all over the world rely on Ory for their identity
-            needs. Ory technology secures billions of identity requests.
-          </>
-        }
-      />
-
-      <Quotes {...quotesDefault} />
     </Layout>
   )
 }

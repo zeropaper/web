@@ -22,10 +22,12 @@ export type Project = {
   visual: string
 }
 
-const UserGear = <i className="ph-user-gear themed-primary size32" />
-const Fingerprint = <i className="ph-fingerprint themed-primary size32" />
-const ShieldWarning = <i className="ph-shield-warning themed-primary size32" />
-const Key = <i className="ph-key themed-primary size32" />
+const UserGear = <i className="ph-user-gear-fill themed-primary size32" />
+const Fingerprint = <i className="ph-fingerprint-fill themed-primary size32" />
+const ShieldWarning = (
+  <i className="ph-shield-warning-fill themed-primary size32" />
+)
+const Key = <i className="ph-key-fill themed-primary size32" />
 
 export const projects: Project[] = [
   {

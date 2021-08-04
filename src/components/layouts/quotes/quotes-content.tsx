@@ -1,22 +1,9 @@
 import React from 'react'
 
-import blues from '../../../images/adopters/colored/blues_c.svg'
-import sainsburys from '../../../images/adopters/colored/sainsburys_c.svg'
-import thoughtworks from '../../../images/adopters/colored/thoughtworks_c.svg'
-
 export const quotesDefault = {
-  title: <>What our customers say</>,
   quotes: [
     {
-      logo: (
-        <img
-          width={'100%'}
-          height={'100%'}
-          src={sainsburys}
-          loading="lazy"
-          alt={"Sainsbury's Logo"}
-        />
-      ),
+      big: true,
       description: (
         <>
           We like using Ory because it’s API first design made it super easy to
@@ -27,15 +14,6 @@ export const quotesDefault = {
       jobTitle: `Engineering Manager, Sainsbury’s Tech`
     },
     {
-      logo: (
-        <img
-          width={'100%'}
-          height={'100%'}
-          src={thoughtworks}
-          loading="lazy"
-          alt={'Thoughtworks Logo'}
-        />
-      ),
       description: (
         <>
           With Ory, I can build custom and secure ID infrastructure and APIs
@@ -46,15 +24,6 @@ export const quotesDefault = {
       jobTitle: `Identity & Infosec, Thoughtworks`
     },
     {
-      logo: (
-        <img
-          width={'100%'}
-          height={'100%'}
-          src={blues}
-          loading="lazy"
-          alt={'Blues Logo'}
-        />
-      ),
       description: (
         <>
           I needed an Auth System that would work with modern setups. Ory fit

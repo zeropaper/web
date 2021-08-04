@@ -5,18 +5,21 @@ import Button from '../components/freestanding/button/button'
 import IconWrapper from '../components/freestanding/icon/icon-wrapper'
 import Adopters from '../components/layouts/adopters/adopters'
 import { adoptersDefault } from '../components/layouts/adopters/adopters-content'
-import FeatureImage from '../components/layouts/feature-image/feature-image'
+import FeatureContent from '../components/layouts/feature-image/feature-content'
 import FeatureList from '../components/layouts/featurelist/feature-list'
 import { featureListOathkeeper } from '../components/layouts/featurelist/feature-list-content'
 import Hero from '../components/layouts/hero/hero'
+import { heroOathkeeper } from '../components/layouts/hero/hero-content'
 import Layout from '../components/layouts/layout/layout'
 import Quickstart from '../components/layouts/quickstart/quickstart'
 import { quickstartOpenSource } from '../components/layouts/quickstart/quickstart-content'
+import Quotes from '../components/layouts/quotes/quotes'
+import { quotesDefault } from '../components/layouts/quotes/quotes-content'
 import SEO from '../components/layouts/seo/seo'
 import Stats from '../components/layouts/stats/stats'
+import { statsDefault } from '../components/layouts/stats/stats-content'
 import Newsletter from '../components/newsletter'
 
-import oathkeeperProcess from '../images/oathkeeper/oathkeeper.svg'
 import oathkeeperPolyglot from '../images/oathkeeper/oathkeeper_p.svg'
 
 const IntegrationCodeBox = () => (
@@ -67,14 +70,9 @@ authenticators:
 )
 
 const IndexPage = () => {
-  const ArrowRight = (
-    <i className={'ph-arrow-right-bold themed-primary size16'} />
-  )
-  const CheckCircleHero = (
-    <i className={'ph-check-circle-fill base-white size24'} />
-  )
+  const ArrowRight = <i className={'ph-arrow-right-bold size16'} />
   return (
-    <Layout>
+    <Layout theme={'oathkeeper'}>
       <SEO
         description={
           'Oathkeeper Open Source Identity and Access Proxy (IAP). Authenticate and authorize traffic using Zero Trust.'
@@ -82,35 +80,13 @@ const IndexPage = () => {
         title={'Ory Oathkeeper - Open Source Identity and Access Proxy (IAP)'}
       />
 
-      <Hero
-        title={'Control Incoming Traffic'}
-        description={
-          'Authenticate and authorize all traffic with a Zero Trust security model.'
-        }
-        buttons={
-          <Button
-            to={'/oathkeeper/docs/configure-deploy/'}
-            style={'filled'}
-            iconRight={CheckCircleHero}
-          >
-            Get Started
-          </Button>
-        }
-        image={
-          <img
-            className="responsive"
-            loading="lazy"
-            alt="Example use of Oathkeeper IAM capabilities inside a UI"
-            src={oathkeeperProcess}
-          />
-        }
-      />
+      <Hero {...heroOathkeeper} />
 
       <Newsletter preselect="oathkeeper" />
 
       <FeatureList {...featureListOathkeeper} />
 
-      <FeatureImage
+      <FeatureContent
         overline={'Start in minutes'}
         title={<>Easy Integration</>}
         description={
@@ -132,11 +108,10 @@ const IndexPage = () => {
             </Button>
           </>
         }
-        image={<IntegrationCodeBox />}
+        content={<IntegrationCodeBox />}
       />
 
-      <FeatureImage
-        mirror={true}
+      <FeatureContent
         overline={'Polyglot'}
         title={<>SDKs for all languages</>}
         description={
@@ -158,7 +133,7 @@ const IndexPage = () => {
             </Button>
           </>
         }
-        image={
+        content={
           <img
             className="responsive"
             loading="lazy"
@@ -168,16 +143,9 @@ const IndexPage = () => {
         }
       />
 
+      <Quotes {...quotesDefault} />
       <Adopters {...adoptersDefault} />
-      <Stats
-        title={<>Billions of Identities</>}
-        description={
-          <>
-            Companies from all over the world rely on Ory for their identity
-            needs. Ory technology secures billions of identity requests.
-          </>
-        }
-      />
+      <Stats {...statsDefault} />
       <Quickstart {...quickstartOpenSource} />
     </Layout>
   )

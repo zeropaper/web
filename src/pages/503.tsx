@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Button from '../components/freestanding/button/button'
-import FeatureImage from '../components/layouts/feature-image/feature-image'
+import FeatureContent from '../components/layouts/feature-image/feature-content'
 import Layout from '../components/layouts/layout/layout'
 import img404 from '../images/404.mp4'
 
 const NotFoundPage = () => (
   <Layout>
-    <FeatureImage
+    <FeatureContent
       overline={'503 - service unavailable'}
       title={<>Hang on, we'll be right back</>}
       description={
@@ -29,7 +29,7 @@ const NotFoundPage = () => (
           Status Page
         </Button>
       }
-      image={
+      content={
         <video
           width="100%"
           autoPlay

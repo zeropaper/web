@@ -9,12 +9,10 @@ import React, { Component } from 'react'
 
 import Container from '../../freestanding/containers/container'
 import Grid from '../../freestanding/containers/grid'
-import ContentText from '../../freestanding/content/content-text'
-import Molecule from '../../freestanding/molecule/molecule'
 
 import AnimatedCounter from './animated-counter'
 
-import { pb32, pb64, pt64 } from '../../freestanding/utils/padding.module.css'
+import { pb32 } from '../../freestanding/utils/padding.module.css'
 import * as styles from './stats.module.css'
 
 const countGitHubStars = (state: StateTypes) =>
@@ -232,35 +230,29 @@ class Stats extends Component<PropTypes, StateTypes> {
 
   render() {
     return (
-      <div className={cn(styles.stats, 'light')}>
-        <Container fluid={true} justify={'space-between'}>
-          <Grid className={cn(styles.statsRow)} lg={4} md={3} sm={12} xs={12}>
-            <ContentText>
-              <Molecule>
-                <h3 className={cn('font-h3', pb32)}>{this.props.title}</h3>
-                <p className={cn('font-p')}>{this.props.description}</p>
-              </Molecule>
-            </ContentText>
+      <div className={cn(styles.stats, 'background-is-themed')}>
+        <Container fluid={true} justify={'space-between'} alignItems={'center'}>
+          <Grid className={cn(styles.statsRow)} lg={5} md={4} sm={12} xs={12}>
+            <h3 className={cn('font-h3', pb32)}>{this.props.title}</h3>
+            <p className={cn('font-p')}>{this.props.description}</p>
           </Grid>
           <Grid lg={6} md={8} sm={12} xs={12}>
             <Container alignItems={'start'}>
               {stats(this.state).map(
                 ({ title, amount, description }, index) => (
-                  <Grid lg={3} md={3} sm={3} xs={12} key={index}>
-                    <Container
-                      justify={'start'}
-                      className={cn(styles.statsItems)}
-                    >
-                      <ContentText>
-                        <Molecule>
-                          <h5 className={cn('font-h1')}>
-                            <AnimatedCounter countTo={amount} />
-                          </h5>
-                          <p className={cn('font-p-small')}>{title}</p>
-                          <p className={cn('font-p-small')}>{description}</p>
-                        </Molecule>
-                      </ContentText>
-                    </Container>
+                  <Grid
+                    lg={3}
+                    md={3}
+                    sm={3}
+                    xs={12}
+                    key={index}
+                    className={cn(styles.statsItems)}
+                  >
+                    <h5 className={cn('font-h1')}>
+                      <AnimatedCounter countTo={amount} />
+                    </h5>
+                    <p className={cn('font-p-small')}>{title}</p>
+                    <p className={cn('font-p-small')}>{description}</p>
                   </Grid>
                 )
               )}

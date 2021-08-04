@@ -12,14 +12,15 @@ interface Adopter {
   title: string
   image: string
   url: string
+  featured?: boolean
 }
 
 interface PropTypes {
   adopters: Array<Adopter>
 }
 
-const Adopters = ({ adopters }: PropTypes) => (
-  <div className={cn(styles.adopters)}>
+const Adopters = ({ adopters }: PropTypes & { featured?: boolean }) => (
+  <div className={cn(styles.adopters, 'background-is-dark')}>
     <Container fluid={true} justify={'center'}>
       {adopters.map((adopter, index) => {
         return (
@@ -27,6 +28,9 @@ const Adopters = ({ adopters }: PropTypes) => (
             key={adopter.title}
             className={cn(styles.adoptersContainer)}
             justify={'center'}
+            xsHidden={index > 3}
+            smHidden={index > 5}
+            mdHidden={index > 7}
           >
             <AdoptersLogo>
               <Button

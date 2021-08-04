@@ -59,7 +59,7 @@ export const featuresDefault = {
       title: <>No lock in</>,
       description: (
         <>
-          We support the migration from Ory open source to Ory as a Service, and
+          We support the migration from Ory open source to the Ory Cloud, and
           the other way around. Don't worry about lock in.
         </>
       )

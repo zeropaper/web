@@ -5,10 +5,12 @@ import Button from '../components/freestanding/button/button'
 import Adopters from '../components/layouts/adopters/adopters'
 import { adoptersDefault } from '../components/layouts/adopters/adopters-content'
 import Coding from '../components/layouts/coding/coding'
-import FeatureImage from '../components/layouts/feature-image/feature-image'
+import { codingDefault } from '../components/layouts/coding/coding-content'
+import FeatureContent from '../components/layouts/feature-image/feature-content'
 import Features from '../components/layouts/features/features'
 import { featuresDefault } from '../components/layouts/features/features-content'
 import Hero from '../components/layouts/hero/hero'
+import { heroDefault } from '../components/layouts/hero/hero-content'
 import Layout from '../components/layouts/layout/layout'
 import Quickstart from '../components/layouts/quickstart/quickstart'
 import { quickstartDefault } from '../components/layouts/quickstart/quickstart-content'
@@ -16,18 +18,9 @@ import Quotes from '../components/layouts/quotes/quotes'
 import { quotesDefault } from '../components/layouts/quotes/quotes-content'
 import SEO from '../components/layouts/seo/seo'
 import Stats from '../components/layouts/stats/stats'
-
-import CodeBoxImage from '../images/illustrations/codebox.png'
+import { statsDefault } from '../components/layouts/stats/stats-content'
 
 const IndexPage = () => {
-  const RocketLaunch = <i className="ph-rocket-launch-fill base-white size24" />
-  const BookOpen = <i className="ph-book-open-fill base-white size24" />
-
-  const ArrowRight = <i className="ph-arrow-right-bold base-white size16" />
-
-  const Terminal = <i className="ph-terminal-fill themed-primary size32" />
-  const GitMerge = <i className="ph-git-merge-fill themed-primary size32" />
-
   return (
     <Layout>
       <SEO
@@ -39,41 +32,17 @@ const IndexPage = () => {
           'authentication, open source, login, authorization, security, session management, Json web tokens, access control, OAuth2.0 server, identity server, AuthN, AuthZ'
         }
       />
-
-      <Hero
-        title={'Open Source Identity Platform For Everyone'}
-        description={
-          'Secure cloud applications and authenticate, authorize and manage users. Ory is built on open standards and secures billions of requests in production every month.'
-        }
-        buttons={
-          <Button
-            to={'https://console.ory.sh/registration'}
-            style={'filled'}
-            iconRight={RocketLaunch}
-          >
-            Request Access
-          </Button>
-        }
-        image={
-          <StaticImage
-            src="../images/illustrations/hero.png"
-            loading="lazy"
-            alt="Overview of the Ory Console"
-            className="responsive"
-          />
-        }
-      />
-
+      <Hero {...heroDefault} />
+      <Quotes {...quotesDefault} />
       <Adopters {...adoptersDefault} />
-
-      <FeatureImage
-        mirror={true}
+      <Stats {...statsDefault} />
+      <FeatureContent
         overline={'Security'}
-        title={<>Ory as a service</>}
+        title={<>Ory Cloud</>}
         description={
           <>
             Authenticate and manage users, set and check permissions, protect
-            APIs, applications and data. Ory as a Service comes with a dashboard
+            APIs, applications and data. The Ory Cloud comes with a dashboard
             for metrics and insights and can be managed from the user interface
             or CLI.
           </>
@@ -83,7 +52,7 @@ const IndexPage = () => {
             Request Access
           </Button>
         }
-        image={
+        content={
           <StaticImage
             loading="lazy"
             className="responsive"
@@ -92,8 +61,7 @@ const IndexPage = () => {
           />
         }
       />
-
-      <FeatureImage
+      <FeatureContent
         overline={'Flexibility'}
         title={<>Bring your own UX</>}
         description={
@@ -108,7 +76,7 @@ const IndexPage = () => {
             Request Access
           </Button>
         }
-        image={
+        content={
           <StaticImage
             loading="lazy"
             className="responsive"
@@ -117,89 +85,8 @@ const IndexPage = () => {
           />
         }
       />
-
-      <Coding
-        overline={'Made for developers'}
-        title={<>Improve your developer experience</>}
-        description={
-          <>
-            At Ory, our mission is to improve the overall developer experience.
-            We provide SDKs, documentation, tutorials, CLIs and community
-            support. Our open source approach lets you to participate in API and
-            architecture discussions - your next PR will be shipped in Ory.
-          </>
-        }
-        buttons={
-          <>
-            <Button
-              to={'/docs/get-started'}
-              style={'filled'}
-              iconRight={BookOpen}
-            >
-              Get started
-            </Button>
-          </>
-        }
-        visual={
-          <img
-            loading="lazy"
-            className="responsive"
-            alt="Example code and terminal response when integrating Ory"
-            src={CodeBoxImage}
-          />
-        }
-        content={[
-          {
-            icon: Terminal,
-            title: <>Powerful tools</>,
-            description: (
-              <>
-                Ory ships REST APIs, gRPC APIs, SDKs, and CLIs for all operating
-                systems and CPUs.
-              </>
-            ),
-            button: (
-              <Button
-                to={'/docs/guides/ory-cli-install-use'}
-                style={'link'}
-                iconRight={ArrowRight}
-              >
-                Install the CLI
-              </Button>
-            )
-          },
-          {
-            icon: GitMerge,
-            title: <>Based on Open Source</>,
-            description: (
-              <>
-                Participate in discussions, feature requests, and PRs on GitHub.
-              </>
-            ),
-            button: (
-              <Button
-                to={'https://github.com/ory/'}
-                style={'link'}
-                iconRight={ArrowRight}
-              >
-                Star us on GitHub
-              </Button>
-            )
-          }
-        ]}
-      />
-
-      <Stats
-        title={<>Billions of Identities</>}
-        description={
-          <>
-            Companies from all over the world rely on Ory for their identity
-            needs. Ory technology secures billions of identity requests.
-          </>
-        }
-      />
+      <Coding {...codingDefault} />
       <Features {...featuresDefault} />
-      <Quotes {...quotesDefault} />
       <Quickstart {...quickstartDefault} />
     </Layout>
   )

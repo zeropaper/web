@@ -1,23 +1,19 @@
 .quote {
-  background: var(--colors-base-grey-25);
+  background: var(--colors-base-background);
+  padding: var(--size-32) 0 var(--size-24);
 }
 
 .quote-block {
   display: flex;
-  justify-content: center;
-  min-height: 30rem;
-  padding: 4rem;
-  background: var(--colors-base-white);
-  box-sizing: border-box;
+  flex-grow: 1;
   text-align: left;
+  margin-bottom: var(--space-6);
+  margin-right: unset;
 }
 
-@media (--sm-viewport) {
+@media (--xs) {
   .quote-block {
-    padding: 2rem;
+    justify-content: center;
+    text-align: center;
   }
-}
-
-.quote-img {
-  max-width: 50%;
 }

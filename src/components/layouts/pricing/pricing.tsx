@@ -8,19 +8,18 @@ import ContentText from '../../freestanding/content/content-text'
 import Molecule from '../../freestanding/molecule/molecule'
 import Toggle from '../../freestanding/toggle/toggle'
 
-import PricingBlock from './content/pricing-block'
-import { PriceTier } from './content/pricing-tier'
+import PricingBlock from './sub-components/pricing-block'
+import { PriceTier } from './sub-components/pricing-tier'
 
 import {
   pb32,
   pb64,
   pr24,
-  pt32,
   pt64
 } from '../../freestanding/utils/padding.module.css'
 import * as styles from './pricing.module.css'
 
-interface PropTypes {
+export interface PropTypes {
   className?: string
   title: React.ReactElement
   description: React.ReactElement
