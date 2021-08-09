@@ -77,8 +77,8 @@ export const quickstartCommunity = {
   title: <>Participate, Learn, Grow</>,
   description: (
     <>
-      Ory is built in cooperation with its developer community. Our projects are only possible
-      because of your dedication to open and free software! We
+      Ory is built in cooperation with its developer community. Our projects are
+      only possible because of your dedication to open and free software! We
       maintain discussion boards on GitHub and an active Slack channel. Chat
       about code, best practices, and more:
     </>
@@ -114,7 +114,9 @@ export const quickstartCommunity = {
       ),
       button: (
         <Button
-          to={'https://github.com/discussions?discussions_q=org%3Aory+sort%3Aupdated-desc+'}
+          to={
+            'https://github.com/discussions?discussions_q=org%3Aory+sort%3Aupdated-desc+'
+          }
           style={'link'}
           iconRight={ArrowRight}
         >
@@ -127,9 +129,9 @@ export const quickstartCommunity = {
       title: <>Articles & Projects</>,
       description: (
         <>
-          The Ory community builds open source projects and writes articles and guides around
-          the Ory Ecosystem. Reach out if you want your content to be
-          featured!
+          The Ory community builds open source projects and writes articles and
+          guides around the Ory Ecosystem. Reach out if you want your content to
+          be featured!
         </>
       ),
       button: (
@@ -145,12 +147,16 @@ export const quickstartCommunity = {
     {
       icon: ChatsCircle,
       title: <>Code of Conduct</>,
-      description: <>The Ory community provides a welcoming space for developers from different backgrounds. To ensure a safe experience for all, we follow a Code Of Conduct.</>,
+      description: (
+        <>
+          The Ory community provides a welcoming space for developers from
+          different backgrounds. To ensure a safe experience for all, we follow
+          a Code Of Conduct.
+        </>
+      ),
       button: (
         <Button
-          to={
-            'https://github.com/ory/meta/blob/master/CODE_OF_CONDUCT.md'
-          }
+          to={'https://github.com/ory/meta/blob/master/CODE_OF_CONDUCT.md'}
           style={'link'}
           iconRight={ArrowRight}
         >

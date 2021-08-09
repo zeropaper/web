@@ -540,7 +540,8 @@ export const featureListCommunityProjects = {
         <>
           The Ory Open Source community has built many projects around Ory
           software over the years. Please note that community projects are not
-          maintained by the Ory team. For a complete list of projects visit the overview in our docs.
+          maintained by the Ory team. For a complete list of projects visit the
+          overview in our docs.
         </>
       ),
       button: (
