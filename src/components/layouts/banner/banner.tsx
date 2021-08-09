@@ -8,15 +8,16 @@ import MoleculeInteraction from '../../freestanding/molecule/molecule-interactio
 import { pb16, pb32, pb64 } from '../../freestanding/utils/padding.module.css'
 import * as styles from './banner.module.css'
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   title: string
   small?: boolean
   text?: React.ReactElement
   button: React.ReactElement
 }
 
-const Banner = ({ title, text, button, small }: PropTypes) => (
-  <div className={cn(styles.bannerPrimary, 'background-is-themed')}>
+const Banner = ({ id, title, text, button, small }: PropTypes) => (
+  <div id={id} className={cn(styles.bannerPrimary, 'background-is-themed')}>
     <Container
       fluid={true}
       justify={'center'}

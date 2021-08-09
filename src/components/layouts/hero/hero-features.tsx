@@ -20,7 +20,8 @@ export interface Text {
   description: React.ReactElement
 }
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   thin?: boolean
   small?: boolean
   title: string
@@ -29,13 +30,14 @@ interface PropTypes {
 }
 
 const HeroFeatures = ({
+  id,
   thin,
   small,
   title,
   description,
   textbox
 }: PropTypes) => (
-  <div className={cn(styles.heroFeatures)}>
+  <div id={id} className={cn(styles.heroFeatures)}>
     <Container fluid={true} justify={'center'} alignItems={'start'}>
       {!thin ? (
         <Grid lg={12} md={12} sm={12} xs={12}>

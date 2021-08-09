@@ -20,6 +20,7 @@ import {
 import * as styles from './pricing.module.css'
 
 export interface PropTypes {
+  id: string
   className?: string
   title: React.ReactElement
   description: React.ReactElement
@@ -28,6 +29,7 @@ export interface PropTypes {
 }
 
 const Pricing = ({
+  id,
   className,
   title,
   description,
@@ -41,7 +43,7 @@ const Pricing = ({
   }
 
   return (
-    <div className={cn(styles.pricing)}>
+    <div id={id} className={cn(styles.pricing)}>
       <Container fluid={true} alignItems={'start'}>
         <Grid lg={4} md={3} sm={12} xs={12}>
           <ContentText className={cn(pt64, pb64)}>

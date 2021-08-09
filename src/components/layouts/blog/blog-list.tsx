@@ -11,7 +11,8 @@ import { AuthorName } from './blog-author'
 import { pb16, pb32, pb8 } from '../../freestanding/utils/padding.module.css'
 import * as styles from './blog-list.module.css'
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   title: string
 }
 
@@ -29,7 +30,7 @@ type Edge = {
   }
 }
 
-const BlogList = ({ title }: PropTypes) => {
+const BlogList = ({ id, title }: PropTypes) => {
   const data = useStaticQuery(graphql`
     query {
       allMdx(
@@ -61,7 +62,7 @@ const BlogList = ({ title }: PropTypes) => {
     }
   `)
   return (
-    <div className={cn(styles.blogList)}>
+    <div id={id} className={cn(styles.blogList)}>
       <Container fluid={true} justify={'center'} alignItems={'start'}>
         <Grid lg={8} md={10} sm={12} xs={12}>
           <Container fluid={true} justify={'center'}>

@@ -15,12 +15,13 @@ interface Adopter {
   featured?: boolean
 }
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   adopters: Array<Adopter>
 }
 
-const Adopters = ({ adopters }: PropTypes & { featured?: boolean }) => (
-  <div className={cn(styles.adopters, 'background-is-dark')}>
+const Adopters = ({ id, adopters }: PropTypes & { featured?: boolean }) => (
+  <div id={id} className={cn(styles.adopters, 'background-is-dark')}>
     <Container fluid={true} justify={'center'}>
       {adopters.map((adopter, index) => {
         return (

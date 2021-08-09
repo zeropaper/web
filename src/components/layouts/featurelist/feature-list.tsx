@@ -28,13 +28,14 @@ interface FeatureSection {
   features: Array<Features>
 }
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   className?: string
   features: Array<FeatureSection>
 }
 
-const FeatureList = ({ className, features }: PropTypes) => (
-  <div className={cn(styles.featureList, className && className)}>
+const FeatureList = ({ id, className, features }: PropTypes) => (
+  <div id={id} className={cn(styles.featureList, className && className)}>
     <Container fluid={true}>
       {features.map((section) => {
         return (

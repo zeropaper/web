@@ -24,7 +24,8 @@ export interface Feat {
   description: React.ReactElement
 }
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   overline: string
   title: React.ReactElement
   description?: React.ReactElement
@@ -33,13 +34,14 @@ interface PropTypes {
 }
 
 const Features = ({
+  id,
   overline,
   title,
   description,
   buttons,
   feature
 }: PropTypes) => (
-  <div className={cn(features)}>
+  <div id={id} className={cn(features)}>
     <Container fluid={true} alignItems={'start'}>
       <Grid lg={4} md={3} sm={12} xs={12} className={cn(pb64)}>
         <ContentText>

@@ -3,16 +3,20 @@ import React from 'react'
 
 import Container from '../../freestanding/containers/container'
 import Grid from '../../freestanding/containers/grid'
-import ContentText from '../../freestanding/content/content-text'
 
 import { pb32, pb16 } from '../../freestanding/utils/padding.module.css'
 import * as styles from './quote.module.css'
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   quotes: Array<Quote>
 }
 
-export interface Quote {
+interface QuoteColumn {
+  quotes: Array<Quote>
+}
+
+interface Quote {
   big?: boolean
   description: React.ReactElement
   person: string
@@ -67,7 +71,7 @@ const QuoteBlock = ({
   </Container>
 )
 
-const QuoteColumn = ({ quotes, big }: PropTypes & { big: boolean }) => (
+const QuoteColumn = ({ quotes, big }: QuoteColumn & { big: boolean }) => (
   <Grid lg={big ? 5 : 6} md={12} sm={12} xs={12} xsHidden={!big}>
     <Container alignItems={'start'} justify={'start'}>
       {quotes
@@ -96,8 +100,8 @@ const QuoteColumn = ({ quotes, big }: PropTypes & { big: boolean }) => (
   </Grid>
 )
 
-const Quotes = ({ quotes }: PropTypes) => (
-  <div className={cn(styles.quote, 'background-is-dark')}>
+const Quotes = ({ id, quotes }: PropTypes) => (
+  <div id={id} className={cn(styles.quote, 'background-is-dark')}>
     <Container fluid={true}>
       <QuoteColumn quotes={quotes} big={true} />
       <QuoteColumn quotes={quotes} big={false} />

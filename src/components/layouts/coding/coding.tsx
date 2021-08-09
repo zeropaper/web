@@ -25,7 +25,8 @@ export interface CodingContent {
   button: React.ReactElement
 }
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   overline: string
   title: React.ReactElement
   description: React.ReactElement
@@ -35,6 +36,7 @@ interface PropTypes {
 }
 
 const Coding = ({
+  id,
   overline,
   title,
   description,
@@ -42,7 +44,7 @@ const Coding = ({
   visual,
   content
 }: PropTypes) => (
-  <div className={cn(coding, 'background-is-dark')}>
+  <div id={id} className={cn(coding, 'background-is-dark')}>
     <Container fluid={true}>
       <Grid lg={6} md={6} sm={12} xs={12}>
         <Container flexContainer={'column'}>

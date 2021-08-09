@@ -6,8 +6,8 @@ import React from 'react'
 import MDXBody from '../components/layouts/MDXbody/mdx-body'
 import BlogHero from '../components/layouts/blog/blog-hero'
 import Layout from '../components/layouts/layout/layout'
+import Newsletter from '../components/layouts/newsletter/newsletter'
 import SEO from '../components/layouts/seo/seo'
-import Newsletter from '../components/newsletter'
 
 import { pb32 } from '../components/freestanding/utils/padding.module.css'
 

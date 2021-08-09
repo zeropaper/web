@@ -15,7 +15,8 @@ import {
 } from '../../freestanding/utils/padding.module.css'
 import * as styles from './jobs-list.module.css'
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   title: string
   description?: React.ReactElement
 }
@@ -41,7 +42,7 @@ const ClockClockwise = () => (
   <i className={'ph-clock-clockwise-fill themed-primary size16'} />
 )
 
-const JobsList = ({ title, description }: PropTypes) => {
+const JobsList = ({ id, title, description }: PropTypes) => {
   const data = useStaticQuery(graphql`
     query {
       allMdx(
@@ -66,7 +67,7 @@ const JobsList = ({ title, description }: PropTypes) => {
     }
   `)
   return (
-    <div className={cn(styles.jobList)}>
+    <div id={id} className={cn(styles.jobList)}>
       <Container fluid={true} justify={'center'} alignItems={'start'}>
         <Grid lg={8} md={10} sm={12} xs={12}>
           <Container fluid={true} justify={'center'}>

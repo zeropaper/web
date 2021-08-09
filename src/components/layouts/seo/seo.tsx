@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import Helmet from 'react-helmet'
 
-interface PropTypes {
+export interface PropTypes {
   description?: string
   lang?: string
   meta?: any[]

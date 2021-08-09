@@ -16,8 +16,8 @@ import Navigation from '../navigation/navigation'
 
 import * as styles from './layout.module.css'
 
-import logoOryFooter from '../../../images/logo-ory-footer.svg'
-import oryLogoPrimary from '../../../images/logo-ory-primary.svg'
+import logoOryFooter from '../../../images/logo/logo-ory-footer.svg'
+import oryLogoPrimary from '../../../images/logo/logo-ory-primary.svg'
 
 interface PropTypes {
   theme?: string

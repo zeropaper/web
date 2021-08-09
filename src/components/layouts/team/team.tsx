@@ -15,7 +15,8 @@ import {
 } from '../../freestanding/utils/padding.module.css'
 import * as styles from './team.module.css'
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   title: string
   text: React.ReactElement
   team: Array<Profiles>
@@ -114,8 +115,8 @@ const Profile = ({ name, position, img, social }: Profiles) => (
   </Container>
 )
 
-const Team = ({ title, text, team }: PropTypes) => (
-  <div className={cn(styles.team)}>
+const Team = ({ id, title, text, team }: PropTypes) => (
+  <div id={id} className={cn(styles.team)}>
     <Container fluid={true} justify={'center'} alignItems={'start'}>
       <Grid lg={8} md={10} sm={12} xs={12}>
         <SmallText

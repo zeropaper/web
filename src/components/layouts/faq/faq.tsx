@@ -26,13 +26,14 @@ export interface FaqContent {
   answer: React.ReactElement
 }
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   title: React.ReactElement
   description: React.ReactElement
   content: Array<FaqContent>
 }
 
-const Faq = ({ title, description, content }: PropTypes) => {
+const Faq = ({ id, title, description, content }: PropTypes) => {
   const [expanded, setExpanded] = useState<Array<string>>(['0'])
 
   const Minus = (
@@ -43,7 +44,7 @@ const Faq = ({ title, description, content }: PropTypes) => {
   )
 
   return (
-    <div className={cn(faq, 'background-is-dark')}>
+    <div id={id} className={cn(faq, 'background-is-dark')}>
       <Container fluid={true} alignItems={['start']}>
         <Grid lg={4} md={3} sm={12} xs={12} className={pb48}>
           <ContentText>

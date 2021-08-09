@@ -23,15 +23,22 @@ export interface QuickstartContent {
   button?: React.ReactElement
 }
 
-interface PropType {
+export interface PropTypes {
+  id: string
   title: React.ReactElement
   description: React.ReactElement
   buttons?: React.ReactNode
   content: Array<QuickstartContent>
 }
 
-const Quickstart = ({ title, description, buttons, content }: PropType) => (
-  <div className={cn(styles.quickstart)}>
+const Quickstart = ({
+  id,
+  title,
+  description,
+  buttons,
+  content
+}: PropTypes) => (
+  <div id={id} className={cn(styles.quickstart)}>
     <Container fluid={true} alignItems={'start'}>
       <Grid lg={4} md={3} sm={12} xs={12} className={cn(pb64)}>
         <ContentText>

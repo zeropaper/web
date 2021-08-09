@@ -8,14 +8,15 @@ import SmallText from '../simple-text/small-text'
 import { pb64 } from '../../freestanding/utils/padding.module.css'
 import * as styles from './team.module.css'
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   title: string
   text: React.ReactElement
   img: any
 }
 
-const TeamImage = ({ title, text, img }: PropTypes) => (
-  <div className={cn(styles.team, styles.teamImage)}>
+const TeamImage = ({ id, title, text, img }: PropTypes) => (
+  <div id={id} className={cn(styles.team, styles.teamImage)}>
     <Container fluid={true} justify={'center'} alignItems={'start'}>
       <Grid lg={8} md={10} sm={12} xs={12}>
         <SmallText

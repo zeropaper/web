@@ -20,20 +20,21 @@ import {
 } from '../../freestanding/utils/padding.module.css'
 import { features, featuresContent } from './projects.module.css'
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   overline: string
   title: React.ReactElement
   description?: React.ReactElement
   buttons?: React.ReactNode
 }
 
-const Projects = ({ overline, title, description, buttons }: PropTypes) => {
+const Projects = ({ id, overline, title, description, buttons }: PropTypes) => {
   const ArrowRight = (
     <i className={'ph-arrow-right-bold theme-primary size16'} />
   )
 
   return (
-    <div className={cn(features)}>
+    <div id={id} className={cn(features)}>
       <Container fluid={true} alignItems={'start'}>
         <Grid lg={5} md={12} sm={12} xs={12} className={cn(pb64)}>
           <ContentText>

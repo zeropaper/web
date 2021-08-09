@@ -7,15 +7,16 @@ import Grid from '../../freestanding/containers/grid'
 import { pb32 } from '../../freestanding/utils/padding.module.css'
 import * as styles from './simple-text.module.css'
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   title: string
   small?: boolean
   text: React.ReactElement
   className?: string
 }
 
-const SimpleText = ({ title, small, text, className }: PropTypes) => (
-  <div className={cn(styles.simpleText, `${className}`)}>
+const SimpleText = ({ id, title, small, text, className }: PropTypes) => (
+  <div id={id} className={cn(styles.simpleText, `${className}`)}>
     <Container fluid={true} alignItems={'start'} justify={'center'}>
       <Grid lg={8} md={10} sm={12} xs={12}>
         <Container alignItems={'start'}>

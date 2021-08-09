@@ -15,7 +15,6 @@ import {
   DropdownMobileMenuSection
 } from '../../freestanding/dropdown/dropdown-mobile-menu'
 import MenuItem from '../../freestanding/dropdown/menu-item'
-import IconWrapper from '../../freestanding/icon/icon-wrapper'
 import MoleculeSeparator from '../../freestanding/molecule/molecule-separator'
 
 import { pb24, pb8, pr32 } from '../../freestanding/utils/padding.module.css'

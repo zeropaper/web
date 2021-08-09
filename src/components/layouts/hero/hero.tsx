@@ -9,18 +9,19 @@ import Molecule from '../../freestanding/molecule/molecule'
 import MoleculeInteraction from '../../freestanding/molecule/molecule-interaction'
 import MoleculeTextInteraction from '../../freestanding/molecule/molecule-text-interaction'
 
-import { pb48, pb32, pt48 } from '../../freestanding/utils/padding.module.css'
+import { pb48, pb32 } from '../../freestanding/utils/padding.module.css'
 import { hero } from './hero.module.css'
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   title: string
   description: string
   image: React.ReactElement
   buttons?: React.ReactNode
 }
 
-const Hero = ({ title, description, image, buttons }: PropTypes) => (
-  <div className={cn(hero)}>
+const Hero = ({ id, title, description, image, buttons }: PropTypes) => (
+  <div id={id} className={cn(hero)}>
     <Container fluid={true} alignItems={'center'}>
       <Grid lg={5} md={6} sm={12} xs={12} className={cn(pb32)}>
         <ContentText>

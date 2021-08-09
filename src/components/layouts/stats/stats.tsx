@@ -87,7 +87,8 @@ const stats = (state: StateTypes) => [
   }
 ]
 
-interface PropTypes {
+export interface PropTypes {
+  id: string
   title: React.ReactElement
   description: React.ReactElement
 }
@@ -230,7 +231,10 @@ class Stats extends Component<PropTypes, StateTypes> {
 
   render() {
     return (
-      <div className={cn(styles.stats, 'background-is-themed')}>
+      <div
+        id={this.props.id}
+        className={cn(styles.stats, 'background-is-themed')}
+      >
         <Container fluid={true} justify={'space-between'} alignItems={'center'}>
           <Grid className={cn(styles.statsRow)} lg={5} md={4} sm={12} xs={12}>
             <h3 className={cn('font-h3', pb32)}>{this.props.title}</h3>
