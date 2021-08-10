@@ -10,7 +10,14 @@ const SlackLogo = <i className={' ph-slack-logo-fill themed-primary size32'} />
 const ChatsCircle = (
   <i className={'ph-chats-circle-fill themed-primary size32'} />
 )
-
+const Fingerprint = (
+  <i className={' ph-fingerprint-fill themed-primary size32'} />
+)
+const Key = <i className={' ph-key-bold themed-primary size32'} />
+const UsersBold = <i className={'ph-users-bold themed-primary size32'} />
+const MapTrifold = (
+  <i className={' ph-map-trifold-bold themed-primary size32'} />
+)
 export const seo: SeoProps = {
   description: 'Identity In Modern Applications - Download the free eBook.',
   title: "Ory O'Reilly - Identity In Modern Applications  Book"
@@ -97,7 +104,7 @@ export const quickstart: QuickstartProps = {
   ),
   content: [
     {
-      icon: SlackLogo,
+      icon: Fingerprint,
       title: <>Mapping Identity</>,
       description: (
         <>
@@ -107,7 +114,7 @@ export const quickstart: QuickstartProps = {
       )
     },
     {
-      icon: ChatsCircle,
+      icon: MapTrifold,
       title: <>Examples</>,
       description: (
         <>
@@ -117,7 +124,7 @@ export const quickstart: QuickstartProps = {
       )
     },
     {
-      icon: ChatsCircle,
+      icon: Key,
       title: <>AuthN/AuthZ</>,
       description: (
         <>
@@ -127,7 +134,7 @@ export const quickstart: QuickstartProps = {
       )
     },
     {
-      icon: ChatsCircle,
+      icon: UsersBold,
       title: <>Single Or Multi?</>,
       description: (
         <>

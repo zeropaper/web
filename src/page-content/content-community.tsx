@@ -19,6 +19,10 @@ const CheckCircle = (
 const CircleThreePlus = (
   <i className={'ph-circles-three-plus-fill base-white size24'} />
 )
+const PenNib = <i className={' ph-pen-nib-fill themed-primary size32'} />
+
+const BookBookmark = (
+  <i className={' ph-book-bookmark-fill themed-primary size32'} />)
 
 export const seo: SeoProps = {
   description:
@@ -106,7 +110,7 @@ export const quickstart: QuickstartProps = {
       )
     },
     {
-      icon: ChatsCircle,
+      icon: PenNib,
       title: <>Articles & Projects</>,
       description: (
         <>
@@ -126,7 +130,7 @@ export const quickstart: QuickstartProps = {
       )
     },
     {
-      icon: ChatsCircle,
+      icon: BookBookmark,
       title: <>Code of Conduct</>,
       description: (
         <>
