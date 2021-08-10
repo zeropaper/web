@@ -22,7 +22,8 @@ const CircleThreePlus = (
 const PenNib = <i className={' ph-pen-nib-fill themed-primary size32'} />
 
 const BookBookmark = (
-  <i className={' ph-book-bookmark-fill themed-primary size32'} />)
+  <i className={' ph-book-bookmark-fill themed-primary size32'} />
+)
 
 export const seo: SeoProps = {
   description:

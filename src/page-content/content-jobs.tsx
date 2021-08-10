@@ -30,11 +30,12 @@ export const seo: SeoProps = {
 export const hero: HeroFeatureProps = {
   id: 'jobs.herofeatures',
   thin: true,
-  title: 'Work with us to transform',
+  title: 'Work on things that matter',
   description: (
     <>
-      At Ory, we build secure and open Auth so developers don't have to. Ory is
-      open source, cloud-native, and building at scale.
+      Ory builds open source software because the internet needs a secure
+      infrastructure to authenticate and authorize access. And we'd like your
+      help!
     </>
   ),
 
@@ -46,14 +47,14 @@ export const hero: HeroFeatureProps = {
         <>
           Help us create an open and free standard for authentication and
           authorization that is available to everyone. Much of the work we do is
-          released to public domain or supports our open source offerings. We
-          work closely with our large community of OS contributors.
+          released to the public domain. Part of Ory is a tremendous community
+          that you will fall in love with.
         </>
       )
     },
     {
       icon: GitPR,
-      title: <>Freedom To Build</>,
+      title: <>Freedom</>,
       description: (
         <>
           We feel that we should work with the best software out there and
@@ -97,8 +98,7 @@ export const jobs: JobsProps = {
     <>
       Today, Ory powers organizations of all sizes — from single-person startups
       to multinational enterprises - and we are only just getting started. We
-      are looking for talented, creative people to build the future of Ory with
-      us.
+      are looking for talented, creative people to build the future of Ory!
     </>
   )
 }
