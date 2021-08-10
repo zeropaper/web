@@ -250,3 +250,8 @@ https://www.ory.sh/blog/why-new-user-login-registration/ https://www.ory.sh/why-
 
 https://www.ory.sh/docs/guides/ory-cli-install-use/ https://www.ory.sh/docs/start-building/ory-cli-install-use/ 302!
 https://www.ory.sh/docs/guides/integrate-nodejs/ https://www.ory.sh/docs/start-building/server-side-web-app/ 302!
+
+# 2021-08 Docs Changes https://github.com/ory/kratos/pull/1639
+
+https://www.ory.sh/kratos/docs/next/concepts/identity-data-model/ https://www.ory.sh/kratos/docs/next/concepts/identity-schema/ 302!
+https://www.ory.sh/kratos/docs/concepts/identity-data-model https://www.ory.sh/kratos/docs/concepts/identity-schema 302!
