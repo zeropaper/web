@@ -1,8 +1,6 @@
 import cn from 'classnames'
 import React, { forwardRef } from 'react'
 
-import Container from '../containers/container'
-
 import { dropdownMenu, dropdownMenuHide } from './dropdown-menu.module.css'
 
 interface PropTypes {
@@ -15,20 +13,14 @@ const DropdownMenu = forwardRef(
   ({ className, show, children }: PropTypes, ref: any) => (
     <div
       ref={ref}
+      aria-label={'submenu'}
       className={cn(
         dropdownMenu,
         !show && dropdownMenuHide,
         className && className
       )}
     >
-      <Container
-        fluid={true}
-        aria-label={'submenu'}
-        justify={'start'}
-        alignItems={'start'}
-      >
-        {children}
-      </Container>
+      {children}
     </div>
   )
 )

@@ -2,53 +2,41 @@ import cn from 'classnames'
 import React from 'react'
 
 import Button from '../button/button'
-import Container from '../containers/container'
-import ContentText from '../content/content-text'
 
-import { pb16, pb24, pt16, pt24, pt8 } from '../utils/padding.module.css'
-import {
-  dropdownItem,
-  imageHidden,
-  dropdownItemImage
-} from './dropdown-item.module.css'
+import * as styles from './dropdown-item.module.css'
 
-interface PropTypes {
-  image?: string | React.ReactElement
-  title?: string
-  description: string
-  button?: React.ReactElement
+export interface DropdownItem {
+  title: string
+  to: string
+  openInNewWindow?: boolean
+  description?: string
   className?: string
   onClick: () => void
+  iconLeft?: React.ReactElement
 }
 
 const DropdownItem = ({
   className,
-  image,
+  to,
   title,
+  openInNewWindow = false,
   description,
-  button,
-  onClick
-}: PropTypes) => (
-  <div className={cn(pb24, className && className)}>
-    <ContentText>
-      {typeof image === 'string' ? (
-        <img
-          className={cn(imageHidden, dropdownItemImage)}
-          src={image}
-          loading={'eager'}
-          alt={'Ory dropdown menu icon'}
-        />
-      ) : (
-        <div className={cn(imageHidden, dropdownItemImage)}>{image}</div>
-      )}
-      {title && <h5 className={cn('font-h5', pt16)}>{title}</h5>}
-      {button && (
-        <div className={cn(pb16)} onClick={onClick}>
-          {button}
-        </div>
-      )}
-      <p className={cn('font-p-small')}>{description}</p>
-    </ContentText>
+  onClick,
+  iconLeft
+}: DropdownItem) => (
+  <div className={cn(styles.dropdownItem, className && className)}>
+    <Button
+      iconLeft={iconLeft}
+      to={to}
+      style={'link'}
+      openInNewWindow={openInNewWindow}
+      sideEffect={onClick}
+    >
+      <div>
+        {title}
+        <p className={cn('font-p-smaller')}>{description}</p>
+      </div>
+    </Button>
   </div>
 )
 

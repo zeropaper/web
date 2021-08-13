@@ -1,6 +1,7 @@
-.item-font {
-  /*display: flex;
-  flex-wrap: wrap;*/
-  word-break: normal;
-  padding: 4px;
+.dropdown-mobile-item {
+  display: flex;
+  flex: 1 0 50%;
+  align-self: flex-start;
+  padding: var(--size-2) 0;
+  border-radius: var(--radius-default);
 }

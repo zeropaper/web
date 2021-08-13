@@ -1,4 +1,4 @@
 declare const styles: {
-  readonly dropdownMobileItem: string
+  readonly announcement: string
 }
 export = styles

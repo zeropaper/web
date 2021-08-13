@@ -1,23 +1,26 @@
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import cn from 'classnames'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useRef } from 'react'
 
+import { useWindowSize } from '../../../hook/useWindowSize'
+import { jobs } from '../../../page-content/navigation/navigation-announcement'
 import Button from '../../freestanding/button/button'
 import Container from '../../freestanding/containers/container'
 import ContentText from '../../freestanding/content/content-text'
 import DropdownItem from '../../freestanding/dropdown/dropdown-item'
 import DropdownMenu from '../../freestanding/dropdown/dropdown-menu'
 import DropdownMobileItem from '../../freestanding/dropdown/dropdown-mobile-item'
-import {
-  DropdownMobileMenu,
-  DropdownMobileMenuSection
-} from '../../freestanding/dropdown/dropdown-mobile-menu'
+import { DropdownMobileMenu } from '../../freestanding/dropdown/dropdown-mobile-menu'
 import MenuItem from '../../freestanding/dropdown/menu-item'
-import MoleculeSeparator from '../../freestanding/molecule/molecule-separator'
+import Announcement from '../navigation/announcement'
 
-import { pb24, pb8, pr32 } from '../../freestanding/utils/padding.module.css'
+import {
+  pb24,
+  pb8,
+  pr32,
+  pt16
+} from '../../freestanding/utils/padding.module.css'
 import * as styles from './navigation.module.css'
 
 export interface DropdownMenuItem {
@@ -27,26 +30,29 @@ export interface DropdownMenuItem {
 }
 
 export interface MobileMenu {
-  headline: Array<MobileMenuHeadline>
-  main: MobileMenuMain
-  extra: React.ReactNodeArray
+  mobileMenuCategories: Array<MobileMenuCategory>
 }
 
-export interface MobileMenuHeadline {
-  button: React.ReactElement
-  description: string
+export interface MobileMenuCategory {
+  category: string
+  mobileMenuItems: Array<MobileMenuItems>
 }
 
-export interface MobileMenuMain {
+export interface MobileMenuItems {
   title: string
-  buttons: React.ReactNodeArray
+  description?: string
+  to: string
+  openInNewWindow?: boolean
+  className?: string
 }
 
 export interface DropdownMainItem {
-  title?: string
-  description: string
-  image?: string | React.ReactElement
-  button: React.ReactElement
+  title: string
+  description?: string
+  to: string
+  openInNewWindow?: boolean
+  iconLeft?: React.ReactElement
+  className?: string
 }
 
 export interface DropdownSideItem {
@@ -54,7 +60,7 @@ export interface DropdownSideItem {
   description: string
 }
 
-interface PropTypes {
+export interface PropTypes {
   logo: string
   dropdownMenu: Array<DropdownMenuItem>
   mobileMenu: MobileMenu
@@ -92,11 +98,11 @@ const onClickOutsideRef = (
 const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
   const [mobileOpenNav, setMobileOpenNav] = useState<boolean>(false)
   const [openMenu, setOpenMenu] = useState<string>()
-  const [hideOnScroll, setHideOnScroll] = useState(true)
 
   const currentNode = useRef<any>(null)
   const currentMobileNavBtnNode = useRef<any>(null)
   const currentMobileNode = useRef<any>(null)
+  const windowSize = useWindowSize()
 
   let mobileNav = cn(styles.mobileContainer)
   if (mobileOpenNav) {
@@ -114,39 +120,37 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
     }
   )
 
-  useScrollPosition(
-    ({ prevPos, currPos }) => {
-      if (prevPos.y > -300 || currPos.y > -300) {
-        setHideOnScroll(true)
-        return
-      }
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      return
+    }
 
-      const isShow = currPos.y > prevPos.y
-      if (isShow !== hideOnScroll) {
-        setHideOnScroll(isShow)
-      }
-      if (!isShow) {
-        setOpenMenu('')
-        setMobileOpenNav(false)
-      }
-    },
-    [hideOnScroll],
-    undefined,
-    false,
-    100
-  )
+    const overflow =
+      mobileOpenNav && windowSize.width < 960 ? 'hidden' : 'inherit'
+    document.body.style.overflow = overflow
+    document.documentElement.style.overflow = overflow
+  }, [mobileOpenNav, windowSize])
 
   return (
     <div
-      className={cn(styles.navigation, !hideOnScroll && styles.navigationHide)}
+      className={cn(styles.navigation, {
+        [styles.navigationMobileOpen]: mobileOpenNav
+      })}
     >
-      <Container fluid={true} noWrap={true} alignItems={'center'}>
+      <Announcement {...jobs} />
+      <Container
+        fluid={true}
+        noWrap={true}
+        justify={'start'}
+        alignItems={'center'}
+        className={styles.navigationContainer}
+      >
         <Button to={'/'} style={'none'} className={cn(styles.navLogo)}>
           <img src={logo} loading={'eager'} alt={'Ory logo'} />
         </Button>
 
-        <nav role={'navigation'} ref={currentNode}>
-          <Container smHidden={true} xsHidden={true}>
+        <nav role={'navigation'} ref={currentNode} className={styles.flex}>
+          <Container justify={'start'} smHidden={true} xsHidden={true}>
             {dropdownMenu.map(({ title, mainMenu, sideMenu }, index) => (
               <MenuItem
                 title={title}
@@ -164,15 +168,26 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
                 <DropdownMenu show={openMenu === String(index)}>
                   {mainMenu &&
                     mainMenu.map(
-                      ({ title, image, button, description }, index) => (
+                      (
+                        {
+                          title,
+                          description,
+                          to,
+                          openInNewWindow,
+                          iconLeft,
+                          className
+                        },
+                        index
+                      ) => (
                         <DropdownItem
+                          className={className}
                           onClick={() => setOpenMenu('')}
-                          className={cn(pr32)}
                           key={index}
+                          openInNewWindow={openInNewWindow}
+                          to={to}
                           title={title}
-                          image={image}
-                          button={button}
                           description={description}
+                          iconLeft={iconLeft}
                         />
                       )
                     )}
@@ -221,53 +236,38 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
 
       <div className={cn(mobileNav)} ref={currentMobileNode}>
         <DropdownMobileMenu>
-          <div className={cn(pb8)}>
-            {sideNav.map((x, index) => (
+          {mobileMenu.mobileMenuCategories.map(
+            ({ category, mobileMenuItems }, index) => (
+              <Container key={index} className={styles.mobileCategoryContainer}>
+                <p className={cn(styles.mobileCategory, 'font-p-smaller')}>
+                  {category}
+                </p>
+                {mobileMenuItems.map(
+                  (
+                    { title, description, to, openInNewWindow, className },
+                    index
+                  ) => (
+                    <DropdownMobileItem
+                      className={className}
+                      onClick={() => setMobileOpenNav((current) => !current)}
+                      key={index}
+                      openInNewWindow={openInNewWindow}
+                      to={to}
+                      title={title}
+                    />
+                  )
+                )}
+              </Container>
+            )
+          )}
+
+          <div className={cn(pb8, pt16)}>
+            {sideNav.map((side, index) => (
               <div className={cn(pb8)} key={index}>
-                {x}
+                {side}
               </div>
             ))}
           </div>
-
-          <MoleculeSeparator style={'horizontal'} />
-
-          <DropdownMobileMenuSection>
-            {mobileMenu.headline.map((headline, index) => (
-              <DropdownMobileItem
-                onClick={() => setMobileOpenNav((current) => !current)}
-                title={headline.button}
-                description={headline.description}
-                key={index}
-              />
-            ))}
-          </DropdownMobileMenuSection>
-
-          <MoleculeSeparator style={'horizontal'} />
-
-          <p className={cn('font-p-small')}>{mobileMenu.main.title}</p>
-          <DropdownMobileMenuSection>
-            {mobileMenu.main.buttons.map((button, index) => (
-              <DropdownMobileItem
-                onClick={() => setMobileOpenNav((current) => !current)}
-                button={button as React.ReactElement}
-                key={index}
-              />
-            ))}
-          </DropdownMobileMenuSection>
-
-          <MoleculeSeparator style={'horizontal'} />
-
-          <DropdownMobileMenuSection>
-            {mobileMenu.extra.map((button, index) => (
-              <DropdownMobileItem
-                onClick={() => setMobileOpenNav((current) => !current)}
-                button={button as React.ReactElement}
-                key={index}
-              />
-            ))}
-          </DropdownMobileMenuSection>
-
-          <MoleculeSeparator style={'horizontal'} />
         </DropdownMobileMenu>
       </div>
     </div>

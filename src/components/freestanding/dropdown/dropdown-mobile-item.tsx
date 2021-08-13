@@ -1,40 +1,38 @@
 import cn from 'classnames'
 import React from 'react'
 
-import Container from '../containers/container'
-import ContentText from '../content/content-text'
-import MoleculeInteraction from '../molecule/molecule-interaction'
+import Button from '../button/button'
 
-import { itemFont } from './dropdown-mobile-item.module.css'
+import * as styles from './dropdown-mobile-item.module.css'
 
 interface PropTypes {
+  title: string
+  to: string
+  openInNewWindow?: boolean
   className?: string
-  title?: string | React.ReactElement
-  description?: string
-  button?: React.ReactElement
   onClick: () => void
+  iconLeft?: React.ReactElement
 }
 
 const DropdownMobileItem = ({
   className,
+  to,
   title,
-  description,
-  button,
-  onClick
+  openInNewWindow = false,
+  onClick,
+  iconLeft
 }: PropTypes) => (
-  <Container
-    className={cn(itemFont, className && className)}
-    alignItems={'start'}
-    justify={'start'}
-  >
-    {title && typeof title === 'string' ? (
-      <h5 className={cn('font-h5')}>{title}</h5>
-    ) : (
-      <div onClick={onClick}>{title}</div>
-    )}
-    {description && <p className={cn('font-p-small')}>{description}</p>}
-    <div onClick={onClick}>{button && button}</div>
-  </Container>
+  <div className={cn(styles.dropdownMobileItem, className && className)}>
+    <Button
+      iconLeft={iconLeft}
+      to={to}
+      style={'link'}
+      openInNewWindow={openInNewWindow}
+      sideEffect={onClick}
+    >
+      {title}
+    </Button>
+  </div>
 )
 
 export default DropdownMobileItem

@@ -1,0 +1,4 @@
+.announcement {
+  background-color: var(--colors-base-background);
+  padding: var(--size-2);
+}

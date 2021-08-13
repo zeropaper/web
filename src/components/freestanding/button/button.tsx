@@ -12,6 +12,7 @@ export interface PropTypes {
   className?: string
   style: 'filled' | 'outlined' | 'text' | 'none' | 'link' | 'link-inline'
   to: string | (() => void)
+  sideEffect?: () => void
   openInNewWindow?: boolean
   iconRight?: React.ReactElement
   iconLeft?: React.ReactElement
@@ -26,7 +27,8 @@ const Button = ({
   to,
   openInNewWindow = false,
   iconRight,
-  iconLeft
+  iconLeft,
+  sideEffect
 }: PropTypes) => {
   const getStyle = (style: string): string => {
     // @ts-ignore
@@ -59,6 +61,7 @@ const Button = ({
         className={classes}
         rel={openInNewWindow ? 'noopener noreferrer' : ''}
         target={openInNewWindow ? '_blank' : ''}
+        onClick={sideEffect}
       >
         {content}
       </GatsbyLink>
@@ -68,13 +71,22 @@ const Button = ({
         className={classes}
         rel={openInNewWindow ? 'noopener noreferrer' : ''}
         target={openInNewWindow ? '_blank' : ''}
+        onClick={sideEffect}
       >
         {content}
       </a>
     )
   } else {
     return (
-      <a className={classes} onClick={to}>
+      <a
+        className={classes}
+        onClick={() => {
+          to()
+          if (sideEffect) {
+            sideEffect()
+          }
+        }}
+      >
         {content}
       </a>
     )

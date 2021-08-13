@@ -1,20 +1,9 @@
 .dropdown-mobile-menu {
+  padding: var(--size-8) 0;
+  border-top: var(--size-px) solid;
+  border-color: var(--colors-themed-background);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  flex: 1 1 auto;
-  padding: 24px;
-  background: var(--colors-base-white);
-  box-shadow: var(--elevation-large);
-}
-
-/*.dropdown-mobile-container {
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}*/
-
-.dropdown-section {
-  padding: 8px 0;
+  box-sizing: border-box;
 }
