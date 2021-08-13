@@ -39,8 +39,9 @@ const AnnouncementBanner = ({ text, link, lengthy, hide }: Banner) => (
     </Button>
   </Container>
 )
-const hasWindow = typeof window !== 'undefined'
+
 const Announcement = ({ longText, shortText, link }: PropTypes) => {
+  const hasWindow = typeof window !== 'undefined'
   const location = useLocation()
 
   let sinceHidden = 0
@@ -49,7 +50,8 @@ const Announcement = ({ longText, shortText, link }: PropTypes) => {
   }
 
   const [hidden, setHidden] = useState(
-    sinceHidden !== 0 && sinceHidden < 1000 * 60 * 60 * 24
+    sinceHidden !== 0 &&
+      new Date().getTime() - sinceHidden < 1000 * 60 * 60 * 24
   )
 
   const hide = () => {
