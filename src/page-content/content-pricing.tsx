@@ -14,6 +14,8 @@ const CircleThreePlus = (
 )
 const PlusCircle = <i className={'ph-plus-circle-fill base-grey-400 size16'} />
 const MapTriFold = <i className={'ph-map-trifold-fill base-white size24'} />
+const MapTriFoldSmall = <i className={'ph-map-trifold-bold size16'} />
+const ArrowRight = <i className={'ph-arrow-right-bold size16'} />
 
 export const seo: SeoProps = {
   description:
@@ -59,7 +61,7 @@ export const featurelist: FeaturelistProps = {
           icon: CheckCircle
         },
         {
-          title: 'Login and Sign up',
+          title: 'Identity Management',
           description: (
             <>
               The basics of IAM: Login and register users fast and without
@@ -98,28 +100,26 @@ export const featurelist: FeaturelistProps = {
             </>
           ),
           icon: CheckCircle
-        },
-        {
-          title: 'Social Logins',
-          description: (
-            <>
-              Simplify your users' experience and let them use their existing
-              accounts at Google, GitHub, Apple etc. to sign up and log in. All
-              OIDC providers are supported.
-            </>
-          ),
-          icon: CheckCircle
         }
       ]
     },
     {
       icon: MapTriFold,
-      title: 'Features landing in 2021',
+      title: 'Roadmap',
       description: (
         <>
           We are currently working on bringing these features into the Ory
-          Cloud.
+          Cloud. For a more detailed overview, visit our documentation.
         </>
+      ),
+      button: (
+        <Button
+          style={'link'}
+          to={'/docs/early-access/'}
+          iconRight={ArrowRight}
+        >
+          Visit documentation
+        </Button>
       ),
       features: [
         {
@@ -144,25 +144,32 @@ export const featurelist: FeaturelistProps = {
           icon: PlusCircle
         },
         {
-          title: 'Oauth2 and OpenID Connect',
+          title: 'Social Logins',
           description: (
             <>
-              Become an OAuth2.0 provider, enable complex use cases and
-              machine2machine interactions, interface your business with third
-              party systems.
+              Simplify your users' experience and let them use their existing
+              accounts at Google, GitHub, Apple etc. to sign up and log in. All
+              OIDC providers are supported.
             </>
           ),
           icon: PlusCircle
         },
         {
-          title: 'Integrations',
+          title: 'And more',
           description: (
             <>
-              Payments integration powered by Stripe as well as Email
-              integration to send out emails in bulk or individually.
+              Please visit our documentation to learn more about upcoming
+              features and developments.{' '}
+              <Button
+                style={'link'}
+                to={'/docs/early-access/'}
+                iconRight={MapTriFold}
+              >
+                Ory Cloud Roadmap
+              </Button>
             </>
           ),
-          icon: PlusCircle
+          icon: MapTriFoldSmall
         }
       ]
     }
