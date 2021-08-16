@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 import { useRef } from 'react'
 
 import { useWindowSize } from '../../../hook/useWindowSize'
-import { jobs } from '../../../page-content/navigation/navigation-announcement'
 import Button from '../../freestanding/button/button'
 import Container from '../../freestanding/containers/container'
 import ContentText from '../../freestanding/content/content-text'
@@ -13,7 +12,6 @@ import DropdownMenu from '../../freestanding/dropdown/dropdown-menu'
 import DropdownMobileItem from '../../freestanding/dropdown/dropdown-mobile-item'
 import { DropdownMobileMenu } from '../../freestanding/dropdown/dropdown-mobile-menu'
 import MenuItem from '../../freestanding/dropdown/menu-item'
-import Announcement from '../navigation/announcement'
 
 import {
   pb24,
@@ -73,7 +71,6 @@ const onClickOutsideRef = (
 ) => {
   useEffect(() => {
     const listener = (event: MouseEvent | TouchEvent) => {
-      // Do nothing if clicking ref's element or descendent elements
       if (
         refs.filter(
           (value) => !value.current || value.current.contains(event.target)
@@ -111,7 +108,6 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
 
   const List = <i className={'ph-list-fill themed-primary size32'} />
 
-  // once clicked outside of the nav the menu will close
   onClickOutsideRef(
     [currentNode, currentMobileNode, currentMobileNavBtnNode],
     () => {
@@ -137,7 +133,6 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
         [styles.navigationMobileOpen]: mobileOpenNav
       })}
     >
-      <Announcement {...jobs} />
       <Container
         fluid={true}
         noWrap={true}

@@ -1,6 +1,6 @@
 import { useLocation } from '@reach/router'
 import cn from 'classnames'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Button from '../../freestanding/button/button'
 import Container from '../../freestanding/containers/container'
@@ -11,20 +11,18 @@ interface Banner {
   text: string
   link: string
   lengthy: boolean
-  hide: () => void
 }
 
 export interface PropTypes {
   shortText: string
   longText: string
   link: string
+  className?: string
 }
-
-const localStorageKey = 'header:announcementIsHidden'
 
 const ArrowRight = <i className="ph-arrow-right-bold themed-primary size16" />
 
-const AnnouncementBanner = ({ text, link, lengthy, hide }: Banner) => (
+const AnnouncementBanner = ({ text, link, lengthy }: Banner) => (
   <Container
     className={cn(styles.announcement, 'background-is-themed')}
     justify={'center'}
@@ -34,53 +32,24 @@ const AnnouncementBanner = ({ text, link, lengthy, hide }: Banner) => (
     mdHidden={!lengthy}
     lgHidden={!lengthy}
   >
-    <Button style={'link'} to={link} sideEffect={hide} iconRight={ArrowRight}>
+    <Button style={'link'} to={link} iconRight={ArrowRight}>
       {text}
     </Button>
   </Container>
 )
 
-const Announcement = ({ longText, shortText, link }: PropTypes) => {
-  const hasWindow = typeof window !== 'undefined'
+const Announcement = ({ longText, shortText, link, className }: PropTypes) => {
   const location = useLocation()
 
-  let sinceHidden = 0
-  if (hasWindow) {
-    sinceHidden = Number(window.localStorage.getItem(localStorageKey) || 0)
-  }
-
-  const [hidden, setHidden] = useState(
-    sinceHidden !== 0 &&
-      new Date().getTime() - sinceHidden < 1000 * 60 * 60 * 24
-  )
-
-  const hide = () => {
-    if (hasWindow) {
-      window.localStorage.setItem(localStorageKey, String(new Date().getTime()))
-    }
-
-    setHidden(true)
-  }
-
-  if (location.pathname == link || hidden) {
+  if (location.pathname === link) {
     return null
   }
 
   return (
-    <>
-      <AnnouncementBanner
-        text={longText}
-        link={link}
-        lengthy={true}
-        hide={hide}
-      />
-      <AnnouncementBanner
-        text={shortText}
-        link={link}
-        lengthy={false}
-        hide={hide}
-      />
-    </>
+    <div className={className}>
+      <AnnouncementBanner text={longText} link={link} lengthy={true} />
+      <AnnouncementBanner text={shortText} link={link} lengthy={false} />
+    </div>
   )
 }
 

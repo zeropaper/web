@@ -52,31 +52,31 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
           iconLeft: OpenSource,
           title: 'Open Source Ecosystem',
           description: "Ory's heart is Open Source",
-          to: '/open-source'
+          to: '/open-source/'
         },
         {
           iconLeft: Kratos,
           title: 'Kratos',
           description: 'Identity & User Management',
-          to: '/kratos'
+          to: '/kratos/'
         },
         {
           iconLeft: Hydra,
           title: 'Hydra',
           description: 'OAuth 2.0 & OpenIDConnect',
-          to: '/hydra'
+          to: '/hydra/'
         },
         {
           iconLeft: Keto,
           title: 'Keto',
           description: 'Global Authorization Server',
-          to: '/keto'
+          to: '/keto/'
         },
         {
           iconLeft: Oathkeeper,
           title: 'Oathkeeper',
           description: 'Zero Trust Networking',
-          to: '/oathkeeper'
+          to: '/oathkeeper/'
         }
       ]
     },
@@ -87,13 +87,13 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
           iconLeft: Community,
           title: 'Community',
           description: 'Be a part of the Ory Community',
-          to: '/community'
+          to: '/community/'
         },
         {
           iconLeft: Blog,
           title: 'Blog',
           description: 'Articles & Guides',
-          to: '/blog'
+          to: '/blog/'
         },
         {
           iconLeft: GitHub,
@@ -106,7 +106,7 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
     },
     {
       title: (
-        <Button to={'/pricing'} style={'link'}>
+        <Button to={'/pricing/'} style={'link'}>
           Pricing
         </Button>
       )
@@ -124,7 +124,7 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
         {
           iconLeft: About,
           title: 'About Us',
-          to: '/about'
+          to: '/about/'
         },
         {
           iconLeft: Contact,
@@ -134,13 +134,13 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
         {
           iconLeft: Report,
           title: 'Identity Report',
-          to: '/identity-in-modern-applications-oreilly'
+          to: '/identity-in-modern-applications-oreilly/'
         }
       ]
     },
     {
       title: (
-        <Button to={'/jobs'} style={'link'}>
+        <Button to={'/jobs/'} style={'link'}>
           Jobs
         </Button>
       )
@@ -160,27 +160,27 @@ export const mobileMenu: Pick<NavProps, 'mobileMenu'> = {
           },
           {
             title: 'Pricing',
-            to: '/pricing'
+            to: '/pricing/'
           },
           {
             title: 'Open Source',
-            to: '/open-source'
+            to: '/open-source/'
           },
           {
             title: 'Kratos',
-            to: '/kratos'
+            to: '/kratos/'
           },
           {
             title: 'Hydra',
-            to: '/hydra'
+            to: '/hydra/'
           },
           {
             title: 'Keto',
-            to: '/keto'
+            to: '/keto/'
           },
           {
             title: 'Oathkeeper',
-            to: '/oathkeeper'
+            to: '/oathkeeper/'
           }
         ]
       },
@@ -193,11 +193,11 @@ export const mobileMenu: Pick<NavProps, 'mobileMenu'> = {
           },
           {
             title: 'Community',
-            to: '/community'
+            to: '/community/'
           },
           {
             title: 'Blog',
-            to: '/blog'
+            to: '/blog/'
           },
           {
             title: 'GitHub',
@@ -211,11 +211,11 @@ export const mobileMenu: Pick<NavProps, 'mobileMenu'> = {
         mobileMenuItems: [
           {
             title: 'Jobs',
-            to: '/jobs'
+            to: '/jobs/'
           },
           {
             title: 'About Us',
-            to: '/about'
+            to: '/about/'
           },
           {
             title: 'Contact Us',
@@ -223,7 +223,7 @@ export const mobileMenu: Pick<NavProps, 'mobileMenu'> = {
           },
           {
             title: 'Identity Report',
-            to: '/identity-in-modern-applications-oreilly'
+            to: '/identity-in-modern-applications-oreilly/'
           }
         ]
       }
