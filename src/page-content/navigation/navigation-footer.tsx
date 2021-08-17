@@ -60,10 +60,10 @@ export const legal: Pick<FooterPropTypes, 'legal'> = {
     <Button to={'https://status.ory.sh/'} style={'link'} openInNewWindow={true}>
       Status
     </Button>,
-    <Button to={'/privacy/'} style={'link'}>
+    <Button to={'/privacy'} style={'link'}>
       Privacy
     </Button>,
-    <Button to={'/tos/'} style={'link'}>
+    <Button to={'/tos'} style={'link'}>
       Terms
     </Button>
   ]
@@ -72,7 +72,7 @@ export const legal: Pick<FooterPropTypes, 'legal'> = {
 export const links: Pick<FooterPropTypes, 'links'> = {
   links: [
     {
-      title: 'Product',
+      title: 'Ory Cloud',
       links: [
         <Button
           to={'https://console.ory.sh/registration'}
@@ -81,33 +81,38 @@ export const links: Pick<FooterPropTypes, 'links'> = {
         >
           Cloud
         </Button>,
-        <Button to={'/open-source/'} style={'link'} openInNewWindow={true}>
-          Open Source
-        </Button>,
-        <Button to={'/hydra/'} style={'link'} openInNewWindow={true}>
-          Hydra
-        </Button>,
-        <Button to={'/kratos/'} style={'link'} openInNewWindow={true}>
-          Kratos
-        </Button>,
-        <Button to={'/keto/'} style={'link'} openInNewWindow={true}>
-          Keto
-        </Button>,
-        <Button to={'/oathkeeper/'} style={'link'} openInNewWindow={true}>
-          Oathkeeper
-        </Button>,
-        <Button to={'/pricing/'} style={'link'} openInNewWindow={true}>
+        <Button to={'/pricing'} style={'link'} openInNewWindow={true}>
           Pricing
         </Button>
       ]
     },
     {
-      title: 'Developers',
+      title: 'Ory Open Source',
       links: [
-        <Button to={'/docs/'} style={'link'} openInNewWindow={true}>
+        <Button to={'/open-source'} style={'link'} openInNewWindow={true}>
+          Overview
+        </Button>,
+        <Button to={'/hydra'} style={'link'} openInNewWindow={true}>
+          Hydra
+        </Button>,
+        <Button to={'/kratos'} style={'link'} openInNewWindow={true}>
+          Kratos
+        </Button>,
+        <Button to={'/keto'} style={'link'} openInNewWindow={true}>
+          Keto
+        </Button>,
+        <Button to={'/oathkeeper'} style={'link'} openInNewWindow={true}>
+          Oathkeeper
+        </Button>
+      ]
+    },
+    {
+      title: 'Developer',
+      links: [
+        <Button to={'/docs'} style={'link'} openInNewWindow={true}>
           Documentation
         </Button>,
-        <Button to={'/community/'} style={'link'}>
+        <Button to={'/community'} style={'link'}>
           Community
         </Button>,
         <Button
@@ -117,7 +122,7 @@ export const links: Pick<FooterPropTypes, 'links'> = {
         >
           GitHub
         </Button>,
-        <Button to={'/blog/'} style={'link'} openInNewWindow={true}>
+        <Button to={'/blog'} style={'link'} openInNewWindow={true}>
           Blog
         </Button>
       ]
@@ -125,12 +130,19 @@ export const links: Pick<FooterPropTypes, 'links'> = {
     {
       title: 'Company',
       links: [
-        <Button to={'/about/'} style={'link'} openInNewWindow={true}>
+        <Button to={'/about'} style={'link'} openInNewWindow={true}>
           About Us
         </Button>,
-        <Button to={'/jobs/'} style={'link'} openInNewWindow={true}>
+        <Button to={'/jobs'} style={'link'} openInNewWindow={true}>
           Jobs&nbsp;
-          <span className={cn('pill')}>hiring</span>
+          <span className={cn('pill')}>we're hiring</span>
+        </Button>,
+        <Button
+          to={'/identity-in-modern-applications-oreilly'}
+          style={'link'}
+          openInNewWindow={false}
+        >
+          Identity Report
         </Button>,
         <Button
           to={'mailto:office@ory.sh'}
@@ -138,13 +150,6 @@ export const links: Pick<FooterPropTypes, 'links'> = {
           openInNewWindow={true}
         >
           Contact Us
-        </Button>,
-        <Button
-          to={'/identity-in-modern-applications-oreilly/'}
-          style={'link'}
-          openInNewWindow={false}
-        >
-          Identity Report
         </Button>
       ]
     }

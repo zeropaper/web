@@ -4,12 +4,14 @@ import Button from '../../components/freestanding/button/button'
 import { PropTypes as NavProps } from '../../components/layouts/navigation/navigation'
 
 const Cloud = <i className="ph-rainbow-cloud themed-primary size24" />
+const Pricing = <i className="ph-coffee themed-primary size24" />
 const OpenSource = <i className="ph-app-window themed-primary size24" />
 const Kratos = <i className="ph-user-gear themed-primary size24" />
 const Hydra = <i className="ph-fingerprint themed-primary size24" />
 const Oathkeeper = <i className="ph-shield-warning themed-primary size24" />
 const Keto = <i className="ph-key themed-primary size24" />
 
+const Documentation = <i className="ph-file-text themed-primary size24" />
 const Community = <i className="ph-users-three themed-primary size24" />
 const Blog = <i className="ph-newspaper themed-primary size24" />
 const GitHub = <i className="ph-github-logo themed-primary size24" />
@@ -32,7 +34,7 @@ export const sideNav: Pick<NavProps, 'sideNav'> = {
       style={'filled'}
       openInNewWindow={false}
     >
-      Request Access
+      Sign Up
     </Button>
   ]
 }
@@ -40,60 +42,54 @@ export const sideNav: Pick<NavProps, 'sideNav'> = {
 export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
   dropdownMenu: [
     {
-      title: 'Product',
+      title: 'Ory Cloud',
       mainMenu: [
         {
           iconLeft: Cloud,
-          title: 'Ory Cloud',
-          description: 'Never Build Auth Again',
+          title: 'Sign Up',
+          description: 'Become an Ory Insider',
           to: 'https://console.ory.sh/registration'
         },
         {
+          iconLeft: Pricing,
+          title: 'Pricing',
+          description: "Ory Cloud Pricing",
+          to: '/pricing'
+        }
+      ]
+    },
+    {
+      title: 'Ory Open Source',
+      mainMenu: [
+        {
           iconLeft: OpenSource,
-          title: 'Open Source Ecosystem',
+          title: 'Overview',
           description: "Ory's heart is Open Source",
-          to: '/open-source/'
+          to: '/open-source'
         },
         {
           iconLeft: Kratos,
           title: 'Kratos',
           description: 'Identity & User Management',
-          to: '/kratos/'
+          to: '/kratos'
         },
         {
           iconLeft: Hydra,
           title: 'Hydra',
           description: 'OAuth 2.0 & OpenIDConnect',
-          to: '/hydra/'
+          to: '/hydra'
         },
         {
           iconLeft: Keto,
           title: 'Keto',
           description: 'Global Authorization Server',
-          to: '/keto/'
+          to: '/keto'
         },
         {
           iconLeft: Oathkeeper,
           title: 'Oathkeeper',
           description: 'Zero Trust Networking',
-          to: '/oathkeeper/'
-        }
-      ]
-    },
-    {
-      title: 'Developers',
-      mainMenu: [
-        {
-          iconLeft: Community,
-          title: 'Community',
-          description: 'Be a part of the Ory Community',
-          to: '/community/'
-        },
-        {
-          iconLeft: Blog,
-          title: 'Blog',
-          description: 'Articles & Guides',
-          to: '/blog/'
+          to: '/oathkeeper'
         },
         {
           iconLeft: GitHub,
@@ -105,46 +101,55 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
       ]
     },
     {
-      title: (
-        <Button to={'/pricing/'} style={'link'}>
-          Pricing
-        </Button>
-      )
+      title: 'Developers',
+      mainMenu: [
+        {
+          iconLeft: Documentation,
+          title: 'Documentation',
+          description: 'Documentation for all Ory products.',
+          to: '/docs'
+        },
+        {
+          iconLeft: Community,
+          title: 'Community',
+          description: 'Be a part of the Ory Community',
+          to: '/community'
+        },
+        {
+          iconLeft: Blog,
+          title: 'Blog',
+          description: 'Articles & Guides',
+          to: '/blog'
+        }
+      ]
     },
     {
-      title: (
-        <Button to={'/docs/'} style={'link'}>
-          Docs
-        </Button>
-      )
-    },
-    {
-      title: 'About',
+      title: 'Company',
       mainMenu: [
         {
           iconLeft: About,
           title: 'About Us',
-          to: '/about/'
-        },
+          to: '/about'
+        },        
         {
           iconLeft: Contact,
           title: 'Contact Us',
           to: 'mailto:office@ory.sh'
-        },
+        },        
         {
           iconLeft: Report,
           title: 'Identity Report',
-          to: '/identity-in-modern-applications-oreilly/'
+          to: '/identity-in-modern-applications-oreilly'
         }
       ]
     },
     {
       title: (
-        <Button to={'/jobs/'} style={'link'}>
+        <Button to={'/jobs'} style={'link'}>
           Jobs
         </Button>
       )
-    }
+    },
   ]
 }
 
@@ -152,52 +157,40 @@ export const mobileMenu: Pick<NavProps, 'mobileMenu'> = {
   mobileMenu: {
     mobileMenuCategories: [
       {
-        category: 'Product',
+        category: 'Ory Cloud',
         mobileMenuItems: [
           {
-            title: 'Ory Cloud',
+            title: 'Sign Up',
             to: 'https://console.ory.sh/registration'
           },
           {
             title: 'Pricing',
-            to: '/pricing/'
+            to: '/pricing'
           },
-          {
-            title: 'Open Source',
-            to: '/open-source/'
-          },
-          {
-            title: 'Kratos',
-            to: '/kratos/'
-          },
-          {
-            title: 'Hydra',
-            to: '/hydra/'
-          },
-          {
-            title: 'Keto',
-            to: '/keto/'
-          },
-          {
-            title: 'Oathkeeper',
-            to: '/oathkeeper/'
-          }
         ]
       },
       {
-        category: 'Developers',
+        category: 'Ory Open Source',
         mobileMenuItems: [
           {
-            title: 'Docs',
-            to: '/docs/'
+            title: 'Overview',
+            to: '/open-source'
           },
           {
-            title: 'Community',
-            to: '/community/'
+            title: 'Kratos',
+            to: '/kratos'
           },
           {
-            title: 'Blog',
-            to: '/blog/'
+            title: 'Hydra',
+            to: '/hydra'
+          },
+          {
+            title: 'Keto',
+            to: '/keto'
+          },
+          {
+            title: 'Oathkeeper',
+            to: '/oathkeeper'
           },
           {
             title: 'GitHub',
@@ -207,23 +200,45 @@ export const mobileMenu: Pick<NavProps, 'mobileMenu'> = {
         ]
       },
       {
-        category: 'About',
+        category: 'Developers',
         mobileMenuItems: [
           {
-            title: 'Jobs',
-            to: '/jobs/'
+            title: 'Documentation',
+            to: '/docs/'
           },
+          {
+            title: 'Community',
+            to: '/community/'
+          },
+          {
+            title: 'Blog',
+            to: '/blog/'
+          }
+        ]
+      },
+      {
+        category: 'Company',
+        mobileMenuItems: [
           {
             title: 'About Us',
             to: '/about/'
           },
           {
-            title: 'Contact Us',
-            to: 'mailto:office@ory.sh'
+            title: 'Jobs',
+            to: '/jobs/'
           },
           {
             title: 'Identity Report',
             to: '/identity-in-modern-applications-oreilly/'
+          }
+        ]
+      },      
+      {
+        category: 'Contact',
+        mobileMenuItems: [
+          {
+            title: 'Contact Us',
+            to: 'mailto:office@ory.sh'
           }
         ]
       }

@@ -63,14 +63,20 @@ const FooterMain = ({ className, logo, contact, links }: FooterMain) => (
         <Grid lg={6} md={8} sm={12} xs={12}>
           <Container alignItems={'start'} justify={'space-between'}>
             {links.map((l, index) => (
-              <ContentText key={index} className={cn(footerCategories)}>
+              <Container
+                flexContainer={'column'}
+                alignItems={'start'}
+                justify={'start'}
+                key={index}
+                className={cn(footerCategories)}
+              >
                 <p className={cn('font-p-small', pb16)}>{l.title}</p>
                 {l.links.map((i, index) => (
-                  <ColourWrapper key={index} className={cn(footerFont)}>
+                  <Container key={index} className={cn(footerFont)}>
                     {i as React.ReactElement}
-                  </ColourWrapper>
+                  </Container>
                 ))}
-              </ContentText>
+              </Container>
             ))}
           </Container>
         </Grid>

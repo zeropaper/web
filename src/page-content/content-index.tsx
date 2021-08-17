@@ -42,7 +42,7 @@ export const hero: HeroProps = {
       style={'filled'}
       iconRight={RocketLaunch}
     >
-      Request Access
+      Sign Up
     </Button>
   ),
   image: (
@@ -68,7 +68,7 @@ export const featureContentCloud: FeatureContentProps = {
   ),
   buttons: (
     <Button to={'https://console.ory.sh'} style={'filled'}>
-      Request Access
+      Sign Up
     </Button>
   ),
   content: (
@@ -94,7 +94,7 @@ export const featureContentUX: FeatureContentProps = {
   ),
   buttons: (
     <Button to={'https://console.ory.sh'} style={'filled'}>
-      Request Access
+      Sign Up
     </Button>
   ),
   content: (
@@ -183,7 +183,7 @@ export const features: FeatureProps = {
       style={'link'}
       iconRight={ArrowRight}
     >
-      Request Access
+      Sign Up
     </Button>
   ),
 
@@ -247,7 +247,7 @@ export const quickstart: QuickstartProps = {
         to={'https://console.ory.sh/registration'}
         iconRight={RocketLaunch}
       >
-        Request Access
+        Sign Up
       </Button>
     </>
   ),

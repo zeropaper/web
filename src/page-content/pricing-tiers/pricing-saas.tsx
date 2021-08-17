@@ -17,7 +17,7 @@ export const pricingSaas: Pick<PricingProps, 'saas'> = {
       priceDescription: 'per Project/Member',
       button: (
         <Button to={'https://console.ory.sh/registration'} style={'filled'}>
-          Request Access
+          Sign Up
         </Button>
       ),
       features: [
