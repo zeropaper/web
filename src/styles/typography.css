@@ -288,15 +288,19 @@ a,
 
 .pill {
   background-color: var(--colors-themed-primary);
-  padding: var(--size-1) var(--size-2);
-  margin: 0 var(--size-px);
+  padding: var(--size-1) var(--size-3);
   border-radius: var(--radius-large);
   color: var(--colors-base-white);
-  font-size: var(--font-size-body-smaller);
-  letter-spacing: var(--font-spacing-wide);
-  line-height: var(--font-lineheight-none);
-  font-weight: var(--font-weight-medium);
-  height: 100%;
+  margin: 0 var(--size-1);
+}
+
+.dot {
+  height: var(--size-2);
+  width: var(--size-2);
+  margin-bottom: 25%;
+  background-color: var(--colors-themed-primary);
+  border-radius: 50%;
+  display: inline-block;
 }
 
 a:any-link {

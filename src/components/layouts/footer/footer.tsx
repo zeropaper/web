@@ -1,49 +1,39 @@
 import cn from 'classnames'
 import React from 'react'
 
-import ColourWrapper from '../../freestanding/colour/colour-wrapper'
+import Button from '../../freestanding/button/button'
 import Container from '../../freestanding/containers/container'
 import Grid from '../../freestanding/containers/grid'
-import ContentText from '../../freestanding/content/content-text'
-import MoleculeInteraction from '../../freestanding/molecule/molecule-interaction'
 
-import { pb16, pb32, pl16 } from '../../freestanding/utils/padding.module.css'
-import {
-  footer,
-  footerContainer,
-  footerSub,
-  footerCategories,
-  footerImg,
-  footerFont
-} from './footer.module.css'
+import { pb32 } from '../../freestanding/utils/padding.module.css'
+import * as styles from './footer.module.css'
 
-export interface Contact {
-  contactEmail: React.ReactElement
-  contactText: React.ReactElement
+interface MenuItem {
+  to: string
+  openInNewWindow?: boolean
+  title: string | React.ReactElement
 }
 
-export interface LinkSection {
-  title: string
-  links: React.ReactNodeArray
-}
-
-export interface FooterPropTypes {
-  logo: React.ReactElement
-  copyright: React.ReactElement
-  contact: Contact
-  social: React.ReactNodeArray
-  links: Array<LinkSection>
-  legal: React.ReactNodeArray
+export interface MenuCategory {
+  menuCategory: string
+  menuItems: Array<MenuItem>
 }
 
 interface FooterMain {
   className: string
-  logo: React.ReactElement
-  contact: Contact
-  links: Array<LinkSection>
+  logo: string
+  category: Array<MenuCategory>
 }
 
-const FooterMain = ({ className, logo, contact, links }: FooterMain) => (
+export interface FooterPropTypes {
+  logo: string
+  copyright: React.ReactElement
+  social: Array<Social>
+  legal: Array<MenuItem>
+  category: Array<MenuCategory>
+}
+
+const FooterMain = ({ className, logo, category }: FooterMain) => (
   <Container fluid={true}>
     <Grid lg={12} md={12} sm={12} xs={12}>
       <Container className={className} alignItems={'start'}>
@@ -53,30 +43,36 @@ const FooterMain = ({ className, logo, contact, links }: FooterMain) => (
             alignItems={'start'}
             justify={['start-lg', 'start-md', 'start-sm', 'start-xs']}
           >
-            <div className={cn(footerImg)}>{logo}</div>
-            <ColourWrapper text={'base-grey-600'}>
-              {contact.contactEmail}
-            </ColourWrapper>
-            <p className={cn('font-p-small')}>{contact.contactText}</p>
+            <Button to={'/'} style={'none'} className={cn(styles.footerLogo)}>
+              <img src={logo} loading={'eager'} alt={'Ory logo'} />
+            </Button>
           </Container>
         </Grid>
         <Grid lg={6} md={8} sm={12} xs={12}>
           <Container alignItems={'start'} justify={'space-between'}>
-            {links.map((l, index) => (
-              <Container
-                flexContainer={'column'}
-                alignItems={'start'}
-                justify={'start'}
-                key={index}
-                className={cn(footerCategories)}
-              >
-                <p className={cn('font-p-small', pb16)}>{l.title}</p>
-                {l.links.map((i, index) => (
-                  <Container key={index} className={cn(footerFont)}>
-                    {i as React.ReactElement}
-                  </Container>
+            {category.map(({ menuCategory, menuItems }, index) => (
+              <div key={index} className={cn(styles.footerCategories)}>
+                <p
+                  className={cn(
+                    styles.footerCategory,
+                    'font-p-smaller',
+                    'is-semibold',
+                    'is-mute-text'
+                  )}
+                >
+                  {menuCategory}
+                </p>
+                {menuItems.map(({ to, openInNewWindow, title }, index) => (
+                  <Button
+                    key={index}
+                    style={'footer'}
+                    to={to}
+                    openInNewWindow={openInNewWindow}
+                  >
+                    {title}
+                  </Button>
                 ))}
-              </Container>
+              </div>
             ))}
           </Container>
         </Grid>
@@ -85,11 +81,17 @@ const FooterMain = ({ className, logo, contact, links }: FooterMain) => (
   </Container>
 )
 
+interface Social {
+  to: string
+  openInNewWindow?: boolean
+  icon: React.ReactElement
+}
+
 interface FooterSub {
-  className: string
+  className?: string
   copyright: React.ReactElement
-  social: React.ReactNodeArray
-  legal: React.ReactNodeArray
+  social: Array<Social>
+  legal: Array<MenuItem>
 }
 
 const FooterSub = ({ className, copyright, social, legal }: FooterSub) => (
@@ -98,45 +100,44 @@ const FooterSub = ({ className, copyright, social, legal }: FooterSub) => (
       <Container
         className={cn(className)}
         alignItems={'center'}
-        justify={'center'}
+        justify={'space-between'}
       >
-        <Grid lg={4} md={4} sm={4} xs={12}>
+        <Grid lg={6} md={6} sm={6} xs={12}>
           <Container
             justify={['start-lg', 'start-md', 'start-sm', 'center-xs']}
+            alignItems={'center'}
+            className={styles.footerSocialIcons}
           >
-            <ColourWrapper text={'base-grey-400'}>
-              <p className={cn('font-p-small')}>{copyright}</p>
-            </ColourWrapper>
+            {social.map(({ to, openInNewWindow, icon }, index) => (
+              <Button
+                key={index}
+                style={'icon'}
+                to={to}
+                openInNewWindow={openInNewWindow}
+                iconLeft={icon}
+              />
+            ))}
           </Container>
         </Grid>
-        <Grid lg={4} md={4} sm={4} xs={12}>
-          <Container justify={'center'} alignItems={'center'}>
-            <MoleculeInteraction>
-              {social.map((s, index) => (
-                <ColourWrapper
-                  className={cn(footerFont)}
-                  text={'base-grey-400'}
+        <Grid lg={6} md={6} sm={6} xs={12}>
+          <Container
+            flexContainer={'column'}
+            alignItems={['end-lg', 'end-md', 'end-sm', 'center-xs']}
+          >
+            <p className={cn('font-p-smaller')}>{copyright}</p>
+            <Container justify={'center-xs'}>
+              {legal.map(({ to, openInNewWindow, title }, index) => (
+                <Button
+                  className={styles.footerLegal}
                   key={index}
+                  style={'footer'}
+                  to={to}
+                  openInNewWindow={openInNewWindow}
                 >
-                  {s as React.ReactElement}
-                </ColourWrapper>
+                  {title}
+                </Button>
               ))}
-            </MoleculeInteraction>
-          </Container>
-        </Grid>
-        <Grid lg={4} md={4} sm={4} xs={12}>
-          <Container justify={['end-lg', 'end-md', 'center-sm', 'center-xs']}>
-            <MoleculeInteraction>
-              {legal.map((l, index) => (
-                <ColourWrapper
-                  className={cn(footerFont, pl16)}
-                  text={'base-grey-400'}
-                  key={index}
-                >
-                  {l as React.ReactElement}
-                </ColourWrapper>
-              ))}
-            </MoleculeInteraction>
+            </Container>
           </Container>
         </Grid>
       </Container>
@@ -146,28 +147,17 @@ const FooterSub = ({ className, copyright, social, legal }: FooterSub) => (
 
 const Footer = ({
   logo,
-  contact,
-  links,
+  category,
   copyright,
   social,
   legal
 }: FooterPropTypes) => (
   <>
-    <div className={cn(footer)}>
-      <FooterMain
-        className={cn(footerContainer, pb32)}
-        contact={contact}
-        links={links}
-        logo={logo}
-      />
+    <div className={cn(styles.footer, 'background-is-dark')}>
+      <FooterMain className={cn(pb32)} category={category} logo={logo} />
     </div>
-    <div className={cn(footerSub, 'background-is-dark')}>
-      <FooterSub
-        className={cn(footerContainer)}
-        copyright={copyright}
-        social={social}
-        legal={legal}
-      />
+    <div className={cn(styles.footerSub, 'background-is-dark')}>
+      <FooterSub copyright={copyright} social={social} legal={legal} />
     </div>
   </>
 )

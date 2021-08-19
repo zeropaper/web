@@ -10,7 +10,15 @@ import * as styles from './button.module.css'
 export interface PropTypes {
   children?: React.ReactNode
   className?: string
-  style: 'filled' | 'outlined' | 'text' | 'none' | 'link' | 'link-inline'
+  style:
+    | 'filled'
+    | 'outlined'
+    | 'text'
+    | 'none'
+    | 'link'
+    | 'footer'
+    | 'icon'
+    | 'link-inline'
   to: string | (() => void)
   sideEffect?: () => void
   openInNewWindow?: boolean
@@ -18,7 +26,7 @@ export interface PropTypes {
   iconLeft?: React.ReactElement
 }
 
-const buttonVariants = ['filled', 'outlined', 'text']
+const buttonVariants = ['filled', 'outlined', 'text', 'icon']
 
 const Button = ({
   children,
@@ -38,6 +46,7 @@ const Button = ({
   const classes = cn(className, {
     [getStyle(style)]: style !== 'none',
     'font-link': style === 'link',
+    'font-p-smaller': style === 'footer',
     'font-button': buttonVariants.includes(style),
     [styles.btnBase]: buttonVariants.includes(style) || style === 'link'
   })
@@ -55,7 +64,7 @@ const Button = ({
   )
 
   if (typeof to === 'string') {
-    return to.startsWith('/') && to.indexOf('/docs/') < 0 ? (
+    return to.startsWith('/') && to.indexOf('/docs' || '/docs/') < 0 ? (
       <GatsbyLink
         to={to}
         className={classes}

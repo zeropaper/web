@@ -24,6 +24,7 @@ declare const styles: {
   readonly isMuterText: string
   readonly isThemedPrimary: string
   readonly pill: string
+  readonly dot: string
   readonly remarkEmoji: string
 }
 export = styles

@@ -19,8 +19,8 @@ import Navigation from '../navigation/navigation'
 
 import * as styles from './layout.module.css'
 
-import logoOryFooter from '../../../images/logo/logo-ory-footer.svg'
 import oryLogoPrimary from '../../../images/logo/logo-ory-primary.svg'
+import oryLogoWhite from '../../../images/logo/logo-ory-white.svg'
 
 interface PropTypes {
   theme?: string
@@ -38,17 +38,8 @@ const Layout = ({ children, theme }: PropTypes) => (
     <Announcement className={theme ? `theme-${theme}` : ''} {...jobs} />
     <main className={theme ? `theme-${theme}` : ''}>{children}</main>
     <Footer
-      logo={
-        <img
-          width={'100%'}
-          height={'100%'}
-          loading="lazy"
-          alt="Ory logo footer"
-          src={logoOryFooter}
-        />
-      }
+      logo={oryLogoWhite}
       {...footer.copyright}
-      {...footer.contact}
       {...footer.social}
       {...footer.legal}
       {...footer.links}

@@ -1,9 +1,10 @@
 declare const styles: {
   readonly footer: string
-  readonly footerSub: string
-  readonly footerContainer: string
+  readonly footerLogo: string
   readonly footerCategories: string
-  readonly footerImg: string
-  readonly footerFont: string
+  readonly footerCategory: string
+  readonly footerSub: string
+  readonly footerLegal: string
+  readonly footerSocialIcons: string
 }
 export = styles

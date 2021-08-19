@@ -53,7 +53,7 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
         {
           iconLeft: Pricing,
           title: 'Pricing',
-          description: "Ory Cloud Pricing",
+          description: 'Ory Cloud Pricing',
           to: '/pricing'
         }
       ]
@@ -130,12 +130,12 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
           iconLeft: About,
           title: 'About Us',
           to: '/about'
-        },        
+        },
         {
           iconLeft: Contact,
           title: 'Contact Us',
           to: 'mailto:office@ory.sh'
-        },        
+        },
         {
           iconLeft: Report,
           title: 'Identity Report',
@@ -149,7 +149,7 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
           Jobs
         </Button>
       )
-    },
+    }
   ]
 }
 
@@ -166,7 +166,7 @@ export const mobileMenu: Pick<NavProps, 'mobileMenu'> = {
           {
             title: 'Pricing',
             to: '/pricing'
-          },
+          }
         ]
       },
       {
@@ -232,7 +232,7 @@ export const mobileMenu: Pick<NavProps, 'mobileMenu'> = {
             to: '/identity-in-modern-applications-oreilly/'
           }
         ]
-      },      
+      },
       {
         category: 'Contact',
         mobileMenuItems: [
