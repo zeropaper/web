@@ -1,18 +1,15 @@
 .dropdown-menu {
   flex-direction: row;
   background-color: var(--colors-base-white);
-  border: var(--size-px) solid;
-  border-color: var(--colors-themed-background);
-  box-shadow: var(--elevation-xxl);
-  border-radius: var(--radius-default);
+  border-radius: var(--radius-smaller);
+  box-shadow: var(--elevation-base);
   z-index: 999;
   min-width: var(--size-64);
   width: auto;
-  padding: var(--size-4);
   visibility: visible;
   position: absolute;
   margin-top: var(--size-4);
-  margin-left: calc(-1 * var(--size-8));
+  margin-left: calc(-1 * var(--size-4));
   transform: none;
 }
 

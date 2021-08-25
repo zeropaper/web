@@ -12,7 +12,6 @@ export interface DropdownItem {
   description?: string
   className?: string
   onClick: () => void
-  iconLeft?: React.ReactElement
 }
 
 const DropdownItem = ({
@@ -21,20 +20,28 @@ const DropdownItem = ({
   title,
   openInNewWindow = false,
   description,
-  onClick,
-  iconLeft
+  onClick
 }: DropdownItem) => (
   <div className={cn(styles.dropdownItem, className && className)}>
     <Button
-      iconLeft={iconLeft}
       to={to}
-      style={'link'}
+      style={'navigation'}
       openInNewWindow={openInNewWindow}
       sideEffect={onClick}
     >
       <div>
         {title}
-        <p className={cn('font-p-smaller')}>{description}</p>
+        {description && (
+          <p
+            className={cn(
+              styles.dropdownDescription,
+              'font-p-smaller',
+              'is-mute-text'
+            )}
+          >
+            {description}
+          </p>
+        )}
       </div>
     </Button>
   </div>

@@ -4,6 +4,7 @@
   /*Sizes*/
   /*Multiples of 4*/
   --size-px: 1px;
+  --size-px-2: 2px;
   --size-0: 0;
   --size-1: 0.25rem;
   --size-2: 0.5rem;
@@ -18,6 +19,7 @@
   --size-20: 5rem;
   --size-24: 6rem;
   --size-32: 8rem;
+  --size-48: 12rem;
   --size-64: 16rem;
   --size-128: 32rem;
   --size-full: 100%;

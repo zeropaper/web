@@ -16,7 +16,6 @@
 
 .style-filled {
   padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-smaller);
   background: var(--colors-button-primary);
   border: var(--size-px) solid transparent;
 
@@ -40,7 +39,6 @@
 
 .style-outlined {
   padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-smaller);
   background: transparent;
   color: var(--colors-link-primary);
   border: var(--size-px) solid var(--colors-themed-primary);
@@ -79,7 +77,6 @@
 
 .style-text {
   padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-smaller);
   background: transparent;
   color: var(--colors-themed-primary);
   border: var(--size-px) solid transparent;
@@ -160,8 +157,26 @@
   }
 }
 
+.style-navigation {
+  background: transparent;
+  color: var(--colors-text-secondary);
+  padding: var(--size-2) 0;
+
+  &:hover {
+    color: var(--colors-link-primary);
+  }
+
+  &:focus {
+    color: var(--colors-base-grey-400);
+  }
+
+  &:active {
+    color: var(--colors-link-active);
+  }
+}
+
 .style-icon {
-  color: var(--colors-base-grey-400);
+  color: var(--colors-link-primary);
 
   & i {
     color: inherit;
@@ -169,10 +184,10 @@
 
   &:hover,
   &:focus {
-    color: var(--colors-link-primary);
+    color: var(--colors-link-active);
   }
 
   &:active {
-    color: var(--colors-link-active);
+    color: var(--colors-link-hover);
   }
 }

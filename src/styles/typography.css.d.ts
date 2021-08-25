@@ -13,6 +13,7 @@ declare const styles: {
   readonly fontLink: string
   readonly fontQuote: string
   readonly fontButton: string
+  readonly fontNav: string
   readonly fontNowrap: string
   readonly isMonospace: string
   readonly isSemibold: string

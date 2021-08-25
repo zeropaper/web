@@ -17,6 +17,7 @@ export interface PropTypes {
     | 'none'
     | 'link'
     | 'footer'
+    | 'navigation'
     | 'icon'
     | 'link-inline'
   to: string | (() => void)
@@ -47,6 +48,7 @@ const Button = ({
     [getStyle(style)]: style !== 'none',
     'font-link': style === 'link',
     'font-p-smaller': style === 'footer',
+    'font-nav': style === 'navigation',
     'font-button': buttonVariants.includes(style),
     [styles.btnBase]: buttonVariants.includes(style) || style === 'link'
   })

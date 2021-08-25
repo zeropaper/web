@@ -246,6 +246,14 @@ a,
   line-height: var(--font-lineheight-normal);
 }
 
+.font-nav {
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-medium);
+  font-style: normal;
+  color: inherit;
+  line-height: var(--font-lineheight-button);
+}
+
 .font-nowrap {
   white-space: nowrap;
 }

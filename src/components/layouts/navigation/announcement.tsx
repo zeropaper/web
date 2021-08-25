@@ -1,6 +1,6 @@
 import { useLocation } from '@reach/router'
 import cn from 'classnames'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import Button from '../../freestanding/button/button'
 import Container from '../../freestanding/containers/container'
@@ -41,7 +41,7 @@ const AnnouncementBanner = ({ text, link, lengthy }: Banner) => (
 const Announcement = ({ longText, shortText, link, className }: PropTypes) => {
   const location = useLocation()
 
-  if (location.pathname === link) {
+  if (location.pathname.replace(/\/+$/, '') === link.replace(/\/+$/, '')) {
     return null
   }
 

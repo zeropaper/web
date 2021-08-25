@@ -2,6 +2,6 @@
   display: flex;
   flex: 1 0 50%;
   align-self: flex-start;
-  padding: var(--size-2) 0;
+  padding: var(--size-2) 0 var(--size-2) var(--size-4);
   border-radius: var(--radius-default);
 }

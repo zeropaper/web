@@ -2,8 +2,16 @@ import cn from 'classnames'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useRef } from 'react'
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemButton,
+  AccordionItemHeading,
+  AccordionItemPanel
+} from 'react-accessible-accordion'
 
 import { useWindowSize } from '../../../hook/useWindowSize'
+import { jobs } from '../../../page-content/navigation/navigation-announcement'
 import Button from '../../freestanding/button/button'
 import Container from '../../freestanding/containers/container'
 import ContentText from '../../freestanding/content/content-text'
@@ -13,9 +21,15 @@ import DropdownMobileItem from '../../freestanding/dropdown/dropdown-mobile-item
 import { DropdownMobileMenu } from '../../freestanding/dropdown/dropdown-mobile-menu'
 import MenuItem from '../../freestanding/dropdown/menu-item'
 
+import Announcement from './announcement'
+
 import {
+  pb16,
   pb24,
+  pb32,
+  pb48,
   pb8,
+  pl8,
   pr32,
   pt16
 } from '../../freestanding/utils/padding.module.css'
@@ -65,6 +79,10 @@ export interface PropTypes {
   sideNav: React.ReactNodeArray
 }
 
+const Minus = <i className={cn(pl8, 'ph-minus-fill size24')} />
+const Plus = <i className={cn(pl8, 'ph-plus-fill size24')} />
+const List = <i className={'ph-list-fill size32'} />
+
 const onClickOutsideRef = (
   refs: Array<React.MutableRefObject<any>>,
   handler: (e: MouseEvent | TouchEvent) => void
@@ -94,6 +112,7 @@ const onClickOutsideRef = (
 
 const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
   const [mobileOpenNav, setMobileOpenNav] = useState<boolean>(false)
+  const [expanded, setExpanded] = useState<Array<string>>(['0'])
   const [openMenu, setOpenMenu] = useState<string>()
 
   const currentNode = useRef<any>(null)
@@ -105,8 +124,6 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
   if (mobileOpenNav) {
     mobileNav = cn(styles.mobileNavActive)
   }
-
-  const List = <i className={'ph-list-fill themed-primary size32'} />
 
   onClickOutsideRef(
     [currentNode, currentMobileNode, currentMobileNavBtnNode],
@@ -133,6 +150,7 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
         [styles.navigationMobileOpen]: mobileOpenNav
       })}
     >
+      <Announcement {...jobs} />
       <Container
         fluid={true}
         noWrap={true}
@@ -164,14 +182,7 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
                   {mainMenu &&
                     mainMenu.map(
                       (
-                        {
-                          title,
-                          description,
-                          to,
-                          openInNewWindow,
-                          iconLeft,
-                          className
-                        },
+                        { title, description, to, openInNewWindow, className },
                         index
                       ) => (
                         <DropdownItem
@@ -182,7 +193,6 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
                           to={to}
                           title={title}
                           description={description}
-                          iconLeft={iconLeft}
                         />
                       )
                     )}
@@ -222,7 +232,7 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
         >
           <Button
             to={() => setMobileOpenNav((current) => !current)}
-            style={'link'}
+            style={'icon'}
           >
             {List}
           </Button>
@@ -231,38 +241,59 @@ const Navigation = ({ logo, dropdownMenu, mobileMenu, sideNav }: PropTypes) => {
 
       <div className={cn(mobileNav)} ref={currentMobileNode}>
         <DropdownMobileMenu>
-          {mobileMenu.mobileMenuCategories.map(
-            ({ category, mobileMenuItems }, index) => (
-              <Container key={index} className={styles.mobileCategoryContainer}>
-                <p className={cn(styles.mobileCategory, 'font-p-smaller')}>
-                  {category}
-                </p>
-                {mobileMenuItems.map(
-                  (
-                    { title, description, to, openInNewWindow, className },
-                    index
-                  ) => (
-                    <DropdownMobileItem
-                      className={className}
-                      onClick={() => setMobileOpenNav((current) => !current)}
-                      key={index}
-                      openInNewWindow={openInNewWindow}
-                      to={to}
-                      title={title}
-                    />
-                  )
-                )}
-              </Container>
-            )
-          )}
-
-          <div className={cn(pb8, pt16)}>
+          <div className={cn(pb32)}>
             {sideNav.map((side, index) => (
               <div className={cn(pb8)} key={index}>
                 {side}
               </div>
             ))}
           </div>
+          <Accordion
+            allowMultipleExpanded={false}
+            allowZeroExpanded={true}
+            preExpanded={['0']}
+            onChange={(args: Array<string>) => {
+              setExpanded(args)
+            }}
+          >
+            {mobileMenu.mobileMenuCategories.map(
+              ({ category, mobileMenuItems }, index) => (
+                <AccordionItem
+                  key={index}
+                  uuid={String(index)}
+                  className={cn(pb16)}
+                >
+                  <AccordionItemHeading>
+                    <AccordionItemButton className={cn(styles.mobileCategory)}>
+                      <p className={cn(styles.mobileCategory, 'font-nav')}>
+                        {category}
+                      </p>
+                      {expanded.includes(String(index)) ? Minus : Plus}
+                    </AccordionItemButton>
+                  </AccordionItemHeading>
+                  <AccordionItemPanel className={cn(pt16)}>
+                    {mobileMenuItems.map(
+                      (
+                        { title, description, to, openInNewWindow, className },
+                        index
+                      ) => (
+                        <DropdownMobileItem
+                          className={className}
+                          onClick={() =>
+                            setMobileOpenNav((current) => !current)
+                          }
+                          key={index}
+                          openInNewWindow={openInNewWindow}
+                          to={to}
+                          title={title}
+                        />
+                      )
+                    )}
+                  </AccordionItemPanel>
+                </AccordionItem>
+              )
+            )}
+          </Accordion>
         </DropdownMobileMenu>
       </div>
     </div>

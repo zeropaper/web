@@ -35,7 +35,6 @@ const Layout = ({ children, theme }: PropTypes) => (
       {...nav.dropdownMenu}
       {...nav.mobileMenu}
     />
-    <Announcement className={theme ? `theme-${theme}` : ''} {...jobs} />
     <main className={theme ? `theme-${theme}` : ''}>{children}</main>
     <Footer
       logo={oryLogoWhite}

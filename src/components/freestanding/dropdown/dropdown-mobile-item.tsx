@@ -11,7 +11,6 @@ interface PropTypes {
   openInNewWindow?: boolean
   className?: string
   onClick: () => void
-  iconLeft?: React.ReactElement
 }
 
 const DropdownMobileItem = ({
@@ -19,14 +18,12 @@ const DropdownMobileItem = ({
   to,
   title,
   openInNewWindow = false,
-  onClick,
-  iconLeft
+  onClick
 }: PropTypes) => (
   <div className={cn(styles.dropdownMobileItem, className && className)}>
     <Button
-      iconLeft={iconLeft}
       to={to}
-      style={'link'}
+      style={'navigation'}
       openInNewWindow={openInNewWindow}
       sideEffect={onClick}
     >

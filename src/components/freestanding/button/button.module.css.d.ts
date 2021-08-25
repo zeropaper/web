@@ -7,6 +7,7 @@ declare const styles: {
   readonly styleText: string
   readonly styleLink: string
   readonly styleFooter: string
+  readonly styleNavigation: string
   readonly styleIcon: string
 }
 export = styles
