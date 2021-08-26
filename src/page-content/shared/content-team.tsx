@@ -240,7 +240,7 @@ export const collaborators: TeamProps = {
   ),
   team: [
     {
-      name: 'Markus Schmelzer',
+      name: 'Marcus Schmelzer',
       position: 'Customer Relations',
       social: [
         {
@@ -255,13 +255,13 @@ export const collaborators: TeamProps = {
           aspectRatio={1}
           loading="lazy"
           className="responsive"
-          alt="Markus Schmelzer"
+          alt="Marcus Schmelzer"
           src="../../images/team/markus.png"
         />
       )
     },
     {
-      name: 'Uwe Richter',
+      name: 'Uwe Ritter',
       position: 'Customer Relations',
       social: [
         {
@@ -276,7 +276,7 @@ export const collaborators: TeamProps = {
           aspectRatio={1}
           loading="lazy"
           className="responsive"
-          alt="Uwe Richter"
+          alt="Uwe Ritter"
           src="../../images/team/uwe.png"
         />
       )
