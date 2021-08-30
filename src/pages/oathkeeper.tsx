@@ -13,7 +13,7 @@ import Stats from '../components/layouts/stats/stats'
 import * as content from '../page-content/content-oathkeeper'
 import { sharedAdopters } from '../page-content/shared/content-adopters'
 import { opensourceQuickstart } from '../page-content/shared/content-opensource'
-import { sharedQuotes } from '../page-content/shared/content-quotes'
+import { oathkeeperQuotes } from '../page-content/shared/content-quotes'
 import { sharedStats } from '../page-content/shared/content-stats'
 
 const OathkeeperPage = () => (
@@ -22,11 +22,11 @@ const OathkeeperPage = () => (
     <Hero {...content.hero} />
     <Newsletter preselect="oathkeeper" />
     <FeatureList {...content.featurelist} />
-    <FeatureContent {...content.featureContentCoding} />
-    <FeatureContent {...content.featureContentSDK} />
-    <Quotes {...sharedQuotes} />
+    <Quotes {...oathkeeperQuotes} />
     <Adopters {...sharedAdopters} />
     <Stats {...sharedStats} />
+    <FeatureContent {...content.featureContentCoding} />
+    <FeatureContent {...content.featureContentSDK} />
     <Quickstart {...opensourceQuickstart} />
   </Layout>
 )

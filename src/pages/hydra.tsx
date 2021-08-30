@@ -13,7 +13,7 @@ import Stats from '../components/layouts/stats/stats'
 import * as content from '../page-content/content-hydra'
 import { sharedAdopters } from '../page-content/shared/content-adopters'
 import { opensourceQuickstart } from '../page-content/shared/content-opensource'
-import { sharedQuotes } from '../page-content/shared/content-quotes'
+import { hydraQuotes } from '../page-content/shared/content-quotes'
 import { sharedStats } from '../page-content/shared/content-stats'
 
 const HydraPage = () => (
@@ -23,11 +23,11 @@ const HydraPage = () => (
     <Newsletter preselect="hydra" />
     <FeatureContent {...content.featureContentVideo} />
     <FeatureList {...content.featureList} />
-    <FeatureContent {...content.featureContentCoding} />
-    <FeatureContent {...content.featureContentSDK} />
-    <Quotes {...sharedQuotes} />
+    <Quotes {...hydraQuotes} />
     <Adopters {...sharedAdopters} />
     <Stats {...sharedStats} />
+    <FeatureContent {...content.featureContentCoding} />
+    <FeatureContent {...content.featureContentSDK} />
     <Quickstart {...opensourceQuickstart} />
   </Layout>
 )

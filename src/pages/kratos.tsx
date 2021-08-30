@@ -13,7 +13,7 @@ import Stats from '../components/layouts/stats/stats'
 import * as content from '../page-content/content-kratos'
 import { sharedAdopters } from '../page-content/shared/content-adopters'
 import { opensourceQuickstart } from '../page-content/shared/content-opensource'
-import { sharedQuotes } from '../page-content/shared/content-quotes'
+import { kratosQuotes } from '../page-content/shared/content-quotes'
 import { sharedStats } from '../page-content/shared/content-stats'
 
 const KratosPage = () => (
@@ -22,11 +22,11 @@ const KratosPage = () => (
     <Hero {...content.hero} />
     <Newsletter preselect="kratos" />
     <FeatureList {...content.featureList} />
-    <FeatureContent {...content.featureContentCoding} />
-    <FeatureContent {...content.featureContentSDK} />
-    <Quotes {...sharedQuotes} />
+    <Quotes {...kratosQuotes} />
     <Adopters {...sharedAdopters} />
     <Stats {...sharedStats} />
+    <FeatureContent {...content.featureContentCoding} />
+    <FeatureContent {...content.featureContentSDK} />
     <Quickstart {...opensourceQuickstart} />
   </Layout>
 )
