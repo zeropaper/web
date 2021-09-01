@@ -33,7 +33,7 @@ export const hero: HeroFeatureProps = {
   title: 'Work on things that matter',
   description: (
     <>
-      Ory builds open source software because the internet needs a secure
+      Ory builds open source software because the Internet needs secure
       infrastructure to authenticate and authorize access. And we'd like your
       help!
     </>
@@ -47,7 +47,7 @@ export const hero: HeroFeatureProps = {
         <>
           Help us create an open and free standard for authentication and
           authorization that is available to everyone. Much of the work we do is
-          released to the public domain. Part of Ory is a tremendous community
+          released to the public domain. Ory is rooted in a tremendous open source community
           that you will fall in love with.
         </>
       )
@@ -72,7 +72,7 @@ export const hero: HeroFeatureProps = {
           Everyone working at Ory has a passion for the work we do. We foster a
           culture of flat hierarchy, where everyone has a voice and we seek
           input from the whole company on key decisions. At Ory, people care
-          about what they are building. Build something that has real value.
+          about what they are building. Help us build something that has real value.
         </>
       )
     },
@@ -81,10 +81,10 @@ export const hero: HeroFeatureProps = {
       title: <>Play A Vital Role</>,
       description: (
         <>
-          You will be working in a fast-moving startup, breaking up a market
+          You will be working at a fast-moving startup, breaking up a market
           that has been plagued by corporate mold for far too long. At Ory you
-          won’t be just another employee - You have a direct impact on our
-          success and the team will support you and depend on you.
+          won’t be just another employee - you will have a direct impact on our
+          success with the support and trust of your team.
         </>
       )
     }
@@ -97,7 +97,7 @@ export const jobs: JobsProps = {
   description: (
     <>
       Today, Ory powers organizations of all sizes — from single-person startups
-      to multinational enterprises - and we are only just getting started. We
+      to multinational enterprises – and we are just getting started. We
       are looking for talented, creative people to build the future of Ory!
     </>
   )
@@ -115,8 +115,7 @@ export const values: HeroFeatureProps = {
         <>
           Building an enterprise-grade, globally scalable, secure infrastructure
           around Identity Management means thinking out-of-the-box. We need to
-          embrace leading-edge technology, new ways of thinking, and redefining
-          business processes to innovate the market on how to solve some of its
+          embrace leading-edge technology and new ways of thinking to find innovative solutions to some of the market's
           most fundamental challenges. Ory's aim is no less than to lead the
           market in state-of-the-art solutions for future-proof Identity
           Management. Innovation is part of our DNA.
@@ -127,11 +126,11 @@ export const values: HeroFeatureProps = {
       title: <>Commitment</>,
       description: (
         <>
-          At Ory, we truly believe in building great products. Products, that
-          matter. Products, that are relevant for our customers. Products, that
+          At Ory, we truly believe in building great products: Products that
+          matter. Products that are relevant for our customers. Products that
           help customers scale their business without limits. We take pride in
-          breaking boundaries, constantly improving, and aiming to produce great
-          work in order to win the market. Creating value for our customers
+          pushing boundaries, constantly improving, and producing great
+          work in order to lead the market. Creating value for our customers
           comes first. Our mission is excellence.
         </>
       )
@@ -143,10 +142,10 @@ export const values: HeroFeatureProps = {
           We are passionate about creating and delivering meaningful work. This
           is only possible as a team: Ory as a company, Ory together with our
           customers, and Ory as part of a larger community. Giving back to the
-          community we serve also means being committed to working hard to take
-          on challenges, approaching problems with humility – and deep respect
-          for diversity in business, culture, and society. Together we build the
-          products that can serve a purpose.
+          community we serve entails a willingness to take
+          on challenges and approach problems with humility and deep respect
+          for diversity in business, culture, and society. Together we build
+          products that serve a purpose.
         </>
       )
     },
@@ -154,10 +153,10 @@ export const values: HeroFeatureProps = {
       title: <>Honesty</>,
       description: (
         <>
-          We can contribute most effectively when we communicate openly and
-          honestly - learning both from our successes and our failures.
-          Listening to our customers and or employees. Continuously learning,
-          adapting, and growing our business on a healthy foundation. Openness
+          We contribute most effectively when we communicate openly and
+          honestly - learning equally from success and failure.
+          Listening to our customers and our employees. Continuously learning,
+          adapting, and growing our business on a foundation of trust and transparency. Openness
           and sincerity are the heart and soul of Ory.
         </>
       )
