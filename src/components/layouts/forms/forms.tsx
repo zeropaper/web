@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import React from 'react'
+import React, { useRef } from 'react'
 
 import Container from '../../freestanding/containers/container'
 import Grid from '../../freestanding/containers/grid'
@@ -11,7 +11,7 @@ interface InputPropTypes extends React.InputHTMLAttributes<HTMLInputElement> {}
 const Input = (props: InputPropTypes) => <input {...props} />
 
 export interface PropTypes extends React.FormHTMLAttributes<HTMLFormElement> {
-  content: Array<InputPropTypes>
+  content: Array<InputPropTypes & { label?: string }>
   isSingleLine?: boolean
 }
 
@@ -21,7 +21,7 @@ const Form = ({ content, isSingleLine, ...rest }: PropTypes) => {
       <Container className={cn(isSingleLine ? styles.singleLine : '')}>
         {content
           .filter(({ type }) => type !== 'hidden')
-          .map((props, index) =>
+          .map(({ label, ...inputProps }, index) =>
             !isSingleLine ? (
               <Grid
                 key={index}
@@ -31,10 +31,17 @@ const Form = ({ content, isSingleLine, ...rest }: PropTypes) => {
                 xs={12}
                 className={cn(styles.multiline)}
               >
-                <Input {...props} />
+                {label ? (
+                  <label>
+                    <Input {...inputProps} />
+                    <span className={styles.formLabel}>{label}</span>
+                  </label>
+                ) : (
+                  <Input {...inputProps} />
+                )}
               </Grid>
             ) : (
-              <Input key={index} {...props} />
+              <Input key={index} {...inputProps} />
             )
           )}
       </Container>

@@ -38,16 +38,23 @@ export const form: FormProps = {
         type: 'hidden',
         name: 'retURL',
         value:
-          'https://ory.sh/resources/oreilly/identity_in_modern_applications-ory.pdf'
+          'https://ory.sh/resources/oreilly/identity_in_modern_applications-ory.pdf?mtm_campaign=oreilly-download'
       },
       { type: 'hidden', name: 'lead_source', value: 'Oreilly Report' },
+      {
+        id: 'first_name',
+        name: 'first_name',
+        type: 'text',
+        placeholder: 'First Name',
+        required: true
+      },
       {
         id: 'last_name',
         name: 'last_name',
         type: 'text',
-        placeholder: 'Name',
+        placeholder: 'Last Name',
         required: true
-      },
+      },    
       {
         id: 'email',
         name: 'email',
@@ -67,6 +74,13 @@ export const form: FormProps = {
         name: 'title',
         type: 'text',
         placeholder: 'Position'
+      },
+      {
+        id: 'marketingoptin',
+        name: '00N5e00000cv3rN',
+        type: 'checkbox',
+        label: ' Keep me in the loop on Ory news.',
+        value: '1',
       },
       {
         type: 'submit',
