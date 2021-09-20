@@ -47,8 +47,8 @@ export const hero: HeroFeatureProps = {
         <>
           Help us create an open and free standard for authentication and
           authorization that is available to everyone. Much of the work we do is
-          released to the public domain. Ory is rooted in a tremendous open source community
-          that you will fall in love with.
+          released to the public domain. Ory is rooted in a tremendous open
+          source community that you will fall in love with.
         </>
       )
     },
@@ -72,7 +72,8 @@ export const hero: HeroFeatureProps = {
           Everyone working at Ory has a passion for the work we do. We foster a
           culture of flat hierarchy, where everyone has a voice and we seek
           input from the whole company on key decisions. At Ory, people care
-          about what they are building. Help us build something that has real value.
+          about what they are building. Help us build something that has real
+          value.
         </>
       )
     },
@@ -97,8 +98,8 @@ export const jobs: JobsProps = {
   description: (
     <>
       Today, Ory powers organizations of all sizes — from single-person startups
-      to multinational enterprises – and we are just getting started. We
-      are looking for talented, creative people to build the future of Ory!
+      to multinational enterprises – and we are just getting started. We are
+      looking for talented, creative people to build the future of Ory!
     </>
   )
 }
@@ -115,10 +116,11 @@ export const values: HeroFeatureProps = {
         <>
           Building an enterprise-grade, globally scalable, secure infrastructure
           around Identity Management means thinking out-of-the-box. We need to
-          embrace leading-edge technology and new ways of thinking to find innovative solutions to some of the market's
-          most fundamental challenges. Ory's aim is no less than to lead the
-          market in state-of-the-art solutions for future-proof Identity
-          Management. Innovation is part of our DNA.
+          embrace leading-edge technology and new ways of thinking to find
+          innovative solutions to some of the market's most fundamental
+          challenges. Ory's aim is no less than to lead the market in
+          state-of-the-art solutions for future-proof Identity Management.
+          Innovation is part of our DNA.
         </>
       )
     },
@@ -129,9 +131,9 @@ export const values: HeroFeatureProps = {
           At Ory, we truly believe in building great products: Products that
           matter. Products that are relevant for our customers. Products that
           help customers scale their business without limits. We take pride in
-          pushing boundaries, constantly improving, and producing great
-          work in order to lead the market. Creating value for our customers
-          comes first. Our mission is excellence.
+          pushing boundaries, constantly improving, and producing great work in
+          order to lead the market. Creating value for our customers comes
+          first. Our mission is excellence.
         </>
       )
     },
@@ -142,10 +144,10 @@ export const values: HeroFeatureProps = {
           We are passionate about creating and delivering meaningful work. This
           is only possible as a team: Ory as a company, Ory together with our
           customers, and Ory as part of a larger community. Giving back to the
-          community we serve entails a willingness to take
-          on challenges and approach problems with humility and deep respect
-          for diversity in business, culture, and society. Together we build
-          products that serve a purpose.
+          community we serve entails a willingness to take on challenges and
+          approach problems with humility and deep respect for diversity in
+          business, culture, and society. Together we build products that serve
+          a purpose.
         </>
       )
     },
@@ -153,11 +155,11 @@ export const values: HeroFeatureProps = {
       title: <>Honesty</>,
       description: (
         <>
-          We contribute most effectively when we communicate openly and
-          honestly - learning equally from success and failure.
-          Listening to our customers and our employees. Continuously learning,
-          adapting, and growing our business on a foundation of trust and transparency. Openness
-          and sincerity are the heart and soul of Ory.
+          We contribute most effectively when we communicate openly and honestly
+          - learning equally from success and failure. Listening to our
+          customers and our employees. Continuously learning, adapting, and
+          growing our business on a foundation of trust and transparency.
+          Openness and sincerity are the heart and soul of Ory.
         </>
       )
     }

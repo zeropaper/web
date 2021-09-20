@@ -54,7 +54,7 @@ export const form: FormProps = {
         type: 'text',
         placeholder: 'Last Name',
         required: true
-      },    
+      },
       {
         id: 'email',
         name: 'email',
@@ -80,7 +80,7 @@ export const form: FormProps = {
         name: '00N5e00000cv3rN',
         type: 'checkbox',
         label: ' Keep me in the loop on Ory news.',
-        value: '1',
+        value: '1'
       },
       {
         type: 'submit',
