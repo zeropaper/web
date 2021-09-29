@@ -1,15 +1,15 @@
 ---
 published: true
 path: '/privacy/'
-title: 'ORY Privacy Policy'
-metaTitle: 'ORY Privacy Policy'
-metaDescription: 'Read the ORY Privacy Policy.'
+title: 'Ory Privacy Policy'
+metaTitle: 'Ory Privacy Policy'
+metaDescription: 'Read the Ory Privacy Policy.'
 lastUpdatedAt: 'May 28, 2020'
 ---
 
 This privacy policy outlines how we handle information that can be used to
 directly or indirectly identify an individual ("Personal Information") and
-describes the Personal Information collected by Ory Corp, through its websites,
+describes the Personal Information collected by Ory Corp through its websites,
 products, and applications that together constitute the Ory Corp service (“the
 Service”), and how and for what purposes it is collected and used.
 
