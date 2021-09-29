@@ -1,14 +1,15 @@
 import React from 'react'
 
 import Button from '../components/freestanding/button/button'
+import CodeBox, {
+  Languages,
+  PropTypes as CodeBoxProps
+} from '../components/freestanding/codebox/codebox'
 import { PropTypes as CodingProps } from '../components/layouts/coding/coding'
 import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
 
-import CodeBoxImage from '../images/illustrations/codebox.png'
-
 const Terminal = <i className="ph-terminal-fill size32" />
 const GitMerge = <i className="ph-git-merge-fill size32" />
-const BookOpen = <i className="ph-book-open-fill size24" />
 const ArrowRight = <i className="ph-arrow-right-bold size16" />
 
 export const seo: SeoProps = {
@@ -17,35 +18,74 @@ export const seo: SeoProps = {
   title: 'Ory - Open Source Auth Solutions For Everyone'
 }
 
+export const codingCodeBox: CodeBoxProps = {
+  tabs: [
+    {
+      filename: '',
+      language: Languages.Shell,
+      code: `$ export ORY_ACCESS_TOKEN=RaEEZfMbx7QGuf0uWNt9c15NE4FG4OOW
+$ ory identities list --project playground --format json-pretty  
+[
+  {
+    "id": "7c7d040d-97f6-4a57-95e8-08c61e6df016",
+    "schema_id": "default",
+    "schema_url": "https://custom.domain.com/api/kratos/public/schemas/default",
+    "traits": {
+      "email": "alice@example.com"
+    }
+  },
+    {
+    "id": "7f6d040d-97c7-4a59-85e7-6df01608c61e",
+    "schema_id": "default",
+    "schema_url": "https://custom.domain.com/api/kratos/public/schemas/default",
+    "traits": {
+      "email": "stephan@example.com"
+    }
+  }
+]`
+    }
+  ]
+}
+
 export const coding: CodingProps = {
-  id: 'opensource.coding',
-  overline: 'Made for developers',
-  title: <>Improve your developer experience</>,
+  id: 'index.coding',
+  slant: true,
+  background: 'light-grey',
+  overline: 'Modern tooling',
+  title: (
+    <>
+      <span className={'is-mute-text'}>We're all about</span>
+      {''} developer experience
+    </>
+  ),
   description: (
     <>
-      At Ory, our mission is to improve the overall developer experience. We
-      provide SDKs, documentation, tutorials, CLIs and community support. Our
-      open source approach lets you to participate in API and architecture
-      discussions - your next PR will be shipped in Ory.
+      SDKs for any language, clear documentation, tutorials and community
+      support are our standards. Our open source approach also means you get to
+      participate in API and architecture discussions - your next PR will power
+      our open source.
     </>
   ),
-  buttons: (
-    <>
-      <Button to={'/docs/open-source'} style={'filled'} iconRight={BookOpen}>
-        Get started
-      </Button>
-    </>
-  ),
-
-  visual: (
-    <img
-      loading="lazy"
-      className="responsive"
-      alt="Example code and terminal response when integrating Ory"
-      src={CodeBoxImage}
-    />
-  ),
-
+  button: {
+    ctaTitle: 'Visit the documentation',
+    to: '/docs/get-started',
+    iconRight: ArrowRight
+  },
+  additional: {
+    title: <>The CLI to get things done</>,
+    description: (
+      <>
+        We love our CLI - it has everything you would want and that's why you'll
+        love it, too. It works on all operating systems and CPUs.
+      </>
+    ),
+    button: {
+      ctaTitle: 'Install the CLI',
+      to: '/docs/get-started',
+      iconRight: ArrowRight
+    }
+  },
+  codebox: <CodeBox {...codingCodeBox} />,
   content: [
     {
       icon: Terminal,

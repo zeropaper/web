@@ -1,4 +1,10 @@
-.hero {
+.hero-image {
   padding: var(--space-medium) 0;
   background: var(--colors-base-background);
+}
+
+@media (--xs) {
+  .title {
+    text-align: center;
+  }
 }

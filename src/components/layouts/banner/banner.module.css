@@ -1,5 +1,10 @@
-.banner-primary {
+.banner {
   background-color: var(--colors-base-background);
-  padding: 32px 0;
-  color: var(--colors-base-white);
+}
+
+.banner-decoration {
+  padding: var(--size-8) 0;
+  border-top: var(--size-px-2) dotted;
+  border-bottom: var(--size-px-2) dotted;
+  border-color: var(--colors-base-grey-200);
 }

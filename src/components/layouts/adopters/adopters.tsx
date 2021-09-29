@@ -6,6 +6,7 @@ import Container from '../../freestanding/containers/container'
 
 import AdoptersLogo from './adopters-logo'
 
+import { pb16 } from '../../freestanding/utils/padding.module.css'
 import * as styles from './adopters.module.css'
 
 interface Adopter {
@@ -21,7 +22,12 @@ export interface PropTypes {
 }
 
 const Adopters = ({ id, adopters }: PropTypes & { featured?: boolean }) => (
-  <div id={id} className={cn(styles.adopters, 'background-is-dark')}>
+  <div id={id} className={cn(styles.adopters)}>
+    <Container justify={'center'}>
+      <h2 className={cn(pb16, 'font-overline', 'text-is-centered')}>
+        Trusted by
+      </h2>
+    </Container>
     <Container fluid={true} justify={'center'}>
       {adopters.map((adopter, index) => {
         return (

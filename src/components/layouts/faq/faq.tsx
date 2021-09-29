@@ -1,25 +1,11 @@
 import cn from 'classnames'
-import React, { useState } from 'react'
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemButton,
-  AccordionItemHeading,
-  AccordionItemPanel
-} from 'react-accessible-accordion'
+import React from 'react'
 
 import Container from '../../freestanding/containers/container'
 import Grid from '../../freestanding/containers/grid'
-import ContentText from '../../freestanding/content/content-text'
-import MoleculeSeparator from '../../freestanding/molecule/molecule-separator'
 
-import {
-  pb16,
-  pb32,
-  pb48,
-  pl8
-} from '../../freestanding/utils/padding.module.css'
-import { faq, faqHeading, faqHeadingIcon, faqHighlight } from './faq.module.css'
+import { pb16, pb32, pb64 } from '../../freestanding/utils/padding.module.css'
+import * as styles from './faq.module.css'
 
 export interface FaqContent {
   question: string
@@ -28,63 +14,67 @@ export interface FaqContent {
 
 export interface PropTypes {
   id: string
+  background?: 'dark' | 'grey' | 'light-grey' | 'themed'
+  slant?: boolean
   title: React.ReactElement
   description: React.ReactElement
   content: Array<FaqContent>
 }
 
-const Faq = ({ id, title, description, content }: PropTypes) => {
-  const [expanded, setExpanded] = useState<Array<string>>(['0'])
-
-  const Minus = (
-    <i className={cn(pl8, faqHeadingIcon, 'ph-minus-fill base-white size32')} />
-  )
-  const Plus = (
-    <i className={cn(pl8, faqHeadingIcon, 'ph-plus-fill base-white size32')} />
-  )
-
+const Faq = ({
+  id,
+  background,
+  slant,
+  title,
+  description,
+  content
+}: PropTypes) => {
   return (
-    <div id={id} className={cn(faq, 'background-is-dark')}>
-      <Container fluid={true} alignItems={['start']}>
-        <Grid lg={4} md={3} sm={12} xs={12} className={pb48}>
-          <ContentText>
-            <h3 className={cn('font-h3', pb32)}>{title}</h3>
-            <p className={cn('font-p')}>{description}</p>
-          </ContentText>
-        </Grid>
-        <Grid lg={6} md={8} sm={12} xs={12}>
-          <Accordion
-            allowMultipleExpanded={false}
-            allowZeroExpanded={true}
-            preExpanded={['0']}
-            onChange={(args: Array<string>) => {
-              setExpanded(args)
-            }}
+    <div
+      id={id}
+      className={cn(
+        styles.faq,
+        {
+          ['background-is-grey']: background === 'grey',
+          ['background-is-dark']: background === 'dark',
+          ['background-is-light-grey']: background === 'light-grey',
+          ['background-is-themed']: background === 'themed'
+        },
+        { ['is-slanted-top-medium']: slant === true }
+      )}
+    >
+      <Container fluid={true} justify={'center'} alignItems={'center'}>
+        <Grid lg={6} md={8} sm={12} xs={12} className={styles.title}>
+          <Container
+            justify={'center'}
+            className={cn('text-is-centered', pb32)}
           >
+            <h2 className={cn('font-h1', pb32)}>{title}</h2>
+            <p className={cn('font-p-large', pb32)}>{description}</p>
+          </Container>
+        </Grid>
+        <Grid lg={12} md={12} sm={12} xs={12}>
+          <Container alignItems={'start'} justify={'start'}>
             {content.map(({ answer, question }, index) => (
-              <AccordionItem
+              <Grid
                 key={index}
-                uuid={String(index)}
-                className={cn(pb48)}
+                lg={6}
+                md={6}
+                sm={12}
+                xs={12}
+                className={styles.questions}
               >
-                <AccordionItemHeading>
-                  <AccordionItemButton>
-                    <Container
-                      alignItems={'start'}
-                      className={cn(faqHighlight, pb16)}
-                    >
-                      <h3 className={cn('font-h3', faqHeading)}>{question}</h3>
-                      {expanded.includes(String(index)) ? Minus : Plus}
-                    </Container>
-                  </AccordionItemButton>
-                </AccordionItemHeading>
-                <AccordionItemPanel>
-                  <p className={cn('font-p', pb16)}>{answer}</p>
-                </AccordionItemPanel>
-                <MoleculeSeparator style={'horizontal'} />
-              </AccordionItem>
+                <Container
+                  flexContainer={'row'}
+                  alignItems={'start'}
+                  className={cn(pb64)}
+                >
+                  <h3 className={cn('font-h3', pb16)}>{question}</h3>
+                  <p className={cn('font-p', 'is-mute-text')}>{answer}</p>
+                </Container>
+              </Grid>
             ))}
-          </Accordion>
+          </Container>
         </Grid>
       </Container>
     </div>

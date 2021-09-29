@@ -1,21 +1,23 @@
 import React from 'react'
 
+import Banner from '../components/layouts/banner/banner'
 import FeatureList from '../components/layouts/featurelist/feature-list'
-import Hero from '../components/layouts/hero/hero'
+import HeroImage from '../components/layouts/hero/hero-image'
 import Layout from '../components/layouts/layout/layout'
 import Newsletter from '../components/layouts/newsletter/newsletter'
 import Quickstart from '../components/layouts/quickstart/quickstart'
 import SEO from '../components/layouts/seo/seo'
 import * as content from '../page-content/content-community'
+import { sharedBannerOpensource } from '../page-content/shared/content-banner'
 
 const CommunityPage = () => (
   <Layout>
     <SEO {...content.seo} />
-    <Hero {...content.hero} />
+    <HeroImage {...content.hero} />
+    <Banner {...sharedBannerOpensource} />
     <Quickstart {...content.quickstart} />
     <Newsletter />
-    <FeatureList {...content.featurelistArticles} />
-    <FeatureList {...content.featurelistProjects} />
+    <FeatureList {...content.featurelistCommunity} />
   </Layout>
 )
 

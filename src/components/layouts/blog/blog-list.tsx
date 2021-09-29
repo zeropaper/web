@@ -8,7 +8,12 @@ import Grid from '../../freestanding/containers/grid'
 
 import { AuthorName } from './blog-author'
 
-import { pb16, pb32, pb8 } from '../../freestanding/utils/padding.module.css'
+import {
+  pb16,
+  pb32,
+  pb64,
+  pb8
+} from '../../freestanding/utils/padding.module.css'
 import * as styles from './blog-list.module.css'
 
 export interface PropTypes {
@@ -61,53 +66,70 @@ const BlogList = ({ id, title }: PropTypes) => {
       }
     }
   `)
+
   return (
     <div id={id} className={cn(styles.blogList)}>
       <Container fluid={true} justify={'center'} alignItems={'start'}>
-        <Grid lg={8} md={10} sm={12} xs={12}>
+        <Grid lg={12} md={12} sm={12} xs={12}>
           <Container fluid={true} justify={'center'}>
             <Grid
               lg={8}
               md={10}
               sm={12}
               xs={12}
-              className={cn(styles.blogHeading, pb32)}
+              className={cn('text-is-centered', pb64)}
             >
               <h1 className={'font-h1'}>{title}</h1>
             </Grid>
           </Container>
-          <Container>
+          <Container alignItems={'stretch'} justify={'start'}>
             {(data.allMdx.edges as Edge[]).map(({ node }) => (
-              <Button
-                style={'none'}
-                to={node.frontmatter.path}
-                className={cn(styles.blogItem)}
+              <Grid
                 key={node.id}
+                lg={4}
+                md={4}
+                sm={6}
+                xs={12}
+                className={cn(styles.blogItem, styles.itemFlex)}
               >
-                <Grid lg={6} md={6} sm={12} xs={12}>
-                  <div className={cn(pb16)}>
-                    <h2 className={cn('font-overline', pb16)}>
-                      {node.frontmatter.overline}
-                    </h2>
-                    <h3 className={cn('font-h5', pb8)}>
-                      {node.frontmatter.title}
-                    </h3>
-                    <p className={cn('font-p-smaller')}>
-                      <AuthorName
-                        className={cn('font-p-smaller')}
-                        name={node.frontmatter.author}
-                      />{' '}
-                      - {node.frontmatter.publishedAt}
-                    </p>
-                  </div>
-                </Grid>
-                <Grid lg={6} md={6} sm={12} xs={12}>
-                  <p className={cn('font-p-small', 'is-secondary-text')}>
-                    {node.frontmatter.teaser}{' '}
-                    <span className={'is-semibold'}>Read more</span>
-                  </p>
-                </Grid>
-              </Button>
+                <Button style={'none'} to={node.frontmatter.path}>
+                  <Container
+                    justify={'space-between'}
+                    alignItems={'stretch'}
+                    flexContainer={'column'}
+                  >
+                    <Container
+                      flexContainer={'column'}
+                      justify={'start'}
+                      alignItems={'start'}
+                      className={cn(pb16, styles.minHeight)}
+                    >
+                      <h2 className={cn('font-overline', pb16)}>
+                        <span className={cn('is-themed-primary')}>&gt; </span>
+                        {node.frontmatter.overline}
+                      </h2>
+                      <h3 className={cn('font-h5', pb8)}>
+                        {node.frontmatter.title}
+                      </h3>
+                    </Container>
+                    <Container justify={'start'} className={cn(pb16)}>
+                      <p className={cn('font-p-smaller')}>
+                        <AuthorName
+                          className={cn('font-p-smaller')}
+                          name={node.frontmatter.author}
+                        />{' '}
+                        - {node.frontmatter.publishedAt}
+                      </p>
+                    </Container>
+                  </Container>
+                  {/* <Container>
+                            <p className={cn('font-p-small', 'is-secondary-text')}>
+                            {node.frontmatter.teaser}{' '}
+                            <span className={'is-semibold'}>Read more</span>
+                            </p>
+                            </Container>*/}
+                </Button>
+              </Grid>
             ))}
           </Container>
         </Grid>

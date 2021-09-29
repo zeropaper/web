@@ -10,6 +10,8 @@ import * as styles from './quote.module.css'
 export interface PropTypes {
   id: string
   quotes: Array<Quote>
+  background?: 'dark' | 'grey' | 'light-grey' | 'themed'
+  slant?: boolean
 }
 
 interface QuoteColumn {
@@ -26,7 +28,7 @@ interface Quote {
 
 const Quote = () => <i className={'ph-quotes-fill text-primary size32'} />
 const QuoteThemed = () => (
-  <i className={'ph-quotes-fill themed-primary size32'} />
+  <i className={'ph-quotes-fill themed-primary size48'} />
 )
 
 const QuoteBlock = ({
@@ -49,7 +51,7 @@ const QuoteBlock = ({
           <div className={cn(pb16)}>
             <Quote />
           </div>
-          <h4 className={cn('font-quote', pb16)}>{description}</h4>
+          <h4 className={cn('font-p-display', pb16)}>{description}</h4>
         </div>
       ) : (
         <div>
@@ -59,20 +61,20 @@ const QuoteBlock = ({
           <h2 className={cn('font-h2', pb32)}>{description}</h2>
         </div>
       )}
-      <p className={cn('font-p-small')}>
+      <p className={cn('font-p-small', 'is-monospace')}>
         <span
           className={cn(!big ? 'is-semibold' : 'is-semibold is-themed-primary')}
         >
           {person}{' '}
         </span>
-        // {jobTitle}
       </p>
+      <p className={cn('font-p-small', 'is-monospace')}>{jobTitle}</p>
     </Grid>
   </Container>
 )
 
 const QuoteColumn = ({ quotes, big }: QuoteColumn & { big: boolean }) => (
-  <Grid lg={big ? 5 : 6} md={12} sm={12} xs={12} xsHidden={!big}>
+  <Grid lg={big ? 4 : 6} md={12} sm={12} xs={12} xsHidden={!big}>
     <Container alignItems={'start'} justify={'start'}>
       {quotes
         .filter((quote) => !!quote.big === big)
@@ -100,8 +102,20 @@ const QuoteColumn = ({ quotes, big }: QuoteColumn & { big: boolean }) => (
   </Grid>
 )
 
-const Quotes = ({ id, quotes }: PropTypes) => (
-  <div id={id} className={cn(styles.quote, 'background-is-dark')}>
+const Quotes = ({ id, quotes, background, slant }: PropTypes) => (
+  <div
+    id={id}
+    className={cn(
+      styles.quote,
+      {
+        ['background-is-grey']: background === 'grey',
+        ['background-is-dark']: background === 'dark',
+        ['background-is-light-grey']: background === 'light-grey',
+        ['background-is-themed']: background === 'themed'
+      },
+      { ['is-slanted-top-medium']: slant === true }
+    )}
+  >
     <Container fluid={true}>
       <QuoteColumn quotes={quotes} big={true} />
       <QuoteColumn quotes={quotes} big={false} />

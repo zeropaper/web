@@ -3,7 +3,7 @@ path: '/dockertest-gaen-google-apple-exposure-notification-covid-19/'
 banner: '/images/blog-banner-dockertest.png'
 
 title: |
-  Keeping Covid-19 in check with ORY Dockertest
+  Keeping Covid19 in check with ORY Dockertest
 
 teaser: |
   This article gives a short introduction to Dockertest and how Google is using it against Covid19,
@@ -19,7 +19,7 @@ publishedAt: '2020-12-02'
 author: vinckr
 
 overline: |
-  Dockertest - Automated Database Testing in Docker
+  Automated Database Testing
 ---
 
 Test driven software development is built into the fundamentals in the GO

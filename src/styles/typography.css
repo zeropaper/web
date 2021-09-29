@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;500;600;700&display=swap');
 @import './properties.css';
 
 :root {
@@ -14,7 +14,7 @@
 
   /*Default Fonts + Bases*/
   --font-default: 'Inter', var(--font-family-sans);
-  --font-monospace: 'Inconsolata', var(--font-family-monospace);
+  --font-monospace: 'Share Tech Mono', var(--font-family-monospace);
 
   /*Font Weights*/
   /*Base Weights*/
@@ -57,8 +57,9 @@
 
   /*Font sizes*/
   /*Font size base*/
-  --font-size-1: 2.5rem; /*40*/
-  --font-size-2: 2rem; /*32*/
+  --font-size-0: 6rem;
+  --font-size-1: 3.25rem;
+  --font-size-2: 2rem;
   --font-size-3: 1.5rem; /*24*/
   --font-size-4: 1.25rem; /*20*/
   --font-size-5: 1.125rem; /*18*/
@@ -68,15 +69,17 @@
   --font-size-9: 0.625rem; /*10*/
 
   /*heading font sizes*/
+  --font-size-heading-display: var(--font-size-0);
   --font-size-heading-1: var(--font-size-1);
   --font-size-heading-2: var(--font-size-2);
   --font-size-heading-3: var(--font-size-3);
   --font-size-heading-4: var(--font-size-4);
   --font-size-heading-5: var(--font-size-5);
   --font-size-heading-6: var(--font-size-6);
-  --font-size-overline: var(--font-size-9);
+  --font-size-overline: var(--font-size-7);
 
   /*body font sizes*/
+  --font-size-body-display: var(--font-size-3);
   --font-size-body-quote: var(--font-size-4);
   --font-size-body-large: var(--font-size-5);
   --font-size-body-default: var(--font-size-6);
@@ -93,10 +96,14 @@
   --rm-5: 0.9;
   --rm-6: 0.85;
   --rm-7: 0.8;
+  --rm-8: 0.75;
+  --rm-9: 0.7;
+  --rm-10: 0.65;
 
   /*headings*/
   /*tablets*/
   @media (--md), (--sm) {
+    --font-size-heading-display: calc(var(--font-size-0) * var(--rm-8));
     --font-size-heading-1: calc(var(--font-size-1) * var(--rm-6)); /*34*/
     --font-size-heading-2: calc(var(--font-size-2) * var(--rm-6)); /*27.5*/
     --font-size-heading-3: calc(var(--font-size-3) * var(--rm-5)); /*21.6*/
@@ -104,6 +111,7 @@
   }
   /*mobile*/
   @media (--xs) {
+    --font-size-heading-display: calc(var(--font-size-0) * var(--rm-9));
     --font-size-heading-1: calc(var(--font-size-1) * var(--rm-7)); /*32*/
     --font-size-heading-2: calc(var(--font-size-2) * var(--rm-7)); /*25.6*/
     --font-size-heading-3: calc(var(--font-size-3) * var(--rm-6)); /*20.4*/
@@ -117,6 +125,34 @@
     --font-size-body-large: calc(var(--font-size-5) * var(--rm-3)); /*16.9*/
     --font-size-body-default: calc(var(--font-size-6) * var(--rm-3)); /*15*/
   }
+
+  /*Spacing*/
+  /*Multiples of 8*/
+  --space-none: var(--size-0);
+  --space-small: var(--size-16);
+  --space-medium: var(--size-24);
+  --space-large: var(--size-32);
+  --space-larger: var(--size-48);
+
+  /*tablets*/
+  @media (--md), (--sm) {
+    --space-small: var(--size-12);
+    --space-medium: var(--size-20);
+    --space-large: var(--size-24);
+    --space-larger: var(--size-32);
+  }
+
+  /*mobile*/
+  @media (--xs) {
+    --space-small: var(--size-10);
+    --space-medium: var(--size-16);
+    --space-large: var(--size-20);
+    --space-larger: var(--size-24);
+  }
+
+  /*Decoration*/
+  /*Slant*/
+  --slant-top: polygon(0 6vw, 100% 0, 100% 100%, 0 100%);
 }
 
 html {
@@ -129,6 +165,30 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.is-slanted-top-small {
+  padding: calc(var(--space-small) + 6vw) 0 !important;
+  margin-top: -6vw;
+  clip-path: var(--slant-top);
+}
+
+.is-slanted-top-medium {
+  padding: calc(var(--space-medium) + 6vw) 0 !important;
+  margin-top: -6vw;
+  clip-path: var(--slant-top);
+}
+
+.is-slanted-top-large {
+  padding: calc(var(--space-large) + 6vw) 0 !important;
+  margin-top: -6vw;
+  clip-path: var(--slant-top);
+}
+
+.is-slanted-top-larger {
+  padding: calc(var(--space-larger) + 6vw) 0 !important;
+  margin-top: -6vw;
+  clip-path: var(--slant-top);
 }
 
 h1,
@@ -148,6 +208,34 @@ h6,
   line-height: var(--font-lineheight-heading);
   font-style: normal;
   color: var(--colors-text-primary);
+}
+
+h1,
+h2,
+h3,
+.font-display,
+.font-h1,
+.font-h2,
+.font-h3 {
+  line-height: var(--font-lineheight-none);
+}
+
+h4,
+h5,
+h6,
+.font-h4,
+.font-h5,
+.font-h6 {
+  line-height: var(--font-lineheight-heading);
+}
+
+.font-display {
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--font-spacing-heading);
+  line-height: var(--font-lineheight-none);
+  font-style: normal;
+  color: var(--colors-text-primary);
+  font-size: var(--font-size-heading-display);
 }
 
 h1,
@@ -182,10 +270,10 @@ h6,
 
 .font-overline {
   font-size: var(--font-size-overline);
+  font-family: var(--font-monospace);
   line-height: var(--font-lineheight-tighter);
-  letter-spacing: var(--font-spacing-wide);
-  text-transform: uppercase;
-  color: var(--colors-themed-primary);
+  letter-spacing: var(--font-spacing-body);
+  color: var(--colors-text-mute);
 }
 
 p,
@@ -201,6 +289,15 @@ a,
   line-height: var(--font-lineheight-body);
   font-style: normal;
   color: var(--colors-text-secondary);
+}
+
+.font-p-display {
+  font-weight: var(--font-weight-body);
+  letter-spacing: var(--font-spacing-body);
+  line-height: var(--font-lineheight-normal);
+  font-style: normal;
+  color: var(--colors-text-secondary);
+  font-size: var(--font-size-body-display);
 }
 
 .font-p-large {
@@ -294,6 +391,12 @@ a,
   color: var(--colors-themed-primary);
 }
 
+.is-gradient-primary {
+  background-image: var(--gradient-ory);
+  background-clip: text;
+  color: transparent;
+}
+
 .pill {
   background-color: var(--colors-themed-primary);
   padding: var(--size-1) var(--size-3);
@@ -322,4 +425,25 @@ a:any-link {
   height: 1em;
   display: inline !important;
   margin-top: 1px;
+}
+
+.text-is-centered {
+  text-align: center;
+}
+
+.button-group {
+  margin-right: var(--size-8);
+
+  &:last-child {
+    margin-right: 0;
+    margin-bottom: unset;
+  }
+}
+
+@media (--xs) {
+  .button-group {
+    width: 100%;
+    margin-right: unset;
+    margin-bottom: var(--size-8);
+  }
 }

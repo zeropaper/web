@@ -8,7 +8,6 @@ import SmallText from '../simple-text/small-text'
 
 import {
   pb16,
-  pb32,
   pb64,
   pb8,
   pr8
@@ -17,8 +16,10 @@ import * as styles from './team.module.css'
 
 export interface PropTypes {
   id: string
-  title: string
-  text: React.ReactElement
+  background?: 'dark' | 'grey' | 'light-grey' | 'themed'
+  slant?: boolean
+  title: string | React.ReactElement
+  text: string | React.ReactElement
   team: Array<Profiles>
 }
 
@@ -53,23 +54,23 @@ const socialWithIcon = ({ href, network }: SocialLinks): resolvedSocial => {
   let alt
   switch (network) {
     case SocialNetworks.github:
-      Icon = <i className="ph-github-logo-fill base-grey-400 size24" />
+      Icon = <i className="ph-github-logo-fill size24" />
       alt = 'GitHub'
       break
     case SocialNetworks.linkedin:
-      Icon = <i className="ph-linkedin-logo-fill base-grey-400 size24" />
+      Icon = <i className="ph-linkedin-logo-fill size24" />
       alt = 'Linkedin'
       break
     case SocialNetworks.twitter:
-      Icon = <i className="ph-twitter-logo-fill base-grey-400 size24" />
+      Icon = <i className="ph-twitter-logo-fill size24" />
       alt = 'Twitter'
       break
     case SocialNetworks.instagram:
-      Icon = <i className="ph-instagram-logo-fill base-grey-400 size24" />
+      Icon = <i className="ph-instagram-logo-fill size24" />
       alt = 'Instagram'
       break
     case SocialNetworks.web:
-      Icon = <i className="ph-globe-fill base-grey-400 size24" />
+      Icon = <i className="ph-globe-fill size24" />
       alt = 'Website'
       break
   }
@@ -94,42 +95,53 @@ const Profile = ({ name, position, img, social }: Profiles) => (
     <Grid lg={12} md={12} sm={12} xs={12} className={cn(styles.profileInfo)}>
       <div>
         <h3 className={cn('font-h5')}>{name}</h3>
-        <p className={cn('font-p-small', pb8)}>{position}</p>
+        <p className={cn('font-p', 'is-monospace', pb8)}>
+          {' '}
+          <span className={cn('is-themed-primary')}>&gt; </span>
+          {position}
+        </p>
       </div>
       <div>
-        <>
+        <Container flexContainer={'row'} justify={'start'}>
           {social.map(socialWithIcon).map(({ Icon, href }) => (
             <Button
               key={href}
               to={href}
-              style={'none'}
+              style={'icon'}
               openInNewWindow={true}
               className={pr8}
             >
               {Icon}
             </Button>
           ))}
-        </>
+        </Container>
       </div>
     </Grid>
   </Container>
 )
 
-const Team = ({ id, title, text, team }: PropTypes) => (
-  <div id={id} className={cn(styles.team)}>
+const Team = ({ id, background, slant, title, text, team }: PropTypes) => (
+  <div
+    id={id}
+    className={cn(
+      styles.team,
+      {
+        ['background-is-grey']: background === 'grey',
+        ['background-is-dark']: background === 'dark',
+        ['background-is-light-grey']: background === 'light-grey',
+        ['background-is-themed']: background === 'themed'
+      },
+      { ['is-slanted-top-larger']: slant === true }
+    )}
+  >
     <Container fluid={true} justify={'center'} alignItems={'start'}>
-      <Grid lg={8} md={10} sm={12} xs={12}>
-        <SmallText
-          small={true}
-          title={`${title}`}
-          text={<>{text}</>}
-          className={pb64}
-        />
+      <Grid lg={12} md={12} sm={12} xs={12}>
+        <SmallText small={false} title={title} text={text} className={pb64} />
         <Container alignItems={'start'} justify={'start'}>
           {team.map((profile, index) => (
             <Grid
-              lg={4}
-              md={4}
+              lg={3}
+              md={3}
               sm={6}
               xs={6}
               key={index}

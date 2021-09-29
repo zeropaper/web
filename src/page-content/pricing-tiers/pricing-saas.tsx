@@ -11,10 +11,10 @@ export const pricingSaas: Pick<PricingProps, 'saas'> = {
   saas: [
     {
       theme: 'dark',
-      title: 'Early Access',
-      description: 'Get early access to the full Ory platform now',
+      title: <>Early Access</>,
+      description: 'Request early access through the Ory Insider program',
       price: '$99',
-      priceDescription: 'per Project/Member',
+      priceDescription: 'monthly per project',
       button: (
         <Button to={'https://console.ory.sh/registration'} style={'filled'}>
           Sign Up
@@ -50,9 +50,9 @@ export const pricingSaas: Pick<PricingProps, 'saas'> = {
     {
       theme: 'light',
       title: 'Enterprise',
-      description: 'Ory with dedicated support & custom hosting options',
+      description: 'Ory Cloud with dedicated support & infrastructure setup',
       price: 'Individual',
-      priceDescription: 'per Project/Member',
+      priceDescription: 'monthly per project',
       button: (
         <Button to={'mailto:sales@ory.sh'} style={'outlined'}>
           Contact sales
@@ -81,7 +81,7 @@ export const pricingSaas: Pick<PricingProps, 'saas'> = {
         },
         {
           icon: CheckCircle,
-          title: 'HyperCare Support'
+          title: 'Dedicated Support'
         }
       ]
     }

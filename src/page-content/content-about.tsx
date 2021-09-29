@@ -6,11 +6,6 @@ import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
 import { PropTypes as SimpleTextProps } from '../components/layouts/simple-text/simple-text'
 
 const ArrowRight = <i className={'ph-arrow-right-bold themed-primary size16'} />
-const SlackLogo = <i className={' ph-slack-logo-fill themed-primary size32'} />
-const PaperPlaneTilt = (
-  <i className={'ph-paper-plane-tilt-fill base-white size24'} />
-)
-const UsersThree = <i className={'ph-users-three-fill themed-primary size32'} />
 
 export const seo: SeoProps = {
   description:
@@ -34,28 +29,27 @@ export const about: SimpleTextProps = {
 
 export const quickstart: QuickstartProps = {
   id: 'about.quickstart',
-  title: <>Ready to get started?</>,
+  slant: true,
+  title: (
+    <>
+      <span className={'is-mute-text'}>Hello,</span> nice to meet you
+    </>
+  ),
   description: (
     <>
-      Ory is open. Get to know us by trying out the Ory Cloud Platform, working
-      with us on Ory Open Source, or joining a conversation on Ory Slack or our
-      GitHub Discussions. And we are hiring.
+      Ory is open. Get to know us by trying out our products, or joining a
+      conversation on Ory Slack or GitHub Discussions. And we are hiring.
     </>
   ),
-  buttons: (
-    <>
-      <Button
-        style={'filled'}
-        to={'mailto:office@ory.sh'}
-        iconRight={PaperPlaneTilt}
-      >
-        Contact us
-      </Button>
-    </>
-  ),
+  buttons: [
+    {
+      ctaTitle: 'Contact us',
+      style: 'filled',
+      to: 'mailto:office@ory.sh'
+    }
+  ],
   content: [
     {
-      icon: UsersThree,
       title: <>Work for Ory</>,
       description: (
         <>
@@ -70,7 +64,6 @@ export const quickstart: QuickstartProps = {
       )
     },
     {
-      icon: SlackLogo,
       title: <>Chat with us directly</>,
       description: (
         <>
@@ -84,7 +77,7 @@ export const quickstart: QuickstartProps = {
           style={'link'}
           iconRight={ArrowRight}
         >
-          Join the chat
+          Join the chat on Slack
         </Button>
       )
     }

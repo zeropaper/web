@@ -1,13 +1,18 @@
+.tier-dark,
+.tier-light {
+  border-radius: var(--radius-default);
+}
+
 .tier-dark {
   background: var(--colors-base-background);
-  padding: 24px 24px;
+  padding: var(--size-12);
+  box-shadow: var(--elevation-large);
 }
 
 .tier-light {
-  background: var(--colors-base-background);
-  padding: 24px 24px;
-  border: 1px solid var(--colors-themed-darkmode);
-  box-sizing: border-box;
+  background: var(--colors-base-white);
+  padding: var(--size-24) var(--size-12);
+  box-shadow: var(--highlighted-large);
 }
 
 .text-wrap {

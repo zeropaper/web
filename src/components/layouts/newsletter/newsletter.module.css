@@ -1,6 +1,6 @@
 .newsletter {
-  background-color: var(--colors-base-background);
-  padding: 4rem 0;
+  background: var(--colors-base-background);
+  padding: var(--space-larger) 0;
 }
 
 .text-align {

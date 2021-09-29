@@ -2,6 +2,9 @@
   position: relative;
   width: 100%;
   padding-bottom: 56.25%;
+  box-shadow: var(--elevation-large);
+  border-radius: var(--radius-small);
+  overflow: hidden;
 }
 
 .video {

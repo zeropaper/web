@@ -16,7 +16,7 @@ seo:
 publishedAt: '2021-05-05'
 author: radekg
 overline: >
-  Try out Ory Keto with this simple, easy to follow real world example!
+  Access Control Example
 
 category: Article
 

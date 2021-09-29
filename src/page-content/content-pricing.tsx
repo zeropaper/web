@@ -9,13 +9,11 @@ import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
 const CheckCircle = (
   <i className={'ph-check-circle-fill themed-primary size16'} />
 )
-const CircleThreePlus = (
-  <i className={'ph-circles-three-plus-fill base-white size24'} />
-)
 const PlusCircle = <i className={'ph-plus-circle-fill base-grey-400 size16'} />
+const ArrowRight = <i className={'ph-arrow-right-bold size16'} />
+
 const MapTriFold = <i className={'ph-map-trifold-fill base-white size24'} />
 const MapTriFoldSmall = <i className={'ph-map-trifold-bold size16'} />
-const ArrowRight = <i className={'ph-arrow-right-bold size16'} />
 
 export const seo: SeoProps = {
   description:
@@ -27,21 +25,22 @@ export const seo: SeoProps = {
 
 export const pricing: Pick<PricingProps, 'id' | 'title' | 'description'> = {
   id: 'pricing.description',
-  title: <>No limits on identity</>,
-  description: (
+  title: (
     <>
-      Ory is based on mature open source software and open standards. And it’s
-      affordable for everyone. We also offer individual plans for enterprise
-      customers, please contact us to learn more!
+      No limits on identities. {''}
+      <span className={'is-mute-text'}>
+        Scalable, transparent, and fair pricing.
+      </span>
     </>
   )
 }
 
 export const featurelist: FeaturelistProps = {
   id: 'pricing.featurelist',
+  background: 'light-grey',
+  slant: true,
   features: [
     {
-      icon: CircleThreePlus,
       title: 'Features',
       description: (
         <>
@@ -104,12 +103,12 @@ export const featurelist: FeaturelistProps = {
       ]
     },
     {
-      icon: MapTriFold,
       title: 'Roadmap',
       description: (
         <>
           We are currently working on bringing these features into the Ory
-          Cloud. For a more detailed overview, visit our documentation.
+          Cloud. Lots more are on the way, too. For a more detailed overview,
+          check out our documentation.
         </>
       ),
       button: (
@@ -118,7 +117,7 @@ export const featurelist: FeaturelistProps = {
           to={'/docs/early-access/'}
           iconRight={ArrowRight}
         >
-          Visit documentation
+          Visit the documentation
         </Button>
       ),
       features: [
@@ -155,7 +154,7 @@ export const featurelist: FeaturelistProps = {
           icon: PlusCircle
         },
         {
-          title: 'And more',
+          title: 'More Info',
           description: (
             <>
               Please visit our documentation to learn more about upcoming
@@ -178,6 +177,8 @@ export const featurelist: FeaturelistProps = {
 
 export const faq: FaqProps = {
   id: 'pricing.faq',
+  background: 'light-grey',
+  slant: true,
   title: <>Frequently Asked Questions</>,
   description: (
     <>

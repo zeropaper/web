@@ -2,7 +2,6 @@ import cn from 'classnames'
 import React, {
   ChangeEvent,
   MouseEvent,
-  Component,
   ReactNode,
   FormEvent,
   useState
@@ -24,11 +23,18 @@ const projects = {
 }
 
 interface PropTypes {
+  background?: 'dark' | 'grey' | 'light-grey' | 'themed'
+  slant?: boolean
   special?: ReactNode
   preselect?: keyof typeof projects
 }
 
-const Newsletter = ({ preselect, special }: PropTypes) => {
+const Newsletter = ({
+  slant = true,
+  background = 'dark',
+  preselect,
+  special
+}: PropTypes) => {
   const [email, setEmail] = useState('')
 
   const onSubmit = (
@@ -47,7 +53,20 @@ const Newsletter = ({ preselect, special }: PropTypes) => {
   }
 
   return (
-    <div className={cn(styles.newsletter, 'background-is-dark')}>
+    <div
+      className={cn(
+        styles.newsletter,
+        {
+          ['background-is-grey']: background === 'grey',
+          ['background-is-dark']: background === 'dark',
+          ['background-is-light-grey']: background === 'light-grey',
+          ['background-is-themed']: background === 'themed'
+        },
+        {
+          ['is-slanted-top-medium']: slant === true
+        }
+      )}
+    >
       <Container fluid={true} justify={'center'}>
         <Grid lg={5} md={8} sm={10} xs={12} className={cn(pb32)}>
           <ContentText>
@@ -56,7 +75,7 @@ const Newsletter = ({ preselect, special }: PropTypes) => {
                 special
               ) : (
                 <>
-                  <h3 className={cn('font-h3', pb32)}>Never miss a patch</h3>
+                  <h3 className={cn('font-h2', pb32)}>Never miss a patch</h3>
                   <p className={cn('font-p', pb32)}>
                     Ory ships regular product patches and updates. Subscribe to
                     our newsletter to get the good stuff, and stay up to date.

@@ -1,28 +1,14 @@
-import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
 
 import Button from '../components/freestanding/button/button'
 import { PropTypes as FeaturelistProps } from '../components/layouts/featurelist/feature-list'
-import { PropTypes as HeroProps } from '../components/layouts/hero/hero'
+import { PropTypes as HeroImageProps } from '../components/layouts/hero/hero-image'
 import { PropTypes as QuickstartProps } from '../components/layouts/quickstart/quickstart'
 import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
 
-const RocketLaunch = <i className="ph-rocket-launch base-white size24" />
 const ArrowRight = <i className={'ph-arrow-right-bold themed-primary size16'} />
-const SlackLogo = <i className={' ph-slack-logo-fill themed-primary size32'} />
-const ChatsCircle = (
-  <i className={'ph-chats-circle-fill themed-primary size32'} />
-)
 const CheckCircle = (
   <i className={'ph-check-circle-fill themed-primary size16'} />
-)
-const CircleThreePlus = (
-  <i className={'ph-circles-three-plus-fill base-white size24'} />
-)
-const PenNib = <i className={' ph-pen-nib-fill themed-primary size32'} />
-
-const BookBookmark = (
-  <i className={' ph-book-bookmark-fill themed-primary size32'} />
 )
 
 export const seo: SeoProps = {
@@ -33,24 +19,21 @@ export const seo: SeoProps = {
     'authentication, open source, login, authorization, security, session management, Json web tokens, access control, OAuth2.0 server, identity server, AuthN, AuthZ'
 }
 
-export const hero: HeroProps = {
+export const hero: HeroImageProps = {
   id: 'community.hero',
   title: 'Join the Ory Community',
   description:
     'You are the backbone of Ory. Members are coming from all around the world, from huge enterprises or small side projects. We may have many differences, but we all share the same goal: To build an open and free authentication and authorization standard for everyone.',
-
-  buttons: (
-    <Button
-      to={'https://slack.ory.sh/'}
-      style={'filled'}
-      iconRight={RocketLaunch}
-    >
-      Join today
-    </Button>
-  ),
+  buttons: [
+    {
+      ctaTitle: 'Join the Chat on Slack',
+      style: 'filled',
+      to: 'https://slack.ory.sh/'
+    }
+  ],
   image: (
-    <StaticImage
-      src="../images/illustrations/standards.svg"
+    <img
+      src="https://opencollective.com/ory/contributors.svg?avatarHeight=24&width=800&button=false&limit=810"
       loading="lazy"
       alt="Ory Developer Community Illustration"
       className="responsive"
@@ -60,7 +43,11 @@ export const hero: HeroProps = {
 
 export const quickstart: QuickstartProps = {
   id: 'community.quickstart',
-  title: <>Participate, Learn, Grow</>,
+  title: (
+    <>
+      <span className={'is-mute-text'}>Participate, Learn, </span>Grow
+    </>
+  ),
   description: (
     <>
       Ory is built in cooperation with its developer community. Our projects are
@@ -71,7 +58,6 @@ export const quickstart: QuickstartProps = {
   ),
   content: [
     {
-      icon: SlackLogo,
       title: <>Dev Chat</>,
       description: (
         <>
@@ -90,7 +76,6 @@ export const quickstart: QuickstartProps = {
       )
     },
     {
-      icon: ChatsCircle,
       title: <>Discussions</>,
       description: (
         <>
@@ -111,7 +96,6 @@ export const quickstart: QuickstartProps = {
       )
     },
     {
-      icon: PenNib,
       title: <>Articles & Projects</>,
       description: (
         <>
@@ -131,7 +115,6 @@ export const quickstart: QuickstartProps = {
       )
     },
     {
-      icon: BookBookmark,
       title: <>Code of Conduct</>,
       description: (
         <>
@@ -153,17 +136,20 @@ export const quickstart: QuickstartProps = {
   ]
 }
 
-export const featurelistArticles: FeaturelistProps = {
+export const featurelistCommunity: FeaturelistProps = {
   id: 'community.featurelist.articles',
+  slant: true,
   features: [
     {
-      icon: CircleThreePlus,
       title: 'Ory Community Articles',
       description: (
         <>
           The Ory Community has written numerous articles, tutorials, and
-          introductions. If you want your content to be featured, please reach
-          out to us! For a complete list, visit the overview in our docs.
+          introductions. If you want your content to be featured, please
+          <Button to={'mailto:office@ory.sh'} style={'link-inline'}>
+            reach out
+          </Button>{' '}
+          to us! For a complete list, visit the overview in our docs.
         </>
       ),
       button: (
@@ -252,22 +238,14 @@ export const featurelistArticles: FeaturelistProps = {
           icon: CheckCircle
         }
       ]
-    }
-  ]
-}
-
-export const featurelistProjects: FeaturelistProps = {
-  id: 'community.featurelist.projects',
-  features: [
+    },
     {
-      icon: CircleThreePlus,
       title: 'Ory Community Projects',
       description: (
         <>
           The Ory Open Source community has built many projects around Ory
-          software over the years. Please note that community projects are not
-          maintained by the Ory team. For a complete list of projects visit the
-          overview in our docs.
+          software over the years. Community projects are not maintained by Ory.
+          For a complete list of projects visit the overview in our docs.
         </>
       ),
       button: (

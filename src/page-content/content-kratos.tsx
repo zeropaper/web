@@ -5,41 +5,44 @@ import CodeBox, { Languages } from '../components/freestanding/codebox/codebox'
 import { PropTypes as CodeBoxProps } from '../components/freestanding/codebox/codebox'
 import { PropTypes as FeatureContentProps } from '../components/layouts/feature-content/feature-content'
 import { PropTypes as FeaturelistProps } from '../components/layouts/featurelist/feature-list'
-import { PropTypes as HeroProps } from '../components/layouts/hero/hero'
+import { PropTypes as HeroImageProps } from '../components/layouts/hero/hero-image'
 import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
 
 import Kratos from '../images/kratos/kratos.svg'
 import KratosSDK from '../images/kratos/kratos_p.svg'
 
-const Fast = <i className={'ph-fast-forward-fill size24'} />
 const CheckCircle = (
   <i className={'ph-check-circle-fill themed-primary size16'} />
 )
 const ArrowRight = <i className={'ph-arrow-right-bold size16'} />
-const CircleThreePlus = (
-  <i className={'ph-circles-three-plus-fill base-white size24'} />
-)
 
 export const seo: SeoProps = {
   description: 'Open source user management and identity server.',
   title: 'Ory Kratos - Cloud Native Identity and User Management System'
 }
 
-export const hero: HeroProps = {
+export const hero: HeroImageProps = {
   id: 'kratos.hero',
-  title: 'Identity & User Management',
-  description:
-    'Use configurable authentication and master user management in the cloud.',
-  buttons: (
-    <Button to={'/kratos/docs/quickstart'} style={'filled'} iconRight={Fast}>
-      Get Started
-    </Button>
+  title: (
+    <>
+      Manage identities and users{' '}
+      <span className={'is-mute-text'}>in the cloud</span>
+    </>
   ),
+  description:
+    'Headless and configurable authentication and user management, including MFA, social login, custom identities and more.',
+  buttons: [
+    {
+      ctaTitle: 'Get Started',
+      style: 'filled',
+      to: '/kratos/docs/quickstart'
+    }
+  ],
   image: (
     <img
       className="responsive"
       loading="lazy"
-      alt="Examples of headless Login and Registrations forms with different styles using Kratos"
+      alt="Examples of headless login and registrations forms with different styles using Ory Kratos"
       src={Kratos}
     />
   )
@@ -92,38 +95,72 @@ export const registrationRoute = (req, res) => {
 
 export const featureContentCoding: FeatureContentProps = {
   id: 'kratos.featurecontent.coding',
-  overline: 'Start in minutes',
-  title: <>Easy Integration</>,
+  slant: true,
+  background: 'grey',
+  overline: <>Identity & User Management</>,
+  title: (
+    <>
+      <span className={'is-mute-text'}>Take back </span>control
+    </>
+  ),
   description: (
     <>
-      Ory Kratos is a cloud native user management system. It provides user
-      login and registration, multi-factor authentication, and user information
-      storage with a headless API. It is fully configurable and supports a wide
-      range of protocols such as Google Authenticator. Ory Kratos works with any
-      UI framework and only a few lines of code are required.
+      Ory Kratos is a fully featured user management system built for the cloud.
+      Control every aspect with a headless API.
     </>
   ),
-  buttons: (
-    <>
-      <Button to={'/docs/kratos/'} style={'link'} iconRight={ArrowRight}>
-        Documentation
-      </Button>
-    </>
-  ),
-  content: <CodeBox {...featureContentCodeBox} />
+  button: {
+    ctaTitle: 'Visit the documentation',
+    to: '/docs/kratos/',
+    iconRight: ArrowRight
+  },
+  content: <CodeBox {...featureContentCodeBox} />,
+  feature: {
+    title: <>Integrate anywhere</>,
+    description: (
+      <>
+        Fully configurable and with support for a wide range of protocols such
+        as Google Authenticator, Ory Kratos works with any UI framework and only
+        a few lines of code are required to get it up and running.
+      </>
+    ),
+    features: [
+      {
+        title: <>Packed with features</>,
+        description: (
+          <>
+            Truly configurable login and registration flows, multi-factor
+            authentication, custom identity models, bring your own UI.
+          </>
+        )
+      },
+      {
+        title: <>Open source</>,
+        description: (
+          <>
+            Ory Kratos is{' '}
+            <Button to={'/open-source'} style={'link-inline'}>
+              open source
+            </Button>{' '}
+            and grows more powerful with every pull-request.
+          </>
+        )
+      }
+    ]
+  }
 }
 
 export const featureList: FeaturelistProps = {
   id: 'kratos.featurelist',
+  slant: true,
   features: [
     {
-      icon: CircleThreePlus,
       title: 'Ory Kratos Features',
       description: (
         <>
           Most software applications need to deal with user and identity
-          management. Ory Kratos serves common flows, so you don't need to
-          rewrite everything yourself.
+          management. Ory Kratos serves common flows so you don't need to write
+          everything yourself.
         </>
       ),
       button: (
@@ -207,25 +244,27 @@ export const featureList: FeaturelistProps = {
 
 export const featureContentSDK: FeatureContentProps = {
   id: 'kratos.featurecontent.sdk',
-  overline: 'Polyglot',
-  title: <>SDKs for all languages</>,
+  slant: true,
+  background: 'dark',
+  overline: 'Your language, our SDK',
+  title: (
+    <>
+      <span className={'is-mute-text'}>Kratos is</span> polyglot
+    </>
+  ),
   description: (
     <>
-      Ory Kratos is written in Go and we provide SDKs for every language. We
-      work with any UI framework and interfacing with the login, registration
+      Ory Kratos is written in Go and we provide SDKs for every language. It
+      works with any UI framework and interfacing with the login, registration
       and profile management is easy. Our documentation makes integrating Ory
       Kratos a snap.
     </>
   ),
-  buttons: (
-    <Button
-      to={'/kratos/docs/quickstart/'}
-      style={'link'}
-      iconRight={ArrowRight}
-    >
-      Run the Quickstart
-    </Button>
-  ),
+  button: {
+    ctaTitle: 'Run the Quickstart',
+    to: '/kratos/docs/quickstart/',
+    iconRight: ArrowRight
+  },
   content: (
     <img
       className="responsive"

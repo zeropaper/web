@@ -6,20 +6,7 @@ import { PropTypes as JobsProps } from '../components/layouts/jobs/jobs-list'
 import { PropTypes as QuickstartProps } from '../components/layouts/quickstart/quickstart'
 import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
 
-const ChatsCircle = (
-  <i className={'ph-chats-circle-fill themed-primary size32'} />
-)
-const BookOpen = <i className={'ph-book-open-fill base-white size24'} />
-const SlackLogo = <i className={' ph-slack-logo-fill themed-primary size32'} />
 const ArrowRight = <i className={'ph-arrow-right-bold themed-primary size16'} />
-const Code = <i className={'ph-code-fill themed-primary size32'} />
-const CirclesThreePlus = (
-  <i className={'ph-circles-three-plus-fill themed-primary size32'} />
-)
-const GitPR = <i className={'ph-git-pull-request-fill themed-primary size32'} />
-const RocketLaunch = (
-  <i className={' ph-rocket-launch-fill themed-primary size32'} />
-)
 
 export const seo: SeoProps = {
   description:
@@ -27,10 +14,28 @@ export const seo: SeoProps = {
   title: 'Join the Ory Team - Ory Jobs'
 }
 
+export const jobs: JobsProps = {
+  id: 'jobs.jobsopen',
+  title: 'Open positions',
+  description: (
+    <>
+      Today, Ory powers organizations of all sizes — from single-person startups
+      to multinational enterprises - and we are only just getting started. We
+      are looking for talented, creative people to build the future of Ory!
+    </>
+  )
+}
+
 export const hero: HeroFeatureProps = {
   id: 'jobs.herofeatures',
-  thin: true,
   title: 'Work on things that matter',
+  buttons: [
+    {
+      ctaTitle: 'Open positions',
+      style: 'filled',
+      to: `#${jobs.id}`
+    }
+  ],
   description: (
     <>
       Ory builds open source software because the Internet needs secure
@@ -39,9 +44,8 @@ export const hero: HeroFeatureProps = {
     </>
   ),
 
-  textbox: [
+  features: [
     {
-      icon: Code,
       title: <>Open Source Spirit</>,
       description: (
         <>
@@ -53,7 +57,6 @@ export const hero: HeroFeatureProps = {
       )
     },
     {
-      icon: GitPR,
       title: <>Freedom</>,
       description: (
         <>
@@ -65,7 +68,6 @@ export const hero: HeroFeatureProps = {
       )
     },
     {
-      icon: CirclesThreePlus,
       title: <>Do What Matters</>,
       description: (
         <>
@@ -78,7 +80,6 @@ export const hero: HeroFeatureProps = {
       )
     },
     {
-      icon: RocketLaunch,
       title: <>Play A Vital Role</>,
       description: (
         <>
@@ -92,19 +93,7 @@ export const hero: HeroFeatureProps = {
   ]
 }
 
-export const jobs: JobsProps = {
-  id: 'jobs.jobsopen',
-  title: 'Open positions',
-  description: (
-    <>
-      Today, Ory powers organizations of all sizes — from single-person startups
-      to multinational enterprises – and we are just getting started. We are
-      looking for talented, creative people to build the future of Ory!
-    </>
-  )
-}
-
-export const values: HeroFeatureProps = {
+/*export const values: HeroFeatureProps = {
   id: 'jobs.values',
   thin: true,
   small: true,
@@ -164,10 +153,11 @@ export const values: HeroFeatureProps = {
       )
     }
   ]
-}
+}*/
 
 export const quickstart: QuickstartProps = {
   id: 'jobs.quickstart',
+  slant: true,
   title: <>Be part of a global community</>,
   description: (
     <>
@@ -176,20 +166,15 @@ export const quickstart: QuickstartProps = {
       open source contributors to work with us full time.
     </>
   ),
-  buttons: (
-    <>
-      <Button
-        style={'filled'}
-        to={'/docs/ecosystem/community'}
-        iconRight={BookOpen}
-      >
-        Community Overview
-      </Button>
-    </>
-  ),
+  buttons: [
+    {
+      ctaTitle: 'Our Community',
+      style: 'filled',
+      to: '/docs/ecosystem/community'
+    }
+  ],
   content: [
     {
-      icon: SlackLogo,
       title: <>Developer Chat on Slack</>,
       description: (
         <>
@@ -208,7 +193,6 @@ export const quickstart: QuickstartProps = {
       )
     },
     {
-      icon: ChatsCircle,
       title: <>GitHub Discussions</>,
       description: (
         <>

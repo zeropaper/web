@@ -3,7 +3,6 @@ import React from 'react'
 import Adopters from '../components/layouts/adopters/adopters'
 import Coding from '../components/layouts/coding/coding'
 import FeatureContent from '../components/layouts/feature-content/feature-content'
-import Features from '../components/layouts/features/features'
 import Hero from '../components/layouts/hero/hero'
 import Layout from '../components/layouts/layout/layout'
 import Quickstart from '../components/layouts/quickstart/quickstart'
@@ -19,13 +18,12 @@ const IndexPage = () => (
   <Layout>
     <SEO {...content.seo} />
     <Hero {...content.hero} />
-    <Quotes {...sharedQuotes} />
     <Adopters {...sharedAdopters} />
-    <Stats {...sharedStats} />
     <FeatureContent {...content.featureContentCloud} />
     <FeatureContent {...content.featureContentUX} />
     <Coding {...content.coding} />
-    <Features {...content.features} />
+    <Stats {...sharedStats} />
+    <Quotes {...sharedQuotes} />
     <Quickstart {...content.quickstart} />
   </Layout>
 )

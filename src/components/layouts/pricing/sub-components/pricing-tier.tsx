@@ -21,7 +21,7 @@ export interface PriceFeature {
 
 export interface PriceTier {
   theme: 'light' | 'dark'
-  title: string
+  title: string | React.ReactElement
   description: string
   price: string
   priceDescription: string
@@ -36,7 +36,7 @@ interface PriceTierFeatures {
 }
 
 interface PriceTierContent {
-  title: string
+  title: string | React.ReactElement
   description: string
   price: string
   priceDescription: string
@@ -51,7 +51,7 @@ interface PropTypes {
 
 interface Theme {
   text?: string
-  fonth2: string
+  fonth1: string
   fonth3: string
   fontp: string
   fontp2: string
@@ -71,18 +71,18 @@ const PricingContent = ({
     <Container flexContainer={'column'} alignItems={'start'}>
       <ContentText className={cn(pb48)}>
         <Molecule>
-          <h3 className={cn('font-h3', pb16)}>{title}</h3>
-          <p className={cn(classes.fontp)}>{description}</p>
+          <h2 className={cn('font-h3', 'is-monospace', pb16)}>{title}</h2>
+          <p className={cn('font-p')}>{description}</p>
         </Molecule>
       </ContentText>
       <ContentText className={cn(pb48)}>
         <Molecule>
-          <h2 className={cn(classes.fonth2)}>{price}</h2>
+          <h3 className={cn(classes.fonth1)}>{price}</h3>
           <p className={cn(classes.fontpsm)}>{priceDescription}</p>
         </Molecule>
       </ContentText>
+      <div className={cn(pb64)}>{button}</div>
     </Container>
-    <div className={cn(pb64)}>{button}</div>
   </>
 )
 
@@ -108,7 +108,6 @@ const PricingTier = ({
     price,
     priceDescription,
     button,
-    featuresContainer = 'column',
     features
   }
 }: PropTypes) => {
@@ -116,7 +115,7 @@ const PricingTier = ({
 
   if (theme === 'light') {
     classes = {
-      fonth2: 'font-h2',
+      fonth1: 'font-h1',
       fonth3: 'font-h3',
       fontp: 'font-p',
       fontp2: 'font-p',
@@ -126,7 +125,7 @@ const PricingTier = ({
   } else {
     classes = {
       text: 'background-is-dark',
-      fonth2: 'font-h2',
+      fonth1: 'font-h1',
       fonth3: 'font-h3',
       fontp: 'font-p',
       fontp2: 'font-p',
@@ -139,31 +138,9 @@ const PricingTier = ({
     <div
       className={cn(classes.background, classes.text, className && className)}
     >
-      <Container
-        flexContainer={featuresContainer}
-        justify={'start'}
-        alignItems={'stretch'}
-      >
-        {featuresContainer === 'row' ? (
-          <>
-            <Grid lg={6} md={6} sm={6} xs={12}>
-              <PricingContent
-                classes={classes}
-                title={title}
-                description={description}
-                price={price}
-                priceDescription={priceDescription}
-                button={button}
-              />
-            </Grid>
-            <Grid lg={6} md={6} sm={6} xs={12}>
-              <Container justify={'center'} alignItems={'start'}>
-                <PricingFeatures classes={classes} features={features} />
-              </Container>
-            </Grid>
-          </>
-        ) : (
-          <>
+      <Container justify={'start'} alignItems={'stretch'}>
+        <>
+          <Grid lg={6} md={12} sm={12} xs={12}>
             <PricingContent
               classes={classes}
               title={title}
@@ -172,9 +149,13 @@ const PricingTier = ({
               priceDescription={priceDescription}
               button={button}
             />
-            <PricingFeatures classes={classes} features={features} />
-          </>
-        )}
+          </Grid>
+          <Grid lg={6} md={12} sm={12} xs={12}>
+            <Container justify={'start'} alignItems={'start'}>
+              <PricingFeatures classes={classes} features={features} />
+            </Container>
+          </Grid>
+        </>
       </Container>
     </div>
   )

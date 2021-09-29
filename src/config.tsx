@@ -7,11 +7,8 @@ import ketoAnimation from './images/keto/keto.svg'
 import kratosAnimation from './images/kratos/kratos.svg'
 import oathkeeperAnimation from './images/oathkeeper/oathkeeper.svg'
 
-export const brandPrefix = 'Ory / '
-
 export type Project = {
   id: 'hydra' | 'keto' | 'oathkeeper' | 'kratos'
-  icon: React.ReactElement
   title: string
   descriptiveTitle: string
   description: string
@@ -22,18 +19,10 @@ export type Project = {
   visual: string
 }
 
-const UserGear = <i className="ph-user-gear-fill themed-primary size32" />
-const Fingerprint = <i className="ph-fingerprint-fill themed-primary size32" />
-const ShieldWarning = (
-  <i className="ph-shield-warning-fill themed-primary size32" />
-)
-const Key = <i className="ph-key-fill themed-primary size32" />
-
 export const projects: Project[] = [
   {
     id: 'kratos',
-    icon: UserGear,
-    title: 'Kratos',
+    title: 'kratos',
     descriptiveTitle: 'User Management',
     description:
       'Cloud native user management system. Provision IDs, store user information, configure authentication methods and use a headless API.',
@@ -45,8 +34,7 @@ export const projects: Project[] = [
   },
   {
     id: 'hydra',
-    icon: Fingerprint,
-    title: 'Hydra',
+    title: 'hydra',
     descriptiveTitle: 'OAuth 2.0 and OpenID Connect',
     description:
       'OAuth 2.0 and OpenID Certified® OpenID Connect server. Cloud native, security-first, headless API security for your infrastructure. ',
@@ -58,8 +46,7 @@ export const projects: Project[] = [
   },
   {
     id: 'oathkeeper',
-    icon: ShieldWarning,
-    title: 'Oathkeeper',
+    title: 'oathkeeper',
     descriptiveTitle: 'Identity and Access Proxy',
     description:
       'Identity and Access Proxy (IAP). Authenticate, authorize and mutate any incoming traffic, using Zero Trust / BeyondCorp as open source.',
@@ -71,8 +58,7 @@ export const projects: Project[] = [
   },
   {
     id: 'keto',
-    icon: Key,
-    title: 'Keto',
+    title: 'keto',
     descriptiveTitle: 'Global access control',
     description:
       "Authorization Server inspired by Google's consistent, global Authorization System, providing granular access policies with RBAC, ABAC and ACL.",

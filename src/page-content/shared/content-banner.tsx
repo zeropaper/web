@@ -3,23 +3,82 @@ import React from 'react'
 import Button from '../../components/freestanding/button/button'
 import { PropTypes as BannerProps } from '../../components/layouts/banner/banner'
 
-const ArrowRight = <i className={'ph-arrow-right-bold themed-primary size16'} />
-
 export const sharedBannerHiring: BannerProps = {
   id: 'shared.banner.hiring',
-  title: "We're hiring!",
-  small: true,
+  background: 'dark',
   text: (
     <>
       Help us create an open and free standard for authentication and
-      authorization that is available to everyone.
-    </>
-  ),
-  button: (
-    <>
-      <Button to={'/jobs'} style={'link'} iconRight={ArrowRight}>
-        Join Our Team
+      authorization that is available to everyone, come{' '}
+      <Button to={'/jobs'} style={'link-inline'}>
+        join our team
       </Button>
+      .
+    </>
+  )
+}
+
+export const sharedBannerOpensource: BannerProps = {
+  id: 'shared.banner.opensource',
+  text: (
+    <>
+      Are you building something with Ory?{' '}
+      <Button to={'mailto:office@ory.sh'} style={'link-inline'}>
+        Get featured
+      </Button>{' '}
+      on our upcoming showcase, GitHub and newsletter!{' '}
+    </>
+  )
+}
+
+export const sharedBannerKratos: BannerProps = {
+  id: 'shared.banner.kratos',
+  text: (
+    <>
+      Building something with Ory Kratos?{' '}
+      <Button to={'mailto:office@ory.sh'} style={'link-inline'}>
+        Get featured
+      </Button>{' '}
+      on our upcoming showcase, GitHub and newsletter!{' '}
+    </>
+  )
+}
+
+export const sharedBannerHydra: BannerProps = {
+  id: 'shared.banner.hydraKeto',
+  text: (
+    <>
+      Building something with Ory Hydra?{' '}
+      <Button to={'mailto:office@ory.sh'} style={'link-inline'}>
+        Get featured
+      </Button>{' '}
+      on our upcoming showcase, GitHub and newsletter!{' '}
+    </>
+  )
+}
+
+export const sharedBannerKeto: BannerProps = {
+  id: 'shared.banner.keto',
+  text: (
+    <>
+      Building something with Ory Keto?{' '}
+      <Button to={'mailto:office@ory.sh'} style={'link-inline'}>
+        Get featured
+      </Button>{' '}
+      on our upcoming showcase, GitHub and newsletter!{' '}
+    </>
+  )
+}
+
+export const sharedBannerOathkeeper: BannerProps = {
+  id: 'shared.banner.oathkeeper',
+  text: (
+    <>
+      Building something with Ory Oathkeeper?{' '}
+      <Button to={'mailto:office@ory.sh'} style={'link-inline'}>
+        Get featured
+      </Button>{' '}
+      on our upcoming showcase, GitHub and newsletter!{' '}
     </>
   )
 }

@@ -7,5 +7,6 @@ declare const styles: {
   readonly size24: string
   readonly size16: string
   readonly size32: string
+  readonly size48: string
 }
 export = styles

@@ -7,13 +7,13 @@ import Grid from '../../freestanding/containers/grid'
 import { pb32 } from '../../freestanding/utils/padding.module.css'
 
 interface PropTypes {
-  title: string
+  title: string | React.ReactElement
   small?: boolean
-  text: React.ReactElement
+  text: string | React.ReactElement
   className?: string
 }
 
-const SmallText = ({ title, small, text, className }: PropTypes) => (
+const SmallText = ({ title, small = false, text, className }: PropTypes) => (
   <Container alignItems={'start'} className={className}>
     <Grid lg={4} md={4} sm={12} xs={12}>
       {!small ? (
@@ -22,8 +22,12 @@ const SmallText = ({ title, small, text, className }: PropTypes) => (
         <h3 className={cn('font-h3', pb32)}>{title}</h3>
       )}
     </Grid>
-    <Grid lg={8} md={8} sm={12} xs={12}>
-      <p className={cn('font-p')}>{text}</p>
+    <Grid lg={6} md={6} sm={12} xs={12}>
+      {!small ? (
+        <p className={cn('font-p-large')}>{text}</p>
+      ) : (
+        <p className={cn('font-p')}>{text}</p>
+      )}
     </Grid>
   </Container>
 )

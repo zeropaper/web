@@ -24,16 +24,6 @@
   --size-128: 32rem;
   --size-full: 100%;
 
-  /*Spacing*/
-  /*Multiples of 8*/
-  --space-0: var(--size-0);
-  --space-1: var(--size-2);
-  --space-2: var(--size-4);
-  --space-3: var(--size-6);
-  --space-4: var(--size-8);
-  --space-5: var(--size-10);
-  --space-6: var(--size-12);
-
   /*Radii*/
   --radius-none: var(--size-0);
   --radius-smaller: var(--size-1);

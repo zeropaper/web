@@ -1,12 +1,9 @@
 import cn from 'classnames'
 import React from 'react'
 
-import ColourWrapper from '../../freestanding/colour/colour-wrapper'
+import Button from '../../freestanding/button/button'
 import Container from '../../freestanding/containers/container'
 import Grid from '../../freestanding/containers/grid'
-import ContentText from '../../freestanding/content/content-text'
-import Molecule from '../../freestanding/molecule/molecule'
-import MoleculeInteraction from '../../freestanding/molecule/molecule-interaction'
 
 import {
   pb32,
@@ -16,42 +13,83 @@ import {
 } from '../../freestanding/utils/padding.module.css'
 import * as styles from './quickstart.module.css'
 
+export interface PropTypes {
+  id: string
+  background?: 'dark' | 'grey' | 'light-grey' | 'themed'
+  slant?: boolean
+  title: React.ReactElement
+  description: React.ReactElement
+  buttons?: Array<QuickstartCTA>
+  content: Array<QuickstartContent>
+}
+
 export interface QuickstartContent {
-  icon: React.ReactElement
   title: React.ReactElement
   description: React.ReactElement
   button?: React.ReactElement
 }
 
-export interface PropTypes {
-  id: string
-  title: React.ReactElement
-  description: React.ReactElement
-  buttons?: React.ReactNode
-  content: Array<QuickstartContent>
+interface QuickstartCTA {
+  ctaTitle: string
+  style: 'filled' | 'outlined' | 'text'
+  to: string
+  openInNewWindow?: boolean
+  iconRight?: React.ReactElement
+  className?: string
 }
 
 const Quickstart = ({
   id,
+  background,
+  slant,
   title,
   description,
   buttons,
   content
 }: PropTypes) => (
-  <div id={id} className={cn(styles.quickstart)}>
-    <Container fluid={true} alignItems={'start'}>
-      <Grid lg={4} md={3} sm={12} xs={12} className={cn(pb64)}>
-        <ContentText>
-          <Molecule>
-            <h3 className={cn('font-h3', pb32)}>{title}</h3>
-            <p className={cn('font-p', pb32)}>{description}</p>
-          </Molecule>
-          <MoleculeInteraction>{buttons}</MoleculeInteraction>
-        </ContentText>
+  <div
+    id={id}
+    className={cn(
+      styles.quickstart,
+      {
+        ['background-is-grey']: background === 'grey',
+        ['background-is-dark']: background === 'dark',
+        ['background-is-light-grey']: background === 'light-grey',
+        ['background-is-themed']: background === 'themed'
+      },
+      { ['is-slanted-top-large']: slant === true }
+    )}
+  >
+    <Container fluid={true} alignItems={'center'}>
+      <Grid lg={4} md={5} sm={12} xs={12} className={cn(pb64)}>
+        <Container>
+          <h2 className={cn('font-h2', pb32)}>{title}</h2>
+          <p className={cn('font-p-large', pb32)}>{description}</p>
+        </Container>
+        <Container justify={'start'}>
+          {buttons &&
+            buttons.map(
+              (
+                { ctaTitle, style, to, openInNewWindow, iconRight, className },
+                index
+              ) => (
+                <Button
+                  className={cn('button-group', className)}
+                  style={style}
+                  key={index}
+                  iconRight={iconRight}
+                  openInNewWindow={openInNewWindow}
+                  to={to}
+                >
+                  {ctaTitle}
+                </Button>
+              )
+            )}
+        </Container>
       </Grid>
-      <Grid lg={6} md={8} sm={12} xs={12}>
+      <Grid lg={6} md={6} sm={12} xs={12}>
         <Container alignItems={'start'}>
-          {content.map(({ button, icon, description, title }, index) => (
+          {content.map(({ button, description, title }, index) => (
             <Grid
               lg={6}
               md={6}
@@ -61,14 +99,9 @@ const Quickstart = ({
               key={index}
             >
               <Container flexContainer={'row'} alignItems={'start'}>
-                <ColourWrapper className={cn(pb8)} text={'themed-primary'}>
-                  {icon}
-                </ColourWrapper>
-                <ContentText>
-                  <h4 className={cn('font-h5', pb8)}>{title}</h4>
-                  <p className={cn('font-p-small', pb8)}>{description}</p>
-                  <MoleculeInteraction>{button}</MoleculeInteraction>
-                </ContentText>
+                <h4 className={cn('font-h4', pb8)}>{title}</h4>
+                <p className={cn('font-p', pb8)}>{description}</p>
+                {button}
               </Container>
             </Grid>
           ))}

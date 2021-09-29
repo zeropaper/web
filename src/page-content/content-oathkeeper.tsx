@@ -7,20 +7,16 @@ import CodeBox, {
 } from '../components/freestanding/codebox/codebox'
 import { PropTypes as FeatureContentProps } from '../components/layouts/feature-content/feature-content'
 import { PropTypes as FeaturelistProps } from '../components/layouts/featurelist/feature-list'
-import { PropTypes as HeroProps } from '../components/layouts/hero/hero'
+import { PropTypes as HeroImageProps } from '../components/layouts/hero/hero-image'
 import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
 
 import Oathkeeper from '../images/oathkeeper/oathkeeper.svg'
 import OathkeeperSDK from '../images/oathkeeper/oathkeeper_p.svg'
 
-const Fast = <i className={'ph-fast-forward-fill size24'} />
 const CheckCircle = (
   <i className={'ph-check-circle-fill themed-primary size16'} />
 )
 const ArrowRight = <i className={'ph-arrow-right-bold size16'} />
-const CircleThreePlus = (
-  <i className={'ph-circles-three-plus-fill base-white size24'} />
-)
 const PlusCircle = <i className={'ph-plus-circle-fill base-grey-400 size16'} />
 
 export const seo: SeoProps = {
@@ -29,20 +25,23 @@ export const seo: SeoProps = {
   title: 'Ory Oathkeeper - Open Source Identity and Access Proxy (IAP)'
 }
 
-export const hero: HeroProps = {
+export const hero: HeroImageProps = {
   id: 'oathkeeper.hero',
-  title: 'Control Incoming Traffic',
-  description:
-    'Authenticate and authorize all traffic with a Zero Trust security model.',
-  buttons: (
-    <Button
-      to={'/oathkeeper/docs/configure-deploy/'}
-      style={'filled'}
-      iconRight={Fast}
-    >
-      Get Started
-    </Button>
+  title: (
+    <>
+      <span className={'is-mute-text'}>Nothing goes unseen</span> - control all
+      incoming traffic
+    </>
   ),
+  description:
+    'Authenticate, authorize and mutate any incoming network traffic, using a Zero Trust / BeyondCorp security model.',
+  buttons: [
+    {
+      ctaTitle: 'Get Started',
+      style: 'filled',
+      to: '/oathkeeper/docs/configure-deploy/'
+    }
+  ],
   image: (
     <img
       className="responsive"
@@ -55,9 +54,9 @@ export const hero: HeroProps = {
 
 export const featurelist: FeaturelistProps = {
   id: 'oathkeeper.featurelist',
+  slant: true,
   features: [
     {
-      icon: CircleThreePlus,
       title: 'Ory Oathkeeper Features',
       description: (
         <>
@@ -186,7 +185,9 @@ authenticators:
 
 export const featureContentCoding: FeatureContentProps = {
   id: 'oathkeeper.featurecontent.coding',
-  overline: 'Start in minutes',
+  slant: true,
+  background: 'grey',
+  overline: 'Identity and Access Proxy (IAP)',
   title: <>Easy Integration</>,
   description: (
     <>
@@ -196,20 +197,24 @@ export const featureContentCoding: FeatureContentProps = {
       Implementation is straightforward on any system.
     </>
   ),
-  buttons: (
-    <>
-      <Button to={'/docs/oathkeeper/'} style={'link'} iconRight={ArrowRight}>
-        Documentation
-      </Button>
-    </>
-  ),
+  button: {
+    ctaTitle: 'Visit the documentation',
+    to: '/docs/oathkeeper/',
+    iconRight: ArrowRight
+  },
   content: <CodeBox {...featureContentCodeBox} />
 }
 
 export const featureContentSDK: FeatureContentProps = {
   id: 'oathkeeper.featurecontent.sdk',
-  overline: 'Polyglot',
-  title: <>SDKs for all languages</>,
+  slant: true,
+  background: 'dark',
+  overline: 'Your language, our SDK',
+  title: (
+    <>
+      <span className={'is-mute-text'}>Oathkeeper is</span> polyglot
+    </>
+  ),
   description: (
     <>
       Ory Oathkeeper is written in Go and we provide SDKs for almost every
@@ -217,15 +222,11 @@ export const featureContentSDK: FeatureContentProps = {
       Typescript. Our documentation makes integrating Ory Oathkeeper a snap.
     </>
   ),
-  buttons: (
-    <Button
-      to={'/oathkeeper/docs/configure-deploy/'}
-      style={'link'}
-      iconRight={ArrowRight}
-    >
-      Run the Quickstart
-    </Button>
-  ),
+  button: {
+    ctaTitle: 'Run the Quickstart',
+    to: '/oathkeeper/docs/configure-deploy/',
+    iconRight: ArrowRight
+  },
   content: (
     <img
       className="responsive"

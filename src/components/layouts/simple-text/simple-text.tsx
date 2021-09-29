@@ -9,16 +9,16 @@ import * as styles from './simple-text.module.css'
 
 export interface PropTypes {
   id: string
-  title: string
+  title: string | React.ReactElement
   small?: boolean
-  text: React.ReactElement
+  text: string | React.ReactElement
   className?: string
 }
 
 const SimpleText = ({ id, title, small, text, className }: PropTypes) => (
   <div id={id} className={cn(styles.simpleText, `${className}`)}>
     <Container fluid={true} alignItems={'start'} justify={'center'}>
-      <Grid lg={8} md={10} sm={12} xs={12}>
+      <Grid lg={12} md={12} sm={12} xs={12}>
         <Container alignItems={'start'}>
           <Grid lg={4} md={4} sm={12} xs={12}>
             {!small ? (
@@ -27,7 +27,7 @@ const SimpleText = ({ id, title, small, text, className }: PropTypes) => (
               <h3 className={cn('font-h3', pb32)}>{title}</h3>
             )}
           </Grid>
-          <Grid lg={8} md={8} sm={12} xs={12}>
+          <Grid lg={6} md={6} sm={12} xs={12}>
             <p className={cn('font-p-large')}>{text}</p>
           </Grid>
         </Container>

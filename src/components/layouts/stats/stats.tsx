@@ -78,17 +78,19 @@ const stats = (state: StateTypes) => [
   {
     title: 'Docker pulls',
     amount: countDockerImagePulls(state),
-    description: 'Overall'
+    description: 'overall'
   },
   {
     title: 'GitHub stars',
     amount: countGitHubStars(state),
-    description: 'Overall'
+    description: 'overall'
   }
 ]
 
 export interface PropTypes {
   id: string
+  background?: 'dark' | 'grey' | 'light-grey' | 'themed'
+  slant?: boolean
   title: React.ReactElement
   description: React.ReactElement
 }
@@ -233,30 +235,43 @@ class Stats extends Component<PropTypes, StateTypes> {
     return (
       <div
         id={this.props.id}
-        className={cn(styles.stats, 'background-is-themed')}
+        className={cn(
+          styles.stats,
+          {
+            ['background-is-grey']: this.props.background === 'grey',
+            ['background-is-dark']: this.props.background === 'dark',
+            ['background-is-light-grey']:
+              this.props.background === 'light-grey',
+            ['background-is-themed']: this.props.background === 'themed'
+          },
+          { ['is-slanted-top-small']: this.props.slant === true }
+        )}
       >
         <Container fluid={true} justify={'space-between'} alignItems={'center'}>
-          <Grid className={cn(styles.statsRow)} lg={5} md={4} sm={12} xs={12}>
-            <h3 className={cn('font-h3', pb32)}>{this.props.title}</h3>
-            <p className={cn('font-p')}>{this.props.description}</p>
+          <Grid className={cn(styles.statsRow)} lg={4} md={4} sm={12} xs={12}>
+            <h2 className={cn('font-h2', pb32)}>{this.props.title}</h2>
+            <p className={cn('font-p-large', 'is-primary-text')}>
+              {this.props.description}
+            </p>
           </Grid>
-          <Grid lg={6} md={8} sm={12} xs={12}>
-            <Container alignItems={'start'}>
+          <Grid lg={6} md={6} sm={12} xs={12}>
+            <Container flexContainer={'column'} alignItems={'start'}>
               {stats(this.state).map(
                 ({ title, amount, description }, index) => (
                   <Grid
-                    lg={3}
-                    md={3}
-                    sm={3}
+                    lg={12}
+                    md={12}
+                    sm={12}
                     xs={12}
                     key={index}
-                    className={cn(styles.statsItems)}
+                    className={cn(styles.statsItems, pb32)}
                   >
-                    <h5 className={cn('font-h1')}>
+                    <h5 className={cn('font-display')}>
                       <AnimatedCounter countTo={amount} />
                     </h5>
-                    <p className={cn('font-p-small')}>{title}</p>
-                    <p className={cn('font-p-small')}>{description}</p>
+                    <p className={cn('font-p', 'is-monospace')}>
+                      &gt; {title} {description}
+                    </p>
                   </Grid>
                 )
               )}

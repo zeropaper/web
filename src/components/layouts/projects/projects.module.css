@@ -1,5 +1,6 @@
 .features {
-  padding: 128px 0;
+  background: var(--colors-base-background);
+  padding: var(--space-medium) 0;
 }
 
 .features-content {

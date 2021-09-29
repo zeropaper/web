@@ -1,4 +1,5 @@
 declare const styles: {
-  readonly bannerPrimary: string
+  readonly banner: string
+  readonly bannerDecoration: string
 }
 export = styles

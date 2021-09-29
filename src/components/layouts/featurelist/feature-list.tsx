@@ -21,7 +21,6 @@ import {
 import * as styles from './feature-list.module.css'
 
 interface FeatureSection {
-  icon: React.ReactElement
   title: string
   description: React.ReactElement
   button?: React.ReactElement
@@ -30,25 +29,45 @@ interface FeatureSection {
 
 export interface PropTypes {
   id: string
+  background?: 'dark' | 'grey' | 'light-grey' | 'themed'
+  slant?: boolean
   className?: string
   features: Array<FeatureSection>
 }
 
-const FeatureList = ({ id, className, features }: PropTypes) => (
-  <div id={id} className={cn(styles.featureList, className && className)}>
+const FeatureList = ({
+  id,
+  background,
+  slant,
+  className,
+  features
+}: PropTypes) => (
+  <div
+    id={id}
+    className={cn(
+      styles.featureList,
+      {
+        ['background-is-grey']: background === 'grey',
+        ['background-is-dark']: background === 'dark',
+        ['background-is-light-grey']: background === 'light-grey',
+        ['background-is-themed']: background === 'themed'
+      },
+      { ['is-slanted-top-medium']: slant === true },
+      className && className
+    )}
+  >
     <Container fluid={true}>
       {features.map((section) => {
         return (
           <Container
-            className={cn(pb64, pt64)}
+            className={cn(styles.divider)}
             alignItems={'start'}
             key={section.title}
           >
             <Grid lg={3} md={3} sm={12} xs={12} className={cn(pb48)}>
               <ContentText>
                 <Molecule>
-                  <MoleculeIconWrapper>{section.icon}</MoleculeIconWrapper>
-                  <h3 className={cn('font-h3', pb32, pt32)}>{section.title}</h3>
+                  <h3 className={cn('font-h2', pb32)}>{section.title}</h3>
                   <p className={cn('font-p', pb24)}>{section.description}</p>
                 </Molecule>
                 {section.button && (

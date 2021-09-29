@@ -59,7 +59,11 @@ class CodeBox extends Component<PropTypes, StateTypes> {
   render() {
     const { tabs } = this.state
     return (
-      <Container alignItems={'start'} xsHidden={true} className={styles.box}>
+      <Container
+        alignItems={'start'}
+        xsHidden={true}
+        className={cn(styles.box, 'background-is-dark')}
+      >
         <Container justify={'start'} className={styles.editorHeader}>
           <div className={styles.windowActions}>
             <div className={cn(styles.windowAction, styles.primary)} />
@@ -68,15 +72,15 @@ class CodeBox extends Component<PropTypes, StateTypes> {
           </div>
           <div className={styles.tabs}>
             {tabs.map(({ filename }, index) => (
-              <div
+              <p
                 key={filename}
-                className={cn(styles.tab, {
+                className={cn(styles.tab, 'font-p', {
                   [styles.selected]: index === this.state.active
                 })}
                 onClick={this.onSelectTab(index)}
               >
                 {filename}
-              </div>
+              </p>
             ))}
           </div>
         </Container>

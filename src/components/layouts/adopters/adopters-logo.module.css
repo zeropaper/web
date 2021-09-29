@@ -11,7 +11,7 @@
     max-width: var(--size-32);
     max-height: var(--size-8);
     width: auto;
-    filter: invert(0.5) brightness(2) opacity(0.75);
+    filter: invert(0.5) brightness(0) opacity(0.75);
   }
 
   & a:any-link {

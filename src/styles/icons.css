@@ -39,3 +39,9 @@ i.size32 {
   width: 32px;
   height: 32px;
 }
+
+i.size48 {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+}

@@ -1,6 +1,7 @@
 import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
 
+import Button from '../../components/freestanding/button/button'
 import {
   PropTypes as TeamProps,
   SocialNetworks
@@ -9,13 +10,21 @@ import { PropTypes as TeamImgProps } from '../../components/layouts/team/team-im
 
 export const team: TeamProps = {
   id: 'shared.team',
-  title: 'Team',
+  background: 'dark',
+  title: (
+    <>
+      The best team <span className={'is-mute-text'}>for the job</span>
+    </>
+  ),
   text: (
     <>
-      We embrace and practice open source software development. We base our work
-      on existing and emerging open cloud standards. As developers, we will
-      continue to advance our level of engineering and product design to help
-      other developers succeed.
+      Our mission is to provide a common access control, authorization and
+      identity infrastructure that manages IAM and the associated data created
+      in cloud applications. And we've got just the right people for the job -{' '}
+      <Button to={'/jobs'} style={'link-inline'}>
+        join our team
+      </Button>{' '}
+      and find out why.
     </>
   ),
   team: [
@@ -223,12 +232,64 @@ export const team: TeamProps = {
           src="../../images/team/alano.png"
         />
       )
+    },
+    {
+      name: 'Pascal Morgan',
+      position: 'Tech Communication',
+      social: [
+        {
+          network: SocialNetworks.linkedin,
+          href: 'https://de.linkedin.com/in/pascalmorgan'
+        },
+        {
+          network: SocialNetworks.web,
+          href: 'https://www.linkedin.com/in/pascalmorgan'
+        }
+      ],
+      img: (
+        <StaticImage
+          placeholder="blurred"
+          layout="constrained"
+          aspectRatio={1}
+          loading="lazy"
+          className="responsive"
+          alt="Pascal Morgan"
+          src="../../images/team/pascal.png"
+        />
+      )
+    },
+    {
+      name: 'Lee Atchison',
+      position: 'Architecture',
+      social: [
+        {
+          network: SocialNetworks.web,
+          href: 'https://leeatchison.com/'
+        },
+        {
+          network: SocialNetworks.linkedin,
+          href: 'https://www.linkedin.com/in/leeatchison'
+        }
+      ],
+      img: (
+        <StaticImage
+          placeholder="blurred"
+          layout="constrained"
+          aspectRatio={1}
+          loading="lazy"
+          className="responsive"
+          alt="Lee Atchison"
+          src="../../images/team/lee.png"
+        />
+      )
     }
   ]
 }
 
 export const collaborators: TeamProps = {
   id: 'shared.collaborators',
+  slant: true,
+  background: 'themed',
   title: 'Collaborators',
   text: (
     <>
@@ -336,7 +397,13 @@ export const collaborators: TeamProps = {
 
 export const community: TeamImgProps = {
   id: 'shared.community',
-  title: 'Our Community',
+  slant: true,
+  background: 'grey',
+  title: (
+    <>
+      The best community <span className={'is-mute-text'}>in the world</span>
+    </>
+  ),
   text: (
     <>
       Ory is a community of collaborators, friends, and makers of wonderful
@@ -350,7 +417,7 @@ export const community: TeamImgProps = {
       loading="lazy"
       alt="The Ory Community"
       className="responsive"
-      src="https://opencollective.com/ory/contributors.svg?avatarHeight=24&width=800&button=false"
+      src="https://opencollective.com/ory/contributors.svg?avatarHeight=24&width=1300&button=false&limit=1020"
     />
   )
 }

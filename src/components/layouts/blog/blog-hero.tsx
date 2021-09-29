@@ -22,7 +22,7 @@ interface PropTypes {
 const BlogHero = ({ title, date, author, overline, subtitle }: PropTypes) => (
   <div className={cn(blogHero)}>
     <Container fluid={true} alignItems={'center'} justify={'center'}>
-      <Grid lg={7} md={10} sm={12} xs={12}>
+      <Grid lg={8} md={10} sm={12} xs={12}>
         <ContentText>
           <Molecule>
             {overline && (

@@ -33,6 +33,7 @@ export default function BlogTemplate(props: any) {
         <MDXRenderer>{body}</MDXRenderer>
       </MDXBody>
       <Newsletter
+        background={'themed'}
         special={
           <>
             <h3 className={cn('font-h3', pb32)}>Never miss an article</h3>

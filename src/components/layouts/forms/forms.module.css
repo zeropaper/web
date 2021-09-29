@@ -1,7 +1,7 @@
 .multiline {
   & input[type='email'],
   & input[type='text'] {
-    width: calc(100% - (var(--space-3) * 2));
+    width: calc(100% - (var(--size-6) * 2));
   }
   & input[type='submit'] {
     margin-top: var(--size-4);

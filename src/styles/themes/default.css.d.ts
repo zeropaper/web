@@ -5,5 +5,7 @@ declare const styles: {
   readonly themeKeto: string
   readonly backgroundIsDark: string
   readonly backgroundIsThemed: string
+  readonly backgroundIsGrey: string
+  readonly backgroundIsLightGrey: string
 }
 export = styles

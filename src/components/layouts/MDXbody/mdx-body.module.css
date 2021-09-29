@@ -3,8 +3,8 @@
 }
 
 .mdx-body {
-  padding-bottom: 6rem;
-  background-color: var(--colors-base-white);
+  padding-bottom: var(--space-larger);
+  background-color: var(--colors-base-background);
 
   & li,
   & code,

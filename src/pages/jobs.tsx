@@ -12,7 +12,7 @@ const JobsPage = () => (
     <SEO {...content.seo} />
     <HeroFeatures {...content.hero} />
     <JobsList {...content.jobs} />
-    <HeroFeatures {...content.values} />
+    {/*<HeroFeatures {...content.values} />*/}
     <Quickstart {...content.quickstart} />
   </Layout>
 )

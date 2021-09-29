@@ -3,11 +3,14 @@
   box-shadow: var(--elevation-large);
   padding: 0 var(--size-4);
   border-radius: var(--radius-default);
-  height: var(--size-128);
+  align-self: stretch;
   align-content: start;
+  width: inherit;
+  min-height: var(--size-128);
 }
 
 .editor-header {
+  padding: var(--size-4) var(--size-4) 0;
   display: flex;
   width: var(--size-full);
   align-items: center;
@@ -19,10 +22,6 @@
   }
 
   & .tab {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 200%;
     margin-right: 24px;
     cursor: pointer;
     display: inline;
@@ -40,11 +39,11 @@
   margin-right: var(--size-4);
 
   & .window-action {
-    width: var(--size-2);
-    height: var(--size-2);
+    width: var(--size-3);
+    height: var(--size-3);
     border-radius: var(--radius-default);
-    background-color: var(--colors-themed-dark);
-    margin-right: var(--size-1);
+    background-color: var(--colors-base-grey-800);
+    margin-right: var(--size-2);
 
     &.primary {
       background-color: var(--colors-themed-primary);
@@ -53,18 +52,17 @@
 }
 
 .content {
+  display: inline-block;
   &::-webkit-scrollbar {
     display: none;
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
-  max-height: 85%;
-  max-width: var(--size-full);
+  max-width: min-content;
   overflow: auto;
-  width: var(--size-full);
+  width: min-content;
 
   & pre {
-    width: 100%;
     display: none;
 
     &.active {

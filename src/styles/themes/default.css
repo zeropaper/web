@@ -1,5 +1,7 @@
 :root {
   --colors-base-white: #ffffff;
+  --colors-base-grey-10: #fbfbfc;
+  --colors-base-grey-15: #fafbfc;
   --colors-base-grey-25: #f9f9fa;
   --colors-base-grey-50: #f3f4f5;
   --colors-base-grey-75: #edeef0;
@@ -12,7 +14,7 @@
   --colors-base-dark: #06111c;
   --colors-base-black: #000000;
 
-  --colors-base-background: var(--colors-base-white);
+  --colors-base-background: var(--colors-base-grey-10);
 
   --colors-text-primary: #06111cff; /*alpha 1*/
   --colors-text-secondary: #06111cd9; /*alpha .85*/
@@ -146,8 +148,9 @@
   );
 
   --elevation-base: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-
   --elevation-large: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  --highlighted-large: rgba(85, 40, 255, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
@@ -232,22 +235,12 @@
 }
 
 .background-is-dark,
-.background-is-themed {
+.background-is-themed,
+.background-is-grey {
   --colors-text-primary: var(--colors-text-light-primary);
   --colors-text-secondary: var(--colors-text-light-secondary);
   --colors-text-mute: var(--colors-text-light-mute);
   --colors-text-muter: var(--colors-text-light-muter);
-}
-
-.background-is-dark {
-  --colors-base-background: var(--colors-base-dark);
-
-  --colors-link-primary: var(--colors-themed-light);
-  --colors-link-hover: var(--colors-themed-primary);
-  --colors-link-active: var(--colors-text-primary);
-
-  --colors-input-primary: var(--colors-base-grey-25);
-  --colors-input-hover: var(--colors-themed-light);
 }
 
 .background-is-themed {
@@ -265,4 +258,26 @@
 
   --colors-input-primary: var(--colors-base-grey-25);
   --colors-input-hover: var(--colors-themed-light);
+}
+
+.background-is-dark,
+.background-is-grey {
+  --colors-link-primary: var(--colors-base-white);
+  --colors-link-hover: var(--colors-themed-darkmode);
+  --colors-link-active: var(--colors-text-primary);
+
+  --colors-input-primary: var(--colors-base-grey-25);
+  --colors-input-hover: var(--colors-themed-light);
+}
+
+.background-is-dark {
+  --colors-base-background: var(--colors-base-dark);
+}
+
+.background-is-grey {
+  --colors-base-background: var(--colors-base-grey);
+}
+
+.background-is-light-grey {
+  --colors-base-background: var(--colors-base-grey-25);
 }

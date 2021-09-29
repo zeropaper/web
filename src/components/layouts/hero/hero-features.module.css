@@ -1,12 +1,15 @@
 .hero-features {
-  padding: 128px 0;
+  background: var(--colors-base-background);
+  padding: var(--space-medium) 0;
 }
 
-.hero-features-heading {
-  text-align: center;
+@media (--xs) {
+  .title {
+    text-align: center;
+  }
 }
 
-.hero-features-content {
+.features-content {
   display: flex;
   flex-grow: 1;
 

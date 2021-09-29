@@ -1,22 +1,17 @@
 import cn from 'classnames'
 import React from 'react'
 
-import ColourWrapper from '../../freestanding/colour/colour-wrapper'
+import Button from '../../freestanding/button/button'
 import Container from '../../freestanding/containers/container'
 import Grid from '../../freestanding/containers/grid'
-import ContentText from '../../freestanding/content/content-text'
-import ContentVisual from '../../freestanding/content/content-visual'
-import Molecule from '../../freestanding/molecule/molecule'
-import MoleculeInteraction from '../../freestanding/molecule/molecule-interaction'
-import MoleculeTextInteraction from '../../freestanding/molecule/molecule-text-interaction'
 
 import {
   pb16,
+  pb24,
   pb32,
-  pb64,
-  pb8
+  pb64
 } from '../../freestanding/utils/padding.module.css'
-import { coding } from './coding.module.css'
+import * as styles from './coding.module.css'
 
 export interface CodingContent {
   icon: React.ReactElement
@@ -27,68 +22,104 @@ export interface CodingContent {
 
 export interface PropTypes {
   id: string
+  background?: 'dark' | 'grey' | 'light-grey' | 'themed'
+  slant?: boolean
   overline: string
   title: React.ReactElement
   description: React.ReactElement
-  buttons?: React.ReactNode
-  visual: React.ReactNode
+  additional?: Additional
+  button?: CodingCTA
+  codebox: React.ReactNode
   content: Array<CodingContent>
 }
 
+interface Additional {
+  title: string | React.ReactElement
+  description: string | React.ReactElement
+  button?: CodingCTA
+}
+
+interface CodingCTA {
+  ctaTitle: string
+  to: string
+  iconRight?: React.ReactElement
+  openInNewWindow?: boolean
+  className?: string
+}
+
+const ArrowRight = <i className="ph-arrow-right-bold size16" />
+
 const Coding = ({
   id,
-  overline,
+  slant,
+  background,
   title,
+  overline,
   description,
-  buttons,
-  visual,
-  content
+  additional,
+  codebox,
+  button
 }: PropTypes) => (
-  <div id={id} className={cn(coding, 'background-is-dark')}>
-    <Container fluid={true}>
-      <Grid lg={6} md={6} sm={12} xs={12}>
-        <Container flexContainer={'column'}>
-          <ContentText className={cn(pb64)}>
-            <h3 className={cn('font-overline', 'is-primary-text', pb16)}>
-              {overline}
-            </h3>
-            <h2 className={cn('font-h3', pb32)}>{title}</h2>
-            <p className={cn('font-p', pb32)}>{description}</p>
-            {buttons && (
-              <MoleculeInteraction className={''}>
-                {buttons}
-              </MoleculeInteraction>
-            )}
-          </ContentText>
-
-          <Container alignItems={'start'}>
-            {content.map(({ button, description, icon, title }, index) => (
-              <Grid
-                lg={6}
-                md={6}
-                sm={6}
-                xs={12}
-                className={cn(pb64)}
-                key={index}
+  <div
+    id={id}
+    className={cn(
+      styles.coding,
+      {
+        ['background-is-grey']: background === 'grey',
+        ['background-is-dark']: background === 'dark',
+        ['background-is-light-grey']: background === 'light-grey',
+        ['background-is-themed']: background === 'themed'
+      },
+      { ['is-slanted-top-larger']: slant === true }
+    )}
+  >
+    <Container fluid={true} alignItems={'center'}>
+      <Grid className={pb32} lg={4} md={5} sm={12} xs={12}>
+        <div className={additional && pb64}>
+          <h1 className={cn('font-overline', pb24)}>
+            <span className={'is-themed-primary'}>&gt; </span>
+            {overline}
+          </h1>
+          <h2 className={cn('font-h2', pb32)}>{title}</h2>
+          <p className={cn('font-p-large', pb24)}>{description}</p>
+          {button && (
+            <Container>
+              <Button
+                className={cn(button.className && button.className)}
+                style={'link'}
+                iconRight={button.iconRight}
+                openInNewWindow={button.openInNewWindow}
+                to={button.to}
               >
-                <ContentText>
-                  <MoleculeTextInteraction>
-                    <Molecule>
-                      <div className={cn(pb8)}>{icon}</div>
-                      <h4 className={cn('font-h5', pb8)}>{title}</h4>
-                      <p className={cn('font-p-small', pb8)}>{description}</p>
-                    </Molecule>
-                    <MoleculeInteraction>{button}</MoleculeInteraction>
-                  </MoleculeTextInteraction>
-                </ContentText>
-              </Grid>
-            ))}
-          </Container>
-        </Container>
+                {button.ctaTitle}
+              </Button>
+            </Container>
+          )}
+        </div>
+        {additional && (
+          <>
+            <h3 className={cn('font-h3', pb16)}>{additional.title}</h3>
+            <p className={cn('font-p-large', pb24)}>{additional.description}</p>
+            {additional.button && (
+              <Container>
+                <Button
+                  className={cn(
+                    additional.button.className && additional.button.className
+                  )}
+                  style={'link'}
+                  iconRight={additional.button.iconRight}
+                  openInNewWindow={additional.button.openInNewWindow}
+                  to={additional.button.to}
+                >
+                  {additional.button.ctaTitle}
+                </Button>
+              </Container>
+            )}
+          </>
+        )}
       </Grid>
-
-      <Grid lg={6} md={6} sm={12} xs={12}>
-        <ContentVisual>{visual}</ContentVisual>
+      <Grid lg={6} md={7} sm={12} xs={12} className={styles.codeboxContainer}>
+        <Container className={styles.codeboxWrapper}>{codebox}</Container>
       </Grid>
     </Container>
   </div>

@@ -7,11 +7,11 @@
   display: flex;
   flex-grow: 1;
   text-align: left;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--size-12);
   margin-right: unset;
 }
 
-@media (--xs) {
+@media (--xs), (--sm) {
   .quote-block {
     justify-content: center;
     text-align: center;

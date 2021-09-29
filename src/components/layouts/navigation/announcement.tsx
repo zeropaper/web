@@ -24,7 +24,7 @@ const ArrowRight = <i className="ph-arrow-right-bold themed-primary size16" />
 
 const AnnouncementBanner = ({ text, link, lengthy }: Banner) => (
   <Container
-    className={cn(styles.announcement, 'background-is-themed')}
+    className={cn(styles.announcement, 'background-is-dark')}
     justify={'center'}
     alignItems={'center'}
     xsHidden={lengthy}

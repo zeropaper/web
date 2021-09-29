@@ -2,7 +2,7 @@
 path: '/keto-zanzibar-evolution/'
 banner: '/images/blog-banner-keto.png'
 title: >
-  The Evolution of Ory Keto: A Consistent, Global Authorization System
+  The Evolution of Ory Keto: A Global Scale Authorization System
 
 seo:
   description: >
@@ -15,7 +15,7 @@ seo:
 publishedAt: '2021-04-26'
 author: vinckr
 overline: >
-  Next-Generation Ory Keto - An open source Google Zanzibar
+  Open Source Zanzibar Implementation
 
 category: Article
 

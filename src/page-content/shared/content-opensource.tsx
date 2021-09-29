@@ -4,55 +4,52 @@ import Button from '../../components/freestanding/button/button'
 import { PropTypes as ProjectProps } from '../../components/layouts/projects/projects'
 import { PropTypes as QuickstartProps } from '../../components/layouts/quickstart/quickstart'
 
-const BookOpen = <i className={'ph-book-open-fill base-white size24'} />
 const ArrowRight = <i className={'ph-arrow-right-bold themed-primary size16'} />
-const SlackLogo = <i className={' ph-slack-logo-fill themed-primary size32'} />
-const ChatsCircle = (
-  <i className={'ph-chats-circle-fill themed-primary size32'} />
-)
 
 export const opensourceProjects: ProjectProps = {
   id: 'opensource.projects',
-  overline: 'Identity Server',
-  title: <>Ory Open Source</>,
+  title: (
+    <>
+      <span className={'is-mute-text'}>Fully flexible, </span>fully yours
+    </>
+  ),
   description: (
     <>
-      Onboard users, register and manage identities. Interface with third
-      parties and control access to applications using modern and secure
-      standards. Supported by a large open source community.
+      Ory offers reliable and scalable APIs and services for authentication,
+      authorization, access control, and delegation.
     </>
   )
 }
 
 export const opensourceQuickstart: QuickstartProps = {
   id: 'opensource.quickstart',
-  title: <>Ready to get started?</>,
+  background: 'light-grey',
+  slant: true,
+  title: (
+    <>
+      Power up <span className={'is-mute-text'}>your stack</span>
+    </>
+  ),
   description: (
     <>
-      Explore Ory and the future of identity. Make yourself heard in discussions
-      and contribute directly to Ory on GitHub. Your code will be shipped in the
-      next version.
+      Explore Ory and the future of identity. Breeze through technical concepts,
+      level up with our tutorials or master our extensive API reference.
     </>
   ),
-  buttons: (
-    <>
-      <Button
-        style={'filled'}
-        to={'/docs/ecosystem/projects'}
-        iconRight={BookOpen}
-      >
-        Documentation
-      </Button>
-    </>
-  ),
+  buttons: [
+    {
+      ctaTitle: 'Visit the documentation',
+      style: 'filled',
+      to: '/docs/ecosystem/projects'
+    }
+  ],
   content: [
     {
-      icon: SlackLogo,
       title: <>Developer Chat on Slack</>,
       description: (
         <>
           A community to help you succeed. Become a hero for developers, ask
-          questions & participate in events.
+          questions and participate in events.
         </>
       ),
       button: (
@@ -61,17 +58,16 @@ export const opensourceQuickstart: QuickstartProps = {
           style={'link'}
           iconRight={ArrowRight}
         >
-          Join the chat
+          Join the chat on Slack
         </Button>
       )
     },
     {
-      icon: ChatsCircle,
       title: <>GitHub Discussions</>,
       description: (
         <>
-          Make yourself heard on GitHub and contribute code and insights to the
-          open source projects at the heart of Ory.
+          Chime in on GitHub and contribute code and insights to the open source
+          projects that power Ory.
         </>
       ),
       button: (

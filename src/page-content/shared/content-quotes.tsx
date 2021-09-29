@@ -3,6 +3,8 @@ import React from 'react'
 import { PropTypes as QuoteProps } from '../../components/layouts/quotes/quotes'
 
 export const sharedQuotes: QuoteProps = {
+  background: 'dark',
+  slant: true,
   id: 'shared.quotes',
   quotes: [
     {
@@ -41,6 +43,8 @@ export const sharedQuotes: QuoteProps = {
 
 export const kratosQuotes: QuoteProps = {
   id: 'kratos.quotes',
+  background: 'dark',
+  slant: true,
   quotes: [
     {
       big: true,
@@ -79,6 +83,8 @@ export const kratosQuotes: QuoteProps = {
 
 export const ketoQuotes: QuoteProps = {
   id: 'keto.quotes',
+  background: 'dark',
+  slant: true,
   quotes: [
     {
       big: true,
@@ -119,6 +125,8 @@ export const ketoQuotes: QuoteProps = {
 
 export const hydraQuotes: QuoteProps = {
   id: 'hydra.quotes',
+  background: 'dark',
+  slant: true,
   quotes: [
     {
       big: true,
@@ -159,6 +167,8 @@ export const hydraQuotes: QuoteProps = {
 
 export const oathkeeperQuotes: QuoteProps = {
   id: 'oathkeeper.quotes',
+  background: 'dark',
+  slant: true,
   quotes: [
     {
       big: true,

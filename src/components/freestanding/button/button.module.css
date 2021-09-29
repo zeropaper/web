@@ -15,9 +15,10 @@
 }
 
 .style-filled {
-  padding: var(--space-1) var(--space-3);
+  padding: var(--size-2) var(--size-6);
   background: var(--colors-button-primary);
   border: var(--size-px) solid transparent;
+  border-radius: var(--radius-smaller);
 
   & i {
     color: inherit;
@@ -38,10 +39,11 @@
 }
 
 .style-outlined {
-  padding: var(--space-1) var(--space-3);
+  padding: var(--size-2) var(--size-6);
   background: transparent;
   color: var(--colors-link-primary);
   border: var(--size-px) solid var(--colors-themed-primary);
+  border-radius: var(--radius-smaller);
   box-sizing: border-box;
 
   & i {
@@ -76,10 +78,11 @@
 }
 
 .style-text {
-  padding: var(--space-1) var(--space-3);
+  padding: var(--size-2) var(--size-6);
   background: transparent;
   color: var(--colors-themed-primary);
   border: var(--size-px) solid transparent;
+  border-radius: var(--radius-smaller);
 
   & i {
     color: inherit;

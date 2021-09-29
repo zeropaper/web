@@ -7,20 +7,16 @@ import CodeBox, {
 } from '../components/freestanding/codebox/codebox'
 import { PropTypes as FeatureContentProps } from '../components/layouts/feature-content/feature-content'
 import { PropTypes as FeaturelistProps } from '../components/layouts/featurelist/feature-list'
-import { PropTypes as HeroProps } from '../components/layouts/hero/hero'
+import { PropTypes as HeroImageProps } from '../components/layouts/hero/hero-image'
 import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
 
 import Keto from '../images/keto/keto.svg'
 import KetoSDK from '../images/keto/keto_p.svg'
 
-const Fast = <i className={'ph-fast-forward-fill size24'} />
 const CheckCircle = (
   <i className={'ph-check-circle-fill themed-primary size16'} />
 )
 const ArrowRight = <i className={'ph-arrow-right-bold size16'} />
-const CircleThreePlus = (
-  <i className={'ph-circles-three-plus-fill base-white size24'} />
-)
 const PlusCircle = <i className={'ph-plus-circle-fill base-grey-400 size16'} />
 
 export const seo: SeoProps = {
@@ -29,16 +25,23 @@ export const seo: SeoProps = {
   title: 'Ory Keto - Permission and Role Management'
 }
 
-export const hero: HeroProps = {
+export const hero: HeroImageProps = {
   id: 'keto.hero',
-  title: 'Global Access Control',
+  title: (
+    <>
+      <span className={'is-mute-text'}>Access Control - </span> global,
+      granular, lightning-fast
+    </>
+  ),
   description:
     'Manage user roles, rights, and permissions with access-control lists.',
-  buttons: (
-    <Button to={'/keto/docs/quickstart/'} style={'filled'} iconRight={Fast}>
-      Get Started
-    </Button>
-  ),
+  buttons: [
+    {
+      ctaTitle: 'Get Started',
+      style: 'filled',
+      to: '/keto/docs/quickstart/'
+    }
+  ],
   image: (
     <img
       className="responsive"
@@ -51,9 +54,9 @@ export const hero: HeroProps = {
 
 export const featureList: FeaturelistProps = {
   id: 'keto.featurelist',
+  slant: true,
   features: [
     {
-      icon: CircleThreePlus,
       title: 'Ory Keto Features',
       description: (
         <>
@@ -147,6 +150,30 @@ export const featureContentCodeBox: CodeBoxProps = {
      http://keto-read-api/check`
     },
     {
+      filename: 'index.js',
+      language: Languages.JavaScript,
+      code: `import ...
+
+const checkClient = new checkService.CheckServiceClient('keto-read-api')
+
+const checkRequest = new checkData.CheckRequest()
+checkRequest.setNamespace('files')
+checkRequest.setObject('file_a')
+checkRequest.setRelation('access')
+
+const sub = new acl.Subject()
+sub.setId('john')
+checkRequest.setSubject(sub)
+
+checkClient.check(checkRequest, (error, resp) => {
+  if (error) {
+    console.log('Encountered error:', error)
+  } else {
+    console.log(resp.getAllowed() ? 'Allowed' : 'Denied')
+  }
+})`
+    },
+    {
       filename: 'main.go',
       language: Languages.Go,
       code: `package main
@@ -181,71 +208,58 @@ func main() {
 \t}
 \tfmt.Println("Denied")
 }`
-    },
-    {
-      filename: 'index.js',
-      language: Languages.JavaScript,
-      code: `import ...
-
-const checkClient = new checkService.CheckServiceClient('keto-read-api')
-
-const checkRequest = new checkData.CheckRequest()
-checkRequest.setNamespace('files')
-checkRequest.setObject('file_a')
-checkRequest.setRelation('access')
-
-const sub = new acl.Subject()
-sub.setId('john')
-checkRequest.setSubject(sub)
-
-checkClient.check(checkRequest, (error, resp) => {
-  if (error) {
-    console.log('Encountered error:', error)
-  } else {
-    console.log(resp.getAllowed() ? 'Allowed' : 'Denied')
-  }
-})`
     }
   ]
 }
 
 export const featureContentCoding: FeatureContentProps = {
   id: 'keto.featurecontent.coding',
-  overline: 'Start in minutes',
-  title: <>Easy Integration</>,
+  slant: true,
+  background: 'grey',
+  overline: <>Global access control</>,
+  title: (
+    <>
+      <span className={'is-mute-text'}>Split-second </span>decision making
+    </>
+  ),
   description: (
     <>
-      Ory Keto is an open source global and consistent permission &
-      authorization server with an easy and granular permission language and low
-      latency. It is based on Google Zanzibar, written in Go, and ships gRPC and
-      REST APIs.
+      Ory Keto is a consistent permission and authorization server with an easy
+      and granular permission language, it is completely open source, and
+      blazingly fast - globally. It is based on Google Zanzibar and ships gRPC
+      and REST APIs.
     </>
   ),
-  buttons: (
-    <>
-      <Button to={'/docs/keto/'} style={'link'} iconRight={ArrowRight}>
-        Documentation
-      </Button>
-    </>
-  ),
+  button: {
+    ctaTitle: 'Visit the documentation',
+    to: '/docs/keto/',
+    iconRight: ArrowRight
+  },
   content: <CodeBox {...featureContentCodeBox} />
 }
 
 export const featureContentSDK: FeatureContentProps = {
   id: 'keto.featurecontent.sdk',
-  overline: 'Polyglot',
-  title: <>SDKs for all languages</>,
-  description: (
+  slant: true,
+  background: 'dark',
+  overline: 'Your language, our SDK',
+  title: (
     <>
-      Ory Keto is written in Go and we provide SDKs for every language. Our
-      documentation makes integrating Ory / Keto a snap.
+      <span className={'is-mute-text'}>Keto is</span> polyglot
     </>
   ),
-  buttons: (
-    <Button to={'/keto/docs/quickstart/'} style={'link'} iconRight={ArrowRight}>
-      Run the Quickstart
-    </Button>
+  description: (
+    <>
+      Ory Keto is written in Go and we provide SDKs for every language. It works
+      behind any framework and integrates with any existing data structures and
+      identifiers. Our documentation makes integrating Ory Keto a piece of cake.
+    </>
   ),
+  button: {
+    ctaTitle: 'Run the Quickstart',
+    to: '/keto/docs/quickstart/',
+    iconRight: ArrowRight
+  },
   content: (
     <img
       className="responsive"

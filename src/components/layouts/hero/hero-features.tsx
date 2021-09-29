@@ -1,10 +1,9 @@
 import cn from 'classnames'
 import React from 'react'
 
-import ColourWrapper from '../../freestanding/colour/colour-wrapper'
+import Button from '../../freestanding/button/button'
 import Container from '../../freestanding/containers/container'
 import Grid from '../../freestanding/containers/grid'
-import ContentText from '../../freestanding/content/content-text'
 
 import {
   pb32,
@@ -14,132 +13,103 @@ import {
 } from '../../freestanding/utils/padding.module.css'
 import * as styles from './hero-features.module.css'
 
-export interface Text {
-  icon?: React.ReactElement
-  title: React.ReactElement
-  description: React.ReactElement
-}
-
 export interface PropTypes {
   id: string
-  thin?: boolean
-  small?: boolean
-  title: string
+  background?: 'dark' | 'grey' | 'light-grey' | 'themed'
+  slant?: boolean
+  title: string | React.ReactElement
   description?: React.ReactElement
-  textbox: Array<Text>
+  features: Array<Feature>
+  buttons?: Array<HeroCTA>
+}
+
+export interface Feature {
+  title: string | React.ReactElement
+  description: string | React.ReactElement
+}
+
+interface HeroCTA {
+  ctaTitle: string
+  style: 'filled' | 'outlined' | 'text'
+  to: string
+  openInNewWindow?: boolean
+  iconRight?: React.ReactElement
+  className?: string
 }
 
 const HeroFeatures = ({
   id,
-  thin,
-  small,
+  background,
+  slant,
   title,
   description,
-  textbox
+  features,
+  buttons
 }: PropTypes) => (
-  <div id={id} className={cn(styles.heroFeatures)}>
-    <Container fluid={true} justify={'center'} alignItems={'start'}>
-      {!thin ? (
-        <Grid lg={12} md={12} sm={12} xs={12}>
-          <Container justify={'center'} className={cn(pb64)}>
-            <Grid
-              lg={8}
-              md={10}
-              sm={12}
-              xs={12}
-              className={cn(styles.heroFeaturesHeading)}
-            >
-              {!small ? (
-                <h1 className={cn('font-h1', pb32)}>{title}</h1>
-              ) : (
-                <h2 className={cn('font-h3', pb32)}>{title}</h2>
-              )}
-              {description && (
-                <p className={cn('font-p-large', pb8)}>{description}</p>
-              )}
-            </Grid>
-          </Container>
-          <Container alignItems={'start'} justify={'start'}>
-            {textbox.map((f, index) => {
-              return (
-                <Grid
-                  lg={6}
-                  md={6}
-                  sm={6}
-                  xs={12}
-                  className={cn(pb48, styles.heroFeaturesContent)}
+  <div
+    id={id}
+    className={cn(
+      styles.heroFeatures,
+      {
+        ['background-is-grey']: background === 'grey',
+        ['background-is-dark']: background === 'dark',
+        ['background-is-light-grey']: background === 'light-grey',
+        ['background-is-themed']: background === 'themed'
+      },
+      { ['is-slanted-top-medium']: slant === true }
+    )}
+  >
+    <Container fluid={true} alignItems={'start'}>
+      <Grid lg={4} md={12} sm={12} xs={12} className={cn(pb64)}>
+        <Container className={cn(pb32, styles.title)}>
+          <h1 className={cn('font-h1', pb32)}>{title}</h1>
+          <p className={cn('font-p-large')}>{description}</p>
+        </Container>
+        <Container justify={'start'}>
+          {buttons &&
+            buttons.map(
+              (
+                { ctaTitle, style, to, openInNewWindow, iconRight, className },
+                index
+              ) => (
+                <Button
+                  className={cn('button-group', className)}
+                  style={style}
                   key={index}
+                  iconRight={iconRight}
+                  openInNewWindow={openInNewWindow}
+                  to={to}
                 >
-                  <Container flexContainer={'row'} alignItems={'start'}>
-                    {f.icon && (
-                      <ColourWrapper
-                        className={cn(pb8)}
-                        text={'themed-primary'}
-                      >
-                        {f.icon}
-                      </ColourWrapper>
-                    )}
-                    <ContentText>
-                      <h4 className={cn('font-h5', pb8)}>{f.title}</h4>
-                      <p className={cn('font-p-small', pb8)}>{f.description}</p>
-                    </ContentText>
-                  </Container>
-                </Grid>
+                  {ctaTitle}
+                </Button>
               )
-            })}
-          </Container>
-        </Grid>
-      ) : (
-        <Grid lg={8} md={10} sm={12} xs={12}>
-          <Container fluid={true} justify={'center'} className={cn(pb64)}>
+            )}
+        </Container>
+      </Grid>
+      <Grid lg={6} md={12} sm={12} xs={12}>
+        <Container alignItems={'start'} justify={'start'}>
+          {features.map(({ title, description }, index) => (
             <Grid
-              lg={8}
-              md={10}
-              sm={12}
+              lg={6}
+              md={6}
+              sm={6}
               xs={12}
-              className={cn(styles.heroFeaturesHeading)}
+              className={cn(styles.featuresContent)}
+              key={index}
             >
-              {!small ? (
-                <h1 className={cn('font-h1', pb32)}>{title}</h1>
-              ) : (
-                <h2 className={cn('font-h3', pb32)}>{title}</h2>
-              )}
-              {description && (
-                <p className={cn('font-p-large', pb8)}>{description}</p>
-              )}
+              <Container
+                key={index}
+                className={cn(pb48, styles.featuresContent)}
+                flexContainer={'row'}
+                alignItems={'start'}
+              >
+                <h2 className={cn('font-h5', pb8)}>{title}</h2>
+                <p className={cn('font-p-small', pb8)}>{description}</p>
+              </Container>
             </Grid>
-          </Container>
-          <Container alignItems={'start'} justify={'start'}>
-            {textbox.map((f, index) => {
-              return (
-                <Grid
-                  lg={6}
-                  md={6}
-                  sm={6}
-                  xs={12}
-                  className={cn(pb48, styles.heroFeaturesContent)}
-                  key={index}
-                >
-                  <Container flexContainer={'row'} alignItems={'start'}>
-                    {f.icon && (
-                      <ColourWrapper
-                        className={cn(pb8)}
-                        text={'themed-primary'}
-                      >
-                        {f.icon}
-                      </ColourWrapper>
-                    )}
-                    <ContentText>
-                      <h4 className={cn('font-h5', pb8)}>{f.title}</h4>
-                      <p className={cn('font-p-small', pb8)}>{f.description}</p>
-                    </ContentText>
-                  </Container>
-                </Grid>
-              )
-            })}
-          </Container>
-        </Grid>
-      )}
+          ))}
+        </Container>
+      </Grid>
     </Container>
   </div>
 )

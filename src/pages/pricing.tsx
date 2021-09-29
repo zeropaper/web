@@ -19,10 +19,10 @@ const PricingPage = () => (
   <Layout>
     <SEO {...content.seo} />
     <Pricing {...content.pricing} {...pricingSaas} {...pricingOpensource} />
-    <Quotes {...sharedQuotes} />
     <Adopters {...sharedAdopters} />
     <Stats {...sharedStats} />
     <FeatureList {...content.featurelist} />
+    <Quotes {...sharedQuotes} />
     <Faq {...content.faq} />
   </Layout>
 )

@@ -1,4 +1,4 @@
 .blog-hero {
-  padding-top: 165px;
-  padding-bottom: 0;
+  padding: var(--space-medium) 0;
+  background-color: var(--colors-base-background);
 }
