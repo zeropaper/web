@@ -120,7 +120,7 @@ export const featureContentCloud: FeatureContentProps = {
             <Button to={'/pricing'} style={'link-inline'}>
               pricing plans
             </Button>{' '}
-            - pay what you use.
+            - pay for what you use.
           </>
         )
       },
