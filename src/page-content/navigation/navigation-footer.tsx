@@ -140,6 +140,20 @@ export const links: Pick<FooterPropTypes, 'category'> = {
       ]
     },
     {
+      menuCategory: 'Events',
+      menuItems: [
+        {
+          title: (
+            <>
+              Ory Summit
+              <span className={cn('dot')} />
+            </>
+          ),
+          to: '/summit21'
+        }
+      ]
+    },
+    {
       menuCategory: 'Talk to us',
       menuItems: [
         {

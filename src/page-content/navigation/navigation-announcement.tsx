@@ -7,3 +7,10 @@ export const jobs: AnnouncementProps = {
   shortText: 'Ory is hiring!',
   link: '/jobs?mtm_campaign=job-banner'
 }
+
+export const summit: AnnouncementProps = {
+  longText:
+    'Sign up for Ory Summit 2021: free developer conference on security, IAM & more!',
+  shortText: 'Sign up for Ory Summit 2021!',
+  link: '/summit21?mtm_campaign=ory-summit-2021&mtm_kwd=banner-landingpage'
+}

@@ -101,6 +101,10 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
         {
           title: 'About Us',
           to: '/about'
+        },        
+        {
+          title: 'Jobs',
+          to: '/jobs'
         },
         {
           title: 'Contact Us',
@@ -114,8 +118,8 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
     },
     {
       title: (
-        <Button to={'/jobs'} style={'link'}>
-          Jobs
+        <Button to={'/summit21'} style={'link'}>
+          Ory Summit
           <span className={'dot'} />
         </Button>
       )
@@ -204,6 +208,15 @@ export const mobileMenu: Pick<NavProps, 'mobileMenu'> = {
           {
             title: 'Identity Report',
             to: '/identity-in-modern-applications-oreilly/'
+          }
+        ]
+      },
+      {
+        category: 'Events',
+        mobileMenuItems: [
+          {
+            title: 'Ory Summit 2021',
+            to: '/summit21'
           }
         ]
       }
