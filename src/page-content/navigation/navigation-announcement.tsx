@@ -12,5 +12,6 @@ export const summit: AnnouncementProps = {
   longText:
     'Sign up for Ory Summit 2021: free developer conference on security, IAM & more!',
   shortText: 'Sign up for Ory Summit 2021!',
-  link: '/summit21?mtm_campaign=ory-summit-2021&mtm_kwd=banner-landingpage'
+  link: '/summit21?mtm_campaign=ory-summit-2021&mtm_kwd=banner-landingpage',
+  openInNewWindow: true
 }

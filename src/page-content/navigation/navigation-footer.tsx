@@ -149,7 +149,8 @@ export const links: Pick<FooterPropTypes, 'category'> = {
               <span className={cn('dot')} />
             </>
           ),
-          to: '/summit21'
+          to: '/summit21',
+          openInNewWindow: true
         }
       ]
     },

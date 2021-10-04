@@ -11,6 +11,7 @@ interface Banner {
   text: string
   link: string
   lengthy: boolean
+  openInNewWindow: boolean
 }
 
 export interface PropTypes {
@@ -18,11 +19,17 @@ export interface PropTypes {
   longText: string
   link: string
   className?: string
+  openInNewWindow?: boolean
 }
 
 const ArrowRight = <i className="ph-arrow-right-bold themed-primary size16" />
 
-const AnnouncementBanner = ({ text, link, lengthy }: Banner) => (
+const AnnouncementBanner = ({
+  text,
+  link,
+  lengthy,
+  openInNewWindow = false
+}: Banner) => (
   <Container
     className={cn(styles.announcement, 'background-is-dark')}
     justify={'center'}
@@ -32,13 +39,24 @@ const AnnouncementBanner = ({ text, link, lengthy }: Banner) => (
     mdHidden={!lengthy}
     lgHidden={!lengthy}
   >
-    <Button style={'link'} to={link} iconRight={ArrowRight}>
+    <Button
+      style={'link'}
+      to={link}
+      iconRight={ArrowRight}
+      openInNewWindow={openInNewWindow}
+    >
       {text}
     </Button>
   </Container>
 )
 
-const Announcement = ({ longText, shortText, link, className }: PropTypes) => {
+const Announcement = ({
+  longText,
+  shortText,
+  link,
+  className,
+  openInNewWindow = false
+}: PropTypes) => {
   const location = useLocation()
 
   if (location.pathname.replace(/\/+$/, '') === link.replace(/\/+$/, '')) {
@@ -47,8 +65,18 @@ const Announcement = ({ longText, shortText, link, className }: PropTypes) => {
 
   return (
     <div className={className}>
-      <AnnouncementBanner text={longText} link={link} lengthy={true} />
-      <AnnouncementBanner text={shortText} link={link} lengthy={false} />
+      <AnnouncementBanner
+        text={longText}
+        link={link}
+        lengthy={true}
+        openInNewWindow={openInNewWindow}
+      />
+      <AnnouncementBanner
+        text={shortText}
+        link={link}
+        lengthy={false}
+        openInNewWindow={openInNewWindow}
+      />
     </div>
   )
 }
