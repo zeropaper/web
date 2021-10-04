@@ -66,7 +66,7 @@ const Button = ({
   )
 
   if (typeof to === 'string') {
-    return to.startsWith('/') && to.indexOf('/docs' || '/docs/') < 0 ? (
+    return to.startsWith('/') && to.indexOf('/docs') < 0 && to.indexOf('/summit21') < 0 ? (
       <GatsbyLink
         to={to}
         className={classes}
