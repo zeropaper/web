@@ -12,7 +12,7 @@ export const sharedQuotes: QuoteProps = {
       description: (
         <>
           We like using Ory because it’s API first design made it super easy to
-          integrate with the rest our stack.
+          integrate with the rest of our stack.
         </>
       ),
       person: `Paul Harman`,
