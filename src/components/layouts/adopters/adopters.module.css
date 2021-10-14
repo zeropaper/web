@@ -13,13 +13,7 @@
 }
 
 .adopters-container {
-  flex: 1 calc(100% / 5);
-}
-
-@media (--md) {
-  .adopters-container {
-    flex: 1 calc(100% / 4);
-  }
+  flex: 1 calc(100% / 4);
 }
 
 @media (--sm) {

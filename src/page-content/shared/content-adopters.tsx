@@ -10,8 +10,6 @@ import kyma from '../../images/adopters/kyma.svg'
 import raspberrypi from '../../images/adopters/raspberrypi.svg'
 import sainsburys from '../../images/adopters/sainsburys.svg'
 import segment from '../../images/adopters/segment.svg'
-import thoughtworks from '../../images/adopters/thoughtworks.svg'
-import threerein from '../../images/adopters/threerein.svg'
 
 export const sharedAdopters: AdoptersProps = {
   id: 'shared.adopters',
@@ -20,11 +18,6 @@ export const sharedAdopters: AdoptersProps = {
       title: 'BluesWireless',
       image: blues,
       url: 'https://blues.io/'
-    },
-    {
-      title: 'ThoughtWorks',
-      image: thoughtworks,
-      url: 'https://www.thoughtworks.com'
     },
     {
       title: 'Segment',
@@ -55,11 +48,6 @@ export const sharedAdopters: AdoptersProps = {
       title: 'Kyma Project',
       image: kyma,
       url: 'https://kyma-project.io/'
-    },
-    {
-      title: '3REIN',
-      image: threerein,
-      url: 'https://3rein.com/'
     },
     {
       title: 'Contraste Digital',
