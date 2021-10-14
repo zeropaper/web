@@ -26,7 +26,7 @@ export const sharedQuotes: QuoteProps = {
         </>
       ),
       person: `Ken Adler`,
-      jobTitle: `Identity & Infosec, Thoughtworks`
+      jobTitle: `Identity & Infosec, ISOC Pioneer Member`
     },
     {
       description: (
