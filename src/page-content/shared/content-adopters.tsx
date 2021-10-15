@@ -10,6 +10,8 @@ import kyma from '../../images/adopters/kyma.svg'
 import raspberrypi from '../../images/adopters/raspberrypi.svg'
 import sainsburys from '../../images/adopters/sainsburys.svg'
 import segment from '../../images/adopters/segment.svg'
+import amorevino from '../../images/adopters/amorevino.svg'
+import padis from '../../images/adopters/padis.svg'
 
 export const sharedAdopters: AdoptersProps = {
   id: 'shared.adopters',
@@ -35,6 +37,11 @@ export const sharedAdopters: AdoptersProps = {
       url: 'https://www.raspberrypi.org/'
     },
     {
+      title: `Amorevino`,
+      image: amorevino,
+      url: 'https://www.amorevino.com/'
+    },
+    {
       title: `Discogs`,
       image: discogs,
       url: 'https://www.discogs.com/'
@@ -48,6 +55,11 @@ export const sharedAdopters: AdoptersProps = {
       title: 'Kyma Project',
       image: kyma,
       url: 'https://kyma-project.io/'
+    },
+    {
+      title: 'Padis',
+      image: padis,
+      url: 'https://padis.io/'
     },
     {
       title: 'Contraste Digital',
