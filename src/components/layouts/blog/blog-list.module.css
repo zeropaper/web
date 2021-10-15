@@ -5,19 +5,23 @@
 
 .blog-item {
   z-index: var(--z-index-5);
+  overflow: hidden;
   background: var(--colors-base-background);
   border-radius: var(--radius-small);
   align-items: start;
   border: 1px solid;
   border-color: var(--colors-base-grey-400);
   margin-bottom: 2rem;
-  padding: var(--size-8);
   box-sizing: border-box;
   transition: box-shadow ease 200ms;
 
   &:hover {
     box-shadow: var(--elevation-large);
   }
+}
+
+.blog-text {
+  padding: var(--size-8);
 }
 
 .item-flex {
