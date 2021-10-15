@@ -1,6 +1,6 @@
 ---
 path: '/looking-at-keto/'
-banner: '/images/blog-banner-keto.png'
+banner: ../../images/articles/react-native/expo-dashboard.png
 title: >
   Looking at Zanzibar through Ory Keto
 

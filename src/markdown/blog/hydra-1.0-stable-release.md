@@ -1,6 +1,6 @@
 ---
 path: '/hydra-1.0-stable-release/'
-banner: '/images/blog-banner-hydra.png'
+banner: ../../images/articles/react-native/expo-dashboard.png
 publishedAt: '2019-06-01'
 author: aeneasr
 

@@ -1,6 +1,6 @@
 ---
 path: '/kratos-knative-demo/'
-banner: '/images/blog-banner-kratos.png'
+banner: ../../images/articles/react-native/expo-dashboard.png
 title: 'Deploy ORY Kratos with Knative and Kubernetes in Minikube'
 publishedAt: '2020-10-01'
 author: 'Kim Neunert'

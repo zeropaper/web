@@ -1,6 +1,6 @@
 ---
 path: '/modern-application-architecture/'
-banner: '/images/blog-banner-ory.png'
+banner: ../../images/articles/react-native/expo-dashboard.png
 publishedAt: '2020-09-03'
 author: 'Lee Atchison'
 

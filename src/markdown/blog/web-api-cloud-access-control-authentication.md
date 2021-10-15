@@ -1,6 +1,6 @@
 ---
 path: '/web-api-cloud-access-control-authentication/'
-banner: '/images/blog-banner-ory.png'
+banner: ../../images/articles/react-native/expo-dashboard.png
 title: >
   Approaching Access Control on the Web
 

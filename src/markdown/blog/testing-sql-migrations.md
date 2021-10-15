@@ -1,6 +1,6 @@
 ---
 path: '/testing-sql-migrations/'
-banner: '/images/blog-banner-hydra.png'
+banner: ../../images/articles/react-native/expo-dashboard.png
 title: >
   Write Better Migrations with SQL Tests
 

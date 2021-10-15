@@ -1,6 +1,6 @@
 ---
 path: '/choose-recommended-argon2-parameters-password-hashing/'
-banner: '/images/blog-banner-ory.png'
+banner: ../../images/articles/react-native/expo-dashboard.png
 title: >
   Choose Argon2 Parameters for Secure Password Hashing and Login
 

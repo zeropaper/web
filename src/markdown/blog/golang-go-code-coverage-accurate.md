@@ -1,6 +1,6 @@
 ---
 path: '/golang-go-code-coverage-accurate/'
-banner: '/images/blog-banner-ory.png'
+banner: ../../images/articles/react-native/expo-dashboard.png
 publishedAt: '2018-02-20'
 
 author: aeneasr
