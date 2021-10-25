@@ -2,16 +2,16 @@ import React from 'react'
 
 import { PropTypes as AdoptersProps } from '../../components/layouts/adopters/adopters'
 
+import amorevino from '../../images/adopters/amorevino.svg'
 import blues from '../../images/adopters/blues.svg'
 import contraste from '../../images/adopters/contraste.svg'
 import discogs from '../../images/adopters/discogs.svg'
 import hootsuite from '../../images/adopters/hootsuite.svg'
 import kyma from '../../images/adopters/kyma.svg'
+import padis from '../../images/adopters/padis.svg'
 import raspberrypi from '../../images/adopters/raspberrypi.svg'
 import sainsburys from '../../images/adopters/sainsburys.svg'
 import segment from '../../images/adopters/segment.svg'
-import amorevino from '../../images/adopters/amorevino.svg'
-import padis from '../../images/adopters/padis.svg'
 
 export const sharedAdopters: AdoptersProps = {
   id: 'shared.adopters',
