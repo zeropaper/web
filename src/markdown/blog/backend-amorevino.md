@@ -1,0 +1,160 @@
+---
+path: '/cloud-ecommerce-backend/'
+banner: '/images/blog-banner-ory.png'
+title: >
+  E-Commerce with Ory Cloud Part 1: Backend Example
+
+seo:
+  description: >
+    Amorevino is using Ory Cloud to extend their own online wine store building
+    a platform for other wine sellers and experiences.
+  title: >
+    An example of a modern scalable backend for Ory Cloud
+
+publishedAt: '2021-10-28'
+author: bennihz
+overline: >
+  Ory Cloud Identity for App Developers
+
+category: Article
+
+teaser: >
+  Learn how to integrate Ory Cloud with your existing node.js backend, business
+  model and data architecture.
+---
+
+https://www.youtube.com/watch?v=umSRQBVdPjM
+
+This is part 1 of a two part blog post about building a full-stack e-commerce
+example application using the Ory Cloud.
+
+In this blog post, you will learn how to work with the Ory Cloud API. You will
+build a node.js backend using the Express framework, and an accompanying native
+mobile application in [(part 2)](/cloud-ecommerce-frontend/).
+
+## What is Ory
+
+Ory offers open-source solutions for identity management, such as authorization
+and authentication (i.e. who is the current user (authentication) and what they
+are allowed to do (authorization)?). Ory's services can be used anywhere from
+managing real users' accounts to IoT tech solutions.
+
+## What is Ory Cloud?
+
+In 2021, Ory started offering [Ory Cloud](https://console.ory.sh/). It enables
+customers to manage their accounts as well as sessions and
+login/registration/verification/recovery via Ory’s API, also using Oauth 2.0
+technology enabling your users to log in via Facebook, Google, LinkedIn, etc.
+
+For now, [Ory Kratos](https://github.com/ory/kratos) works on Ory Cloud. As an
+E-commerce company called Amorevino, we got the opportunity to use the service
+in early access, being one of the first commercial customers and in this guide,
+we will share our learnings with you.
+
+## Why use Ory as an e-commerce platform?
+
+In e-commerce, as probably in every software focused business, a very important
+question is: Make or buy? Since time is your most precious resource, experts
+recommend making everything that’s connected to your unique selling point while
+buying everything else. Others can make it better and cheaper than you, butalso
+your customers won’t care about your technical setup, as long as it is
+trustworthy.
+
+In our case, Ory offers a cheap, community-driven open-source solution, enabling
+us to use the social sign-in via platforms like Google, Facebook, etc. making us
+much more trustworthy and enabling our users to sign in without creating an
+account or choosing a password.
+
+## How does it work?
+
+This sequence diagram shows how the API would be used, both in login and
+registration flows. The first part would be the Frontend passing user
+credentials from the client-side to Ory, initiating a session by receiving a
+session token in the HTTP-header of the API’s response.
+
+![Ory Cloud Flow](../../images/articles/amorevino-example/cloud_apis.png)
+
+Since this guide focuses mainly on the backend part, we will take a closer look
+at the red area, representing the middleware. If you want to know more about the
+client side, check out the
+[second part of this post](/cloud-ecommerce-frontend/)..
+
+Once our backend receives the `session_token` in a request, the token will be
+used in the backend's middleware. It uses the Ory Cloud API to verify a user’s
+session and get the user’s data. In this way, no critical data is passed between
+our frontend and backend. Hereafter, the user data may be used in our own
+business logic and serve a response to our frontend.
+
+## Let’s look at the code!
+
+To also give you a feel of how this backend middleware could look like, we will
+walk through this piece of code.
+
+This first line defines the route we mentioned earlier. In this case, validate
+is our middleware, if the request passes it successfully, it will be passed to
+the handler.
+
+```ts
+// get a users profile
+app.get('/users/profile', validate(tokenSchema), getProfileHandler)
+```
+
+The request is validated against a `yup` schema:
+
+```ts
+import { number, object, string } from 'yup'
+export const sessionToken = object({
+  headers: object({ session_token: string().required() })
+})
+```
+
+This brings us to our last code snippet, the middleware itself. We divide it
+into two steps. In the beginning, the request is validated against the
+`tokenSchema`. This ensures that the `session_token` is present in the header.
+
+```ts
+import { NextFunction, Request, Response } from 'express'
+import { AnySchema } from 'yup'
+import config from '../../config/default'
+const fetch = require('node-fetch')
+const validate =
+  (schema: AnySchema) => (req: Request, res: Response, next: NextFunction) =>
+    schema.validate({
+      body: req.body,
+      query: req.query,
+      params: req.params,
+      headers: req.headers
+    })
+```
+
+After that, the `whoami` Ory API is used to check whether the token is valid or
+not. If it is, the user traits will be extracted from the response and passed on
+to the handler by the middleware.
+
+```ts
+return fetch(config.kratos.public + "sessions/whoami", {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-Session-Token': session_token
+  },
+}).then((oryResponse) => {
+  if (oryResponse.status !== 200) {
+    throw oryResponse;
+  }
+  return oryResponse.json()
+}).then((oryJson: any) => {
+  req.body.oryUser = {
+    id: oryJson.identity.id,
+    email: oryJson.identity.traits.email,
+    verified: oryJson.identity.verifiable_addresses[0].verified
+  }
+  return next();
+}).catch((errorResponse: any) => {
+  errorResponse.json().then((errorJson: any) => {
+    return res.status(errorResponse.status).send(errorJson.error.message);
+  })
+})
+```
+
+[Continue now with the second part.](/cloud-ecommerce-frontend/)
