@@ -118,8 +118,8 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
     },
     {
       title: (
-        <Button to={'/summit21'} style={'link'} openInNewWindow={true}>
-          Ory Summit
+        <Button to={'/jobs'} style={'link'}>
+          Jobs
           <span className={'dot'} />
         </Button>
       )
@@ -215,9 +215,8 @@ export const mobileMenu: Pick<NavProps, 'mobileMenu'> = {
         category: 'Events',
         mobileMenuItems: [
           {
-            title: 'Ory Summit 2021',
-            to: '/summit21',
-            openInNewWindow: true
+            title: 'Jobs',
+            to: '/jobs',
           }
         ]
       }
