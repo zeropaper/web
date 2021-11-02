@@ -103,10 +103,6 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
           to: '/about'
         },
         {
-          title: 'Jobs',
-          to: '/jobs'
-        },
-        {
           title: 'Contact Us',
           to: 'mailto:office@ory.sh'
         },
@@ -208,15 +204,6 @@ export const mobileMenu: Pick<NavProps, 'mobileMenu'> = {
           {
             title: 'Identity Report',
             to: '/identity-in-modern-applications-oreilly/'
-          }
-        ]
-      },
-      {
-        category: 'Events',
-        mobileMenuItems: [
-          {
-            title: 'Jobs',
-            to: '/jobs',
           }
         ]
       }
