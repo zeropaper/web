@@ -46,7 +46,10 @@ const CookieBanner = () => {
 
   const savePreferences = () => {
     localStorage.setItem('analytics-preferences-set', 'true')
-    trackEvent(events.optOut)
+
+    if (isStatisticsEnabled) trackEvent(events.optIn)
+    else trackEvent(events.optOut)
+
     setBannerVisibility(false)
   }
 
