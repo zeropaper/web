@@ -63,6 +63,7 @@ export default function HTML(props: any) {
         />
         {props.postBodyComponents}
       </body>
+      <script defer data-domain="ory.sh" src="/scripts/script.js"></script>
     </html>
   )
 }
