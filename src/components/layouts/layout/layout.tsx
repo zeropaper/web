@@ -9,6 +9,7 @@ import 'prismjs/components/prism-tsx'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-yaml'
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import * as footer from '../../../page-content/navigation/navigation-footer'
 import * as nav from '../../../page-content/navigation/navigation-header'
@@ -29,6 +30,9 @@ interface PropTypes {
 
 const Layout = ({ children, theme }: PropTypes) => (
   <div className={cn(styles.layout)}>
+    <Helmet>
+      <script defer data-domain="ory.sh" src="/scripts/script.js"></script>
+    </Helmet>
     <CookieBanner />
     <Navigation
       logo={oryLogoPrimary}
