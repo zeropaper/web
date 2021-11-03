@@ -10,9 +10,9 @@ import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-yaml'
 import React from 'react'
 
-import { jobs } from '../../../page-content/navigation/navigation-announcement'
 import * as footer from '../../../page-content/navigation/navigation-footer'
 import * as nav from '../../../page-content/navigation/navigation-header'
+import CookieBanner from '../cookie-banner/cookie-banner'
 import Footer from '../footer/footer'
 import Announcement from '../navigation/announcement'
 import Navigation from '../navigation/navigation'
@@ -36,6 +36,7 @@ const Layout = ({ children, theme }: PropTypes) => (
       {...nav.mobileMenu}
     />
     <main className={theme ? `theme-${theme}` : ''}>{children}</main>
+    <CookieBanner />
     <Footer
       logo={oryLogoWhite}
       {...footer.copyright}
