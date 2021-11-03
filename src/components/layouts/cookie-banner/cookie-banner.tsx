@@ -1,6 +1,14 @@
-import { CookieBanner } from '@palmabit/react-cookie-law'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
+import { trackEvent } from '../../../analytics'
+import Button from '../../freestanding/button/button'
+import Container from '../../freestanding/containers/container'
+
+import tracks from './tracks'
+
+import * as styles from './cookie-banner.module.css'
+
+/*
 const getCookie = (cname: string) => {
   const name = cname + '='
   const decodedCookie = decodeURIComponent(document.cookie)
@@ -24,85 +32,69 @@ const setCookie = (name: string, value: string, keep: number) => {
   document.cookie = name + '=' + value + ';' + expires + ';path=/'
 }
 
-const GDPR = () => (
-  <CookieBanner
-    message="Please select your cookie preferences"
-    wholeDomain={true}
-    policyLink={'/privacy'}
-    onAcceptStatistics={() => {
-      console.log('onAcceptStatistics', getCookie('gdpr_cookie_analytics'))
-      if (getCookie('gdpr_cookie_analytics') !== 'true') {
-        setCookie('gdpr_cookie_analytics', 'true', 365)
-        setTimeout(() => window.location.reload(), 10)
-      }
-    }}
-    showMarketingOption={false}
-    showPreferencesOption={false}
-    styles={{
-      dialog: {
-        bottom: 0,
-        position: 'fixed',
-        left: 0,
-        right: 0,
-        zIndex: 100000,
-        backgroundColor: 'rgb(248, 247, 247)',
-        padding: 10
-      },
-      container: {
-        maxWidth: 960,
-        margin: '0 auto',
-        overflow: 'hidden',
-        display: 'flex',
-        alignItems: 'center'
-        // justifyContent: 'space-between',
-      },
-      message: {
-        fontSize: 14
-      },
-      selectPane: {
-        flexGrow: 1,
-        marginLeft: 4
-      },
-      checkbox: {
-        width: 14,
-        height: 14
-      },
-      optionLabel: {
-        minHeight: 14,
-        fontSize: 14,
-        color: 'black',
-        display: 'inline-block',
-        padding: '0 0 0 6px',
-        position: 'relative',
-        top: 0,
-        left: 0,
-        zIndex: 1,
-        cursor: 'default',
-        verticalAlign: 'top'
-      },
-      policy: {
-        marginRight: 10,
-        textDecoration: 'underline',
-        color: 'black',
-        fontSize: 14
-      },
-      button: {
-        border: 'none',
-        outline: 'none',
-        display: 'inline-block',
-        backgroundColor: 'rgb(0, 0, 0)',
-        padding: '5px 10px',
-        minWidth: 80,
-        color: 'rgb(255, 255, 255)',
-        textDecoration: 'none',
-        fontSize: 14,
-        margin: '0px 5px',
-        textAlign: 'center',
-        whiteSpace: 'nowrap',
-        cursor: 'pointer'
-      }
-    }}
-  />
-)
+const onAccept = () => {
+  if (getCookie('gdpr_cookie_analytics') !== 'true') {
+    setCookie('gdpr_cookie_analytics', 'true', 365)
+    setTimeout(() => window.location.reload(), 10)
+  }
+}
+*/
 
-export default GDPR
+const CookieBanner = () => {
+  const [isBannerShown, setBannerVisibility] = useState(false)
+  const [isStatisticsEnabled, setIsStatisticsEnabled] = useState(true)
+
+  const savePreferences = () => {
+    localStorage.setItem('analytics-preferences-set', 'true')
+    trackEvent(tracks.optOut)
+    setBannerVisibility(false)
+  }
+
+  useEffect(() => {
+    const bannerPreferencesSet = !(
+      localStorage.getItem('analytics-preferences-set') === 'true'
+    )
+
+    setBannerVisibility(bannerPreferencesSet)
+  }, [])
+
+  return isBannerShown ? (
+    <div
+      role="dialog"
+      aria-modal="false"
+      aria-describedby="cookie-banner-context"
+      className={styles.banner}
+    >
+      <Container fluid>
+        <div className={styles.bannerContent}>
+          <p id="cookie-banner-context">
+            Please select your cookie preferences
+          </p>
+          <label htmlFor="c-necessary">
+            <input id="c-necessary" type="checkbox" checked disabled />
+            Necessary
+          </label>
+          <label htmlFor="c-statistics">
+            <input
+              id="c-statistics"
+              type="checkbox"
+              checked={isStatisticsEnabled}
+              onChange={() => setIsStatisticsEnabled(!isStatisticsEnabled)}
+            />
+            Statistics
+          </label>
+        </div>
+        <div className={styles.bannerContent}>
+          <Button to="/privacy" className={styles.privacyLink} style="link">
+            Privacy Policy
+          </Button>
+          <Button sideEffect={savePreferences} to={() => {}} style="filled">
+            Accept
+          </Button>
+        </div>
+      </Container>
+    </div>
+  ) : null
+}
+
+export default CookieBanner

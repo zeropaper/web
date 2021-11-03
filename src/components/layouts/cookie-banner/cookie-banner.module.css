@@ -1,0 +1,35 @@
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-index-1);
+  background-color: var(--colors-base-grey-75);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: space-between;
+  padding: 10px 150px;
+  box-shadow: var(--elevation-medium);
+}
+
+.bannerContent {
+  display: flex;
+  align-items: center;
+  & > * {
+    margin-right: var(--size-8);
+  }
+  & > *:last-child {
+    margin-right: 0;
+  }
+  & label {
+    display: flex;
+    align-items: center;
+  }
+  & input {
+    margin-right: var(--size-2);
+  }
+}
+.privacyLink {
+  text-decoration: underline;
+}
