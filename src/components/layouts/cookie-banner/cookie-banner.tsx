@@ -4,7 +4,7 @@ import { trackEvent } from '../../../analytics'
 import Button from '../../freestanding/button/button'
 import Container from '../../freestanding/containers/container'
 
-import tracks from './tracks'
+import events from './events'
 
 import * as styles from './cookie-banner.module.css'
 
@@ -46,7 +46,7 @@ const CookieBanner = () => {
 
   const savePreferences = () => {
     localStorage.setItem('analytics-preferences-set', 'true')
-    trackEvent(tracks.optOut)
+    trackEvent(events.optOut)
     setBannerVisibility(false)
   }
 
@@ -65,27 +65,31 @@ const CookieBanner = () => {
       aria-describedby="cookie-banner-context"
       className={styles.banner}
     >
-      <Container fluid>
-        <div className={styles.bannerContent}>
+      <Container fluid className={styles.bannerContainer}>
+        <div
+          className={`${styles.bannerContent} ${styles.preferenceContainer}`}
+        >
           <p id="cookie-banner-context">
             Please select your cookie preferences
           </p>
-          <label htmlFor="c-necessary">
-            <input id="c-necessary" type="checkbox" checked disabled />
-            Necessary
-          </label>
-          <label htmlFor="c-statistics">
-            <input
-              id="c-statistics"
-              type="checkbox"
-              checked={isStatisticsEnabled}
-              onChange={() => setIsStatisticsEnabled(!isStatisticsEnabled)}
-            />
-            Statistics
-          </label>
+          <div className={styles.formContainer}>
+            <label htmlFor="c-necessary">
+              <input id="c-necessary" type="checkbox" checked disabled />
+              Necessary
+            </label>
+            <label htmlFor="c-statistics">
+              <input
+                id="c-statistics"
+                type="checkbox"
+                checked={isStatisticsEnabled}
+                onChange={() => setIsStatisticsEnabled(!isStatisticsEnabled)}
+              />
+              Statistics
+            </label>
+          </div>
         </div>
         <div className={styles.bannerContent}>
-          <Button to="/privacy" className={styles.privacyLink} style="link">
+          <Button to="/privacy" style="link">
             Privacy Policy
           </Button>
           <Button sideEffect={savePreferences} to={() => {}} style="filled">

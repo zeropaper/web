@@ -1,6 +1,8 @@
 declare const styles: {
   readonly banner: string
   readonly bannerContent: string
-  readonly privacyLink: string
+  readonly preferenceContainer: string
+  readonly formContainer: string
+  readonly bannerContainer: string
 }
 export = styles

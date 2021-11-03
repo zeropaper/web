@@ -29,6 +29,7 @@ interface PropTypes {
 
 const Layout = ({ children, theme }: PropTypes) => (
   <div className={cn(styles.layout)}>
+    <CookieBanner />
     <Navigation
       logo={oryLogoPrimary}
       {...nav.sideNav}
@@ -36,7 +37,6 @@ const Layout = ({ children, theme }: PropTypes) => (
       {...nav.mobileMenu}
     />
     <main className={theme ? `theme-${theme}` : ''}>{children}</main>
-    <CookieBanner />
     <Footer
       logo={oryLogoWhite}
       {...footer.copyright}
