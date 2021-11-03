@@ -7,6 +7,8 @@ import ketoAnimation from './images/keto/keto.svg'
 import kratosAnimation from './images/kratos/kratos.svg'
 import oathkeeperAnimation from './images/oathkeeper/oathkeeper.svg'
 
+export const envIsProduction = process.env.NODE_ENV === 'production'
+
 export type Project = {
   id: 'hydra' | 'keto' | 'oathkeeper' | 'kratos'
   title: string
