@@ -2,7 +2,6 @@ import React from 'react'
 
 import Button from '../../components/freestanding/button/button'
 import { PropTypes as FeatureContentProps } from '../../components/layouts/feature-content/feature-content'
-import NotFound from '../../images/notfound.mp4'
 
 export const featureContent404: FeatureContentProps = {
   id: 'error.featurecontent.404',
@@ -36,7 +35,7 @@ export const featureContent404: FeatureContentProps = {
       playsInline
       preload="true"
     >
-      <source src={NotFound} type="video/mp4" />
+      <source src="/videos/notfound.mp4" type="video/mp4" />
     </video>
   )
 }
@@ -74,7 +73,7 @@ export const featureContent503: FeatureContentProps = {
       playsInline
       preload="true"
     >
-      <source src={NotFound} type="video/mp4" />
+      <source src="/videos/notfound.mp4" type="video/mp4" />
     </video>
   )
 }
