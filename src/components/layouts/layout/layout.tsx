@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import Prism from 'prismjs'
 import 'prismjs/components/prism-bash'
 import 'prismjs/components/prism-go'
 import 'prismjs/components/prism-javascript'
@@ -8,7 +9,7 @@ import 'prismjs/components/prism-shell-session'
 import 'prismjs/components/prism-tsx'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-yaml'
-import React from 'react'
+import { ReactNode, useEffect } from 'react'
 import Helmet from 'react-helmet'
 
 import { envIsProduction } from '../../../config'
@@ -26,33 +27,39 @@ import oryLogoWhite from '../../../images/logo/logo-ory-white.svg'
 
 interface PropTypes {
   theme?: string
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
-const Layout = ({ children, theme }: PropTypes) => (
-  <div className={cn(styles.layout)}>
-    {envIsProduction && (
-      <Helmet>
-        <script defer data-domain="ory.sh" src="/scripts/script.js"></script>
-      </Helmet>
-    )}
+const Layout = ({ children, theme }: PropTypes) => {
+  useEffect(() => {
+    window.Prism = Prism
+  }, [])
 
-    <CookieBanner />
-    <Navigation
-      logo={oryLogoPrimary}
-      {...nav.sideNav}
-      {...nav.dropdownMenu}
-      {...nav.mobileMenu}
-    />
-    <main className={theme ? `theme-${theme}` : ''}>{children}</main>
-    <Footer
-      logo={oryLogoWhite}
-      {...footer.copyright}
-      {...footer.social}
-      {...footer.legal}
-      {...footer.links}
-    />
-  </div>
-)
+  return (
+    <div className={cn(styles.layout)}>
+      {envIsProduction && (
+        <Helmet>
+          <script defer data-domain="ory.sh" src="/scripts/script.js"></script>
+        </Helmet>
+      )}
+
+      <CookieBanner />
+      <Navigation
+        logo={oryLogoPrimary}
+        {...nav.sideNav}
+        {...nav.dropdownMenu}
+        {...nav.mobileMenu}
+      />
+      <main className={theme ? `theme-${theme}` : ''}>{children}</main>
+      <Footer
+        logo={oryLogoWhite}
+        {...footer.copyright}
+        {...footer.social}
+        {...footer.legal}
+        {...footer.links}
+      />
+    </div>
+  )
+}
 
 export default Layout
