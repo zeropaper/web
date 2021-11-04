@@ -262,4 +262,4 @@ https://www.ory.sh/summit21 https://events.hubilo.com/ory-summit/register 302!
 
 # Plausible script proxy
 /scripts/script.js https://plausible.io/js/plausible.js 200
-/scripts/api/event https://plausible.io/api/event 202
+/api/event https://plausible.io/api/event 202
