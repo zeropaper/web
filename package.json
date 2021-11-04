@@ -9,9 +9,7 @@
     "@babel/plugin-transform-spread": "^7.12.1",
     "@mdx-js/mdx": "~1.6.21",
     "@mdx-js/react": "~1.6.21",
-    "@mediacurrent/gatsby-plugin-silence-css-order-warning": "^1.0.0",
     "@n8tb1t/use-scroll-position": "^2.0.3",
-    "@raae/gatsby-remark-oembed": "~0.1.1",
     "@types/classnames": "~2.3.1",
     "@types/csv-parse": "~1.2.2",
     "@types/dateformat": "^3.0.1",
@@ -33,34 +31,6 @@
     "dateformat": "^4.0.0",
     "events": "^3.3.0",
     "fs-extra": "~10.0.0",
-    "gatsby": "^3.9.0",
-    "gatsby-image": "^3.9.0",
-    "gatsby-plugin-force-trailing-slashes": "~1.0.4",
-    "gatsby-plugin-gdpr-cookies": "^2.0.6",
-    "gatsby-plugin-image": "^1.9.0",
-    "gatsby-plugin-manifest": "^3.9.0",
-    "gatsby-plugin-matomo": "^0.10.0",
-    "gatsby-plugin-mdx": "^2.9.0",
-    "gatsby-plugin-offline": "^4.9.0",
-    "gatsby-plugin-postcss": "^4.9.0",
-    "gatsby-plugin-react-helmet": "^4.9.0",
-    "gatsby-plugin-react-helmet-canonical-urls": "^1.4.0",
-    "gatsby-plugin-react-svg": "~3.0.0",
-    "gatsby-plugin-sharp": "^3.9.0",
-    "gatsby-plugin-sitemap": "^4.5.0",
-    "gatsby-plugin-typescript": "^3.9.0",
-    "gatsby-remark-admonitions": "^0.1.0",
-    "gatsby-remark-copy-linked-files": "^4.6.0",
-    "gatsby-remark-embedder": "^5.0.0",
-    "gatsby-remark-emojis": "~0.4.3",
-    "gatsby-remark-images": "^5.6.0",
-    "gatsby-remark-prismjs": "^5.6.0",
-    "gatsby-remark-responsive-iframe": "^4.6.0",
-    "gatsby-remark-video": "~1.2.4",
-    "gatsby-source-filesystem": "^3.9.0",
-    "gatsby-transformer-remark": "^4.6.0",
-    "gatsby-transformer-sharp": "^3.9.0",
-    "gatsby-transformer-typescript-css-modules": "~1.0.14",
     "hex-to-css-filter": "^4.0.0",
     "lost": "~8.3.1",
     "netlify-cli": "~4.1.15",
@@ -106,19 +76,19 @@
     "prettier": "~2.3.2"
   },
   "keywords": [
-    "gatsby"
+    "ory",
+    "next"
   ],
   "license": "MIT",
   "scripts": {
+    "start": "next start",
+    "dev": "next dev",
     "build": "cross-env NODE_ENV=production LOG_LEVEL=debug npm-run-all tcm build:clean build:site build:docs",
     "build:clean": "rm -Rf public/* .cache/* || exit 0",
-    "build:site": "cross-env APP_ENV=browser gatsby build --no-color",
+    "build:site": "cross-env APP_ENV=browser next build--no-color",
     "build:docs": "node --stack-size=4000 build.js",
-    "develop": "gatsby develop",
     "format": "prettier --write ${npm_package_config_prettierTarget}",
     "format:check": "prettier --check ${npm_package_config_prettierTarget}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
     "nothing": "exit 0",
     "deploy": "netlify deploy --prod --dir=public/",
     "deploy:draft": "netlify deploy --dir=public/",
@@ -127,10 +97,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/ory/web"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/ory/web/issues"
   },
   "engines": {
     "node": ">=14"
