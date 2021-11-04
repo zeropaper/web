@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { Link as GatsbyLink } from 'gatsby'
+import NextLink from 'next/link';
 import React from 'react'
 
 import { ParseCase } from '../../../util'
@@ -69,15 +69,11 @@ const Button = ({
     return to.startsWith('/') &&
       to.indexOf('/docs') < 0 &&
       to.indexOf('/summit21') < 0 ? (
-      <GatsbyLink
-        to={to}
-        className={classes}
-        rel={openInNewWindow ? 'noopener noreferrer' : ''}
-        target={openInNewWindow ? '_blank' : ''}
-        onClick={sideEffect}
-      >
+      <NextLink href={to}>
+        <a className={classes} onClick={sideEffect} rel={openInNewWindow ? 'noopener noreferrer' : ''} target={openInNewWindow ? '_blank' : ''}>
         {content}
-      </GatsbyLink>
+        </a>
+      </NextLink>
     ) : (
       <a
         href={to}
