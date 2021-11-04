@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import Head from 'next/head'
 import Prism from 'prismjs'
 import 'prismjs/components/prism-bash'
 import 'prismjs/components/prism-go'
@@ -10,7 +11,6 @@ import 'prismjs/components/prism-tsx'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-yaml'
 import { ReactNode, useEffect } from 'react'
-import Helmet from 'react-helmet'
 
 import { envIsProduction } from '../../../config'
 import * as footer from '../../../page-content/navigation/navigation-footer'
@@ -38,9 +38,9 @@ const Layout = ({ children, theme }: PropTypes) => {
   return (
     <div className={cn(styles.layout)}>
       {envIsProduction && (
-        <Helmet>
+        <Head>
           <script defer data-domain="ory.sh" src="/scripts/script.js"></script>
-        </Helmet>
+        </Head>
       )}
 
       <CookieBanner />

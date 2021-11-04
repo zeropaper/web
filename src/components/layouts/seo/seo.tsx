@@ -1,5 +1,4 @@
-import React from 'react'
-import Helmet from 'react-helmet'
+import Head from 'next/head'
 
 export interface PropTypes {
   description?: string
@@ -12,66 +11,26 @@ export interface PropTypes {
 
 const author = 'ORY'
 
-const SEO = ({
-  description,
-  lang = 'en',
-  meta = [],
-  title,
-  keywords,
-  canonical
-}: PropTypes) => (
-  <Helmet
-    htmlAttributes={{
-      lang
-    }}
-    title={title}
-    titleTemplate={`%s${
-      process.env.GATSBY_DOMAIN === 'ory.sh' || !process.env.GATSBY_DOMAIN
-        ? ' - ory.sh'
-        : ''
-    }`}
-    link={
-      canonical ? [{ rel: 'canonical', key: canonical, href: canonical }] : []
-    }
-    meta={[
-      {
-        name: `description`,
-        content: description
-      },
-      {
-        name: `keywords`,
-        content: keywords
-      },
-      {
-        property: `og:title`,
-        content: title
-      },
-      {
-        property: `og:description`,
-        content: description
-      },
-      {
-        property: `og:type`,
-        content: `website`
-      },
-      {
-        name: `twitter:card`,
-        content: `summary`
-      },
-      {
-        name: `twitter:creator`,
-        content: author
-      },
-      {
-        name: `twitter:title`,
-        content: title
-      },
-      {
-        name: `twitter:description`,
-        content: description
-      }
-    ].concat(meta)}
-  />
-)
+const SEO = ({ description, title, keywords, canonical }: PropTypes) => {
+  const siteTitle = `${title}${
+    process.env.GATSBY_DOMAIN === 'ory.sh' && ' - ory.sh'
+  }`
+  return (
+    <Head>
+      <title>{siteTitle}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:site_name" content={siteTitle} />
+      <meta property="twitter:card" content="summary" />
+      <meta property="twitter:creator" content={author} />
+      <meta property="twitter:title" content={title} />
+      <meta property="twitter:description" content={description} />
+      {canonical && <link rel="canonical" href={canonical} />}
+    </Head>
+  )
+}
 
 export default SEO
