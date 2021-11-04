@@ -149,6 +149,9 @@ ok  github.com/arekkas/accurate-test-coverage/otherpkg  10.398s coverage: 100.0%
 
 Awesome, we received true code coverage!
 
+> The following section is outdated and -coverpkg and -coverprofile are now
+> compatible with each other! Thanks Maria!
+
 ### Golang flag `-coverprofile` is incompatible with `-coverpgk`
 
 How about getting some nice code coverage reporting using, for example,
