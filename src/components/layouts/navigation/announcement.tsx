@@ -1,4 +1,4 @@
-import { useLocation } from '@reach/router'
+import { useRouter } from 'next/router'
 import cn from 'classnames'
 import React from 'react'
 
@@ -57,9 +57,9 @@ const Announcement = ({
   className,
   openInNewWindow = false
 }: PropTypes) => {
-  const location = useLocation()
+  const router = useRouter()
 
-  if (location.pathname.replace(/\/+$/, '') === link.replace(/\/+$/, '')) {
+  if (router.pathname.replace(/\/+$/, '') === link.replace(/\/+$/, '')) {
     return null
   }
 
