@@ -20,6 +20,6 @@ export const trackEvent = (event: IEvent) => {
     window.plausible(event.action)
   }
   if (window._paq) {
-    window._paq.push([event.category, event.action, event.origin])
+    window._paq.push(['trackEvent', event.category, event.action, event.origin])
   }
 }
