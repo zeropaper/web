@@ -12,6 +12,9 @@ import { PropTypes as HeroProps } from '../components/layouts/hero/hero'
 import { PropTypes as QuickstartProps } from '../components/layouts/quickstart/quickstart'
 import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
 
+import dashboardImage from '../images/illustrations/dashboard.png'
+import exampleLoginImage from '../images/illustrations/examplelogin.png'
+
 const ArrowRight = <i className="ph-arrow-right-bold size16" />
 const Terminal = <i className="ph-terminal-fill size32" />
 const GitMerge = <i className="ph-git-merge-fill size32" />
@@ -79,7 +82,7 @@ export const featureContentCloud: FeatureContentProps = {
       loading="lazy"
       className="responsive"
       alt="Ory Project Dashboard"
-      src="../images/illustrations/dashboard.png"
+      src={dashboardImage}
     />
   ),
   feature: {
@@ -165,7 +168,7 @@ export const featureContentUX: FeatureContentProps = {
       loading="lazy"
       className="responsive"
       alt="Individual styling on user interfaces"
-      src="../images/illustrations/examplelogin.png"
+      src={exampleLoginImage}
     />
   )
 }

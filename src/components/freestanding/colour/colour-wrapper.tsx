@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { hexToCSSFilter } from 'hex-to-css-filter/dist/es2015'
+import { hexToCSSFilter } from 'hex-to-css-filter/dist/cjs'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
