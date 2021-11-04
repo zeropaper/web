@@ -1,4 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image'
+import Image from 'next/image';
 import React from 'react'
 
 import { PropTypes as FormProps } from '../components/layouts/hero/hero-form'
@@ -77,7 +77,7 @@ export const form: FormProps = {
     ]
   },
   image: (
-    <StaticImage
+    <Image
       src="../images/resources/oreilly/oreilly.png"
       loading="lazy"
       alt="Identity in modern Applications by Lee Atchison, published by O'Reilly"

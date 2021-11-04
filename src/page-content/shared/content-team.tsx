@@ -1,4 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image'
+import Image from 'next/image'
 import React from 'react'
 
 import Button from '../../components/freestanding/button/button'
@@ -42,10 +42,7 @@ export const team: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Aeneas Rekkas"
@@ -67,10 +64,7 @@ export const team: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Thomas Aidan Curran"
@@ -88,10 +82,7 @@ export const team: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Patrik Neu"
@@ -113,10 +104,7 @@ export const team: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="John Curran"
@@ -134,10 +122,7 @@ export const team: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Vincent Kraus"
@@ -155,10 +140,7 @@ export const team: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Andreas Bucksteeg"
@@ -176,10 +158,7 @@ export const team: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Piotr Mścichowski"
@@ -201,10 +180,7 @@ export const team: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Jakub Blaszczyk"
@@ -222,10 +198,7 @@ export const team: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Alano Terblanche"
@@ -247,10 +220,7 @@ export const team: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Pascal Morgan"
@@ -272,10 +242,7 @@ export const team: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Lee Atchison"
@@ -310,10 +277,7 @@ export const collaborators: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Marcus Schmelzer"
@@ -331,10 +295,7 @@ export const collaborators: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Uwe Ritter"
@@ -356,10 +317,7 @@ export const collaborators: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Pascal Morgan"
@@ -381,10 +339,7 @@ export const collaborators: TeamProps = {
         }
       ],
       img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
+        <Image
           loading="lazy"
           className="responsive"
           alt="Lee Atchison"

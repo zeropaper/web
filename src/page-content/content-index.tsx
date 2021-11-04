@@ -1,4 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image'
+import Image from 'next/image'
 import React from 'react'
 
 import Button from '../components/freestanding/button/button'
@@ -75,7 +75,7 @@ export const featureContentCloud: FeatureContentProps = {
     iconRight: ArrowRight
   },
   content: (
-    <StaticImage
+    <Image
       loading="lazy"
       className="responsive"
       alt="Ory Project Dashboard"
@@ -161,7 +161,7 @@ export const featureContentUX: FeatureContentProps = {
     iconRight: ArrowRight
   },
   content: (
-    <StaticImage
+    <Image
       loading="lazy"
       className="responsive"
       alt="Individual styling on user interfaces"
@@ -176,7 +176,7 @@ export const codingCodeBox: CodeBoxProps = {
       filename: '',
       language: Languages.Shell,
       code: `$ export ORY_ACCESS_TOKEN=RaEEZfMbx7QGuf0uWNt9c15NE4FG4OOW
-$ ory identities list --project playground --format json-pretty  
+$ ory identities list --project playground --format json-pretty
 [
   {
     "id": "7c7d040d-97f6-4a57-95e8-08c61e6df016",
