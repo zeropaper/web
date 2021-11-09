@@ -7,7 +7,7 @@ title: |
   Add Authentication to your React Native App
 
 teaser: |
-  Add login, registration, user and profile management to React Native mobile
+  Add login, registration, user, and profile management to React Native mobile
   and desktop apps using the Ory Kratos open source project. Includes code examples for TypeScript
   and Docker!
 
@@ -38,7 +38,7 @@ Follow the step-by-step guide to add authentication to your
 - recover password
 - verify account
 
-The examples use [Ory Kratos](https://github.com/ory/kratos), a open source
+The examples use [Ory Kratos](https://github.com/ory/kratos), an open source
 identity and authentication REST API server written in Golang.
 
 import LazyLoad from 'react-lazyload'
@@ -151,7 +151,7 @@ In case you just want to start exploring, simply run:
 - `npm start` opens a dashboard where you can open iOS, Android, or web.
 - `npm run android` opens the app as an android app (requires a connected
   android VM or device).
-- `npm run ios` opens the app in the iOS simulator (works only on mac OSX).
+- `npm run ios` opens the app in the iOS simulator (works only on Mac OSX).
 - `npm run web` opens the app as a browser app.
 
 ![Expo CLI Dashboard for ORY Kratos React Native Reference Implementation](../../images/articles/react-native/expo-dashboard.png)
@@ -280,6 +280,7 @@ docker run \
 }
 ```
 
+
 To learn more about administration of Ory Kratos' identities, head over to the
 [Managing Users and Identities Documentation](https://www.ory.sh/kratos/docs/admin/managing-users-identities)!
 
@@ -300,7 +301,7 @@ you want, but Ory Kratos Session Tokens are more secure because:
 
 ## Run Ory Kratos Login, Registration, 2FA Server Locally in Docker
 
-Instead of using the hosted demo environment, you can also deploy your own Ory
+Instead of using the hosted demo environment, you can also deploy your Ory
 Kratos installation locally and run the React Native app against its API. To run
 the app against a local deployment, check out
 [Ory Kratos](https://www.ory.sh/kratos) locally and run the quickstart:
@@ -350,7 +351,7 @@ Now your app will use the local deployment of Ory Kratos with your own database!
 
 ## React Navigation with Authentication Session
 
-The entrypoint for the app is
+The entry point for the app is
 [`App.tsx`](https://github.com/ory/kratos-selfservice-ui-react-native/blob/master/App.tsx).
 Besides loading some fonts and setting up the views, this component includes the
 structure of the application - including the navigation:
@@ -399,7 +400,7 @@ dashboard or login / registration screens:
 
 ## React Native Authentication Screens
 
-Let's take a look at the different screens: In order to avoid writing a form
+Let's take a look at the different screens: To avoid writing a form
 renderer for every component - including styling - we abstracted the form
 rendering into their own components, which you can find in
 [`src/components/Form`](https://github.com/ory/kratos-selfservice-ui-react-native/tree/master/src/components/Form).
