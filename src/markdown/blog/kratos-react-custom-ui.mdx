@@ -1,0 +1,476 @@
+---
+path: '/nextjs-authentication-spa-custom-flows-open-source/'
+
+banner: '/images/blog-banner-kratos.png'
+
+title: |
+  Add Custom Login, Registration, User Settings to Your Next.js & React Single Page Application (SPA)
+
+teaser: |
+  Build custom login, registration, user settings, password recovery, email and phone verification
+  pages to your Next.js React Single Page Application (SPA) using the ORY Kratos open source project. Includes code examples for TypeScript
+  and Docker, and end-to-end tests!
+
+seo:
+  title: |
+    Custom Authentication for Next.js React Single Page Applications (SPA)
+  description: |
+    Add customizable login, registration, settings, password recovery, email and phone verification pages to any Next.js app using free open source.
+  keywords: |
+    login, auth, authentication, registration, reactjs, vercel, nextjs, react, spa, single page app, native desktop,
+    open source, ory, ory kratos, customization, bring your own UI, custom login, custom registration, custom user settings
+
+publishedAt: '2021-11-09'
+author: aeneasr
+
+overline: |
+  Next.js React Authentication
+
+published: true
+---
+
+Add authentication and user management to your [Next.js](https://nextjs.org)
+[React](https://reactjs.org) app using the new
+[Next.js Edge Runtime](https://nextjs.org/docs/api-reference/edge-runtime) and
+the [Ory Kratos open source project](https://github.com/ory/kratos)!
+
+## Ory Kratos Open Source Identity Platform
+
+[Ory Kratos](https://github.com/ory/kratos) is a full-featured, free, and open
+source authentication and identity management platform. It supports multi-factor
+authentication with
+[FIDO2, TOTP, and OTP](https://www.ory.sh/kratos/docs/next/two-factor-authentication-2fa-mfa/);
+[Social Sign In](https://www.ory.sh/kratos/docs/next/guides/sign-in-with-github-google-facebook-linkedin/),
+[custom identity models](https://www.ory.sh/kratos/docs/next/concepts/identity-schema/);
+registration, profile management, account recovery, administrative user
+management and so much more! In contrast to other identity systems,
+[Ory Kratos](https://github.com/ory/kratos) enables you to build your own
+[login](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pages/login.tsx),
+[registration](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pages/ui/registration.tsx),
+[account settings](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pages/ui/settings.tsx),
+[account verification](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pages/ui/verification.tsx)
+(e.g. email, phone, activate account),
+[account verification](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pages/ui/recovery.tsx)
+(e.g. reset password) user interfaces and user flows using dead-simple APIs.
+
+This guide focuses on writing your own UI using Ory Kratos' APIs. If you are
+interested in just adding login and authentication to your app, check out
+[Add Authentication to your Next.js / React Single Page Application (SPA)](/nextjs-authentication-spa-custom-flows-open-source)
+
+Before we start, let's get some terminology out of the way:
+
+- At Ory, identity can mean any actor in a system (user, robot, service account,
+  ...). The term `user` always refers to a human being sitting in front of a
+  browser or mobile app.
+- A session refers to a user's session in a browser or mobile app after they
+  have authenticated.
+- Self-Service refers to flows the user can do on their own - such as login,
+  registration, and so on. It does not require administrative / support
+  intervention.
+
+import CodeFromRemote from '../../components/freestanding/utils/codefromremote'
+
+## Add Login to your React / NextJS
+
+If you want to see a live demo right away, [check out this app in action](https://kratos-reference-ui-react-nextjs.vercel.app).
+
+<video autoplay muted loop playsInline>
+  <source
+    src="../../images/articles/kratos-reference-ui/app.mp4"
+    type="video/mp4"
+  />
+  <source
+    src="../../images/articles/kratos-reference-ui/app.webm"
+    type="video/webm"
+  />
+</video>
+
+The code for this app is available on
+[GitHub](https://github.com/ory/kratos-selfservice-ui-react-nextjs). To give it
+a spin, clone it and run the following commands:
+
+```bash
+git clone https://github.com/ory/kratos-selfservice-ui-react-nextjs.git
+cd kratos-selfservice-ui-react-nextjs
+npm i
+```
+
+Per default, this app uses the public playground deployment of Ory Kratos at
+`https://playground.projects.oryapis.com`. If you want to use your own Ory
+Kratos instance, you can use the `ORY_KATOS_URL` or `ORY_SDK_URL` environment
+variable. The easiest way to run Ory Kratos is in an
+[Ory Cloud Project](https://www.ory.sh/docs/start-building/create-project)
+_(free for developers)_! In that case, set the `ORY_SDK_URL` to your
+[project's SDK url](https://www.ory.sh/docs/concepts/services-api):
+
+```
+# If you run Ory Kratos in Ory Cloud:
+export ORY_SDK_URL=https://my-project.projects.oryapis.com
+```
+
+You may also run Ory Kratos yourself. A quick way to get started is to run the
+Ory Kratos Docker quickstart:
+
+```shell
+git clone --depth 1 --branch master https://github.com/ory/kratos.git
+cd kratos
+git checkout master
+git pull -ff
+docker-compose -f quickstart.yml -f contrib/quickstart/kratos/cloud/quickstart.yml up --build --force-recreate -d
+```
+
+In that case, set the `ORY_SDK_URL` to your local Ory Kratos instance:
+
+```shell
+# If you run Ory Kratos locally using the Docker quick start:
+export ORY_KRATOS_URL=http://localhost:4455/
+
+# Start the app
+npm run dev
+```
+
+Next head over to [http://localhost:3000/](http://localhost:3000/) to see the
+app in action with login, registration - a working user management!
+
+### Ory Kratos Configuration in Ory Cloud
+
+To get everything to work smoothly, we recommend setting the appropriate UI
+endpoints in your Ory Cloud Project under the "User Interface" menu item. If you
+are developing locally on port `3000` this would be:
+
+- Login UI: `http://localhost:3000/login`
+- Registration UI: `http://localhost:3000/registration`
+- Settings UI: `http://localhost:3000/settings`
+- Verification UI: `http://localhost:3000/verification`
+- Recovery UI: `http://localhost:3000/recovery`
+- Error UI: `http://localhost:3000/error`
+
+![Ory Cloud Project User Interface Configuration](/images/articles/kratos-react-vercel-next/ui-settings.png)
+
+Also, ensure to set up your redirects correctly, so you end up at the right
+endpoint after you have signed up or signed in!
+
+![Ory Cloud Project User Interface Configuration](/images/articles/kratos-react-vercel-next/redirects.png)
+
+We are setting these values to ensure that all flows (e.g. clicking on that
+password reset link) end up at your application. If you deploy to production,
+set these values to your production URL!
+
+## Start with the Next.js Typescript Template
+
+To start from scratch, initialize the NextJS App and install Ory's SDKs and
+integration packages:
+
+```
+npx create-next-app --ts
+npm i --save @ory/kratos-client @ory/integrations
+```
+
+To make the UI beautiful, we also install Ory's theme package. You can of course
+use your own styling framework (e.g. [Material UI](https://mui.com/) or
+[Tailwind](https://tailwindcss.com/)).
+
+```
+npm i --save @ory/themes
+```
+
+We also want to send notifications to users in case something goes wrong. For
+that, we will install
+[React Toastify](https://github.com/fkhadra/react-toastify):
+
+```
+npm install --save react-toastify
+```
+
+### Adding Next.js Edge Function to Integrate with Ory Kratos
+
+To make everything run smoothly, we will add Ory's integration library and
+include it in Next.js Edge Runtime. To do so, add a new file under
+`pages/api/.ory/[...paths].ts` with the following contents:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/d026c7f0c2f296bf38947810d9394b05f927d6a0/pages/api/.ory/%5B...paths%5D.ts"
+/>
+
+Setting up the SDK to interact with Ory Cloud's APIs is just a few lines of
+code:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/d026c7f0c2f296bf38947810d9394b05f927d6a0/pkg/sdk/cloud.ts"
+/>
+
+### Rendering the Registration Form
+
+Great, now all the preconditions are met! Let's start with the first page we
+want to implement: the registration form!
+
+#### Preparing the Registration Page
+
+First we need to initialize the state and get the
+[Self-Service Registration Flow ID](https://www.ory.sh/kratos/docs/self-service/flows/user-registration)
+from the URL:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/af4ab647b6ea3f55da359742a629dd00af1bf217/pages/registration.tsx"
+  startAt="const Registration: NextPage"
+  endAt="const { flow: flowId, return_to: returnTo } = router.query"
+/>
+
+#### Initializing or Fetching a Registration Flow
+
+Next, we create an effect which will fetch the registration flow and set the
+state. The registration flow contains information about the registration form,
+e.g. the fields and validation messages to be displayed:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/af4ab647b6ea3f55da359742a629dd00af1bf217/pages/registration.tsx"
+  startAt="  // In this effect we either"
+  endAt=" }, [flowId, router, router.isReady, returnTo, flow])"
+/>
+
+As you can see, if the flow ID is not available, we will initialize a new
+registration flow (`initializeSelfServiceRegistrationFlowForBrowsers`). If it is
+set, we will fetch the flow from the API (`getSelfServiceRegistrationFlow`).
+
+#### Preparing Registration Form Submission
+
+When the user submits the form, we will call the
+`submitSelfServiceRegistrationFlow` method of the SDK to submit the form:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/af4ab647b6ea3f55da359742a629dd00af1bf217/pages/registration.tsx"
+  startAt="const onSubmit ="
+  endAt="   return Promise.reject(err)"
+/>
+
+#### Rendering the Registration Form
+
+Finally, we render the registration form:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/af4ab647b6ea3f55da359742a629dd00af1bf217/pages/registration.tsx"
+  startAt="    <>"
+  endAt="</>"
+/>
+
+## Rendering the Forms
+
+Great, we have now initialized the registration flow and have everything
+prepared to render the form. Rendering the form is the same for all flows
+(login, registration, recovery, ...). The [`<Flow onSubmit={onSubmit}
+flow={flow} />` React
+Component])(https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/af4ab647b6ea3f55da359742a629dd00af1bf217/pkg/ui/Flow.tsx)
+will render the form and handle the form state. The component itself is a bit
+longer because we deal with the form state, errors, and the form submission
+without any helper tools such as Formik. In essence, it iterates over the
+Registration Form's `ui.node` values which we received from
+`initializeSelfServiceRegistrationFlowForBrowsers` /
+`getSelfServiceRegistrationFlow` earlier:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/af4ab647b6ea3f55da359742a629dd00af1bf217/pkg/ui/Flow.tsx"
+  startAt=" render() {"
+  endAt="</form>"
+/>
+
+Then, for each node, it decides what HTML input to render:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/af4ab647b6ea3f55da359742a629dd00af1bf217/pkg/ui/NodeInput.tsx"
+/>
+
+The simplest HTML input to render is the hidden input field. Basically you just
+add the attributes to the HTML element:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/f413a1a14e6d849a509cda8232253cdd5b2fbf45/pkg/ui/NodeInputHidden.tsx"
+/>
+
+Rendering a normal input field looks similar:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/f413a1a14e6d849a509cda8232253cdd5b2fbf45/pkg/ui/NodeInputDefault.tsx"
+/>
+
+Ory Kratos' forms can contain several types of nodes:
+
+- [text inputs](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pkg/ui/NodeInputDefault.tsx)
+- [buttons](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pkg/ui/NodeInputButton.tsx)
+- [checkboxes](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pkg/ui/NodeInputCheckbox.tsx)
+- [hidden fields](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pkg/ui/NodeInputHidden.tsx)
+- [scripts](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pkg/ui/NodeScript.tsx)
+- [text](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pkg/ui/NodeText.tsx)
+- [image](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pkg/ui/NodeImage.tsx)
+
+These are needed to show, for example, QR codes for TOTP, scripts for WebAuthn,
+text for recovery codes, buttons for social sign in, and so on!
+
+#### Dealing With Flow Errors
+
+Usually, Ory Kratos takes care of redirecting to the correct endpoints and
+showing the right messages. With Single Page Apps though you need to deal with
+errors yourself. Ory Kratos conveniently returns error IDs which you can use to
+identify errors and handle accordingly:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/f413a1a14e6d849a509cda8232253cdd5b2fbf45/pkg/errors.tsx"
+/>
+
+### Rendering the Recovery Page
+
+Rendering the recovery form is the same as the registration form, but with a few
+minor changes:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/6f4e65f8f0a9070a602523bb5dd3dfbd58b56735/pages/recovery.tsx"
+/>
+
+### Rendering the Verification Page
+
+Rendering the verification form is the same as the registration form, but with a
+few minor changes:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/6f4e65f8f0a9070a602523bb5dd3dfbd58b56735/pages/verification.tsx"
+/>
+
+### Rendering the Account Settings Page
+
+Rendering the account settings form is the same as the registration form, but
+with a few minor changes:
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/6f4e65f8f0a9070a602523bb5dd3dfbd58b56735/pages/settings.tsx"
+/>
+
+### Rendering the Login Page
+
+The login page is a bit more work to render! That is because we want to support
+two-step authentication and we need to deal with any two-factor authentication
+errors by e.g. logging the user out.
+
+<CodeFromRemote
+  lang="tsx"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/6f4e65f8f0a9070a602523bb5dd3dfbd58b56735/pages/login.tsx"
+/>
+
+### Form Rendering Conclusion
+
+That was quite a bit of code, but it's all there is to it! If you do not want to
+implement these UI screens yourself, use the reference implementations for Ory
+Kratos instead, or clone this repository and use it as a base for your project!
+
+```bash
+git clone https://github.com/ory/kratos-selfservice-ui-react-nextjs.git
+```
+
+## Deploy to Vercel
+
+The easiest way to deploy your Next.js app is to use the
+[Vercel Platform](https://vercel.com/new) from the creators of Next.js. If you
+have never deployed on Vercel, check out the
+[Next.js deployment documentation](https://nextjs.org/docs/deployment) for more
+details. Deploying the app is easy. Ensure that your build works by running
+
+```
+npm run build
+```
+
+Then, set up your [Vercel](https://vercel.com/) account and create a new app.
+You will need to configure your
+[Ory Cloud Project SDK URL](https://www.ory.sh/docs/concepts/services-api) or
+the URL of your self-hosted Ory Kratos instance in your Vercel deployment:
+
+![Add Ory Cloud SDK URL to Vercel](/images/articles/auth-react-next-vercel/vercel-env-var.png)
+
+By the way! If you want to use separate Ory Kratos deployments for staging,
+production, and development then use different SDK URLs for the different
+environments by un/selecting the checkboxes in the Vercel UI:
+
+![Use a development project for development Vercel](/images/articles/auth-react-next-vercel/vercel-dev.png)
+
+![Use a production project for production Vercel](/images/articles/auth-react-next-vercel/vercel-prod.png)
+
+If you want to call Ory Cloud's Admin APIs from your Next.js Edge serverless
+functions, optionally set up the
+[Ory Personal Access Token](https://www.ory.sh/docs/guides/create-personal-access-token):
+
+![Connect Vercel with Ory Personal Access Token](/images/articles/auth-react-next-vercel/vercel-secret.png)
+
+Next all you need to do is to run the deploy command and connect it to the
+project you created:
+
+```
+npx vercel deploy --prod
+```
+
+This also works with Vercel PR Preview!
+
+## End-to-End Tests
+
+Adding end-to-end tests is also easy! Clone the repository and run the following
+commands:
+
+```bash
+git clone https://github.com/ory/kratos-selfservice-ui-react-nextjs.git
+cd kratos-selfservice-ui-react-nextjs
+npm i
+```
+
+Then, depending on your setup, you can either use Ory Kratos local or deployed
+in Ory Cloud:
+
+```shell
+export ORY_KRATOS_URL=https://playground.projects.oryapis.com/
+```
+
+Then, build and start the server
+
+```shell
+npm run dev
+```
+
+and in a new shell run the end-to-end tests:
+
+```
+npm run test:dev
+```
+
+You can find the full spec file in the `cypress/integration/pages.spec.js` file:
+
+<CodeFromRemote
+  lang="js"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/cypress/integration/pages.spec.js"
+/>
+
+The GitHub Action file is also straight forward and contains two configurations,
+one for running Ory Kratos locally and one for running Ory Kratos in Ory Cloud:
+
+<CodeFromRemote
+  lang="js"
+  src="https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/.github/workflows/test.yml"
+/>
+
+## Conclusion
+
+Adding login and registration to your Next.js app is a breeze with open source
+technology like [Ory Kratos](https://github.com/ory/kratos) and
+[Next.js](https://nextjs.org/).
+
+We hope you enjoyed this guide and found it helpful! If you have any questions,
+check out the Ory community on [Slack](https://slack.ory.sh/) and
+[GitHub](https://github.com/ory/kratos/discussions)!

@@ -1,0 +1,372 @@
+---
+path: '/login-spa-react-nextjs-authentication-example-api-open-source/'
+
+banner: '/images/blog-banner-kratos.png'
+
+title: |
+  Add Authentication to your Next.js / React Single Page Application (SPA)
+
+teaser: |
+  Add login, registration, user and profile management to Next.js Single Page Applications
+  in minutes using the ORY Kratos open source project. Includes code examples for TypeScript
+  and Docker, and end-to-end tests!
+
+seo:
+  title: |
+    Authentication for Next.js / React Single Page Applications
+  description: |
+    Add open source login to any Next.js and React single page app (SPA) using free open source.
+  keywords: |
+    login, auth, authentication, registration, reactjs, vercel, nextjs, react, spa, single page app, native desktop,
+    open source, ory, ory kratos
+
+publishedAt: '2021-11-08'
+author: aeneasr
+
+overline: |
+  Next.js React Authentication
+---
+
+Add authentication and user management to your [Next.js](https://nextjs.org)
+[React](https://reactjs.org) app using the new
+[Next.js Edge Runtime](https://nextjs.org/docs/api-reference/edge-runtime) and
+the [Ory Kratos open source project](https://github.com/ory/kratos)! This
+example also contains end-to-end tests!
+
+## Ory Kratos Open Source Identity Platform
+
+[Ory Kratos](https://github.com/ory/kratos) is a full-featured, free, and open
+source authentication and identity management platform. It supports multi-factor
+authentication with
+[FIDO2, TOTP, and OTP](https://www.ory.sh/kratos/docs/next/two-factor-authentication-2fa-mfa/);
+[Social Sign In](https://www.ory.sh/kratos/docs/next/guides/sign-in-with-github-google-facebook-linkedin/),
+[custom identity models](https://www.ory.sh/kratos/docs/next/concepts/identity-schema/);
+registration, profile management, account recovery, administrative user
+management and so much more! In contrast to other identity systems,
+[Ory Kratos](https://github.com/ory/kratos) enables you to build your own
+[login](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pages/login.tsx),
+[registration](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pages/ui/registration.tsx),
+[account settings](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pages/ui/settings.tsx),
+[account verification](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pages/ui/verification.tsx)
+(e.g. email, phone, activate account),
+[account verification](https://github.com/ory/kratos-selfservice-ui-react-nextjs/blob/master/pages/ui/recovery.tsx)
+(e.g. reset password) user interfaces and user flows using dead-simple APIs.
+This guide focuses on integrating with Ory Kratos' session and login APIs. If
+you are interested in building your own UI, check out
+[Add Custom Login, Registration, User Settings to Your Next.js & React Single Page Application (SPA)](/nextjs-authentication-spa-custom-flows-open-source)
+
+Before we start, let's get some terminology out of the way:
+
+- At Ory, identity can mean any actor in a system (user, robot, service account,
+  ...). The term `user` always refers to a human being sitting in front of a
+  browser or mobile app.
+- A session refers to a user's session in a browser or mobile app after they
+  have authenticated.
+- Self-Service refers to flows the user can do on their own - such as login,
+  registration, and so on. It does not require administrative / support
+  intervention.
+
+## Next.js Authentication with Ory Kratos
+
+If you want to see a live demo right away, check out
+[this app in action](https://kratos-nextjs-react-example.vercel.app).
+
+<video autoplay muted loop playsInline>
+  <source
+    src="/images/articles/auth-react-next-vercel/app.mp4"
+    type="video/mp4"
+  />
+  <source
+    src="/images/articles/auth-react-next-vercel/app.webm"
+    type="video/webm"
+  />
+</video>
+
+import CodeFromRemote from '../../components/freestanding/utils/codefromremote'
+
+You can find the source code for this guide on
+[GitHub](https://github.com/ory/kratos-nextjs-react-example). To give it a spin,
+clone it and run the following commands:
+
+```bash
+git clone https://github.com/ory/kratos-nextjs-react-example.git
+cd kratos-nextjs-react-example
+npm i
+```
+
+Per default, this app uses the public playground deployment of Ory Kratos at
+`https://playground.projects.oryapis.com`. To use it, simply run:
+
+```
+npm run dev
+```
+
+If you want to use your own Ory Kratos instance, you can use the `ORY_KATOS_URL`
+or `ORY_SDK_URL` environment variable. The easiest way to run Ory Kratos is in
+an [Ory Cloud Project](https://www.ory.sh/docs/start-building/create-project)
+_(free for developers)_! In that case, set the `ORY_SDK_URL` to your
+[project's SDK url](https://www.ory.sh/docs/concepts/services-api):
+
+```
+# If you run Ory Kratos in Ory Cloud:
+export ORY_SDK_URL=https://my-project.projects.oryapis.com
+```
+
+You may also run Ory Kratos yourself. A quick way to get started is to run the
+Ory Kratos Docker quickstart:
+
+```shell
+git clone --depth 1 --branch master https://github.com/ory/kratos.git
+cd kratos
+git checkout master
+git pull -ff
+docker-compose -f quickstart.yml -f contrib/quickstart/kratos/cloud/quickstart.yml up --build --force-recreate -d
+```
+
+In that case, set the `ORY_SDK_URL` to your local Ory Kratos instance:
+
+```shell
+# If you run Ory Kratos locally using the Docker quick start:
+export ORY_KRATOS_URL=http://localhost:4455/
+
+# Start the app
+npm run dev
+```
+
+Next head over to [http://localhost:3000/](http://localhost:3000/) to see the
+app in action with login, registration - a working user management!
+
+## Create a Next.js Single Page App with Ory Kratos from Scratch
+
+To add login / auth to your Next.js app, first create a new Next.js project
+
+```shell
+npx create-next-app@latest --typescript
+```
+
+and install the Ory Kratos SDK as well as Ory's NodeJS integration helpers
+
+```shell
+npm i --save @ory/integrations @ory/kratos-client
+```
+
+Then we will add Ory's Next.js Edge-Integration helpers to our project, which
+will act as a tunnel to Ory Kratos. You can either conveniently copy this route
+from our reference application
+
+```shell
+curl -o "pages/api/.ory/[...paths].ts" --create-dirs \
+  https://raw.githubusercontent.com/ory/kratos-nextjs-react-example/master/pages/api/.ory/%5B...paths%5D.ts
+```
+
+or manually create a file called `pages/api/.ory/[...paths].js` in your NextJS
+project and copy the following contents:
+
+<CodeFromRemote
+  lang="js"
+  src="https://github.com/ory/kratos-nextjs-react-example/blob/master/pages/api/.ory/%5B...paths%5D.ts"
+/>
+
+### Add the Ory Kratos SDK to your Next.js App
+
+Great, now you have a NextJS app with a login route. If the user is
+authenticated we want to show the session. If the user is not signed in, we want
+to offer a way to sign up or sign in! Let's take a look at the home page. First,
+we need to add the Ory Kratos SDK to our Next.js app:
+
+<CodeFromRemote
+  lang="js"
+  src="https://github.com/ory/kratos-nextjs-react-example/blob/666010a08f2839ad050624219e829eda075ef4ab/pages/index.tsx"
+  startAt="from '@ory/kratos-client'"
+  endAt={'const kratos = new '}
+/>
+
+Easy, right? The package `@ory/integrations` takes care of all the heavy lifting
+for you and sets up the SDK so that it connects with the Next.js Edge function
+we created in the step prior.
+
+### React Hook to Find Out if a User is Authenticated
+
+Next let's figure out if the user is authenticated. We will use a React Hook to
+check this. We also want to track any errors that may happen as well as creating
+a logout url.
+
+<CodeFromRemote
+  lang="js"
+  src="https://github.com/ory/kratos-nextjs-react-example/blob/666010a08f2839ad050624219e829eda075ef4ab/pages/index.tsx"
+  startAt="const Home: NextPage"
+  endAt={'setSession(session)'}
+/>
+
+### Adding Login and Registration Links if the User is Not Authenticated
+
+Let's also show the user a login and registration link if the user has no login
+session yet
+
+<CodeFromRemote
+  lang="js"
+  src="https://github.com/ory/kratos-nextjs-react-example/blob/235c1fa39511f60cdf9bb19201af55897138ec48/pages/index.tsx"
+  startAt="const SignedOut = () => ("
+  endAt={'</>'}
+/>
+
+or the account settings and logout link if the user is authenticated!
+
+<CodeFromRemote
+  lang="js"
+  src="https://github.com/ory/kratos-nextjs-react-example/blob/235c1fa39511f60cdf9bb19201af55897138ec48/pages/index.tsx"
+  startAt="        <p className={styles.description}>"
+  endAt={'         ) : ('}
+/>
+
+As you can see, it is really easy to initialize login, registration, and profile
+updates. Just create a link!
+
+- `<a href="/api/.ory/self-service/login/browser">` will initialize the login
+  flow.
+- `<a href="/api/.ory/self-service/registration/browser">` will initialize the
+  registration flow.
+- `<a href="/api/.ory/self-service/settings/browser">` will initialize the
+  account settings flow (needs login).
+- `<a href="/api/.ory/self-service/verification/browser">` will initialize the
+  (email, phone, ...) verification flow.
+- `<a href="/api/.ory/self-service/recovery/browser">` will initialize the
+  (password, 2fa, ...) recovery flow.
+
+### Adding a Logout Link for Authenticated Users
+
+To prevent certain types of attack vectors, such as Denial of Service, Ory
+Kratos provides a secure logout mechanism. This involves first fetching a logout
+URL from the Ory Kratos API and then redirecting the user to that URL if logout
+is requested:
+
+<CodeFromRemote
+  lang="js"
+  src="https://github.com/ory/kratos-nextjs-react-example/blob/666010a08f2839ad050624219e829eda075ef4ab/pages/index.tsx"
+  startAt="        // Since we have a session"
+  endAt={'          })'}
+/>
+
+If we do not bind the logout URL to the user's session, it means that anyone
+could load e.g. an image with the logout URL and logout the user without user
+interaction:
+
+```html
+<img src="https://www.example.org/my-vulnerable-logout-command" />
+```
+
+Ory Kratos protects you from these type of attacks with the flow shown above.
+
+### Putting it all Together
+
+You've made it! Clone the app and try it out right now!
+
+```bash
+git clone https://github.com/ory/kratos-nextjs-react-example.git
+cd kratos-nextjs-react-example
+npm i
+```
+
+Or look at the code we wrote above in full below:
+
+<CodeFromRemote
+  lang="js"
+  src="https://github.com/ory/kratos-nextjs-react-example/blob/235c1fa39511f60cdf9bb19201af55897138ec48/pages/index.tsx"
+/>
+
+### Deploy to Vercel
+
+The easiest way to deploy your Next.js app is to use the
+[Vercel Platform](https://vercel.com/new) from the creators of Next.js. If you
+have never deployed on Vercel, check out the
+[Next.js deployment documentation](https://nextjs.org/docs/deployment) for more
+details. Deploying the app is easy. Ensure that your build works by running
+
+```
+npm run build
+```
+
+Then, set up your [Vercel](https://vercel.com/) account and create a new app.
+You will need to configure your
+[Ory Cloud Project SDK URL](https://www.ory.sh/docs/concepts/services-api) or
+the URL of your self-hosted Ory Kratos instance in your Vercel deployment:
+
+![Add Ory Cloud SDK URL to Vercel](/images/articles/auth-react-next-vercel/vercel-env-var.png)
+
+By the way! If you want to use separate Ory Kratos deployments for staging,
+production, and development then use different SDK URLs for the different
+environments by un/selecting the checkboxes in the Vercel UI:
+
+![Use a development project for development Vercel](/images/articles/auth-react-next-vercel/vercel-dev.png)
+
+![Use a production project for production Vercel](/images/articles/auth-react-next-vercel/vercel-prod.png)
+
+If you want to call Ory Cloud's Admin APIs from your Next.js Edge serverless
+functions, optionally set up the
+[Ory Personal Access Token](https://www.ory.sh/docs/guides/create-personal-access-token):
+
+![Connect Vercel with Ory Personal Access Token](/images/articles/auth-react-next-vercel/vercel-secret.png)
+
+Next all you need to do is to run the deploy command and connect it to the
+project you created:
+
+```
+npx vercel deploy --prod
+```
+
+This also works with Vercel PR Preview!
+
+## End-to-End Tests
+
+Adding end-to-end tests is also easy! Clone the repository and run the following
+commands:
+
+```bash
+git clone https://github.com/ory/kratos-nextjs-react-example.git
+cd kratos-nextjs-react-example
+npm i
+```
+
+Then, depending on your setup, you can either use Ory Kratos local or deployed
+in Ory Cloud:
+
+```shell
+export ORY_KRATOS_URL=https://playground.projects.oryapis.com/
+```
+
+Then, build and start the server
+
+```shell
+npm run dev
+```
+
+and in a new shell run the end-to-end tests:
+
+```
+npm run test:dev
+```
+
+You can find the full spec file in the `cypress/integration/pages.spec.js` file:
+
+<CodeFromRemote
+  lang="js"
+  src="https://github.com/ory/kratos-nextjs-react-example/blob/master/cypress/integration/pages.spec.js"
+/>
+
+The GitHub Action file is also straight forward and contains two configurations,
+one for running Ory Kratos locally and one for running Ory Kratos in Ory Cloud:
+
+<CodeFromRemote
+  lang="js"
+  src="https://github.com/ory/kratos-nextjs-react-example/blob/master/.github/workflows/test.yml"
+/>
+
+## Conclusion
+
+Adding login and registration to your Next.js app is a breeze with open source
+technology like [Ory Kratos](https://github.com/ory/kratos) and
+[Next.js](https://nextjs.org/).
+
+We hope you enjoyed this guide and found it helpful! If you have any questions,
+check out the Ory community on [Slack](https://slack.ory.sh/) and
+[GitHub](https://github.com/ory/kratos/discussions)!
