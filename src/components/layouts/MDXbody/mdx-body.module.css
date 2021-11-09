@@ -77,6 +77,15 @@
   & h5,
   & h6 {
     margin-top: 2rem;
+    position: relative;
+    & a:first-child {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: calc(var(--size-8) * -1);
+      display: flex;
+      align-items: center;
+    }
   }
 
   & ul {
