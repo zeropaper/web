@@ -10,7 +10,7 @@ import SEO from '../components/layouts/seo/seo'
 import Stats from '../components/layouts/stats/stats'
 import * as content from '../page-content/content-pricing'
 import { pricingOpensource } from '../page-content/pricing-tiers/pricing-opensource'
-import { pricingSaas } from '../page-content/pricing-tiers/pricing-saas'
+import { pricingCloud } from '../page-content/pricing-tiers/pricing-cloud'
 import { sharedAdopters } from '../page-content/shared/content-adopters'
 import { sharedQuotes } from '../page-content/shared/content-quotes'
 import { sharedStats } from '../page-content/shared/content-stats'
@@ -18,7 +18,7 @@ import { sharedStats } from '../page-content/shared/content-stats'
 const PricingPage = () => (
   <Layout>
     <SEO {...content.seo} />
-    <Pricing {...content.pricing} {...pricingSaas} {...pricingOpensource} />
+    <Pricing {...content.pricing} {...pricingCloud} {...pricingOpensource} />
     <Adopters {...sharedAdopters} />
     <Stats {...sharedStats} />
     <FeatureList {...content.featurelist} />

@@ -265,7 +265,7 @@ export const faq: FaqProps = {
       )
     },
     {
-      question: `What does Flexible identity model mean?`,
+      question: `What does unlimited identities mean? Are there really no limits?`,
       answer: (
         <>
           Ory does not charge you for individual identities. We do have limits

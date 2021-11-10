@@ -16,11 +16,11 @@ export interface PropTypes {
   className?: string
   title: React.ReactElement
   description?: React.ReactElement
-  saas: Array<PriceTier>
+  cloud: Array<PriceTier>
   opensource: Array<PriceTier>
 }
 
-const Pricing = ({ id, title, description, saas, opensource }: PropTypes) => {
+const Pricing = ({ id, title, description, cloud, opensource }: PropTypes) => {
   const [togglePricing, setTogglePricing] = useState<boolean>(true)
 
   const handleToggle = () => {
@@ -50,7 +50,7 @@ const Pricing = ({ id, title, description, saas, opensource }: PropTypes) => {
           </Container>
         </Grid>
         {togglePricing ? (
-          <PricingBlock tiers={saas} />
+          <PricingBlock tiers={cloud} />
         ) : (
           <PricingBlock tiers={opensource} />
         )}
@@ -58,9 +58,8 @@ const Pricing = ({ id, title, description, saas, opensource }: PropTypes) => {
           <Grid lg={8} md={8} sm={12} xs={12}>
             <Container justify={'center'} className={'text-is-centered'}>
               <p className={cn('font-p-small')}>
-                <span className={'is-themed-primary'}>* </span>Fair use of
-                database storage for identities, flows and sessions. Upgrades
-                are possible.
+                <span className={'is-themed-primary'}>*</span>Upgrade
+                to production plan possible, please contact us. Paid plans have no limits on identities. 
               </p>
               <p className={cn('font-p-small')}>
                 Prices in USD, taxes may apply. Billed monthly.
