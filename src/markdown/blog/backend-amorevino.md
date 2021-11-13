@@ -1,6 +1,6 @@
 ---
 path: '/cloud-ecommerce-backend/'
-banner: '/images/blog-banner-ory.png'
+
 title: >
   E-Commerce with Ory Cloud Part 1: Backend Example
 

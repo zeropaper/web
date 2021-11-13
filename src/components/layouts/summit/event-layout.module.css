@@ -1,0 +1,9 @@
+.container {
+  position: relative;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-2);
+}

@@ -1,0 +1,166 @@
+.session-list {
+  padding: var(--size-8) 0;
+}
+
+.introContainer {
+  width: 100%;
+  height: 500px;
+  background-image: url(/images/summit-banner.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: var(--size-8) var(--size-4);
+  margin-bottom: var(--size-8);
+}
+
+.divider {
+  border-top: 1px solid var(--colors-info-darkmode);
+  margin: var(--size-16) 0;
+}
+
+.sessionCard {
+  align-self: stretch;
+  margin-right: var(--size-8);
+  overflow: hidden;
+  margin-bottom: var(--size-8);
+  box-sizing: border-box;
+  background: var(--colors-themed-background);
+  border-radius: var(--radius-default);
+  border: var(--size-px) solid var(--colors-themed-light);
+
+  & .session-title {
+    min-height: var(--size-24);
+    line-height: var(--size-8);
+  }
+
+  & .speaker-social {
+    & img {
+      margin-right: var(--size-4);
+      width: var(--size-12);
+      height: var(--size-12);
+      border-radius: var(--radius-larger);
+    }
+  }
+
+  &:nth-child(even) {
+    margin-right: unset;
+  }
+
+  & .session-card-information {
+    padding: var(--size-8);
+  }
+}
+
+@media (--sm), (--xs) {
+  .sessionCard {
+    & .session-title {
+      min-height: var(--size-10);
+    }
+
+    & .speaker-social {
+      margin-right: var(--size-6);
+
+      & img {
+        margin-right: var(--size-4);
+        width: var(--size-8);
+        height: var(--size-8);
+        border-radius: var(--radius-larger);
+      }
+    }
+
+    &:nth-child(even) {
+      margin-right: unset;
+    }
+
+    & .session-card-information {
+      padding: var(--size-4);
+    }
+  }
+}
+
+.speakerCard {
+  display: flex;
+  align-self: stretch;
+  justify-content: center;
+  padding: var(--size-8);
+  margin-right: var(--size-8);
+  overflow: hidden;
+  margin-bottom: var(--size-8);
+  box-sizing: border-box;
+  background: var(--colors-themed-background);
+  border-radius: var(--radius-default);
+  border: var(--size-px) solid var(--colors-themed-light);
+
+  & .speaker-name {
+    line-height: var(--font-lineheight-tight);
+  }
+
+  & .speaker-social {
+    & img {
+      margin-right: var(--size-4);
+      width: var(--size-32);
+      height: var(--size-32);
+      border-radius: var(--size-full);
+    }
+  }
+
+  &:nth-child(3n) {
+    margin-right: unset;
+  }
+}
+
+@media (--sm), (--xs) {
+  .speakerCard {
+    &:nth-child(3n) {
+      margin-right: auto;
+    }
+
+    &:nth-child(2n) {
+      margin-right: unset;
+    }
+  }
+}
+
+.speakerCard-large {
+  display: flex;
+  padding: var(--size-8);
+  overflow: hidden;
+  margin-bottom: var(--size-8);
+  box-sizing: border-box;
+  background: var(--colors-themed-background);
+  border-radius: var(--radius-default);
+  border: var(--size-px) solid var(--colors-themed-light);
+
+  & .speaker-info {
+    flex: 1;
+  }
+
+  & .speaker-about {
+    flex: 2;
+  }
+
+  & .speakerCard-direction {
+    flex-direction: row;
+  }
+
+  & .speaker-name {
+    line-height: var(--font-lineheight-tight);
+  }
+
+  & .speaker-social {
+    & img {
+      margin-right: var(--size-4);
+      width: var(--size-32);
+      height: var(--size-32);
+      border-radius: var(--size-full);
+    }
+  }
+}
+
+@media (--sm), (--xs) {
+  .speakerCard-large {
+    & .speakerCard-direction {
+      flex-direction: column;
+    }
+  }
+}

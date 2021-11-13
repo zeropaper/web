@@ -1,0 +1,12 @@
+.container {
+  background-image: url(/images/summit-banner-portion.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right bottom;
+  padding: var(--size-8) var(--size-4);
+}
+.content {
+  margin-top: var(--size-8);
+  max-width: 65ch;
+  line-height: 1.4;
+}

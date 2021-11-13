@@ -1,3 +1,8 @@
 .layout {
   background: var(--colors-base-white);
 }
+
+.summitContainer {
+  padding-bottom: var(--space-large);
+  background-color: var(--colors-base-white);
+}

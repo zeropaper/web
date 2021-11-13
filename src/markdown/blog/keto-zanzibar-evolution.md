@@ -1,6 +1,6 @@
 ---
 path: '/keto-zanzibar-evolution/'
-banner: '/images/blog-banner-keto.png'
+
 title: >
   The Evolution of Ory Keto: A Global Scale Authorization System
 

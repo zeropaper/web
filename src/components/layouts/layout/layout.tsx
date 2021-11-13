@@ -16,8 +16,8 @@ import * as footer from '../../../page-content/navigation/navigation-footer'
 import * as nav from '../../../page-content/navigation/navigation-header'
 import CookieBanner from '../cookie-banner/cookie-banner'
 import Footer from '../footer/footer'
-import Announcement from '../navigation/announcement'
 import Navigation from '../navigation/navigation'
+import EventLayout from '../summit/event-layout'
 
 import * as styles from './layout.module.css'
 
@@ -25,18 +25,18 @@ import oryLogoPrimary from '../../../images/logo/logo-ory-primary.svg'
 import oryLogoWhite from '../../../images/logo/logo-ory-white.svg'
 
 interface PropTypes {
+  isEvent?: boolean
   theme?: string
   children?: React.ReactNode
 }
 
-const Layout = ({ children, theme }: PropTypes) => (
+const Layout = ({ children, theme, isEvent }: PropTypes) => (
   <div className={cn(styles.layout)}>
     {envIsProduction && (
       <Helmet>
         <script defer data-domain="ory.sh" src="/scripts/script.js"></script>
       </Helmet>
     )}
-
     <CookieBanner />
     <Navigation
       logo={oryLogoPrimary}
@@ -44,7 +44,14 @@ const Layout = ({ children, theme }: PropTypes) => (
       {...nav.dropdownMenu}
       {...nav.mobileMenu}
     />
-    <main className={theme ? `theme-${theme}` : ''}>{children}</main>
+    <main
+      className={cn(
+        theme ? `theme-${theme}` : '',
+        isEvent && styles.summitContainer
+      )}
+    >
+      {isEvent ? <EventLayout>{children}</EventLayout> : children}
+    </main>
     <Footer
       logo={oryLogoWhite}
       {...footer.copyright}
