@@ -6,7 +6,9 @@ order: 11
 speakers: [tilmantheile, tommycurran]
 
 ready: false
-title: Ory Cloud Service for Application Developers and a Practical Example Featuring Firebase
+title:
+  Ory Cloud Service for Application Developers and a Practical Example Featuring
+  Firebase
 description: |
   Tilman and Tommy of AMOREVINO will elaborate on their decision to solve identity with the Ory Cloud over Firebase Auth as well as how identity plays into their overall business strategy. They provide insight into how they integrated Ory Identity schemas with their Firebase database and how Ory will enable new business models going forward.
 

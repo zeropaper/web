@@ -6,7 +6,8 @@ order: 14
 speakers: [sinclair]
 
 ready: false
-title: Building Community Management Infrastructure with Ory Open Source Software
+title:
+  Building Community Management Infrastructure with Ory Open Source Software
 description: |
   An open ecosystem for identity infrastructure supports not only business but also enables non-profit and educational projects to benefit from secure and hardened IAM. In this session, Jakob Sinclair from the Swedish Pirate Party is going to tell his story as Ory Hydra & Kratos user, open-source contributor, and proponent of free and open software.
 

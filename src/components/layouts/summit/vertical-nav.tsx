@@ -3,11 +3,12 @@ import React from 'react'
 
 import Button from '../../freestanding/button/button'
 import Container from '../../freestanding/containers/container'
-import orySummit from '../../../images/events/summit/summit21-logo.svg'
-import orySummitSmall from '../../../images/events/summit/summit21-logo-small.svg'
+import Grid from '../../freestanding/containers/grid'
 
 import * as styles from './vertical-nav.module.css'
-import Grid from "../../freestanding/containers/grid";
+
+import orySummitSmall from '../../../images/events/summit/summit21-logo-small.svg'
+import orySummit from '../../../images/events/summit/summit21-logo.svg'
 
 export interface PropTypes {
   id: string
@@ -21,8 +22,7 @@ interface menuItems {
   openInNewWindow?: boolean
 }
 
-
-const VerticalNav = ({id, year, menuItems}: PropTypes) => (
+const VerticalNav = ({ id, year, menuItems }: PropTypes) => (
   <div id={id} className={styles.verticalNav}>
     <Container
       alignItems={'start'}
@@ -34,10 +34,17 @@ const VerticalNav = ({id, year, menuItems}: PropTypes) => (
         alignItems={'start'}
         className={cn(styles.navLogo)}
       >
-        <Button to={`/summit/${year}`} style={'none'} className={styles.navLogo}>
-          <Grid xsHidden={true} smHidden={true}><img src={orySummit} loading={'eager'} alt={'Ory logo'}/></Grid>
-          <Grid lgHidden={true} mdHidden={true}><img src={orySummitSmall} loading={'eager'} alt={'Ory logo'}/></Grid>
-
+        <Button
+          to={`/summit/${year}`}
+          style={'none'}
+          className={styles.navLogo}
+        >
+          <Grid xsHidden={true} smHidden={true}>
+            <img src={orySummit} loading={'eager'} alt={'Ory logo'} />
+          </Grid>
+          <Grid lgHidden={true} mdHidden={true}>
+            <img src={orySummitSmall} loading={'eager'} alt={'Ory logo'} />
+          </Grid>
         </Button>
       </Container>
       <Container
@@ -48,7 +55,7 @@ const VerticalNav = ({id, year, menuItems}: PropTypes) => (
           <p className={styles.navHeading}>The Ory Developer Conference</p>
           <p className={styles.navTagline}>28-29 October 2021</p>
         </Grid>
-        {menuItems.map(({menuItem, to, openInNewWindow}, index) => (
+        {menuItems.map(({ menuItem, to, openInNewWindow }, index) => (
           <Button
             key={index}
             to={to}
@@ -64,21 +71,21 @@ const VerticalNav = ({id, year, menuItems}: PropTypes) => (
             openInNewWindow={true}
             style={'navigation'}
           >
-            <i className={'ph-youtube-logo-fill size24'}/>
+            <i className={'ph-youtube-logo-fill size24'} />
           </Button>
           <Button
             to="https://twitter.com/orycorp"
             openInNewWindow={true}
             style={'navigation'}
           >
-            <i className={'ph-twitter-logo-fill size24'}/>
+            <i className={'ph-twitter-logo-fill size24'} />
           </Button>
           <Button
             to="https://slack.ory.sh"
             openInNewWindow={true}
             style={'navigation'}
           >
-            <i className={'ph-slack-logo-fill size24'}/>
+            <i className={'ph-slack-logo-fill size24'} />
           </Button>
         </Grid>
       </Container>

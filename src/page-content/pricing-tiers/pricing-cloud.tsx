@@ -15,7 +15,7 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
       description: 'Free for developers, no credit card needed',
       price: 'Free',
       priceDescription: 'forever',
-      
+
       button: (
         <Button to={'https://console.ory.sh/registration'} style={'filled'}>
           Sign Up
@@ -37,11 +37,11 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
         {
           icon: CheckCircle,
           title: 'FIDO2-compliant 2FA'
-        },        
+        },
         {
           icon: CheckCircle,
           title: 'Bring your own UI'
-        },        
+        },
         {
           icon: CheckCircle,
           title: 'Custom Identity Models'
@@ -53,7 +53,7 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
         {
           icon: CheckCircle,
           title: 'Community Support'
-        },
+        }
       ]
     },
     {
@@ -71,7 +71,7 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
         {
           icon: CheckCircle,
           title: 'Everything in Developer'
-        },        
+        },
         {
           icon: CheckCircle,
           title: 'More Members & Projects'
@@ -83,7 +83,7 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
         {
           icon: CheckCircle,
           title: 'Custom Rate Limit'
-        },        
+        },
         {
           icon: CheckCircle,
           title: 'Support via Ticket System'

@@ -159,6 +159,7 @@ return fetch(config.kratos.public + "sessions/whoami", {
 
 - Continue with the [Flutter Frontend Tutorial.](/cloud-ecommerce-frontend/)
 
-- Visit GitHub and [take a look at the example backend code](https://github.com/amorevino/ory-showcase-apps).
+- Visit GitHub and
+  [take a look at the example backend code](https://github.com/amorevino/ory-showcase-apps).
 
 - [Sign up for Ory Cloud](https://console.ory.sh/) and try it out yourself!

@@ -256,10 +256,10 @@
 
   --colors-input-hover: var(--colors-info-background);
 
-  --colors-text-primary: rgba(0, 112, 153,1); /*alpha 1*/
-  --colors-text-secondary: rgba(0, 112, 153,.85); /*alpha .85*/
-  --colors-text-mute: rgba(0, 112, 153,.60); /*alpha .60*/
-  --colors-text-muter: rgba(0, 112, 153,.40); /*alpha .40*/
+  --colors-text-primary: rgba(0, 112, 153, 1); /*alpha 1*/
+  --colors-text-secondary: rgba(0, 112, 153, 0.85); /*alpha .85*/
+  --colors-text-mute: rgba(0, 112, 153, 0.6); /*alpha .60*/
+  --colors-text-muter: rgba(0, 112, 153, 0.4); /*alpha .40*/
 }
 
 .background-is-dark,

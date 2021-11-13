@@ -80,7 +80,7 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
       mainMenu: [
         {
           title: 'Documentation',
-          description: 'Documentation for all Ory products.',
+          description: 'Documentation for all Ory products',
           to: '/docs'
         },
         {
@@ -92,6 +92,11 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
           title: 'Blog',
           description: 'Articles & Guides',
           to: '/blog'
+        },
+        {
+          title: 'Summit',
+          description: 'Watch VODs of past Ory Summits',
+          to: '/summit/2021'
         }
       ]
     },
@@ -183,6 +188,10 @@ export const mobileMenu: Pick<NavProps, 'mobileMenu'> = {
           {
             title: 'Blog',
             to: '/blog/'
+          },
+          {
+            title: 'Summit',
+            to: '/summit/2021'
           }
         ]
       },

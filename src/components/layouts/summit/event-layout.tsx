@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {verticalNav} from '../../../page-content/events/content-summit-21'
+import { verticalNav } from '../../../page-content/events/content-summit-21'
 import Container from '../../freestanding/containers/container'
 import Grid from '../../freestanding/containers/grid'
 
@@ -12,7 +12,7 @@ interface PropTypes {
   children: React.ReactNode
 }
 
-const EventLayout = ({children}: PropTypes) => (
+const EventLayout = ({ children }: PropTypes) => (
   <Grid lg={12} md={12} sm={12} xs={12}>
     <Container
       className={styles.container}

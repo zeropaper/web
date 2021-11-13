@@ -1,7 +1,6 @@
 ---
 path: '/dockertest-gaen-google-apple-exposure-notification-covid-19/'
 
-
 title: |
   Keeping Covid19 in check with ORY Dockertest
 

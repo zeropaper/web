@@ -38,12 +38,12 @@ export const sessionList: SessionlistProps = {
   title: 'Check out the sessions',
   intro: (
     <>
-      Ory Summit is a developers conference around cloud
-      identity infrastructure, focused on but not limited to authentication,
+      Ory Summit is a developers conference around cloud identity
+      infrastructure, focused on but not limited to authentication,
       authorization, access control and security. A conference about our
       community the successes achieved and obstacles they encountered. and the
-      future of Ory. Watch the Ory Keynotes and gain insight into the past, present and future of Ory Open Source
-      and Ory Cloud.
+      future of Ory. Watch the Ory Keynotes and gain insight into the past,
+      present and future of Ory Open Source and Ory Cloud.
     </>
   ),
   sessionText: (

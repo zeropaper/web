@@ -6,7 +6,9 @@ order: 8
 speakers: [bmonkman]
 
 ready: false
-title: Bootstrap a Scalable, Production-ready SaaS Application with Zero Using Ory Kratos & Ory Oathkeeper
+title:
+  Bootstrap a Scalable, Production-ready SaaS Application with Zero Using Ory
+  Kratos & Ory Oathkeeper
 description: |
   Learn how to create and deploy a complete SaaS application, how self service flows authentication flows are implemented using Ory Kratos and Ory Oathkeeper, and what components are involved.
 
