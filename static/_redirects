@@ -270,6 +270,3 @@ https://www.ory.sh/install.sh https://raw.githubusercontent.com/ory/meta/master/
 # Nov 2021 Ory Cloud Docs Reorder
 
 https://www.ory.sh/docs/early-access/ https://www.ory.sh/docs/cloud/cloud-roadmap 302!
-
-# temporary until https://github.com/ory/web/pull/420 is merged
-https://www.ory.sh/summit/2021/ https://github.com/ory/summit 302!
