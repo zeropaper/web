@@ -13,7 +13,12 @@ declare global {
     plausible: any
     _paq: any
     _iub: any
+    dataLayer: any
   }
+}
+
+const googleTag = (name: string, arg?: any) => {
+  arg ? window.dataLayer.push(name) : window.dataLayer.push(name, arg)
 }
 
 export const trackEvent = (event: IEvent) => {
@@ -22,6 +27,9 @@ export const trackEvent = (event: IEvent) => {
   }
   if (window._paq) {
     window._paq.push(['trackEvent', event.category, event.action, event.origin])
+  }
+  if (window.dataLayer) {
+    googleTag(event.action)
   }
 }
 
@@ -43,12 +51,22 @@ const loadConsentBanner = () => {
   )
 }
 
-const allowAdvancedGoogleAnalytics = () => {
-  console.log('init GA')
+const loadGoogleAnalytics = () => {
+  const script = document.createElement('script')
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-DT8JRXTPH3'
+  document.body.appendChild(script)
+  return new Promise<void>((resolve) => {
+    script.onload = () => {
+      window.dataLayer = window.dataLayer || []
+      googleTag('js', new Date())
+      googleTag('config', 'G-DT8JRXTPH3')
+      resolve()
+    }
+  })
 }
 
 const eventsOnBannerInteraction = {
-  onConsentGiven: allowAdvancedGoogleAnalytics,
+  onConsentGiven: loadGoogleAnalytics,
   onConsentFirstGiven: () =>
     trackEvent({
       category: 'Consent',
@@ -94,5 +112,7 @@ export const init = () => {
   }
   window._iub = _iub
 
-  loadConsentBanner().then(() => {})
+  loadConsentBanner().then(() => {
+    // Future sequential stuff that is dependent on consent banner goes here
+  })
 }
