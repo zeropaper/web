@@ -8,13 +8,13 @@ import 'prismjs/components/prism-shell-session'
 import 'prismjs/components/prism-tsx'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-yaml'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Helmet from 'react-helmet'
 
+import { init as initAnalytics } from '../../../analytics'
 import { envIsProduction } from '../../../config'
 import * as footer from '../../../page-content/navigation/navigation-footer'
 import * as nav from '../../../page-content/navigation/navigation-header'
-import CookieBanner from '../cookie-banner/cookie-banner'
 import Footer from '../footer/footer'
 import Navigation from '../navigation/navigation'
 import EventLayout from '../summit/event-layout'
@@ -30,36 +30,42 @@ interface PropTypes {
   children?: React.ReactNode
 }
 
-const Layout = ({ children, theme, isEvent }: PropTypes) => (
-  <div className={cn(styles.layout)}>
-    {envIsProduction && (
-      <Helmet>
-        <script defer data-domain="ory.sh" src="/scripts/script.js"></script>
-      </Helmet>
-    )}
-    <CookieBanner />
-    <Navigation
-      logo={oryLogoPrimary}
-      {...nav.sideNav}
-      {...nav.dropdownMenu}
-      {...nav.mobileMenu}
-    />
-    <main
-      className={cn(
-        theme ? `theme-${theme}` : '',
-        isEvent && styles.summitContainer
+const Layout = ({ children, theme, isEvent }: PropTypes) => {
+  useEffect(() => {
+    initAnalytics()
+  }, [])
+
+  return (
+    <div className={cn(styles.layout)}>
+      {envIsProduction && (
+        <Helmet>
+          <script defer data-domain="ory.sh" src="/scripts/script.js"></script>
+        </Helmet>
       )}
-    >
-      {isEvent ? <EventLayout>{children}</EventLayout> : children}
-    </main>
-    <Footer
-      logo={oryLogoWhite}
-      {...footer.copyright}
-      {...footer.social}
-      {...footer.legal}
-      {...footer.links}
-    />
-  </div>
-)
+
+      <Navigation
+        logo={oryLogoPrimary}
+        {...nav.sideNav}
+        {...nav.dropdownMenu}
+        {...nav.mobileMenu}
+      />
+      <main
+        className={cn(
+          theme ? `theme-${theme}` : '',
+          isEvent && styles.summitContainer
+        )}
+      >
+        {isEvent ? <EventLayout>{children}</EventLayout> : children}
+      </main>
+      <Footer
+        logo={oryLogoWhite}
+        {...footer.copyright}
+        {...footer.social}
+        {...footer.legal}
+        {...footer.links}
+      />
+    </div>
+  )
+}
 
 export default Layout
