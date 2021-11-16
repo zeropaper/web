@@ -95,7 +95,11 @@ export const init = () => {
     privacyPolicyUrl: '/privacy',
     cookiePolicyUrl: '/cookies',
     callback: eventsOnBannerInteraction,
+
     banner: {
+      cookiePolicyLinkCaption: 'Cookie Policy',
+      content:
+        'We use cookies to make sure Ory is the best it can be, with your consent. More information in our %{cookie_policy_link}',
       acceptButtonDisplay: true,
       customizeButtonDisplay: true,
       acceptButtonColor: '#5528ff',
