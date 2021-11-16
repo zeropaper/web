@@ -16,13 +16,14 @@ declare global {
   }
 }
 
-const loadConsentManagement = () =>
-  new Promise<void>((resolve) => {
-    const script = document.createElement('script')
-    script.src = 'https://cdn.iubenda.com/cons/iubenda_cons.js'
-    document.body.appendChild(script)
-    script.onload = () => resolve()
-  })
+export const trackEvent = (event: IEvent) => {
+  if (window.plausible) {
+    window.plausible(event.action)
+  }
+  if (window._paq) {
+    window._paq.push(['trackEvent', event.category, event.action, event.origin])
+  }
+}
 
 const loadConsentBanner = () => {
   const dependencies = [
@@ -42,23 +43,40 @@ const loadConsentBanner = () => {
   )
 }
 
+const allowAdvancedGoogleAnalytics = () => {
+  console.log('init GA')
+}
+
+const eventsOnBannerInteraction = {
+  onConsentGiven: allowAdvancedGoogleAnalytics,
+  onConsentFirstGiven: () =>
+    trackEvent({
+      category: 'Consent',
+      action: 'AcceptCookies',
+      origin: 'Accept button in cookie banner'
+    }),
+  onConsentFirstRejected: () =>
+    trackEvent({
+      category: 'Consent',
+      action: 'RejectCookies',
+      origin: 'Reject button in cookie banner'
+    })
+}
+
 export const init = () => {
   const _iub = window._iub || {}
-  const publicKey = 'Kwz8UykLe0l0hkBIT3qlC2i8uwjFbVzI'
-
-  _iub.cons_instructions = _iub.cons_instructions || []
-  _iub.cons_instructions.push(['init', { api_key: publicKey }])
   _iub.csConfiguration = {
     enableCcpa: true,
     countryDetection: true,
     consentOnContinuedBrowsing: false,
     ccpaAcknowledgeOnDisplay: true,
     lang: 'en',
-    siteId: 2406967,
-    floatingPreferencesButtonDisplay: 'bottom-right',
-    cookiePolicyId: 28161797,
+    siteId: 2407170,
+    floatingPreferencesButtonDisplay: false,
+    cookiePolicyId: 17136025,
     privacyPolicyUrl: '/privacy',
     cookiePolicyUrl: '/cookies',
+    callback: eventsOnBannerInteraction,
     banner: {
       acceptButtonDisplay: true,
       customizeButtonDisplay: true,
@@ -76,16 +94,5 @@ export const init = () => {
   }
   window._iub = _iub
 
-  loadConsentManagement().then(() => {
-    return loadConsentBanner()
-  })
-}
-
-export const trackEvent = (event: IEvent) => {
-  if (window.plausible) {
-    window.plausible(event.action)
-  }
-  if (window._paq) {
-    window._paq.push(['trackEvent', event.category, event.action, event.origin])
-  }
+  loadConsentBanner().then(() => {})
 }
