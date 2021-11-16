@@ -32,7 +32,7 @@ interface PropTypes {
 
 const Layout = ({ children, theme, isEvent }: PropTypes) => {
   useEffect(() => {
-    initAnalytics()
+    if (envIsProduction) initAnalytics()
   }, [])
 
   return (
