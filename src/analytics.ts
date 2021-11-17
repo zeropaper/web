@@ -61,13 +61,13 @@ const loadConsentBanner = () => {
 
 const loadGoogleAnalytics = () => {
   const script = document.createElement('script')
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ES0EDKH64B'
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-71865250-1'
   document.body.appendChild(script)
   return new Promise<void>((resolve) => {
     script.onload = () => {
       window.dataLayer = window.dataLayer || []
       googleTag('js', new Date())
-      googleTag('config', 'G-ES0EDKH64B')
+      googleTag('config', 'UA-71865250-1')
       resolve()
     }
   })
