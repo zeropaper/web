@@ -25,10 +25,6 @@ declare global {
   }
 }
 
-const googleTag = (name: string, arg?: any) => {
-  arg ? window.dataLayer.push(name) : window.dataLayer.push(name, arg)
-}
-
 export const trackEvent = (event: IEvent) => {
   if (window.plausible) {
     window.plausible(event.action)
@@ -37,7 +33,7 @@ export const trackEvent = (event: IEvent) => {
     window._paq.push(['trackEvent', event.category, event.action, event.origin])
   }
   if (window.dataLayer) {
-    googleTag(event.action)
+    window.dataLayer.push({ event: event.action })
   }
 }
 
@@ -59,18 +55,20 @@ const loadConsentBanner = () => {
   )
 }
 
+// Provided by tag manager
+const initializeTagManger = (w: any, d: any, s: any, l: any, i: any) => {
+  w[l] = w[l] || []
+  w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+  var f = d.getElementsByTagName(s)[0],
+    j = d.createElement(s),
+    dl = l != 'dataLayer' ? '&l=' + l : ''
+  j.async = true
+  j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+  f.parentNode.insertBefore(j, f)
+}
+
 const loadGoogleAnalytics = () => {
-  const script = document.createElement('script')
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-71865250-1'
-  document.body.appendChild(script)
-  return new Promise<void>((resolve) => {
-    script.onload = () => {
-      window.dataLayer = window.dataLayer || []
-      googleTag('js', new Date())
-      googleTag('config', 'UA-71865250-1')
-      resolve()
-    }
-  })
+  initializeTagManger(window, document, 'script', 'dataLayer', 'GTM-5JC2SVK')
 }
 
 const eventsOnBannerInteraction = {
@@ -96,6 +94,7 @@ const eventsOnBannerInteraction = {
 }
 
 export const init = () => {
+  window.dataLayer = window.dataLayer || []
   const _iub = window._iub || {}
   _iub.csConfiguration = {
     enableCcpa: true,
