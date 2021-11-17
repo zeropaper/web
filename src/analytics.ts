@@ -75,9 +75,9 @@ const loadGoogleAnalytics = () => {
 
 const eventsOnBannerInteraction = {
   // Triggers on every page visit
-  onPreferenceExpressed: (consent: any) => {
+  onPreferenceExpressed: (consent: any = {}) => {
     // If measurement = accepted
-    if (consent.purposes[ConsentCategory.Measurement]) {
+    if (consent.purposes && consent.purposes[ConsentCategory.Measurement]) {
       loadGoogleAnalytics()
     }
   },
