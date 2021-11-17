@@ -8,6 +8,14 @@ export interface IEvents {
   [key: string]: IEvent
 }
 
+enum ConsentCategory {
+  Necessary = '1',
+  Basic = '2',
+  Enhancement = '3',
+  Measurement = '4',
+  Advertising = '5'
+}
+
 declare global {
   interface Window {
     plausible: any
@@ -53,20 +61,26 @@ const loadConsentBanner = () => {
 
 const loadGoogleAnalytics = () => {
   const script = document.createElement('script')
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-DT8JRXTPH3'
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ES0EDKH64B'
   document.body.appendChild(script)
   return new Promise<void>((resolve) => {
     script.onload = () => {
       window.dataLayer = window.dataLayer || []
       googleTag('js', new Date())
-      googleTag('config', 'G-DT8JRXTPH3')
+      googleTag('config', 'G-ES0EDKH64B')
       resolve()
     }
   })
 }
 
 const eventsOnBannerInteraction = {
-  onConsentGiven: loadGoogleAnalytics,
+  // Triggers on every page visit
+  onPreferenceExpressed: (consent: any) => {
+    // If measurement = accepted
+    if (consent.purposes[ConsentCategory.Measurement]) {
+      loadGoogleAnalytics()
+    }
+  },
   onConsentFirstGiven: () =>
     trackEvent({
       category: 'Consent',
@@ -91,13 +105,17 @@ export const init = () => {
     lang: 'en',
     siteId: 2407170,
     floatingPreferencesButtonDisplay: false,
+    perPurposeConsent: true,
+    // https://www.iubenda.com/en/help/1205-how-to-configure-your-cookie-solution-advanced-guide
+    purposes: `${ConsentCategory.Necessary}, ${ConsentCategory.Basic}, ${ConsentCategory.Enhancement}, ${ConsentCategory.Measurement}, ${ConsentCategory.Advertising}`,
     cookiePolicyId: 17136025,
     privacyPolicyUrl: '/privacy',
     cookiePolicyUrl: '/cookies',
     callback: eventsOnBannerInteraction,
-
     banner: {
       cookiePolicyLinkCaption: 'Cookie Policy',
+      customizeButtonCaption: 'Manage preferences',
+      acceptButtonCaption: 'Accept all',
       content:
         'We use cookies to make sure Ory is the best it can be, with your consent. More information in our %{cookie_policy_link}',
       acceptButtonDisplay: true,
@@ -106,9 +124,7 @@ export const init = () => {
       acceptButtonCaptionColor: 'white',
       customizeButtonColor: '#cbcbcb',
       customizeButtonCaptionColor: '#010101',
-      rejectButtonDisplay: true,
-      rejectButtonColor: '#5528ff',
-      rejectButtonCaptionColor: 'white',
+      closeButtonDisplay: false,
       position: 'float-bottom-center',
       textColor: '#010101',
       backgroundColor: '#ffffff'
