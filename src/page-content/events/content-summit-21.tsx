@@ -38,17 +38,17 @@ export const sessionList: SessionlistProps = {
   title: 'Check out the sessions',
   intro: (
     <>
-      Ory Summit is a developers conference around cloud identity
-      infrastructure, focused on but not limited to authentication,
-      authorization, access control and security. A conference about our
-      community the successes achieved and obstacles they encountered. and the
-      future of Ory. Watch the Ory Keynotes and gain insight into the past,
-      present and future of Ory Open Source and Ory Cloud.
+      Ory Summit is a developer conference around cloud identity
+      infrastructure focused on but not limited to authentication,
+      authorization, access control and security. The conference is about our
+      community: the successes we've achieved, obstacles we've encountered and the
+      future of Ory. Watch the Ory Keynotes and gain insight into past,
+      present and future directions of Ory Open Source and Ory Cloud.
     </>
   ),
   sessionText: (
     <>
-      View on demand recordings and download presentations from Ory Summit 2021.
+      View on-demand recordings and download presentations from Ory Summit 2021.
       Discover the products, services and infrastructure developers have built
       using Ory and learn more about real life examples of using Ory Open Source
       and Ory Cloud in production.
@@ -57,10 +57,10 @@ export const sessionList: SessionlistProps = {
   speakerText: (
     <>
       We brought together Ory community members from all over the world for a
-      two day deep dive into all things Ory! Developers, architects, and
-      business leaders from the Ory Community took part in this year's Ory
-      Summit and shared their experiences building identity infrastructure using
-      Ory software. We hope we can count you among our speakers next year.{' '}
+      two-day deep dive into all things Ory! Developers, architects, and
+      business leaders from the Ory Community took part in this year's
+      Summit and shared their experiences with building identity infrastructure using
+     our software. We hope we can count you among our speakers next year.{' '}
       <Button
         style={'link-inline'}
         to="hi@ory.sh?subject=Ory20%Summit%202022%20"
@@ -78,7 +78,7 @@ export const diversityStatement: DiversityStatementProps = {
   text: (
     <>
       We are committed to speakers and participants from underrepresented groups
-      in technology. For more information, or if you have any questions, reach
+      in technology. For more information or if you have any questions, reach
       us at{' '}
       <Button style={'link-inline'} to="mailto:hi@ory.sh">
         summit@ory.sh
