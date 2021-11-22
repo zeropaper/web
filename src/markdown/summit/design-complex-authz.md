@@ -5,12 +5,12 @@ banner: ../../images/events/summit/banners/banner-zepatrik.png
 order: 5
 speakers: [zepatrik]
 
-ready: false
+ready: true
 title: Design Complex Authorization with Ory Keto
 description: |
   In this workshop you will learn design principles that allow you to build performant, extensible, and easy to integrate permission checks using Ory Keto. Expect many practical examples and insights into already running applications.
 
-youtubelink: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+youtubelink: https://www.youtube.com/watch?v=lGRMYkQrNb0
 presentationlink: https://github.com/zepatrik/ory-summit21-talk
 
 seo:
