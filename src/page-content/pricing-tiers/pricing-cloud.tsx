@@ -69,7 +69,7 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
       title: <>Start Up</>,
       description: 'Build your business',
       price: '21',
-      priceDescription: <>First 900 free for one year<span
+      priceDescription: <>The first 900 applications get the Start Up plan for free!<span
         className={cn('is-themed-primary', 'is-semibold')}><sup> 2</sup></span></>,
       priceIsBilledMonthly: true,
       priceIsMonetary: true,
@@ -101,7 +101,7 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
       title: <>Growth</>,
       description: 'Scale your business',
       price: 'Coming soon',
-      priceDescription: <>First 100 free for one year<span
+      priceDescription: <>The first 100 applications get the Growth plan for free!<span
         className={cn('is-themed-primary', 'is-semibold')}><sup> 2</sup></span></>,
       button: {
         title: 'Apply now',

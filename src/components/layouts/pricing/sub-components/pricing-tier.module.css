@@ -4,6 +4,11 @@
     align-content: start;
 }
 
+sup {
+    line-height: 0;
+    font-size: 60%;
+}
+
 .tier-content {
     padding: var(--size-8);
 }
@@ -40,6 +45,9 @@
 
 .tier-price-container {
     min-height: var(--size-24);
+    & p {
+        min-height: var(--size-8)
+    }
 }
 
 .tier-features-container {

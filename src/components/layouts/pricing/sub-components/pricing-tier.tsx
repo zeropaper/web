@@ -92,15 +92,15 @@ const PricingContent = ({
                  className={cn(pb32, 'text-is-centered', styles.tierPriceContainer)}>
         {price.length >= 6 ?
           (
-            <h3 className={cn('font-h3')}>{price}
+            <h3 className={cn('font-h3', pb8)}>{price}
               {priceIsBilledMonthly && <span className={cn('font-h4')}> / mo</span>}
             </h3>
           ) : (
-            <h3 className={cn('font-h1')}>{priceIsMonetary &&
+            <h3 className={cn('font-h1', pb8)}>{priceIsMonetary &&
             <span className={cn('font-h2')}><sup>$ </sup></span>}{price}
               {priceIsBilledMonthly && <span className={cn('font-h4')}> / mo</span>}</h3>
           )}
-        {priceDescription ? (<p className={cn(classes.fontpsm)}>{priceDescription}</p>) : null}
+        {priceDescription ? (<p className={cn(classes.fontpsm, 'lineheight-is-tight')}>{priceDescription}</p>) : null}
       </Container>
       <Container className={cn('width')}>
         <Button to={button.to} style={button.style} openInNewWindow={button.openInNewWindow}
