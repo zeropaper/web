@@ -30,9 +30,9 @@ const SEO = ({
         ? ' - ory'
         : ''
     }`}
-    link={
-      canonical ? [{ rel: 'canonical', key: canonical, href: canonical }] : []
-    }
+    // link={
+    //   canonical ? [{ rel: 'canonical', key: canonical, href: canonical }] : []
+    // }
     meta={[
       {
         name: `description`,
