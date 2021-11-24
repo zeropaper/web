@@ -15,8 +15,8 @@ export const opensourceProjects: ProjectProps = {
   ),
   description: (
     <>
-      Ory offers reliable and scalable APIs and services for authentication,
-      authorization, access control, and delegation.
+      Ory offers reliable APIs and services for authentication, authorization,
+      access control, and delegation.
     </>
   )
 }

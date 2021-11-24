@@ -116,12 +116,12 @@ export const featureContentCoding: FeatureContentProps = {
   },
   content: <CodeBox {...featureContentCodeBox} />,
   feature: {
-    title: <>Integrate anywhere</>,
+    title: <>Integrate anywhere.</>,
     description: (
       <>
-        Fully configurable and with support for a wide range of protocols such
-        as Google Authenticator, Ory Kratos works with any UI framework and only
-        a few lines of code are required to get it up and running.
+        Ory Kratos comes with support for a wide range of 2FA protocols such as
+        TOTP, FIDO2 & WebAuthn, works with any UI framework, and only a few
+        lines of code are required to get it up and running.
       </>
     ),
     features: [
@@ -129,7 +129,7 @@ export const featureContentCoding: FeatureContentProps = {
         title: <>Packed with features</>,
         description: (
           <>
-            Truly configurable login and registration flows, multi-factor
+            Configurable login and registration flows, multi-factor
             authentication, custom identity models, bring your own UI.
           </>
         )
@@ -155,12 +155,11 @@ export const featureList: FeaturelistProps = {
   slant: true,
   features: [
     {
-      title: 'Ory Kratos Features',
+      title: 'Features',
       description: (
         <>
-          Most software applications need to deal with user and identity
-          management. Ory Kratos serves common flows so you don't need to write
-          everything yourself.
+          No one should have to write authentication servers - again. Rely on a
+          secure and proven standard with Ory Kratos.
         </>
       ),
       button: (
@@ -177,9 +176,20 @@ export const featureList: FeaturelistProps = {
           title: 'Self Service Login and Registration',
           description: (
             <>
-              Enable users to create and sign in to accounts using
-              username/email and password combinations, Social Login,
-              passwordless flows and more.
+              Users create and sign in to accounts using username/email and
+              password combinations, Social Login, passwordless flows, TOTP and
+              more.
+            </>
+          ),
+          icon: CheckCircle
+        },
+        {
+          title: 'Multifactor Authentication',
+          description: (
+            <>
+              Implement proven standards of web security with FIDO2, WebAuthn,
+              TOTP. Use Yubikeys, Google Authenticator or FaceID to reduce
+              friction and increase security.
             </>
           ),
           icon: CheckCircle
@@ -188,29 +198,19 @@ export const featureList: FeaturelistProps = {
           title: 'User Management',
           description: (
             <>
-              Manage your userbase and get, create, update or delete identities
-              and their data.
+              Administer your userbase and get, create, update or delete
+              identities and their data, with webhooks for even more control.
             </>
           ),
           icon: CheckCircle
         },
         {
-          title: 'Bring Your Own UI and Identity Models',
+          title: 'Bring Your Identity Model',
           description: (
             <>
               Use customizable identity models (defining custom fields such as
-              name, address, favorite pet) and create your own user interfaces
-              for flows in your style and branding.
-            </>
-          ),
-          icon: CheckCircle
-        },
-        {
-          title: 'Profile and Account Management',
-          description: (
-            <>
-              Let your users use secure flows to update passwords, personal
-              details, email addresses, linked social profiles and more.
+              name, address, favorite pet) and create your own interfaces in
+              your style and branding.
             </>
           ),
           icon: CheckCircle
@@ -254,10 +254,9 @@ export const featureContentSDK: FeatureContentProps = {
   ),
   description: (
     <>
-      Ory Kratos is written in Go and we provide SDKs for every language. It
-      works with any UI framework and interfacing with the login, registration
-      and profile management is easy. Our documentation makes integrating Ory
-      Kratos a snap.
+      Ory Kratos is written in Go and we provide SDKs for every language.
+      Customizable login, registration and profile management without
+      complexity.
     </>
   ),
   button: {

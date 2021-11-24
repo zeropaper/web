@@ -17,7 +17,7 @@ export const sideNav: Pick<NavProps, 'sideNav'> = {
       style={'filled'}
       openInNewWindow={false}
     >
-      Sign Up
+      Try Free
     </Button>
   ]
 }
@@ -28,8 +28,8 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
       title: 'Ory Cloud',
       mainMenu: [
         {
-          title: 'Sign Up',
-          description: 'Become an Ory Insider',
+          title: 'Try Free',
+          description: 'No Credit Card required',
           to: 'https://console.ory.sh/registration'
         },
         {
@@ -85,7 +85,7 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
         },
         {
           title: 'Community',
-          description: 'Be a part of the Ory Community',
+          description: 'Be part of the Ory Community',
           to: '/community'
         },
         {
@@ -95,7 +95,7 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
         },
         {
           title: 'Summit',
-          description: 'Watch VODs of past Ory Summits',
+          description: 'Watch VODs of the Ory Summit',
           to: '/summit/2021'
         }
       ]

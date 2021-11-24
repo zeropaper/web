@@ -57,7 +57,7 @@ export const featurelist: FeaturelistProps = {
   slant: true,
   features: [
     {
-      title: 'Ory Oathkeeper Features',
+      title: 'Features',
       description: (
         <>
           Forward authorized requests and reject unauthorized ones. Ory

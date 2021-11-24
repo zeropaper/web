@@ -57,7 +57,7 @@ export const featureList: FeaturelistProps = {
   slant: true,
   features: [
     {
-      title: 'Ory Keto Features',
+      title: 'Features',
       description: (
         <>
           Control who can access what in your application. Ory Keto serves

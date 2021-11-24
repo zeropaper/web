@@ -36,7 +36,7 @@ export const hero: HeroProps = {
 
   buttons: [
     {
-      ctaTitle: 'Sign up',
+      ctaTitle: 'Start Building',
       style: 'filled',
       to: 'https://console.ory.sh/registration'
     },
@@ -52,11 +52,7 @@ export const featureContentCloud: FeatureContentProps = {
   id: 'index.featurecontent.cloud',
   slant: true,
   background: 'grey',
-  overline: (
-    <>
-      Ory Cloud <span className={'pill'}>Early Access</span>
-    </>
-  ),
+  overline: <>Ory Cloud</>,
   title: (
     <>
       <span className={'is-mute-text'}>Powerful,</span>
@@ -95,8 +91,15 @@ export const featureContentCloud: FeatureContentProps = {
         title: <>Feature rich</>,
         description: (
           <>
-            MFA, Permissions and Roles, Custom Branding, OAuth2, OIDC, IAP,
-            RBAC, integrations - in a 5Mb docker image.
+            MFA, permissions and roles, custom branding and flows, OAuth 2.0,
+            OIDC, IAP, RBAC, integrations{' '}
+            <Button
+              to={'https://www.ory.sh/docs/ecosystem/projects'}
+              style={'link-inline'}
+            >
+              and more
+            </Button>
+            .
           </>
         )
       },
@@ -104,7 +107,7 @@ export const featureContentCloud: FeatureContentProps = {
         title: <>Open source</>,
         description: (
           <>
-            Ory Cloud is based on our{' '}
+            Ory Cloud is based on{' '}
             <Button to={'/open-source'} style={'link-inline'}>
               open source
             </Button>{' '}
@@ -116,9 +119,9 @@ export const featureContentCloud: FeatureContentProps = {
         title: <>Transparency</>,
         description: (
           <>
-            No limits on monthly active users are part of all{' '}
+            No limits on identities are part of all{' '}
             <Button to={'/pricing'} style={'link-inline'}>
-              pricing plans
+              paid plans
             </Button>{' '}
             - pay for what you use.
           </>
@@ -128,7 +131,7 @@ export const featureContentCloud: FeatureContentProps = {
         title: <>No lock in</>,
         description: (
           <>
-            Migration from and to Ory Cloud is simple. No more lock-ins on vital
+            Migration to and from Ory Cloud is simple. No lock-in on vital
             systems.
           </>
         )

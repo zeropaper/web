@@ -138,7 +138,7 @@ export const featureList: FeaturelistProps = {
   slant: true,
   features: [
     {
-      title: 'Ory Hydra Features',
+      title: 'Features',
       description: (
         <>
           Ory Hydra is a hardened and certified OAuth 2.0 and OpenID Connect
