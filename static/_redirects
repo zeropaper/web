@@ -7,8 +7,8 @@ https://ory.am/* https://www.ory.sh/:splat 302!
 https://www.getoathkeeper.sh/* https://www.ory.sh/:splat 302!
 https://getoathkeeper.sh/* https://www.ory.sh/:splat 302!
 
-https://getkratos.sh/* https://www.getkratos.sh/:splat 302!
-https://www.getkratos.sh/* https://www.ory.sh/:splat 302!
+# https://getkratos.sh/* https://www.getkratos.sh/:splat 302!
+# https://www.getkratos.sh/* https://www.ory.sh/:splat 302!
 
 https://gethydra.sh/* https://www.gethydra.sh/:splat 302!
 https://www.gethydra.sh/* https://www.ory.sh/:splat 302!
