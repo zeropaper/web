@@ -29,7 +29,13 @@ Add authentication and user management to your [Next.js](https://nextjs.org)
 [React](https://reactjs.org) app using the new
 [Next.js Edge Runtime](https://nextjs.org/docs/api-reference/edge-runtime) and
 the [Ory Kratos open source project](https://github.com/ory/kratos)! This
-example also contains end-to-end tests!
+example also contains end-to-end tests! To deploy the full and working project, hit the button:
+
+[![Deploy](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fory%2Fkratos-nextjs-react-example&env=ORY_SDK_URL&envDescription=Set%20the%20URL%20where%20your%20Ory%20Identity%20Service%20(e.g.%20Ory%20Cloud%20%2F%20Ory%20Kratos)%20is%20running.%20Defaults%20to%20%22https%3A%2F%2Fplayground.projects.oryapis.com%2F%22.%20For%20more%20information%20go%20to%20the%20docs%3A%20https%3A%2F%2Fwww.ory.sh%2Fdocs%2Fconcepts%2Fservices-api.&envLink=https%3A%2F%2Fwww.ory.sh%2Fdocs%2Fconcepts%2Fservices-api&redirect-url=https%3A%2F%2Fconsole.ory.sh%2F)
+
+If you like watching videos instead of reading text, watch Vincent's video tutorial!
+
+https://www.youtube.com/watch?v=ueEAoTQ-CTo
 
 ## Ory Kratos Open Source Identity Platform
 
@@ -69,6 +75,12 @@ Before we start, let's get some terminology out of the way:
 If you want to see a live demo right away, check out
 [this app in action](https://kratos-nextjs-react-example.vercel.app).
 
+import CodeFromRemote from '../../components/freestanding/utils/codefromremote'
+
+You can find the source code for this guide on
+[GitHub](https://github.com/ory/kratos-nextjs-react-example). To give it a spin,
+clone it and run the following commands:
+
 <video autoplay muted loop playsInline>
   <source
     src="/images/articles/auth-react-next-vercel/app.mp4"
@@ -79,12 +91,6 @@ If you want to see a live demo right away, check out
     type="video/webm"
   />
 </video>
-
-import CodeFromRemote from '../../components/freestanding/utils/codefromremote'
-
-You can find the source code for this guide on
-[GitHub](https://github.com/ory/kratos-nextjs-react-example). To give it a spin,
-clone it and run the following commands:
 
 ```bash
 git clone https://github.com/ory/kratos-nextjs-react-example.git
