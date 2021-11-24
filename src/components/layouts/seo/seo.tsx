@@ -27,7 +27,7 @@ const SEO = ({
     title={title}
     titleTemplate={`%s${
       process.env.GATSBY_DOMAIN === 'ory.sh' || !process.env.GATSBY_DOMAIN
-        ? ' - ory.sh'
+        ? ' - ory'
         : ''
     }`}
     link={
