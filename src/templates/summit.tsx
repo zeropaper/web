@@ -39,7 +39,7 @@ export default function SummitTemplate(props: any) {
         description={frontmatter.seo?.description || frontmatter.description}
         title={frontmatter.seo?.title || frontmatter.title}
         keywords={frontmatter.seo?.keywords || ''}
-        canonical={frontmatter.seo?.canonical}
+        // canonical={frontmatter.seo?.canonical}
       />
       <Container className={cn(styles.sessionList)} alignItems={'start'}>
         <h1 className={cn(pb64)}>{frontmatter.title}</h1>
