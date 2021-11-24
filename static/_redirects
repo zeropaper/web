@@ -7,8 +7,8 @@ https://ory.am/* https://www.ory.sh/:splat 302!
 https://www.getoathkeeper.sh/* https://www.ory.sh/:splat 302!
 https://getoathkeeper.sh/* https://www.ory.sh/:splat 302!
 
-# https://getkratos.sh/* https://www.getkratos.sh/:splat 302!
-# https://www.getkratos.sh/* https://www.ory.sh/:splat 302!
+https://getkratos.sh/* https://www.getkratos.sh/:splat 302!
+https://www.getkratos.sh/* https://www.ory.sh/:splat 302!
 
 https://gethydra.sh/* https://www.gethydra.sh/:splat 302!
 https://www.gethydra.sh/* https://www.ory.sh/:splat 302!
@@ -16,8 +16,8 @@ https://www.gethydra.sh/* https://www.ory.sh/:splat 302!
 https://getketo.sh/* https://www.getketo.sh/:splat 302!
 https://www.getketo.sh/* https://www.ory.sh/:splat 302!
 
-https://ory.dev/* https://www.ory.dev/:splat 302!
-https://www.ory.dev/* https://www.ory.sh/:splat 302!
+# https://ory.dev/* https://www.ory.dev/:splat 302!
+# https://www.ory.dev/* https://www.ory.sh/:splat 302!
 
 https://getory.sh/* https://www.getory.sh/:splat 302!
 https://www.getory.sh/* https://www.ory.sh/:splat 302!
