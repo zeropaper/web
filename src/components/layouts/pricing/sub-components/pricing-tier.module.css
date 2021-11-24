@@ -1,20 +1,48 @@
+.pricing-tier {
+    display: flex;
+    align-self: stretch;
+    align-content: start;
+}
+
+.tier-content {
+    padding: var(--size-8);
+}
+
 .tier-dark,
 .tier-light {
-  border-radius: var(--radius-default);
+    border-radius: var(--radius-small);
+    overflow: hidden;
 }
 
 .tier-dark {
-  background: var(--colors-base-background);
-  padding: var(--size-12);
-  box-shadow: var(--elevation-large);
+    box-shadow: var(--highlighted-large);
+    background: var(--colors-base-background);
 }
 
 .tier-light {
-  background: var(--colors-base-white);
-  padding: var(--size-24) var(--size-12);
-  box-shadow: var(--highlighted-large);
+    box-shadow: var(--elevation-base);
+    background: var(--colors-base-white);
+
+    & .tier-features-container {
+        background: var(--colors-base-grey-25);
+    }
 }
 
-.text-wrap {
-  white-space: break-spaces;
+.tier-title-container {
+    width: 100%;
+    min-height: var(--size-16);
+
+    & p {
+        min-height: var(--size-8)
+    }
+}
+
+
+.tier-price-container {
+    min-height: var(--size-24);
+}
+
+.tier-features-container {
+    height: 100%;
+    padding: var(--size-8);
 }

@@ -3,9 +3,14 @@
   padding: 128px 0;
 }
 
-.title {
-  margin-right: unset !important;
+@media (--md) {
+  .pricingblock {
+    &:nth-child(even){
+      margin-right: 0;
+    }
+  }
 }
+
 @media (--xs), (--sm) {
   .pricingblock {
     margin-right: 0 !important;

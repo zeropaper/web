@@ -286,6 +286,10 @@
 
   --colors-input-primary: var(--colors-base-grey-25);
   --colors-input-hover: var(--colors-themed-light);
+
+  & i.themed-primary {
+    color: var(--colors-base-white);
+  }
 }
 
 .background-is-dark,

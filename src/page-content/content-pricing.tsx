@@ -1,19 +1,18 @@
 import React from 'react'
 
 import Button from '../components/freestanding/button/button'
-import { PropTypes as FaqProps } from '../components/layouts/faq/faq'
-import { PropTypes as FeaturelistProps } from '../components/layouts/featurelist/feature-list'
-import { PropTypes as PricingProps } from '../components/layouts/pricing/pricing'
-import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
+import {PropTypes as FaqProps} from '../components/layouts/faq/faq'
+import {PropTypes as FeaturelistProps} from '../components/layouts/featurelist/feature-list'
+import {PropTypes as PricingProps} from '../components/layouts/pricing/pricing'
+import {PropTypes as SeoProps} from '../components/layouts/seo/seo'
 
 const CheckCircle = (
-  <i className={'ph-check-circle-fill themed-primary size16'} />
+  <i className={'ph-check-circle-fill size16'}/>
 )
-const PlusCircle = <i className={'ph-plus-circle-fill base-grey-400 size16'} />
-const ArrowRight = <i className={'ph-arrow-right-bold size16'} />
+const PlusCircle = <i className={'ph-plus-circle-fill size16'}/>
+const ArrowRight = <i className={'ph-arrow-right-bold size16'}/>
 
-const MapTriFold = <i className={'ph-map-trifold-fill base-white size24'} />
-const MapTriFoldSmall = <i className={'ph-map-trifold-bold size16'} />
+const MapTriFoldSmall = <i className={'ph-map-trifold-bold size16'}/>
 
 export const seo: SeoProps = {
   description:
@@ -23,23 +22,80 @@ export const seo: SeoProps = {
     'authentication, open source, login, authorization, security, session management, Json web tokens, access control, OAuth2.0 server, identity server, AuthN, AuthZ'
 }
 
-export const pricing: Pick<PricingProps, 'id' | 'title' | 'description'> = {
+export const pricing: Pick<PricingProps, 'id' | 'title' | 'description' | 'notices'> = {
   id: 'pricing.description',
-  title: (
-    <>
-      No limits on identities. {''}
-      <span className={'is-mute-text'}>
-        Scalable, transparent, and fair pricing.
-      </span>
-    </>
-  )
+  title: 'Scalable and fair pricing',
+  notices: [
+      {
+        notice: <>Upgrade from Developer
+          plan to production plans possible, please <Button style={'link-inline'} to={'mailto:office@ory.sh'}>contact
+            us</Button>.
+        </>
+      },
+      {notice: <>For a limited time the first sign ups to Start Up and Growth plans are free for one year.</>},
+      {notice: 'If you regularly exceed the API rate limits or use a large number of high-impact requests we will need to limit your maximum resource consumption to ensure the sustainability of the system.'},
+    ]
+
 }
 
 export const featurelist: FeaturelistProps = {
   id: 'pricing.featurelist',
-  background: 'light-grey',
+  background: 'dark',
   slant: true,
   features: [
+
+    {
+      title: 'Roadmap',
+      description: (
+        <>
+          We are currently working on bringing these features into the Ory
+          Cloud. Lots more are on the way, too. For a more detailed overview,
+          check out our documentation.
+        </>
+      ),
+      button: (
+        <Button
+          style={'link'}
+          to={'/docs/early-access/'}
+          iconRight={ArrowRight}
+        >
+          Visit the documentation
+        </Button>
+      ),
+      features: [
+        {
+          title: 'Permissions and Roles',
+          description: (
+            <>
+              From a member of the marketing team, to an admin in your support
+              staff— give everyone the right level of access to sensitive data.
+            </>
+          ),
+          icon: PlusCircle
+        },
+        {
+          title: 'Social Logins',
+          description: (
+            <>
+              Simplify your users' experience and let them use their existing
+              accounts at Google, GitHub, Apple etc. to sign up and log in. All
+              OIDC providers are supported.
+            </>
+          ),
+          icon: PlusCircle
+        },
+        {
+          title: 'More Info',
+          description: (
+            <>
+              Please visit our documentation to learn more about upcoming
+              features and developments.
+            </>
+          ),
+          icon: MapTriFoldSmall
+        }
+      ]
+    },
     {
       title: 'Features',
       description: (
@@ -50,11 +106,12 @@ export const featurelist: FeaturelistProps = {
       ),
       features: [
         {
-          title: 'Ory CLI',
+          title: 'Advanced Identity and Access Management',
           description: (
             <>
-              Control the Ory platform from the command line with an intuitive
-              and accessible syntax.
+              Multifactor authentication, including passwordless, WebAuthn,
+              TOTP; Ability to use your own UI and Branding as well as webhooks
+              to define and trigger actions.
             </>
           ),
           icon: CheckCircle
@@ -99,76 +156,6 @@ export const featurelist: FeaturelistProps = {
             </>
           ),
           icon: CheckCircle
-        }
-      ]
-    },
-    {
-      title: 'Roadmap',
-      description: (
-        <>
-          We are currently working on bringing these features into the Ory
-          Cloud. Lots more are on the way, too. For a more detailed overview,
-          check out our documentation.
-        </>
-      ),
-      button: (
-        <Button
-          style={'link'}
-          to={'/docs/early-access/'}
-          iconRight={ArrowRight}
-        >
-          Visit the documentation
-        </Button>
-      ),
-      features: [
-        {
-          title: 'Advanced Identity and Access Management',
-          description: (
-            <>
-              Multifactor authentication, including passwordless, WebAuthn,
-              TOTP; Ability to use your own UI and Branding as well as webhooks
-              to define and trigger actions.
-            </>
-          ),
-          icon: PlusCircle
-        },
-        {
-          title: 'Permissions and Roles',
-          description: (
-            <>
-              From a member of the marketing team, to an admin in your support
-              staff— give everyone the right level of access to sensitive data.
-            </>
-          ),
-          icon: PlusCircle
-        },
-        {
-          title: 'Social Logins',
-          description: (
-            <>
-              Simplify your users' experience and let them use their existing
-              accounts at Google, GitHub, Apple etc. to sign up and log in. All
-              OIDC providers are supported.
-            </>
-          ),
-          icon: PlusCircle
-        },
-        {
-          title: 'More Info',
-          description: (
-            <>
-              Please visit our documentation to learn more about upcoming
-              features and developments.{' '}
-              <Button
-                style={'link'}
-                to={'/docs/early-access/'}
-                iconRight={MapTriFold}
-              >
-                Ory Cloud Roadmap
-              </Button>
-            </>
-          ),
-          icon: MapTriFoldSmall
         }
       ]
     }

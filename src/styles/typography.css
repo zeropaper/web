@@ -355,6 +355,10 @@ a,
   white-space: nowrap;
 }
 
+.lineheight-is-tight {
+  line-height: var(--font-lineheight-tighter)
+}
+
 .is-monospace {
   font-family: var(--font-monospace);
 }
@@ -446,4 +450,8 @@ a:any-link {
     margin-right: unset;
     margin-bottom: var(--size-8);
   }
+}
+
+.width {
+  width: 100%;
 }

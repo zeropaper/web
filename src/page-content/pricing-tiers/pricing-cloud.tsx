@@ -1,10 +1,18 @@
 import React from 'react'
+import cn from 'classnames'
 
-import Button from '../../components/freestanding/button/button'
-import { PropTypes as PricingProps } from '../../components/layouts/pricing/pricing'
+import {PropTypes as PricingProps} from '../../components/layouts/pricing/pricing'
 
-const CheckCircle = (
-  <i className={'ph-check-circle-fill themed-primary size16'} />
+const Check = (
+  <i className={'ph-check-bold themed-primary size16'}/>
+)
+
+const Plus = (
+  <i className={'ph-plus-bold themed-primary size16'}/>
+)
+
+const ArrowLeft = (
+  <i className={'ph-arrow-left-bold themed-primary size16'}/>
 )
 
 export const pricingCloud: Pick<PricingProps, 'cloud'> = {
@@ -12,87 +20,143 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
     {
       theme: 'dark',
       title: <>Developer</>,
-      description: 'Free for developers, no credit card needed',
+      description: 'No credit card needed',
       price: 'Free',
       priceDescription: 'forever',
+      button: {
 
-      button: (
-        <Button to={'https://console.ory.sh/registration'} style={'filled'}>
-          Sign Up
-        </Button>
-      ),
+        title: 'Start building',
+        to: 'https://console.ory.sh/registration'
+      },
       features: [
         {
-          icon: CheckCircle,
+          icon: Check,
           title: 'Login & Registration APIs'
         },
         {
-          icon: CheckCircle,
+          icon: Check,
           title: 'UI & Dashboard'
         },
         {
-          icon: CheckCircle,
+          icon: Check,
           title: 'Ory CLI'
         },
         {
-          icon: CheckCircle,
+          icon: Check,
           title: 'FIDO2-compliant 2FA'
         },
         {
-          icon: CheckCircle,
+          icon: Check,
           title: 'Bring your own UI'
         },
         {
-          icon: CheckCircle,
+          icon: Check,
           title: 'Custom Identity Models'
         },
         {
-          icon: CheckCircle,
-          title: 'Production Limits apply*'
+          icon: Check,
+          title: 'Community Support'
         },
         {
-          icon: CheckCircle,
-          title: 'Community Support'
+          icon: Check,
+          title: <>Production Limits apply<span
+            className={cn('is-themed-primary', 'is-semibold')}><sup> 1</sup></span></>
+        },
+      ]
+    },
+    {
+      theme: 'light',
+      title: <>Start Up</>,
+      description: 'Build your business',
+      price: '21',
+      priceDescription: <>First 900 free for one year<span
+        className={cn('is-themed-primary', 'is-semibold')}><sup> 2</sup></span></>,
+      priceIsBilledMonthly: true,
+      priceIsMonetary: true,
+      button: {
+        style: 'outlined',
+        title: 'Apply now',
+        to: 'https://form.typeform.com/to/OCuquFBA#plan=start-up'
+      },
+      features: [
+        {
+          icon: ArrowLeft,
+          title: 'All Developer features, plus'
+        }, {
+          icon: Plus,
+          title: '1 Custom Domain Name'
+        },
+        {
+          icon: Plus,
+          title: 'Unlimited identities'
+        },
+        {
+          icon: Plus,
+          title: <>Fair use policy<span className={cn('is-themed-primary', 'is-semibold')}><sup> 3</sup></span></>,
+        },
+      ]
+    },
+    {
+      theme: 'light',
+      title: <>Growth</>,
+      description: 'Scale your business',
+      price: 'Coming soon',
+      priceDescription: <>First 100 free for one year<span
+        className={cn('is-themed-primary', 'is-semibold')}><sup> 2</sup></span></>,
+      button: {
+        title: 'Apply now',
+        to: 'https://form.typeform.com/to/OCuquFBA#plan=growth',
+        style: 'outlined'
+      },
+      features: [
+        {
+          icon: ArrowLeft,
+          title: 'All Start Up features, plus'
+        },
+        {
+          icon: Plus,
+          title: 'Dedicated support'
+        },
+        {
+          icon: Plus,
+          title: 'Add up to 3 team members'
         }
       ]
     },
     {
       theme: 'light',
       title: 'Enterprise',
-      description: 'Large teams and organisations',
+      description: 'Secure a global userbase',
       price: 'Custom',
-      priceDescription: 'monthly per project',
-      button: (
-        <Button to={'mailto:sales@ory.sh'} style={'filled'}>
-          Contact sales
-        </Button>
-      ),
+      priceDescription: <>Pay for what you use</>,
+      priceIsMonetary: false,
+      button: {
+        title: 'Contact us',
+        to: 'mailto:sales@ory.sh',
+        style: 'outlined'
+      },
       features: [
         {
-          icon: CheckCircle,
-          title: 'Everything in Developer'
+          icon: ArrowLeft,
+          title: 'All Growth features, plus'
         },
         {
-          icon: CheckCircle,
+          icon: Plus,
           title: 'More Members & Projects'
         },
         {
-          icon: CheckCircle,
-          title: 'Unlimited identities'
-        },
-        {
-          icon: CheckCircle,
+          icon: Plus,
           title: 'Custom Rate Limit'
         },
         {
-          icon: CheckCircle,
+          icon: Plus,
           title: 'Support via Ticket System'
         },
         {
-          icon: CheckCircle,
+          icon: Plus,
           title: 'Support via Voice Calls'
         }
       ]
-    }
+    },
   ]
 }

@@ -8,6 +8,7 @@ import PricingTier, { PriceTier } from './pricing-tier'
 
 import { pb32 } from '../../../freestanding/utils/padding.module.css'
 import * as styles from '../pricing.module.css'
+import { pricingTier } from './pricing-tier.module.css'
 
 interface PropTypes {
   className?: string
@@ -16,14 +17,12 @@ interface PropTypes {
 
 const PricingBlock = ({ className, tiers }: PropTypes) => {
   return (
-    <div className={cn(className && className)}>
-      <Container className={pb32} justify={'center'} alignItems={'center'}>
-        {tiers.length > 1
-          ? tiers.map((tier, index) => {
+      <Container className={cn(pb32, className && className)} justify={'center'} alignItems={'start'}>
+        {tiers.map((tier, index) => {
               return (
                 <Grid
-                  className={cn(styles.pricingblock, pb32)}
-                  lg={6}
+                  className={cn(styles.pricingblock, pricingTier ,pb32)}
+                  lg={3}
                   md={6}
                   sm={12}
                   xs={12}
@@ -32,10 +31,8 @@ const PricingBlock = ({ className, tiers }: PropTypes) => {
                   <PricingTier tier={tier} />
                 </Grid>
               )
-            })
-          : tiers.length > 0 && <PricingTier tier={tiers[0]} />}
+            })}
       </Container>
-    </div>
   )
 }
 
