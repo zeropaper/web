@@ -1,18 +1,16 @@
 import React from 'react'
 
 import Button from '../components/freestanding/button/button'
-import {PropTypes as FaqProps} from '../components/layouts/faq/faq'
-import {PropTypes as FeaturelistProps} from '../components/layouts/featurelist/feature-list'
-import {PropTypes as PricingProps} from '../components/layouts/pricing/pricing'
-import {PropTypes as SeoProps} from '../components/layouts/seo/seo'
+import { PropTypes as FaqProps } from '../components/layouts/faq/faq'
+import { PropTypes as FeaturelistProps } from '../components/layouts/featurelist/feature-list'
+import { PropTypes as PricingProps } from '../components/layouts/pricing/pricing'
+import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
 
-const CheckCircle = (
-  <i className={'ph-check-circle-fill size16'}/>
-)
-const PlusCircle = <i className={'ph-plus-circle-fill size16'}/>
-const ArrowRight = <i className={'ph-arrow-right-bold size16'}/>
+const CheckCircle = <i className={'ph-check-circle-fill size16'} />
+const PlusCircle = <i className={'ph-plus-circle-fill size16'} />
+const ArrowRight = <i className={'ph-arrow-right-bold size16'} />
 
-const MapTriFoldSmall = <i className={'ph-map-trifold-bold size16'}/>
+const MapTriFoldSmall = <i className={'ph-map-trifold-bold size16'} />
 
 export const seo: SeoProps = {
   description:
@@ -22,20 +20,37 @@ export const seo: SeoProps = {
     'authentication, open source, login, authorization, security, session management, Json web tokens, access control, OAuth2.0 server, identity server, AuthN, AuthZ'
 }
 
-export const pricing: Pick<PricingProps, 'id' | 'title' | 'description' | 'notices'> = {
+export const pricing: Pick<
+  PricingProps,
+  'id' | 'title' | 'description' | 'notices'
+> = {
   id: 'pricing.description',
   title: 'Scalable and fair pricing',
   notices: [
-      {
-        notice: <>Upgrade from Developer
-          plan to production plans possible, please <Button style={'link-inline'} to={'mailto:office@ory.sh'}>contact
-            us</Button>.
+    {
+      notice: (
+        <>
+          Upgrade from Developer plan to production plans possible, please{' '}
+          <Button style={'link-inline'} to={'mailto:office@ory.sh'}>
+            contact us
+          </Button>
+          .
         </>
-      },
-      {notice: <>For a limited time the first sign ups to Start Up and Growth plans are free for one year.</>},
-      {notice: 'If you regularly exceed the API rate limits or use a large number of high-impact requests we will need to limit your maximum resource consumption to ensure the sustainability of the system.'},
-    ]
-
+      )
+    },
+    {
+      notice: (
+        <>
+          For a limited time the first sign ups to Start Up and Growth plans are
+          free for one year.
+        </>
+      )
+    },
+    {
+      notice:
+        'If you regularly exceed the API rate limits or use a large number of high-impact requests we will need to limit your maximum resource consumption to ensure the sustainability of the system.'
+    }
+  ]
 }
 
 export const featurelist: FeaturelistProps = {
@@ -43,7 +58,6 @@ export const featurelist: FeaturelistProps = {
   background: 'dark',
   slant: true,
   features: [
-
     {
       title: 'Roadmap',
       description: (

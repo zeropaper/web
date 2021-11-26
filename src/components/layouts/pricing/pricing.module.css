@@ -5,7 +5,7 @@
 
 @media (--md) {
   .pricingblock {
-    &:nth-child(even){
+    &:nth-child(even) {
       margin-right: 0;
     }
   }

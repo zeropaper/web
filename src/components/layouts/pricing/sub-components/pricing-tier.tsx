@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 
+import Button from '../../../freestanding/button/button'
 import Container from '../../../freestanding/containers/container'
 
 import {
@@ -10,7 +11,6 @@ import {
   pr8
 } from '../../../freestanding/utils/padding.module.css'
 import * as styles from './pricing-tier.module.css'
-import Button from "../../../freestanding/button/button";
 
 export interface PriceFeature {
   icon: React.ReactElement
@@ -28,7 +28,6 @@ export interface PriceTier {
   button: PriceButton
   features: Array<PriceFeature>
 }
-
 
 interface PriceTierFeatures {
   features: Array<PriceFeature>
@@ -70,41 +69,73 @@ interface Theme {
 }
 
 const PricingContent = ({
-                          title,
-                          description,
-                          price,
-                          priceIsBilledMonthly,
-                          priceIsMonetary,
-                          priceDescription,
-                          button,
-                          classes,
-                        }: PriceTierContent) => {
-  button.style = button.style || "filled"
+  title,
+  description,
+  price,
+  priceIsBilledMonthly,
+  priceIsMonetary,
+  priceDescription,
+  button,
+  classes
+}: PriceTierContent) => {
+  button.style = button.style || 'filled'
 
   return (
-    <Container flexContainer={'column'} alignItems={'center'} className={cn(styles.tierContent, 'width')}>
-      <Container flexContainer={'column'} alignItems={'center'} justify={'center'}
-                 className={cn('text-is-centered', styles.tierTitleContainer)}>
+    <Container
+      flexContainer={'column'}
+      alignItems={'center'}
+      className={cn(styles.tierContent, 'width')}
+    >
+      <Container
+        flexContainer={'column'}
+        alignItems={'center'}
+        justify={'center'}
+        className={cn('text-is-centered', styles.tierTitleContainer)}
+      >
         <h2 className={cn('font-h4')}>{title}</h2>
-        <p className={cn('font-p-small', 'lineheight-is-tight')}>{description}</p>
+        <p className={cn('font-p-small', 'lineheight-is-tight')}>
+          {description}
+        </p>
       </Container>
-      <Container flexContainer={'column'} alignItems={'center'} justify={'end'}
-                 className={cn(pb32, 'text-is-centered', styles.tierPriceContainer)}>
-        {price.length >= 6 ?
-          (
-            <h3 className={cn('font-h3', pb8)}>{price}
-              {priceIsBilledMonthly && <span className={cn('font-h4')}> / mo</span>}
-            </h3>
-          ) : (
-            <h3 className={cn('font-h1', pb8)}>{priceIsMonetary &&
-            <span className={cn('font-h2')}><sup>$ </sup></span>}{price}
-              {priceIsBilledMonthly && <span className={cn('font-h4')}> / mo</span>}</h3>
-          )}
-        {priceDescription ? (<p className={cn(classes.fontpsm, 'lineheight-is-tight')}>{priceDescription}</p>) : null}
+      <Container
+        flexContainer={'column'}
+        alignItems={'center'}
+        justify={'end'}
+        className={cn(pb32, 'text-is-centered', styles.tierPriceContainer)}
+      >
+        {price.length >= 6 ? (
+          <h3 className={cn('font-h3', pb8)}>
+            {price}
+            {priceIsBilledMonthly && (
+              <span className={cn('font-h4')}> / mo</span>
+            )}
+          </h3>
+        ) : (
+          <h3 className={cn('font-h1', pb8)}>
+            {priceIsMonetary && (
+              <span className={cn('font-h2')}>
+                <sup>$ </sup>
+              </span>
+            )}
+            {price}
+            {priceIsBilledMonthly && (
+              <span className={cn('font-h4')}> / mo</span>
+            )}
+          </h3>
+        )}
+        {priceDescription ? (
+          <p className={cn(classes.fontpsm, 'lineheight-is-tight')}>
+            {priceDescription}
+          </p>
+        ) : null}
       </Container>
       <Container className={cn('width')}>
-        <Button to={button.to} style={button.style} openInNewWindow={button.openInNewWindow}
-                className={cn('width', button.className)}>
+        <Button
+          to={button.to}
+          style={button.style}
+          openInNewWindow={button.openInNewWindow}
+          className={cn('width', button.className)}
+        >
           {button.title}
         </Button>
       </Container>
@@ -112,34 +143,40 @@ const PricingContent = ({
   )
 }
 
-const PricingFeatures = ({features}: PriceTierFeatures) => (
-        <Container flexContainer={'column'} alignItems={'start'} justify={'start'}
-                   className={cn(pb8, styles.tierFeaturesContainer, 'width')}>
-          {features.map(((feature, index) => {
-            return (
-              <Container justify={'start'} alignItems={'center'} key={index}>
-                <Container className={cn(pr8)}>{feature.icon}</Container>
-                <p className={cn('font-p-small', 'is-medium', 'is-primary-text')}>{feature.title}</p>
-              </Container>
-            )
-          }))}
+const PricingFeatures = ({ features }: PriceTierFeatures) => (
+  <Container
+    flexContainer={'column'}
+    alignItems={'start'}
+    justify={'start'}
+    className={cn(pb8, styles.tierFeaturesContainer, 'width')}
+  >
+    {features.map((feature, index) => {
+      return (
+        <Container justify={'start'} alignItems={'center'} key={index}>
+          <Container className={cn(pr8)}>{feature.icon}</Container>
+          <p className={cn('font-p-small', 'is-medium', 'is-primary-text')}>
+            {feature.title}
+          </p>
         </Container>
+      )
+    })}
+  </Container>
 )
 
 const PricingTier = ({
-                       className,
-                       tier: {
-                         theme = 'light',
-                         title,
-                         description,
-                         price,
-                         priceIsBilledMonthly,
-                         priceIsMonetary,
-                         priceDescription,
-                         button,
-                         features
-                       }
-                     }: PropTypes) => {
+  className,
+  tier: {
+    theme = 'light',
+    title,
+    description,
+    price,
+    priceIsBilledMonthly,
+    priceIsMonetary,
+    priceDescription,
+    button,
+    features
+  }
+}: PropTypes) => {
   let classes: Theme
 
   if (theme === 'light') {
@@ -178,7 +215,14 @@ const PricingTier = ({
     <Container
       justify={'start'}
       alignItems={'start'}
-      className={cn(classes.background, classes.text, styles.pricingTier, 'width', className && className)}>
+      className={cn(
+        classes.background,
+        classes.text,
+        styles.pricingTier,
+        'width',
+        className && className
+      )}
+    >
       <PricingContent
         classes={classes}
         title={title}
@@ -189,7 +233,7 @@ const PricingTier = ({
         priceDescription={priceDescription}
         button={button}
       />
-      <PricingFeatures classes={classes} features={features}/>
+      <PricingFeatures classes={classes} features={features} />
     </Container>
   )
 }

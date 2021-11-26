@@ -17,22 +17,26 @@ interface PropTypes {
 
 const PricingBlock = ({ className, tiers }: PropTypes) => {
   return (
-      <Container className={cn(pb32, className && className)} justify={'center'} alignItems={'start'}>
-        {tiers.map((tier, index) => {
-              return (
-                <Grid
-                  className={cn(styles.pricingblock, pricingTier ,pb32)}
-                  lg={3}
-                  md={6}
-                  sm={12}
-                  xs={12}
-                  key={index}
-                >
-                  <PricingTier tier={tier} />
-                </Grid>
-              )
-            })}
-      </Container>
+    <Container
+      className={cn(pb32, className && className)}
+      justify={'center'}
+      alignItems={'start'}
+    >
+      {tiers.map((tier, index) => {
+        return (
+          <Grid
+            className={cn(styles.pricingblock, pricingTier, pb32)}
+            lg={3}
+            md={6}
+            sm={12}
+            xs={12}
+            key={index}
+          >
+            <PricingTier tier={tier} />
+          </Grid>
+        )
+      })}
+    </Container>
   )
 }
 

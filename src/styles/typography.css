@@ -356,7 +356,7 @@ a,
 }
 
 .lineheight-is-tight {
-  line-height: var(--font-lineheight-tighter)
+  line-height: var(--font-lineheight-tighter);
 }
 
 .is-monospace {

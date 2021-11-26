@@ -1,19 +1,13 @@
-import React from 'react'
 import cn from 'classnames'
+import React from 'react'
 
-import {PropTypes as PricingProps} from '../../components/layouts/pricing/pricing'
+import { PropTypes as PricingProps } from '../../components/layouts/pricing/pricing'
 
-const Check = (
-  <i className={'ph-check-bold themed-primary size16'}/>
-)
+const Check = <i className={'ph-check-bold themed-primary size16'} />
 
-const Plus = (
-  <i className={'ph-plus-bold themed-primary size16'}/>
-)
+const Plus = <i className={'ph-plus-bold themed-primary size16'} />
 
-const ArrowLeft = (
-  <i className={'ph-arrow-left-bold themed-primary size16'}/>
-)
+const ArrowLeft = <i className={'ph-arrow-left-bold themed-primary size16'} />
 
 export const pricingCloud: Pick<PricingProps, 'cloud'> = {
   cloud: [
@@ -24,7 +18,6 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
       price: 'Free',
       priceDescription: 'forever',
       button: {
-
         title: 'Start building',
         to: 'https://console.ory.sh/registration'
       },
@@ -59,9 +52,15 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
         },
         {
           icon: Check,
-          title: <>Production Limits apply<span
-            className={cn('is-themed-primary', 'is-semibold')}><sup> 1</sup></span></>
-        },
+          title: (
+            <>
+              Production Limits apply
+              <span className={cn('is-themed-primary', 'is-semibold')}>
+                <sup> 1</sup>
+              </span>
+            </>
+          )
+        }
       ]
     },
     {
@@ -69,8 +68,14 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
       title: <>Start Up</>,
       description: 'Build your business',
       price: '21',
-      priceDescription: <>The first 900 applications get the Start Up plan for free!<span
-        className={cn('is-themed-primary', 'is-semibold')}><sup> 2</sup></span></>,
+      priceDescription: (
+        <>
+          The first 900 applications get the Start Up plan for free!
+          <span className={cn('is-themed-primary', 'is-semibold')}>
+            <sup> 2</sup>
+          </span>
+        </>
+      ),
       priceIsBilledMonthly: true,
       priceIsMonetary: true,
       button: {
@@ -82,7 +87,8 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
         {
           icon: ArrowLeft,
           title: 'All Developer features, plus'
-        }, {
+        },
+        {
           icon: Plus,
           title: '1 Custom Domain Name'
         },
@@ -92,8 +98,15 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
         },
         {
           icon: Plus,
-          title: <>Fair use policy<span className={cn('is-themed-primary', 'is-semibold')}><sup> 3</sup></span></>,
-        },
+          title: (
+            <>
+              Fair use policy
+              <span className={cn('is-themed-primary', 'is-semibold')}>
+                <sup> 3</sup>
+              </span>
+            </>
+          )
+        }
       ]
     },
     {
@@ -101,8 +114,14 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
       title: <>Growth</>,
       description: 'Scale your business',
       price: 'Coming soon',
-      priceDescription: <>The first 100 applications get the Growth plan for free!<span
-        className={cn('is-themed-primary', 'is-semibold')}><sup> 2</sup></span></>,
+      priceDescription: (
+        <>
+          The first 100 applications get the Growth plan for free!
+          <span className={cn('is-themed-primary', 'is-semibold')}>
+            <sup> 2</sup>
+          </span>
+        </>
+      ),
       button: {
         title: 'Apply now',
         to: 'https://form.typeform.com/to/OCuquFBA#plan=growth',
@@ -157,6 +176,6 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
           title: 'Support via Voice Calls'
         }
       ]
-    },
+    }
   ]
 }

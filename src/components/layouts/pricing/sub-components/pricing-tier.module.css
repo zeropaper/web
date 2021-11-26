@@ -1,56 +1,55 @@
 .pricing-tier {
-    display: flex;
-    align-self: stretch;
-    align-content: start;
+  display: flex;
+  align-self: stretch;
+  align-content: start;
 }
 
 sup {
-    line-height: 0;
-    font-size: 60%;
+  line-height: 0;
+  font-size: 60%;
 }
 
 .tier-content {
-    padding: var(--size-8);
+  padding: var(--size-8);
 }
 
 .tier-dark,
 .tier-light {
-    border-radius: var(--radius-small);
-    overflow: hidden;
+  border-radius: var(--radius-small);
+  overflow: hidden;
 }
 
 .tier-dark {
-    box-shadow: var(--highlighted-large);
-    background: var(--colors-base-background);
+  box-shadow: var(--highlighted-large);
+  background: var(--colors-base-background);
 }
 
 .tier-light {
-    box-shadow: var(--elevation-base);
-    background: var(--colors-base-white);
+  box-shadow: var(--elevation-base);
+  background: var(--colors-base-white);
 
-    & .tier-features-container {
-        background: var(--colors-base-grey-25);
-    }
+  & .tier-features-container {
+    background: var(--colors-base-grey-25);
+  }
 }
 
 .tier-title-container {
-    width: 100%;
-    min-height: var(--size-16);
+  width: 100%;
+  min-height: var(--size-16);
 
-    & p {
-        min-height: var(--size-8)
-    }
+  & p {
+    min-height: var(--size-8);
+  }
 }
 
-
 .tier-price-container {
-    min-height: var(--size-24);
-    & p {
-        min-height: var(--size-8)
-    }
+  min-height: var(--size-24);
+  & p {
+    min-height: var(--size-8);
+  }
 }
 
 .tier-features-container {
-    height: 100%;
-    padding: var(--size-8);
+  height: 100%;
+  padding: var(--size-8);
 }
