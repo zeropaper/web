@@ -17,14 +17,22 @@ const SEO = ({
   lang = 'en',
   meta = [],
   title,
-  keywords
+  keywords,
+  canonical
 }: PropTypes) => (
   <Helmet
     htmlAttributes={{
       lang
     }}
     title={title}
-    titleTemplate={`%s`}
+    titleTemplate={`%s${
+      process.env.GATSBY_DOMAIN === 'ory.sh' || !process.env.GATSBY_DOMAIN
+        ? ' - ory.sh'
+        : ''
+    }`}
+    link={
+      canonical ? [{ rel: 'canonical', key: canonical, href: canonical }] : []
+    }
     meta={[
       {
         name: `description`,
