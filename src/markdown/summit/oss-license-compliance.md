@@ -2,10 +2,10 @@
 slug: oss-license-compliance
 publishedAt: '2021-10-29'
 banner: ../../images/events/summit/banners/banner-dirkriehle.png
-order: 12
+order: 13
 speakers: [dirkriehle]
 
-ready: false
+ready: true
 title: Open Source License Compliance and Ory Open Source
 description: |
   Our recent audit showed that Ory’s open source code base is “clean” i.e. poses
@@ -14,7 +14,7 @@ description: |
   obligations open source code puts on them. In this talk, I will review Ory from a
   license compliance perspective and how users/vendors should think about it.
 
-youtubelink: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+youtubelink: https://www.youtube.com/watch?v=0DkVA3X0lhQ
 presentationlink: https://github.com/ory/summit/blob/master/Ory_Summit_21_Day_2_-_Dirk_Riehle_-_Open_Source_License_Compliance_and_Ory_Open_Source.pdf
 
 seo:

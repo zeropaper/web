@@ -6,7 +6,7 @@ order: 1
 speakers: [aeneasr, tacurran]
 
 ready: true
-title: Open Source and Beyond
+title: Keynote - Open Source and Beyond
 description: |
   The founders of Ory walk us through the Ory journey, discussing Ory’s origins as an open-source solution and pioneering new directions for Ory Open Source and Ory Cloud. Ory is creating the next generation of identity management tools - with an unwavering dedication to security, customizability, and accessibility for all.
 

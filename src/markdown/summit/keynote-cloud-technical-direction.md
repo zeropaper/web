@@ -1,12 +1,12 @@
 ---
 slug: keynote-cloud-technical-direction
-publishedAt: '2021-10-29'
+publishedAt: '2021-10-28'
 banner: ../../images/events/summit/banners/banner-tricky42.png
-order: 9
+order: 2
 speakers: [tricky42]
 
 ready: true
-title: Ory Cloud Technical Direction
+title: Keynote - Ory Cloud Technical Direction
 description: |
   Ory has a vision for the future: building a global, multi-cloud architecture set-up of Ory Cloud that uses different cloud providers. Andreas Bucksteeg will discuss this vision and questions such as: “How can we deploy and manage these services using GitHub principles?” and “How do we route traffic globally through the different clusters?”
 

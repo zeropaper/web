@@ -2,7 +2,7 @@
 slug: customizing-ory-keto-global-scale
 publishedAt: '2021-10-28'
 banner: ../../images/events/summit/banners/banner-manraj.png
-order: 4
+order: 5
 speakers: [manraj]
 
 ready: true

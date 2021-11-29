@@ -2,7 +2,7 @@
 slug: kratos-keto-in-production
 publishedAt: '2021-10-28'
 banner: ../../images/events/summit/banners/banner-gen1us2k.png
-order: 6
+order: 7
 speakers: [gen1us2k]
 
 ready: false

@@ -2,7 +2,7 @@
 slug: design-complex-authz
 publishedAt: '2021-10-28'
 banner: ../../images/events/summit/banners/banner-zepatrik.png
-order: 5
+order: 6
 speakers: [zepatrik]
 
 ready: true

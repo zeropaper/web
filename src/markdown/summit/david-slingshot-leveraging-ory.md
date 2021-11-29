@@ -2,7 +2,7 @@
 slug: david-slingshot-leveraging-ory
 publishedAt: '2021-10-28'
 banner: ../../images/events/summit/banners/banner-dadrus.png
-order: 3
+order: 4
 speakers: [dadrus]
 
 ready: true

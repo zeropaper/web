@@ -2,7 +2,7 @@
 slug: google-iam-from-scratch
 publishedAt: '2021-10-28'
 banner: ../../images/events/summit/banners/banner-roggia.png
-order: 2
+order: 3
 speakers: [roggia]
 
 ready: true
