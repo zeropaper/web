@@ -2,7 +2,7 @@
 path: '/dockertest-gaen-google-apple-exposure-notification-covid-19/'
 
 title: |
-  Keeping Covid19 in check with ORY Dockertest
+  Keeping Covid19 in check with Ory Dockertest
 
 teaser: |
   This article gives a short introduction to Dockertest and how Google is using it against Covid19,
@@ -18,18 +18,18 @@ publishedAt: '2020-12-02'
 author: vinckr
 
 overline: |
-  Automated Database Testing
+  Automated Testing with Dockertest
 ---
 
 Test driven software development is built into the fundamentals in the GO
 programming language.  
-The ORY Open Source Software project Dockertest began with the aim to simplify
+The Ory Open Source Software project Dockertest began with the aim to simplify
 database testing and reduce the complexity in building unit tests.  
 In this blogpost, I want to introduce Dockertest, and highlight how its
 simplicity and utility in building cloud native database applications has made
 it a widespread tool among developers.
 
-## What is ORY Dockertest?
+## What is Ory Dockertest?
 
 In today's cloud native software development, many engineers choose to use
 containerization software such [Docker](https://docs.docker.com/) to test,
@@ -45,7 +45,7 @@ you need to work on the mocks or deal with other ramifications in the API.
 You have the problem that the mock is not a real database. You also have to
 rewrite the mock database and unit tests, when you make changes to your
 configuration.  
-This is where Docker and ORY Dockertest can help you create real databases for
+This is where Docker and Ory Dockertest can help you create real databases for
 your tests. You dont have to set up a whole database infrastructure.
 
 [Dockertest](https://github.com/ory/Dockertest) automates your interactions with
@@ -77,7 +77,7 @@ of an notification server uses [Dockertest](https://github.com/ory/Dockertest)
 for
 [database testing](https://github.com/google/exposure-notifications-server/blob/c35c97708dec0a8a3e2ac54f89f9033be5da22a6/internal/database/database_util.go).
 It is amazing to see a tool that was written to ease the development process at
-ORY is used by big tech organisations in the most impactful health operation in
+Ory is used by big tech organisations in the most impactful health operation in
 modern times. It shows what a reliable and essential tool
 [Dockertest](https://github.com/ory/Dockertest) has become over the years.
 
@@ -246,31 +246,28 @@ demand open-source solutions for essential and critical infrastructure and
 services. This wont solve all - if any - problems of modern society, but it
 would be a great step towards transparency and in the long run trust.
 
-### Dockertest is an integral part of the ORY Ecosystem
+### Dockertest is an integral part of the Ory Ecosystem
 
-ORY promises to produce high quality open source software.  
-[Dockertest](https://github.com/ory/Dockertest) is just one example of how ORY
+Ory promises to produce high quality open source software.  
+[Dockertest](https://github.com/ory/dockertest) is just one example of how Ory
 approaches advanced software development for cloud native applications.  
-As this blogpost documents, ORY works with a dedicated worldwide community
-assuring that developer friendly security tools, innovative product development
-in identity infrastructure, and advanced cloud deployment using cloud platform
-independent open source tools are broadly available.
+Ory works with a dedicated worldwide community assuring that developer friendly
+security tools and innovative products in identity infrastructure are available
+to everyone.
 
 ### Conclusion
 
-Thanks for taking the time to read this article! Check out (our
-blog)[https://www.ory.sh/blog] for more articles and tutorials.
+Thanks for taking the time to read this article! Check out
+[our blog](https://www.ory.sh/blog) for more articles and tutorials.
 
 Should you have further questions or feedback, visit the
-[ORY Community Forum](https://community.ory.sh/) or
-[ORY Slack](https://www.ory.sh/chat).
-[ORY Dockertest](https://github.com/ORY/Dockertest) is open-source and freely
-available on [github](https://github.com/ORY/kratos), please consider starring
-the repository.  
-It is free and helps grow the project and community.
+[Ory Community Slack](https://www.ory.sh/chat).
+[Ory Dockertest](https://github.com/ory/dockertest) is open-source and available
+on [github](https://github.com/ory), please consider starring the repository. It
+is free and helps grow the project and community.
 
 Sign up to
-[the ORY newsletter](https://ORY.us10.list-manage.com/subscribe?u=ffb1a878e4ec6c0ed312a3480&id=f605a41b53)
+[the Ory newsletter](https://ory.us10.list-manage.com/subscribe?u=ffb1a878e4ec6c0ed312a3480&id=f605a41b53)
 and we will notify you of new updates to
-[ORY Dockertest](https://github.com/ORY/Dockertest) and
-[other ORY projects](https://github.com/ORY/).
+[Ory Dockertest](https://github.com/ory/dockertest) and
+[other Ory projects](https://github.com/ory/).
