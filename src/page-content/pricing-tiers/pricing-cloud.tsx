@@ -19,7 +19,7 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
       priceDescription: 'forever',
       button: {
         title: 'Start building',
-        to: 'https://console.ory.sh/registration'
+        to: 'https://console.ory.sh/registration?preferred_plan=developer'
       },
       features: [
         {
