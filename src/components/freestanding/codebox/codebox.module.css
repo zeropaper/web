@@ -79,7 +79,6 @@
     background-color: inherit;
     color: var(--colors-base-white);
     word-wrap: break-word;
-    white-space: pre-wrap;
   }
 
   & pre code :global .token.operator {

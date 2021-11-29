@@ -176,7 +176,8 @@ authenticators:
     enabled: true
     config:
       jwks_urls:
-        - https://my-website.com/.well-known/jwks.json
+        - https://my-website.com/
+        .well-known/jwks.json
 # ...
 `
     }

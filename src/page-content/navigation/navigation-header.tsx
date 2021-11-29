@@ -94,6 +94,11 @@ export const dropdownMenu: Pick<NavProps, 'dropdownMenu'> = {
           to: '/blog'
         },
         {
+          title: 'NextJS',
+          description: 'Add Auth to React Apps',
+          to: '/nextjs'
+        },
+        {
           title: 'Summit',
           description: 'Watch VODs of the Ory Summit',
           to: '/summit/2021'

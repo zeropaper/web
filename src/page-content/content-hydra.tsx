@@ -79,7 +79,9 @@ export const featureContentCodeBox: CodeBoxProps = {
     {
       filename: 'login.js',
       language: Languages.JavaScript,
-      code: `fetch('https://hydra-admin-api/oauth2/auth/requests/login/accept?login_challenge=12345', {
+      code: `fetch('https://hydra-admin-api/
+      oauth2/auth/requests/login/
+      accept?login_challenge=12345', {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
@@ -92,7 +94,9 @@ export const featureContentCodeBox: CodeBoxProps = {
     {
       filename: 'consent.js',
       language: Languages.JavaScript,
-      code: `fetch('https://hydra-admin-api/oauth2/auth/requests/consent/accept?consent_challenge=12345', {
+      code: `fetch('https://hydra-admin-api/
+      oauth2/auth/requests/consent/
+      accept?consent_challenge=12345', {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({

@@ -112,6 +112,10 @@ export const links: Pick<FooterPropTypes, 'category'> = {
           to: '/blog'
         },
         {
+          title: 'NextJS',
+          to: '/nextjs'
+        },
+        {
           title: 'GitHub',
           to: 'https://github.com/ory',
           openInNewWindow: true

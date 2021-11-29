@@ -178,13 +178,15 @@ export const codingCodeBox: CodeBoxProps = {
     {
       filename: '',
       language: Languages.Shell,
-      code: `$ export ORY_ACCESS_TOKEN=RaEEZfMbx7QGuf0uWNt9c15NE4FG4OOW
-$ ory identities list --project playground --format json-pretty  
+      code: `$ export ORY_ACCESS_TOKEN=RaEEZfMbx7QGuf0uWNt9c15NE4FG4
+$ ory identities list --project playground 
+--format json-pretty  
 [
   {
     "id": "7c7d040d-97f6-4a57-95e8-08c61e6df016",
     "schema_id": "default",
-    "schema_url": "https://custom.domain.com/api/kratos/public/schemas/default",
+    "schema_url": "https://custom.domain.com/api/
+    kratos/public/schemas/default",
     "traits": {
       "email": "alice@example.com"
     }
@@ -192,7 +194,8 @@ $ ory identities list --project playground --format json-pretty
     {
     "id": "7f6d040d-97c7-4a59-85e7-6df01608c61e",
     "schema_id": "default",
-    "schema_url": "https://custom.domain.com/api/kratos/public/schemas/default",
+    "schema_url": "https://custom.domain.com/api/
+    kratos/public/schemas/default",
     "traits": {
       "email": "stephan@example.com"
     }
