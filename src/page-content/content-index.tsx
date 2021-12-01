@@ -28,7 +28,7 @@ export const hero: HeroProps = {
   id: 'index.hero',
   title: (
     <>
-      <span className={'is-themed-primary'}>Cloud native </span> identity
+      <span className={'is-themed-primary'}>Cloud native master </span> identity
     </>
   ),
   description:
