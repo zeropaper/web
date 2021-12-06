@@ -106,10 +106,6 @@ export const team: TeamProps = {
         {
           network: SocialNetworks.github,
           href: 'https://github.com/jfcurran'
-        },
-        {
-          network: SocialNetworks.instagram,
-          href: 'https://www.instagram.com/6099x/'
         }
       ],
       img: (
@@ -173,6 +169,10 @@ export const team: TeamProps = {
         {
           network: SocialNetworks.github,
           href: 'https://github.com/piotrmsc'
+        },
+        {
+          network: SocialNetworks.linkedin,
+          href: 'https://www.linkedin.com/in/piotr-m%C5%9Bcichowski-93b458a4'
         }
       ],
       img: (
@@ -234,16 +234,12 @@ export const team: TeamProps = {
       )
     },
     {
-      name: 'Pascal Morgan',
-      position: 'Tech Communication',
+      name: 'Grant Zvolský',
+      position: 'Engineering',
       social: [
         {
-          network: SocialNetworks.linkedin,
-          href: 'https://de.linkedin.com/in/pascalmorgan'
-        },
-        {
-          network: SocialNetworks.web,
-          href: 'https://www.linkedin.com/in/pascalmorgan'
+          network: SocialNetworks.github,
+          href: 'https://github.com/grantzvolsky'
         }
       ],
       img: (
@@ -253,8 +249,8 @@ export const team: TeamProps = {
           aspectRatio={1}
           loading="lazy"
           className="responsive"
-          alt="Pascal Morgan"
-          src="../../images/team/pascal.png"
+          alt="Alano Terblanche"
+          src="../../images/team/grant.png"
         />
       )
     },
@@ -282,31 +278,14 @@ export const team: TeamProps = {
           src="../../images/team/lee.png"
         />
       )
-    }
-  ]
-}
-
-export const collaborators: TeamProps = {
-  id: 'shared.collaborators',
-  slant: true,
-  background: 'themed',
-  title: 'Collaborators',
-  text: (
-    <>
-      We believe in open source and creative collaboration as it leads to more
-      security, increased quality and better software. Open source is an artisan
-      creation model that shapes an entire generation of applications in the
-      cloud.
-    </>
-  ),
-  team: [
+    },
     {
-      name: 'Marcus Schmelzer',
-      position: 'Customer Relations',
+      name: 'Marney Kline',
+      position: 'Digital Marketing',
       social: [
         {
-          network: SocialNetworks.web,
-          href: 'https://www.paw-systems.com/?lang=en'
+          network: SocialNetworks.github,
+          href: 'https://github.com/marneysof'
         }
       ],
       img: (
@@ -316,43 +295,22 @@ export const collaborators: TeamProps = {
           aspectRatio={1}
           loading="lazy"
           className="responsive"
-          alt="Marcus Schmelzer"
-          src="../../images/team/markus.png"
+          alt="Marney Kline"
+          src="../../images/team/marney.png"
         />
       )
     },
     {
-      name: 'Uwe Ritter',
-      position: 'Customer Relations',
+      name: 'Tobias Sahl',
+      position: 'Digital Marketing',
       social: [
         {
-          network: SocialNetworks.web,
-          href: 'https://www.paw-systems.com/?lang=en'
-        }
-      ],
-      img: (
-        <StaticImage
-          placeholder="blurred"
-          layout="constrained"
-          aspectRatio={1}
-          loading="lazy"
-          className="responsive"
-          alt="Uwe Ritter"
-          src="../../images/team/uwe.png"
-        />
-      )
-    },
-    {
-      name: 'Pascal Morgan',
-      position: 'Tech Communication',
-      social: [
-        {
-          network: SocialNetworks.linkedin,
-          href: 'https://www.linkedin.com/in/pascalmorgan'
+          network: SocialNetworks.github,
+          href: 'https://github.com/blueacidfrog'
         },
-        {
-          network: SocialNetworks.web,
-          href: 'https://think-speak-transform.com/'
+        { 
+          network: SocialNetworks.linkedin,
+          href: 'https://www.linkedin.com/in/tobias-sahl-8a553189/'
         }
       ],
       img: (
@@ -362,22 +320,18 @@ export const collaborators: TeamProps = {
           aspectRatio={1}
           loading="lazy"
           className="responsive"
-          alt="Pascal Morgan"
-          src="../../images/team/pascal.png"
+          alt="Tobias Sahl"
+          src="../../images/team/tobias.png"
         />
       )
     },
     {
-      name: 'Lee Atchison',
-      position: 'Architecture',
+      name: 'Michael Leyman',
+      position: 'Engineering',
       social: [
         {
-          network: SocialNetworks.web,
-          href: 'https://leeatchison.com/'
-        },
-        {
-          network: SocialNetworks.linkedin,
-          href: 'https://www.linkedin.com/in/leeatchison'
+          network: SocialNetworks.github,
+          href: 'https://github.com/MicLeey'
         }
       ],
       img: (
@@ -387,11 +341,11 @@ export const collaborators: TeamProps = {
           aspectRatio={1}
           loading="lazy"
           className="responsive"
-          alt="Lee Atchison"
-          src="../../images/team/lee.png"
+          alt="Michael Leey"
+          src="../../images/team/michael.png"
         />
       )
-    }
+    },
   ]
 }
 
