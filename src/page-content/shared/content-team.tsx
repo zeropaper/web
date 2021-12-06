@@ -308,7 +308,7 @@ export const team: TeamProps = {
           network: SocialNetworks.github,
           href: 'https://github.com/blueacidfrog'
         },
-        { 
+        {
           network: SocialNetworks.linkedin,
           href: 'https://www.linkedin.com/in/tobias-sahl-8a553189/'
         }
@@ -345,7 +345,7 @@ export const team: TeamProps = {
           src="../../images/team/michael.png"
         />
       )
-    },
+    }
   ]
 }
 
