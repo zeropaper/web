@@ -13,7 +13,7 @@ import {
 } from '../../freestanding/utils/padding.module.css'
 
 export interface Features {
-  title: string
+  title: string | React.ReactElement
   description: React.ReactElement
   icon: React.ReactElement
 }
@@ -26,9 +26,9 @@ interface PropType {
 const FeatureListItem = ({ className, features }: PropType) => (
   <div className={cn(className && className)}>
     <Container flexContainer={'column'}>
-      {features.map((feature) => {
+      {features.map((feature, index) => {
         return (
-          <Container className={cn(pb24)} justify={'start'} key={feature.title}>
+          <Container className={cn(pb24)} justify={'start'} key={index}>
             {feature.icon}
             <ContentText className={cn(pb4, pl8)}>
               <Molecule>

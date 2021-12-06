@@ -78,7 +78,7 @@ export const featurelist: FeaturelistProps = {
       ),
       features: [
         {
-          title: 'Permissions and Roles',
+          title: <>Permissions and Roles</>,
           description: (
             <>
               From a member of the marketing team, to an admin in your support
@@ -88,7 +88,7 @@ export const featurelist: FeaturelistProps = {
           icon: PlusCircle
         },
         {
-          title: 'Social Logins',
+          title: <>Social Logins</>,
           description: (
             <>
               Simplify your users' experience and let them use their existing
@@ -99,7 +99,7 @@ export const featurelist: FeaturelistProps = {
           icon: PlusCircle
         },
         {
-          title: 'More Info',
+          title: <>More Info</>,
           description: (
             <>
               Please visit our documentation to learn more about upcoming
@@ -120,7 +120,7 @@ export const featurelist: FeaturelistProps = {
       ),
       features: [
         {
-          title: 'Advanced Identity and Access Management',
+          title: <>Advanced Identity and Access Management</>,
           description: (
             <>
               Multifactor authentication, including passwordless, WebAuthn,
@@ -131,7 +131,7 @@ export const featurelist: FeaturelistProps = {
           icon: CheckCircle
         },
         {
-          title: 'Identity Management',
+          title: <>Identity Management</>,
           description: (
             <>
               The basics of IAM: Login and register users fast and without
@@ -141,7 +141,7 @@ export const featurelist: FeaturelistProps = {
           icon: CheckCircle
         },
         {
-          title: 'Account Management',
+          title: <>Account Management</>,
           description: (
             <>
               Manage your users, enable email verification, let users pick new
@@ -151,7 +151,7 @@ export const featurelist: FeaturelistProps = {
           icon: CheckCircle
         },
         {
-          title: 'User Interface and Dashboards',
+          title: <>User Interface and Dashboards</>,
           description: (
             <>
               Display stats in a smooth and responsive dashboard. We also offer
@@ -161,7 +161,7 @@ export const featurelist: FeaturelistProps = {
           icon: CheckCircle
         },
         {
-          title: 'Identity Model',
+          title: <>Identity Model</>,
           description: (
             <>
               A flexible identity model adapts to your business needs. You can

@@ -3,6 +3,7 @@ import React from 'react'
 import Adopters from '../components/layouts/adopters/adopters'
 import Banner from '../components/layouts/banner/banner'
 import Coding from '../components/layouts/coding/coding'
+import FeatureList from '../components/layouts/featurelist/feature-list'
 import Layout from '../components/layouts/layout/layout'
 import Projects from '../components/layouts/projects/projects'
 import Quickstart from '../components/layouts/quickstart/quickstart'
@@ -22,6 +23,7 @@ const OpensourcePage = () => (
     <Projects {...shared.opensourceProjects} />
     <Banner {...sharedBannerOpensource} />
     <Adopters {...sharedAdopters} />
+    <FeatureList {...content.projectlist} />
     <Stats {...sharedStats} />
     <Quotes {...sharedQuotes} />
     <Coding {...content.coding} />
