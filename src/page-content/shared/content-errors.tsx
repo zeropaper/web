@@ -4,6 +4,8 @@ import Button from '../../components/freestanding/button/button'
 import { PropTypes as FeatureContentProps } from '../../components/layouts/feature-content/feature-content'
 import NotFound from '../../images/notfound.mp4'
 
+const ArrowRight = <i className="ph-arrow-right-bold size16" />
+
 export const featureContent404: FeatureContentProps = {
   id: 'error.featurecontent.404',
   overline: '404 - not found',
@@ -21,11 +23,11 @@ export const featureContent404: FeatureContentProps = {
       !
     </>
   ),
-  buttons: (
-    <Button to={'/'} style={'filled'}>
-      Return home
-    </Button>
-  ),
+  button: {
+    ctaTitle: 'Return Home',
+    to: '/',
+    iconRight: ArrowRight
+  },
   content: (
     <video
       width="100%"
@@ -59,11 +61,11 @@ export const featureContent503: FeatureContentProps = {
       !
     </>
   ),
-  buttons: (
-    <Button to={'https://status.ory.sh/'} style={'filled'}>
-      Status Page
-    </Button>
-  ),
+  button: {
+    ctaTitle: 'Status Page',
+    to: 'https://status.ory.sh/',
+    iconRight: ArrowRight
+  },
   content: (
     <video
       width="100%"
