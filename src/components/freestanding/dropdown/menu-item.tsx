@@ -2,7 +2,6 @@ import cn from 'classnames'
 import React from 'react'
 
 import Button from '../button/button'
-import ColourWrapper from '../colour/colour-wrapper'
 
 import { menuItem, menuButton } from './menu-item.module.css'
 
@@ -18,21 +17,14 @@ const MenuItem = ({ className, title, onClick, children }: PropType) => (
     <li aria-haspopup="true" className={cn(menuItem, className && className)}>
       {typeof title === 'string' ? (
         <>
-          <ColourWrapper text={'base-grey'} className={cn(menuButton)}>
-            <Button
-              to={onClick}
-              className={cn(menuButton)}
-              style={'navigation'}
-            >
-              {title}
-            </Button>
-          </ColourWrapper>
+          <Button to={onClick} className={cn(menuButton)} style={'navigation'}>
+            {title}
+          </Button>
+
           {children}
         </>
       ) : (
-        <div onClick={onClick}>
-          <ColourWrapper text={'base-grey'}>{title}</ColourWrapper>
-        </div>
+        <div onClick={onClick}>{title}</div>
       )}
     </li>
   </div>
