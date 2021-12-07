@@ -172,7 +172,7 @@ export const team: TeamProps = {
         },
         {
           network: SocialNetworks.linkedin,
-          href: 'https://www.linkedin.com/in/piotr-m%C5%9Bcichowski-93b458a4'
+          href: 'https://www.linkedin.com/in/piotr-mscichowski/'
         }
       ],
       img: (
