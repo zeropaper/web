@@ -67,7 +67,7 @@ const initializeTagManger = (w: any, d: any, s: any, l: any, i: any) => {
   f.parentNode.insertBefore(j, f)
 }
 
-const loadGoogleAnalytics = () => {
+const loadTagManager = () => {
   initializeTagManger(window, document, 'script', 'dataLayer', 'GTM-5JC2SVK')
 }
 
@@ -76,7 +76,7 @@ const eventsOnBannerInteraction = {
   onPreferenceExpressed: (consent: any = {}) => {
     // If measurement = accepted
     if (consent.purposes && consent.purposes[ConsentCategory.Measurement]) {
-      loadGoogleAnalytics()
+      loadTagManager()
     }
   },
   onConsentFirstGiven: () =>
