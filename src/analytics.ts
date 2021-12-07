@@ -109,7 +109,7 @@ export const init = () => {
     purposes: `${ConsentCategory.Necessary}, ${ConsentCategory.Basic}, ${ConsentCategory.Enhancement}, ${ConsentCategory.Measurement}, ${ConsentCategory.Advertising}`,
     cookiePolicyId: 17136025,
     privacyPolicyUrl: '/privacy',
-    cookiePolicyUrl: '/cookies',
+    cookiePolicyUrl: '/privacy/#cookie-privacy-policy',
     callback: eventsOnBannerInteraction,
     banner: {
       cookiePolicyLinkCaption: 'Cookie Policy',
