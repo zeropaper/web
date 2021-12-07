@@ -37,12 +37,6 @@ const Layout = ({ children, theme, isEvent }: PropTypes) => {
 
   return (
     <div className={cn(styles.layout)}>
-      {envIsProduction && (
-        <Helmet>
-          <script defer data-domain="ory.sh" src="/scripts/script.js"></script>
-        </Helmet>
-      )}
-
       <Navigation
         logo={oryLogoPrimary}
         {...nav.sideNav}
