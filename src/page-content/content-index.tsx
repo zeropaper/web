@@ -131,7 +131,7 @@ export const featureContentCloud: FeatureContentProps = {
         title: <>No lock in</>,
         description: (
           <>
-            Migration to and from Ory Cloud is simple. No lock-in on vital
+            Migration to and from Ory Cloud is simple "on the roadmap". No lock-in on vital
             systems.
           </>
         )
