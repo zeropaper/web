@@ -11,8 +11,6 @@ import 'prismjs/components/prism-yaml'
 import React, { useEffect } from 'react'
 import Helmet from 'react-helmet'
 
-import { init as initAnalytics } from '../../../analytics'
-import { envIsProduction } from '../../../config'
 import * as footer from '../../../page-content/navigation/navigation-footer'
 import * as nav from '../../../page-content/navigation/navigation-header'
 import Footer from '../footer/footer'
@@ -31,10 +29,6 @@ interface PropTypes {
 }
 
 const Layout = ({ children, theme, isEvent }: PropTypes) => {
-  useEffect(() => {
-    initAnalytics()
-  }, [])
-
   return (
     <div className={cn(styles.layout)}>
       <Navigation
