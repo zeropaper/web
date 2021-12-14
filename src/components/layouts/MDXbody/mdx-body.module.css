@@ -158,6 +158,32 @@
       margin: 16px 0 32px;
     }
   }
+
+  & table {
+    margin: var(--size-4) 0;
+    color: var(--colors-text-secondary);
+    border: var(--size-px) solid var(--colors-base-grey-75);
+    border-collapse: collapse;
+  }
+
+  & table thead th,
+  & table tfoot th {
+    font-weight: var(--font-weight-semibold);
+    color: var(--colors-text-primary);
+    background: var(--colors-base-grey-50);
+  }
+
+  & table caption {
+    padding: var(--size-4);
+  }
+
+  & table th,
+  & table td {
+    padding: var(--size-4);
+    border: var(--size-px) solid var(--colors-base-grey-75);
+    font-size: var(--font-size-7);
+    line-height: var(--font-lineheight-normal);
+  }
 }
 
 @media (--sm-viewport) {

@@ -26,7 +26,7 @@ jobs:
           node-version: v14.14
 
       - run: npm ci
-      - run: npm run build
+      - run: NODE_ENV=production npm run build
 
       - name: Publish draft
         id: deploy-neflify
@@ -81,7 +81,7 @@ jobs:
           node-version: v14.14
 
       - run: npm ci
-      - run: npm run build
+      - run: NODE_ENV=production npm run build
 
       - name: Publish
         run: npm run deploy

@@ -187,7 +187,6 @@ module.exports = {
         cssLoaderOptions: {},
         postCssPlugins: [
           require('postcss-for'),
-          require('postcss-color-mod-function')(),
           require('lost'),
           require(`postcss-preset-env`)({
             stage: 0,
