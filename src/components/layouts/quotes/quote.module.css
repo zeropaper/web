@@ -9,6 +9,10 @@
   text-align: left;
   margin-bottom: var(--size-12);
   margin-right: unset;
+
+  &:nth-child(even) {
+    margin-right: unset;
+  }
 }
 
 @media (--xs), (--sm) {
