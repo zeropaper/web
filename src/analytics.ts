@@ -52,27 +52,35 @@ const loadConsentBanner = () => {
 }
 
 // Provided by tag manager
-const initializeTagManger = (w: any, d: any, s: any, l: any, i: any) => {
-  w[l] = w[l] || []
-  w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
-  var f = d.getElementsByTagName(s)[0],
-    j = d.createElement(s),
-    dl = l != 'dataLayer' ? '&l=' + l : ''
-  j.async = true
-  j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
-  f.parentNode.insertBefore(j, f)
-}
-
-const loadTagManager = () => {
-  initializeTagManger(window, document, 'script', 'dataLayer', 'GTM-5JC2SVK')
-}
+const initializeTagManger = (w: any, d: any, s: any, l: any, i: any) =>
+  new Promise((resolve) => {
+    w[l] = w[l] || []
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : ''
+    j.async = true
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+    f.parentNode.insertBefore(j, f)
+    j.addEventListener('load', resolve)
+  })
 
 const eventsOnBannerInteraction = {
-  // Triggers on every page visit
-  onPreferenceExpressed: (consent: any = {}) => {
-    // If measurement = accepted
-    if (consent.purposes && consent.purposes[ConsentCategory.Measurement]) {
-      loadTagManager()
+  onPreferenceExpressedOrNotNeeded: (preference: any = {}) => {
+    const dataLayer = window.dataLayer
+    dataLayer.push({
+      iubenda_ccpa_opted_out: window._iub.cs.api.isCcpaOptedOut()
+    })
+    if (!preference) {
+      dataLayer.push({ event: 'iubenda_preference_not_needed' })
+      return
+    }
+    if (preference.purposes) {
+      for (const category in preference.purposes) {
+        if (preference.purposes[category]) {
+          dataLayer.push({ event: `iubenda_consent_given_purpose_${category}` })
+        }
+      }
     }
   },
   onConsentFirstGiven: () =>
@@ -127,7 +135,12 @@ export const init = () => {
   }
   window._iub = _iub
 
-  loadConsentBanner().then(() => {
-    // Future sequential stuff that is dependent on consent banner goes here
-  })
+  // Initialize tag manager first - no tags fire until consent is expressed
+  // Load consent banner after so we're sure tag manager is active to dispatch
+  // consent events to
+  initializeTagManger(window, document, 'script', 'dataLayer', 'GTM-5JC2SVK')
+    .then(() => loadConsentBanner())
+    .then(() => {
+      // Future sequential stuff that is dependent on consent banner goes here
+    })
 }
