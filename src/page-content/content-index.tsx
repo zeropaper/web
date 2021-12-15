@@ -1,4 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image'
+import {StaticImage} from 'gatsby-plugin-image'
 import React from 'react'
 
 import Button from '../components/freestanding/button/button'
@@ -6,15 +6,17 @@ import CodeBox, {
   Languages,
   PropTypes as CodeBoxProps
 } from '../components/freestanding/codebox/codebox'
-import { PropTypes as CodingProps } from '../components/layouts/coding/coding'
-import { PropTypes as FeatureContentProps } from '../components/layouts/feature-content/feature-content'
-import { PropTypes as HeroProps } from '../components/layouts/hero/hero'
-import { PropTypes as QuickstartProps } from '../components/layouts/quickstart/quickstart'
-import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
+import {PropTypes as CodingProps} from '../components/layouts/coding/coding'
+import {PropTypes as FeatureContentProps} from '../components/layouts/feature-content/feature-content'
+import {PropTypes as HeroProps} from '../components/layouts/hero/hero'
+import {PropTypes as QuickstartProps} from '../components/layouts/quickstart/quickstart'
+import {PropTypes as SeoProps} from '../components/layouts/seo/seo'
+import {PropTypes as HeroImageProps} from "../components/layouts/hero/hero-image";
+import Kratos from "../images/kratos/kratos.svg";
 
-const ArrowRight = <i className="ph-arrow-right-bold size16" />
-const Terminal = <i className="ph-terminal-fill size32" />
-const GitMerge = <i className="ph-git-merge-fill size32" />
+const ArrowRight = <i className="ph-arrow-right-bold size16"/>
+const Terminal = <i className="ph-terminal-fill size32"/>
+const GitMerge = <i className="ph-git-merge-fill size32"/>
 
 export const seo: SeoProps = {
   description:
@@ -22,6 +24,32 @@ export const seo: SeoProps = {
   title: 'Ory - Open Source Identity Solutions For Everyone',
   keywords:
     'authentication, open source, login, authorization, security, session management, Json web tokens, access control, OAuth2.0 server, identity server, AuthN, AuthZ'
+}
+
+export const hero_alt: HeroImageProps = {
+  id: 'index.hero',
+  title: (
+    <>
+      <span className={'is-themed-primary'}>Open Source</span> Identity APIs
+    </>
+  ),
+  description:
+    'Headless and configurable authentication and user management, including MFA, social login, custom identities and more.',
+  buttons: [
+    {
+      ctaTitle: 'Get Started',
+      style: 'filled',
+      to: '/kratos/docs/quickstart'
+    }
+  ],
+  image: (
+    <img
+      className="responsive"
+      loading="lazy"
+      alt="Examples of headless login and registrations forms with different styles using Ory Kratos"
+      src={Kratos}
+    />
+  )
 }
 
 export const hero: HeroProps = {
@@ -43,6 +71,37 @@ export const hero: HeroProps = {
 }
 
 export const featureContentCloud: FeatureContentProps = {
+  id: 'index.featurecontent.cloud',
+  slant: true,
+  overline: <>Cloud native identity</>,
+  title: (
+    <>
+      <span className={'is-mute-text'}>Hosted by us,</span>
+      {''} managed by you
+    </>
+  ),
+  description: (
+    <>
+      Take all of Ory's Open Source capabilities to the cloud - through the command line or an intuitive
+      console.
+    </>
+  ),
+  button: {
+    ctaTitle: 'Ory Cloud',
+    to: 'https://www.ory.sh/cloud',
+    iconRight: ArrowRight
+  },
+  content: (
+    <StaticImage
+      loading="lazy"
+      className="responsive"
+      alt="Ory Open Source Ecosystem Illustration"
+      src="../images/illustrations/examplelogin.png"
+    />
+  )
+}
+
+export const featureContentLogin: FeatureContentProps = {
   id: 'index.featurecontent.cloud',
   slant: true,
   background: 'grey',
