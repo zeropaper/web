@@ -30,11 +30,11 @@ export const hero_alt: HeroImageProps = {
   id: 'index.hero',
   title: (
     <>
-      <span className={'is-themed-primary'}>Open Source</span> Identity APIs
+      <span className={'is-themed-primary'}>Open Source</span> Cloud native identity
     </>
   ),
   description:
-    'Headless and configurable authentication and user management, including MFA, social login, custom identities and more.',
+    'Ory builds scalable authentication and authorization infrastructure for cloud applications.',
   buttons: [
     {
       ctaTitle: 'Get Started',
@@ -73,21 +73,20 @@ export const hero: HeroProps = {
 export const featureContentCloud: FeatureContentProps = {
   id: 'index.featurecontent.cloud',
   slant: true,
-  overline: <>Cloud native identity</>,
+  overline: <>Ory Cloud</>,
   title: (
     <>
-      <span className={'is-mute-text'}>Hosted by us,</span>
-      {''} managed by you
+      <span className={'is-mute-text'}>Managed by you,</span>
+      {''} hosted by us
     </>
   ),
   description: (
     <>
-      Take all of Ory's Open Source capabilities to the cloud - through the command line or an intuitive
-      console.
+      Take all of Ory's Open Source capabilities to the cloud - Authenticate and manage users, set and check permissions, protect your APIs, applications, and data - all inside an intuitive console.
     </>
   ),
   button: {
-    ctaTitle: 'Ory Cloud',
+    ctaTitle: 'Test Now',
     to: 'https://www.ory.sh/cloud',
     iconRight: ArrowRight
   },
@@ -105,7 +104,7 @@ export const featureContentLogin: FeatureContentProps = {
   id: 'index.featurecontent.cloud',
   slant: true,
   background: 'grey',
-  overline: <>The future of identity</>,
+  overline: <>Access Management</>,
   title: (
     <>
       <span className={'is-mute-text'}>Easy-to-implement</span>
@@ -114,13 +113,12 @@ export const featureContentLogin: FeatureContentProps = {
   ),
   description: (
     <>
-      Identity is more than just APIs for authentication, authorization, access
-      control, OAuth2.0 and Zero Trust infrastructure.
+      Ory provides a dynamic access and control management solution that helps extend your authorization capabilities and define access roles for your end user. 
     </>
   ),
   button: {
-    ctaTitle: 'Ory Open Source',
-    to: 'https://www.ory.sh/open-source',
+    ctaTitle: 'Ory Cloud',
+    to: 'https://www.ory.sh/pricing/',
     iconRight: ArrowRight
   },
   content: (
@@ -132,21 +130,21 @@ export const featureContentLogin: FeatureContentProps = {
     />
   ),
   feature: {
-    title: <>Modern Identity Management</>,
+    title: <>Modern and Secure Identity Management</>,
     description: (
       <>
-        Demand for enterprise federation, single sign-on, and multifactor
-        authentication is skyrocketing. A modern service offers enhanced
-        security and upsell opportunities that customers will pay for.
+        Ory supports the principle of layered protection in security. 
+        We are working hard to provide services such as notifications in the event of an attack, monitoring and reporting
+         - a variety of signals to detect and mitigate attacks.
       </>
     ),
     features: [
       {
-        title: <>Secure</>,
+        title: <>Easy-to-implement</>,
         description: (
           <>
-            MFA, permissions and roles, custom branding and flows, OAuth 2.0,
-            OIDC, IAP, RBAC, integrations and{' '}
+            We are working on providing a Implemnetation planning checklist, 
+            from analyzing end-user business requirements to monitoring and meet business objectives{' '}
             <Button
               to={'https://www.ory.sh/docs/ecosystem/projects'}
               style={'link-inline'}
@@ -158,14 +156,15 @@ export const featureContentLogin: FeatureContentProps = {
         )
       },
       {
-        title: <>Customizable</>,
+        title: <>Consistent, branded login experience</>,
         description: (
           <>
-            Ory is based on{' '}
+            Customizable{' '}
             <Button to={'/open-source'} style={'link-inline'}>
-              open source
+              Individual user experience
             </Button>{' '}
-            software and grows with every community member and pull-request.
+            by customizing how your login screen is displayed and behaves. 
+            Add your own brand logo, colors, button or page background. 
           </>
         )
       }
