@@ -11,6 +11,16 @@ export const sharedQuotes: QuoteProps = {
       big: true,
       description: (
         <>
+          Ory is a project where they are creating the wheel once for everyone.
+          #HackerProof.
+        </>
+      ),
+      person: `Yuvraj Yadav`,
+      jobTitle: `Software Engineer, Union.ai`
+    },
+    {
+      description: (
+        <>
           We like using Ory because it’s API first design made it super easy to
           integrate with the rest of our stack.
         </>
@@ -27,16 +37,6 @@ export const sharedQuotes: QuoteProps = {
       ),
       person: `Ken Adler`,
       jobTitle: `Identity & Infosec, ISOC Pioneer Member`
-    },
-    {
-      description: (
-        <>
-          We needed an Auth System that would work with modern setups. Ory fit
-          the bill perfectly and just works.
-        </>
-      ),
-      person: `Steff Kelsey`,
-      jobTitle: `VP of Engineering. Blues Inc.`
     }
   ]
 }
@@ -50,9 +50,18 @@ export const kratosQuotes: QuoteProps = {
       big: true,
       description: (
         <>
-          We chose the Ory Stack to develop an internal IAM. Ory is ideal
-          because we could customize it exactly how we needed to and could build
-          a flexible system for authorizing user actions.
+          Ory made it simple to add stable, secure user management and access
+          control to our systems. No more reinventing the wheel!
+        </>
+      ),
+      person: `Bill Monkman`,
+      jobTitle: `Chief Architect, Commit`
+    },
+    {
+      description: (
+        <>
+          Ory is ideal because we could customize it exactly how we needed to
+          and could build a flexible system for authorizing user actions.
         </>
       ),
       person: `Dimitriy Gaevskiy`,
@@ -61,22 +70,12 @@ export const kratosQuotes: QuoteProps = {
     {
       description: (
         <>
-          We needed an Auth System that would work with modern setups. Ory fit
-          the bill perfectly and just works.
+          Ory Kratos is a huge time saver. It allows us to implement identity
+          management in R2Devops infrastructure at rocket speed 🚀.
         </>
       ),
-      person: `Steff Kelsey`,
-      jobTitle: `VP of Engineering. Blues Inc.`
-    },
-    {
-      description: (
-        <>
-          Ory made it simple to add stable, secure user management and access
-          control to our systems. No more reinventing the wheel!
-        </>
-      ),
-      person: `Bill Monkman`,
-      jobTitle: `Chief Architect, Commit`
+      person: `Thomas Boni`,
+      jobTitle: `CTO, R2Devops.`
     }
   ]
 }
@@ -142,6 +141,16 @@ export const hydraQuotes: QuoteProps = {
     {
       description: (
         <>
+          Hydra is so smooth; I probably spent more time removing the old OAuth
+          implementation than I did wiring up Hydra into my app.
+        </>
+      ),
+      person: `Yan Gabriel Minário`,
+      jobTitle: `CTO, myio`
+    },
+    {
+      description: (
+        <>
           We rely on Ory to be our OAuth provider and it fits perfectly into our
           infrastructure, is hardened, and aligns with our principles. Ory is a
           great fit for us.
@@ -161,7 +170,7 @@ export const hydraQuotes: QuoteProps = {
       ),
       person: `Corey Burmeister`,
       jobTitle: `Author, Discogs`
-    }
+    },
   ]
 }
 
