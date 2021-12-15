@@ -30,14 +30,14 @@ export const hero_alt: HeroImageProps = {
   id: 'index.hero',
   title: (
     <>
-      <span className={'is-themed-primary'}>Open Source</span> Cloud native identity
+      <span className={'is-themed-primary'}>Open Source </span> Cloud Native Identity 
     </>
   ),
   description:
     'Ory builds scalable authentication and authorization infrastructure for cloud applications.',
   buttons: [
     {
-      ctaTitle: 'Get Started',
+      ctaTitle: 'Test Now',
       style: 'filled',
       to: '/kratos/docs/quickstart'
     }
@@ -73,16 +73,17 @@ export const hero: HeroProps = {
 export const featureContentCloud: FeatureContentProps = {
   id: 'index.featurecontent.cloud',
   slant: true,
-  overline: <>Ory Cloud</>,
+  overline: <>Ory Cloud Product</>,
   title: (
     <>
-      <span className={'is-mute-text'}>Managed by you,</span>
-      {''} hosted by us
+      <span className={'is-mute-text'}> Hosted by us,</span>
+      {''} Managed by you
     </>
   ),
   description: (
     <>
-      Take all of Ory's Open Source capabilities to the cloud - Authenticate and manage users, set and check permissions, protect your APIs, applications, and data - all inside an intuitive console.
+      Take all of Ory's Open Source capabilities to the cloud - Authenticate and manage users, 
+      set and check permissions, protect your APIs, applications and data - all inside an intuitive console.
     </>
   ),
   button: {
@@ -104,11 +105,11 @@ export const featureContentLogin: FeatureContentProps = {
   id: 'index.featurecontent.cloud',
   slant: true,
   background: 'grey',
-  overline: <>Access Management</>,
+  overline: <>Identity & Access Management</>,
   title: (
     <>
-      <span className={'is-mute-text'}>Easy-to-implement</span>
-      {''} authentication
+      <span className={'is-mute-text'}>Login and Authentication</span>
+      {''} for you Applications
     </>
   ),
   description: (
@@ -130,7 +131,7 @@ export const featureContentLogin: FeatureContentProps = {
     />
   ),
   feature: {
-    title: <>Modern and Secure Identity Management</>,
+    title: <>Modern Identity Management</>,
     description: (
       <>
         Ory supports the principle of layered protection in security. 
@@ -140,13 +141,13 @@ export const featureContentLogin: FeatureContentProps = {
     ),
     features: [
       {
-        title: <>Easy-to-implement</>,
+        title: <>Easy Implement</>,
         description: (
           <>
             We are working on providing a Implemnetation planning checklist, 
             from analyzing end-user business requirements to monitoring and meet business objectives{' '}
             <Button
-              to={'https://www.ory.sh/docs/ecosystem/projects'}
+              to={'https://www.ory.sh/kratos/docs/next/quickstart'}
               style={'link-inline'}
             >
               more
@@ -156,11 +157,11 @@ export const featureContentLogin: FeatureContentProps = {
         )
       },
       {
-        title: <>Consistent, branded login experience</>,
+        title: <>Consistent Brand Experience</>,
         description: (
           <>
             Customizable{' '}
-            <Button to={'/open-source'} style={'link-inline'}>
+            <Button to={'https://www.ory.sh/kratos/docs/next/quickstart'} style={'link-inline'}>
               Individual user experience
             </Button>{' '}
             by customizing how your login screen is displayed and behaves. 
@@ -176,7 +177,7 @@ export const featureContentUX: FeatureContentProps = {
   id: 'index.featurecontent.ux',
   slant: true,
   background: 'dark',
-  overline: 'Bring your own UI',
+  overline: 'Customizable Login UI',
   title: (
     <>
       <span className={'is-mute-text'}>Your login,</span>
@@ -191,8 +192,8 @@ export const featureContentUX: FeatureContentProps = {
     </>
   ),
   button: {
-    ctaTitle: 'Sign up',
-    to: 'https://console.ory.sh',
+    ctaTitle: 'Check it out',
+    to: 'https://www.ory.sh/kratos/docs/next/self-service/flows/user-registration',
     iconRight: ArrowRight
   },
   content: (
@@ -257,7 +258,7 @@ export const coding: CodingProps = {
     </>
   ),
   button: {
-    ctaTitle: 'Visit the documentation',
+    ctaTitle: 'Visit our documentation',
     to: '/docs/get-started',
     iconRight: ArrowRight
   },
@@ -344,7 +345,7 @@ export const quickstart: QuickstartProps = {
   ],
   content: [
     {
-      title: <>Delightful Docs</>,
+      title: <>Detailed Docs</>,
       description: (
         <>
           Breeze through technical concepts, level up with our tutorials or
@@ -353,7 +354,7 @@ export const quickstart: QuickstartProps = {
       ),
       button: (
         <Button to={'/docs/'} style={'link'} iconRight={ArrowRight}>
-          Visit the documentation
+          Visit our documentation
         </Button>
       )
     },
