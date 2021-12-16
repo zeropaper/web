@@ -34,7 +34,7 @@ export const hero_alt: HeroImageProps = {
     </>
   ),
   description:
-    'From Open Source to Ory Cloud - We builds scalable authentication and authorization infrastructure for cloud applications.',
+    'From Open Source to Ory Cloud - We build scalable authentication and authorization infrastructure for cloud applications.',
   buttons: [
     {
       ctaTitle: 'Test Now',
@@ -109,7 +109,7 @@ export const featureContentLogin: FeatureContentProps = {
   title: (
     <>
       <span className={'is-mute-text'}>Login and Authentication</span>
-      {''} for you Applications
+      {''} for your Applications
     </>
   ),
   description: (
@@ -131,12 +131,12 @@ export const featureContentLogin: FeatureContentProps = {
     />
   ),
   feature: {
-    title: <>Modern Identity Management</>,
+    title: <>Secure and Modern Identity Management</>,
     description: (
       <>
         Ory supports the principle of layered protection in security. 
         We are working hard to provide services such as notifications in the event of an attack, monitoring and reporting
-         - a variety of signals to detect and mitigate attacks.
+         - a variety of signals to detect and mitigate attacks "on the roadmap".
       </>
     ),
     features: [
