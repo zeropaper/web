@@ -34,7 +34,7 @@ export const hero_alt: HeroImageProps = {
     </>
   ),
   description:
-    'Ory builds scalable authentication and authorization infrastructure for cloud applications.',
+    'From Open Source to Ory Cloud - We builds scalable authentication and authorization infrastructure for cloud applications.',
   buttons: [
     {
       ctaTitle: 'Test Now',
