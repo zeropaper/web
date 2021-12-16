@@ -34,7 +34,7 @@ export const hero: HeroProps = {
   description: (
     <>
       Integrate modern identity services with Ory Cloud. Batteries included.
-      <span className={'is-themed-primary'}> Based on Ory Open Source. </span>
+      Based on Ory Open Source.
     </>
   ),
   buttons: [

@@ -13,11 +13,16 @@ import * as content from '../page-content/content-cloud'
 import { sharedAdopters } from '../page-content/shared/content-adopters'
 import { sharedQuotes } from '../page-content/shared/content-quotes'
 import { sharedStats } from '../page-content/shared/content-stats'
+import { sharedBannerOpensource } from '../page-content/shared/content-banner'
+import Banner from '../components/layouts/banner/banner'
+import Projects from '../components/layouts/projects/projects'
+import * as shared from '../page-content/shared/content-opensource'
 
 const CloudPage = () => (
   <Layout>
     <SEO {...content.seo} />
     <Hero {...content.hero} />
+    <Projects {...shared.opensourceProjects} />
     <FeatureContent {...content.featureContentCloud} />
     <FeatureContent {...content.featureContentUX} />
     <Coding {...content.coding} />
