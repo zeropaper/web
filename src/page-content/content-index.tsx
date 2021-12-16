@@ -30,11 +30,11 @@ export const hero_alt: HeroImageProps = {
   id: 'index.hero',
   title: (
     <>
-      <span className={'is-themed-primary'}>Open Source </span> Cloud Native Identity 
+      <span className={'is-themed-primary'}>From Open Source </span> to Ory Cloud 
     </>
   ),
   description:
-    'From Open Source to Ory Cloud - We build scalable authentication and authorization infrastructure for cloud applications.',
+    'We build scalable authentication and authorization infrastructure for cloud applications.',
   buttons: [
     {
       ctaTitle: 'Test Now',
