@@ -9,6 +9,7 @@ import CodeBox, {
 import { PropTypes as CodingProps } from '../components/layouts/coding/coding'
 import { PropTypes as FeatureContentProps } from '../components/layouts/feature-content/feature-content'
 import { PropTypes as HeroProps } from '../components/layouts/hero/hero'
+import { PropTypes as ProjectListProps } from '../components/layouts/projects/projects-list'
 import { PropTypes as QuickstartProps } from '../components/layouts/quickstart/quickstart'
 import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
 
@@ -42,6 +43,59 @@ export const hero: HeroProps = {
       ctaTitle: 'Start Building.',
       style: 'filled',
       to: 'https://console.ory.sh/registration'
+    }
+  ]
+}
+
+export const projectListCloud: ProjectListProps = {
+  id: 'opensource.projects',
+  title: (
+    <>
+      <span className={'is-mute-text'}>Fully flexible, </span>fully yours
+    </>
+  ),
+  description: (
+    <>
+      Ory offers reliable APIs and services for authentication, authorization,
+      access control, and delegation.
+    </>
+  ),
+  projects: [
+    {
+      theme: 'kratos',
+      title: 'kratos',
+      overline: 'kratos',
+      descriptiveTitle: 'User Management',
+      description:
+        'Cloud native user management system. Provision IDs, store user information, configure authentication methods and use a headless API.',
+      path: '/kratos',
+    },
+    {
+      theme: 'hydra',
+      title: 'hydra',
+      overline: 'hydra',
+      descriptiveTitle: 'OAuth 2.0 and OpenID Connect',
+      description:
+        'OAuth 2.0 and OpenID Certified® OpenID Connect server. Cloud native, security-first, headless API security for your infrastructure. ',
+      path: '/hydra',
+    },
+    {
+      theme: 'oathkeeper',
+      title: 'oathkeeper',
+      overline: 'oathkeeper',
+      descriptiveTitle: 'Identity and Access Proxy',
+      description:
+        'Identity and Access Proxy (IAP). Authenticate, authorize and mutate any incoming traffic, using Zero Trust / BeyondCorp as open source.',
+      path: '/oathkeeper',
+    },
+    {
+      theme: 'keto',
+      title: 'keto',
+      overline: 'keto',
+      descriptiveTitle: 'Global access control',
+      description:
+        "Authorization Server inspired by Google's consistent, global Authorization System, providing granular access policies with RBAC, ABAC and ACL.",
+      path: '/keto',
     }
   ]
 }
