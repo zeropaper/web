@@ -73,7 +73,7 @@ export const projectListCloud: ProjectListProps = {
     {
       theme: 'hydra',
       title: 'hydra',
-      overline: 'hydra',
+      overline: 'hydra coming soon',
       descriptiveTitle: 'OAuth 2.0 and OpenID Connect',
       description:
         'OAuth 2.0 and OpenID Certified® OpenID Connect server. Cloud native, security-first, headless API security for your infrastructure. ',

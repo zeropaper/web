@@ -12,7 +12,7 @@ import {PropTypes as HeroProps} from '../components/layouts/hero/hero'
 import {PropTypes as QuickstartProps} from '../components/layouts/quickstart/quickstart'
 import {PropTypes as SeoProps} from '../components/layouts/seo/seo'
 import {PropTypes as HeroImageProps} from "../components/layouts/hero/hero-image";
-import Kratos from "../images/kratos/kratos.svg";
+import Cloud from "../images/illustrations/hero.png";
 
 const ArrowRight = <i className="ph-arrow-right-bold size16"/>
 const Terminal = <i className="ph-terminal-fill size32"/>
@@ -46,8 +46,8 @@ export const hero_alt: HeroImageProps = {
     <img
       className="responsive"
       loading="lazy"
-      alt="Examples of headless login and registrations forms with different styles using Ory Kratos"
-      src={Kratos}
+      alt="Examples of scalable Ory Cloud capabilities and dashboard metrics"
+      src={Cloud}
     />
   )
 }
