@@ -34,7 +34,7 @@ export const hero_alt: HeroImageProps = {
     </>
   ),
   description:
-    'Ory Cloud ensures application performance, scalability and security allowing you to participate, collaborate, and understand the inner workings of it.',
+    "Ory's networkinfrastructure architecture is designed for minimal dependencies, run everywhere, scales without effort and minimize room for human and network errors",
   buttons: [
     {
       ctaTitle: 'Test Now',
@@ -61,7 +61,7 @@ export const projectListCloud: ProjectListProps = {
   ),
   description: (
     <>
-      You can rely on a consistent, up-to-date and adaptable service that is able to meet all your business needs; 
+      Rely on secure zero trust, up-to-date and adaptable service that is able to meet all your business needs; 
       regardless of scale, location, use case, programming language, personal experience, stack or other dependencies.
     </>
   ),
@@ -139,6 +139,7 @@ export const featureContentCloud: FeatureContentProps = {
     title: <>Painless integration</>,
     description: (
       <>
+        For larger organizations moving a larger set of systems to a new infrastructure often means a lengthy migration. 
         Ory Cloud is a product built by a focused team, tried and tested by an international community of security experts and organizations.
       </>
     ),

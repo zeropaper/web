@@ -30,11 +30,11 @@ export const hero: HeroProps = {
   id: 'index.hero',
   title: (
     <>
-      <span className={'is-themed-primary'}>From Open Source </span> to Ory Cloud
+      <span className={'is-themed-primary'}>From Open Source to </span> Ory Cloud
     </>
   ),
   description:
-    'Ory builds scalable authentication and authorization in for cloud applications.',
+    'Ory provides a scalable zero trust intelligence network infrastructure for cloud applications.',
   buttons: [
     {
       ctaTitle: 'Start Building',
