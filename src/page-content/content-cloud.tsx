@@ -30,11 +30,11 @@ export const hero_alt: HeroImageProps = {
   id: 'index.hero',
   title: (
     <>
-      <span className={'is-themed-primary'}>From Open Source </span> to Ory Cloud 
+      <span className={'is-themed-primary'}> Ory </span> Cloud 
     </>
   ),
   description:
-    'Ory Cloud ensures application performance, scalability and security allowing you to participate, collaborate, and understand the inner workings.',
+    'Ory Cloud ensures application performance, scalability and security allowing you to participate, collaborate, and understand the inner workings of it.',
   buttons: [
     {
       ctaTitle: 'Test Now',
