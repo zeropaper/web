@@ -18,7 +18,7 @@ import {sharedStats} from '../page-content/shared/content-stats'
 const IndexPage = () => (
   <Layout>
     <SEO {...content.seo} />
-    <HeroImage {...content.hero_alt} />
+    <Hero {...content.hero} />
     <Adopters {...sharedAdopters} />
     <FeatureContent {...content.featureContentCloud} />
     <FeatureContent {...content.featureContentLogin} />

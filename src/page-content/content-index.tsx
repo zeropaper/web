@@ -26,44 +26,18 @@ export const seo: SeoProps = {
     'authentication, open source, login, authorization, security, session management, Json web tokens, access control, OAuth2.0 server, identity server, AuthN, AuthZ'
 }
 
-export const hero_alt: HeroImageProps = {
-  id: 'index.hero',
-  title: (
-    <>
-      <span className={'is-themed-primary'}>From Open Source </span> to Ory Cloud 
-    </>
-  ),
-  description:
-    'We build scalable authentication and authorization infrastructure for cloud applications.',
-  buttons: [
-    {
-      ctaTitle: 'Test Now',
-      style: 'filled',
-      to: '/kratos/docs/quickstart'
-    }
-  ],
-  image: (
-    <img
-      className="responsive"
-      loading="lazy"
-      alt="Examples of scalable Ory Cloud capabilities and dashboard metrics"
-      src={Cloud}
-    />
-  )
-}
-
 export const hero: HeroProps = {
   id: 'index.hero',
   title: (
     <>
-      <span className={'is-themed-primary'}>Open Source</span> Identity APIs
+      <span className={'is-themed-primary'}>From Open Source </span> to Ory Cloud
     </>
   ),
   description:
-    'Ory builds scalable authentication and authorization infrastructure for cloud applications.',
+    'Ory builds scalable authentication and authorization in for cloud applications.',
   buttons: [
     {
-      ctaTitle: 'Test Now',
+      ctaTitle: 'Start Building',
       style: 'filled',
       to: '/cloud'
     }
@@ -83,7 +57,7 @@ export const featureContentCloud: FeatureContentProps = {
   description: (
     <>
       Take all of Ory's Open Source capabilities to the cloud - Authenticate and manage users, 
-      set and check permissions, protect your APIs, applications and data - all inside an intuitive console.
+      set and check permissions, protect your APIs, applications and data ensuring application performance, scalability and security.
     </>
   ),
   button: {
@@ -114,7 +88,8 @@ export const featureContentLogin: FeatureContentProps = {
   ),
   description: (
     <>
-      Ory provides a dynamic access and control management solution that helps extend your authorization capabilities and define access roles for your end user. 
+      Ory provides a dynamic access and control management solution that helps extend your authorization capabilities and define 
+      access roles for your end user - whole new level of customer experience. 
     </>
   ),
   button: {
@@ -186,9 +161,8 @@ export const featureContentUX: FeatureContentProps = {
   ),
   description: (
     <>
-      Ory is completely headless - use your styles and design, and let your
-      designers take back control. Custom user-facing interfaces and flows
-      included.
+      Ory is completely headless - bring your own UI, in the programming language of your choosing, with the user experience that you like. 
+      Let your designers take back control by using your styles and design. Custom user-facing interfaces and flows included.
     </>
   ),
   button: {

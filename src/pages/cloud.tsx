@@ -10,11 +10,12 @@ import Stats from '../components/layouts/stats/stats'
 import * as content from '../page-content/content-cloud'
 import { sharedStats } from '../page-content/shared/content-stats'
 import ProjectsList from '../components/layouts/projects/projects-list'
+import HeroImage from '../components/layouts/hero/hero-image'
 
 const CloudPage = () => (
   <Layout>
     <SEO {...content.seo} />
-    <Hero {...content.hero} />
+    <HeroImage {...content.hero_alt} />
     <ProjectsList {...content.projectListCloud} />
     <FeatureContent {...content.featureContentCloud} />
     <FeatureContent {...content.featureContentUX} />

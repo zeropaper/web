@@ -8,10 +8,11 @@ import CodeBox, {
 } from '../components/freestanding/codebox/codebox'
 import { PropTypes as CodingProps } from '../components/layouts/coding/coding'
 import { PropTypes as FeatureContentProps } from '../components/layouts/feature-content/feature-content'
-import { PropTypes as HeroProps } from '../components/layouts/hero/hero'
 import { PropTypes as ProjectListProps } from '../components/layouts/projects/projects-list'
 import { PropTypes as QuickstartProps } from '../components/layouts/quickstart/quickstart'
 import { PropTypes as SeoProps } from '../components/layouts/seo/seo'
+import {PropTypes as HeroImageProps} from "../components/layouts/hero/hero-image";
+import Cloud from "../images/illustrations/hero.png";
 
 const ArrowRight = <i className="ph-arrow-right-bold size16" />
 const Terminal = <i className="ph-terminal-fill size32" />
@@ -25,26 +26,30 @@ export const seo: SeoProps = {
     'authentication, open source, login, authorization, security, session management, Json web tokens, access control, OAuth2.0 server, identity server, AuthN, AuthZ'
 }
 
-export const hero: HeroProps = {
-  id: 'cloud.hero',
+export const hero_alt: HeroImageProps = {
+  id: 'index.hero',
   title: (
     <>
-      <span className={'is-themed-primary'}>Cloud native </span> identity
+      <span className={'is-themed-primary'}>From Open Source </span> to Ory Cloud 
     </>
   ),
-  description: (
-    <>
-      Integrate modern identity services with Ory Cloud. Batteries included.
-      Based on Ory Open Source.
-    </>
-  ),
+  description:
+    'Ory Cloud ensures application performance, scalability and security allowing you to participate, collaborate, and understand the inner workings.',
   buttons: [
     {
-      ctaTitle: 'Start Building.',
+      ctaTitle: 'Test Now',
       style: 'filled',
-      to: 'https://console.ory.sh/registration'
+      to: '/kratos/docs/quickstart'
     }
-  ]
+  ],
+  image: (
+    <img
+      className="responsive"
+      loading="lazy"
+      alt="Examples of scalable Ory Cloud capabilities and dashboard metrics"
+      src={Cloud}
+    />
+  )
 }
 
 export const projectListCloud: ProjectListProps = {
@@ -56,16 +61,16 @@ export const projectListCloud: ProjectListProps = {
   ),
   description: (
     <>
-      Ory offers reliable APIs and services for authentication, authorization,
-      access control, and delegation.
+      You can rely on a consistent, up-to-date and adaptable service that is able to meet all your business needs; 
+      regardless of scale, location, use case, programming language, personal experience, stack or other dependencies.
     </>
   ),
   projects: [
     {
       theme: 'kratos',
       title: 'kratos',
-      overline: 'kratos',
-      descriptiveTitle: 'User Management',
+      overline: 'Kratos Ory Cloud',
+      descriptiveTitle: 'Identity and User Management',
       description:
         'Cloud native user management system. Provision IDs, store user information, configure authentication methods and use a headless API.',
       path: '/kratos',
@@ -73,7 +78,7 @@ export const projectListCloud: ProjectListProps = {
     {
       theme: 'hydra',
       title: 'hydra',
-      overline: 'hydra coming soon',
+      overline: 'Hydra coming soon',
       descriptiveTitle: 'OAuth 2.0 and OpenID Connect',
       description:
         'OAuth 2.0 and OpenID Certified® OpenID Connect server. Cloud native, security-first, headless API security for your infrastructure. ',
@@ -82,7 +87,7 @@ export const projectListCloud: ProjectListProps = {
     {
       theme: 'oathkeeper',
       title: 'oathkeeper',
-      overline: 'oathkeeper',
+      overline: 'Oathkeeper Open Source',
       descriptiveTitle: 'Identity and Access Proxy',
       description:
         'Identity and Access Proxy (IAP). Authenticate, authorize and mutate any incoming traffic, using Zero Trust / BeyondCorp as open source.',
@@ -91,7 +96,7 @@ export const projectListCloud: ProjectListProps = {
     {
       theme: 'keto',
       title: 'keto',
-      overline: 'keto',
+      overline: 'Keto Open Source',
       descriptiveTitle: 'Global access control',
       description:
         "Authorization Server inspired by Google's consistent, global Authorization System, providing granular access policies with RBAC, ABAC and ACL.",
@@ -113,13 +118,12 @@ export const featureContentCloud: FeatureContentProps = {
   ),
   description: (
     <>
-      Authenticate and manage user onboarding flows and identities, protect your
-      APIs, applications, and data - through the command line or an intuitive
-      console.
+      Ory Cloud provides a tried and tested migration plan, coupled with extensive onboarding sessions to get you up and running in no time. 
+      Moving to a new infrastructure is a rare scenario for any business, for Ory it is just another workday.
     </>
   ),
   button: {
-    ctaTitle: 'Start Building. No Credit Card required.',
+    ctaTitle: 'Test Now',
     to: 'https://console.ory.sh/registration',
     iconRight: ArrowRight
   },
@@ -135,8 +139,7 @@ export const featureContentCloud: FeatureContentProps = {
     title: <>Painless integration</>,
     description: (
       <>
-        Forget setting up Kubernetes, Ingress, routing, and CI/CD. Connect your
-        APIs and frontend and let Ory Cloud handle the heavy lifting.
+        Ory Cloud is a product built by a focused team, tried and tested by an international community of security experts and organizations.
       </>
     ),
     features: [
@@ -153,11 +156,11 @@ export const featureContentCloud: FeatureContentProps = {
         title: <>Open source</>,
         description: (
           <>
-            Ory Cloud is based on{' '}
+            Ory Cloud is based on the largest{' '}
             <Button to={'/open-source'} style={'link-inline'}>
               open source
             </Button>{' '}
-            software and improves with every community member and pull-request.
+             open source ecosystem in the area of authentication, authorization, access control, and zero trust networking in the world.
           </>
         )
       },
@@ -178,7 +181,7 @@ export const featureContentCloud: FeatureContentProps = {
         description: (
           <>
             Essential security included, dont pay extra for vital security
-            features like MFA.
+            features like MFA. 
           </>
         )
       }
