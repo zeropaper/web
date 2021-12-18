@@ -89,7 +89,7 @@ export const featureContentLogin: FeatureContentProps = {
   description: (
     <>
       Ory provides a dynamic access and control management solution that helps extend your authorization capabilities and define 
-      access roles for your end user - whole new level of customer experience. 
+      access roles for your end user - a new level of customer experience. 
     </>
   ),
   button: {
@@ -106,7 +106,7 @@ export const featureContentLogin: FeatureContentProps = {
     />
   ),
   feature: {
-    title: <>Secure and Modern Identity Management</>,
+    title: <>Secure and scalable Identity Management</>,
     description: (
       <>
         Ory supports the principle of layered protection in security. 
@@ -116,7 +116,7 @@ export const featureContentLogin: FeatureContentProps = {
     ),
     features: [
       {
-        title: <>Easy Implement</>,
+        title: <>Easy Implemention</>,
         description: (
           <>
             We are working on providing a Implemnetation planning checklist, 
@@ -135,7 +135,7 @@ export const featureContentLogin: FeatureContentProps = {
         title: <>Consistent Brand Experience</>,
         description: (
           <>
-            Customizable{' '}
+            {' '}
             <Button to={'https://www.ory.sh/kratos/docs/next/quickstart'} style={'link-inline'}>
               Individual user experience
             </Button>{' '}
@@ -301,19 +301,13 @@ export const quickstart: QuickstartProps = {
   ),
   description: (
     <>
-      Get started right away and explore Ory, or contact us for a custom support
-      package.
+      We want to help with any questions you have! Fill out the Form below and a Ory expert will reach out to discuss your needs.
     </>
   ),
   buttons: [
     {
-      ctaTitle: 'Sign up',
+      ctaTitle: 'Contact us',
       style: 'filled',
-      to: 'https://console.ory.sh/registration'
-    },
-    {
-      ctaTitle: 'Contact',
-      style: 'outlined',
       to: 'mailto:sales@ory.sh'
     }
   ],
@@ -322,13 +316,13 @@ export const quickstart: QuickstartProps = {
       title: <>Detailed Docs</>,
       description: (
         <>
-          Breeze through technical concepts, level up with our tutorials or
+          Get started right away and explore Ory! Review our documentation and breeze through technical concepts, level up with our tutorials or
           master our extensive API reference.
         </>
       ),
       button: (
         <Button to={'/docs/'} style={'link'} iconRight={ArrowRight}>
-          Visit our documentation
+          Explore
         </Button>
       )
     },
@@ -336,8 +330,8 @@ export const quickstart: QuickstartProps = {
       title: <>A helpful community</>,
       description: (
         <>
-          Chat with peers, discuss code and gain insights from the open source
-          at the heart of Ory.
+          The Ory Open Source community is a great resource for help and advice. Chat with peers, discuss code and gain insights from the open source
+          at the heart.
         </>
       ),
       button: (
@@ -346,7 +340,7 @@ export const quickstart: QuickstartProps = {
           style={'link'}
           iconRight={ArrowRight}
         >
-          Join the chat on Slack
+          Join us on Slack
         </Button>
       )
     }

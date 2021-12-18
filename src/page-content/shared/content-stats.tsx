@@ -10,7 +10,9 @@ export const sharedStats: StatsProps = {
   description: (
     <>
       Companies from all over the world rely on Ory for their identity needs.
-      Ory technology secures billions of requests every month.
+      We provides businesses and organizations with a set of hardened infrastructure, 
+      so you can operate and scale efficiently and rely on a stable backbone.
+      Our zero-trust infrastructure network secures billions of requests every month.
     </>
   )
 }

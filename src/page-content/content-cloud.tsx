@@ -34,7 +34,7 @@ export const hero_alt: HeroImageProps = {
     </>
   ),
   description:
-    "Ory's networkinfrastructure architecture is designed for minimal dependencies, run everywhere, scales without effort and minimize room for human and network errors",
+    "Ory cloud is design for minimal dependencies, low latency, limitless scalebility and a focus on secure networkinfrastructure.",
   buttons: [
     {
       ctaTitle: 'Test Now',
@@ -118,8 +118,8 @@ export const featureContentCloud: FeatureContentProps = {
   ),
   description: (
     <>
-      Ory Cloud provides a tried and tested migration plan, coupled with extensive onboarding sessions to get you up and running in no time. 
       Moving to a new infrastructure is a rare scenario for any business, for Ory it is just another workday.
+      Ory Cloud provides a tried and tested migration plan, coupled with extensive onboarding sessions to get you up and running in no time. 
     </>
   ),
   button: {
