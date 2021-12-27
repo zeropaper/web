@@ -28,6 +28,24 @@ export const pricing: Pick<
   title: 'Scalable and fair pricing',
   notices: [
     {
+      notice: (
+        <>
+          Upgrade from Developer plan to production plans possible, please{' '}
+          <Button style={'link-inline'} to={'mailto:office@ory.sh'}>
+            contact us
+          </Button>
+          .
+        </>
+      )
+    },
+    {
+      notice: (
+        <>
+          For a limited time the first sign ups to Start Up and Growth plans are free for one year.
+        </>
+      )
+    },
+    {
       notice:
         'If you regularly exceed the API rate limits or use a large number of high-impact requests we will need to limit your maximum resource consumption to ensure the sustainability of the system.'
     }
