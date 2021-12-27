@@ -28,6 +28,13 @@ export const pricing: Pick<
   title: 'Scalable and fair pricing',
   notices: [
     {
+      notice: (
+        <>
+          Fill out the <Button style={'link-inline'} to={'https://share-eu1.hsforms.com/1KWJxgKzNQWOjR9r5blC41wextgn'}>Ory Acceleration Program Form</Button> and get access to the Start Up or Growth plan free for one year - program ends March 1st 2022.
+        </>
+      )
+    },
+    {
       notice:
         'If you regularly exceed the API rate limits or use a large number of high-impact requests we will need to limit your maximum resource consumption to ensure the sustainability of the system.'
     }

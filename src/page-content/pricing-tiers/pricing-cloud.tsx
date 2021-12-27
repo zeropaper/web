@@ -67,15 +67,18 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
       price: '18',
       priceDescription: (
         <>
-          Start right away!
+          The first 900 applications get the Start Up plan for free!
+          <span className={cn('is-themed-primary', 'is-semibold')}>
+            <sup> 1</sup>
+          </span>
         </>
       ),
       priceIsBilledMonthly: true,
       priceIsMonetary: true,
       button: {
         style: 'outlined',
-        title: 'Buy now',
-        to: 'https://console.ory.sh/registration?preferred_plan=start-up'
+        title: 'Request free access',
+        to: 'https://share-eu1.hsforms.com/1KWJxgKzNQWOjR9r5blC41wextgn'
       },
       features: [
         {
@@ -96,7 +99,7 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
             <>
               Fair use policy
               <span className={cn('is-themed-primary', 'is-semibold')}>
-                <sup>1</sup>
+                <sup>2</sup>
               </span>
             </>
           )
@@ -111,6 +114,9 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
       priceDescription: (
         <>
           The first 100 get the Growth plan one year for free!
+          <span className={cn('is-themed-primary', 'is-semibold')}>
+            <sup> 1</sup>
+          </span>
         </>
       ),
       button: {
