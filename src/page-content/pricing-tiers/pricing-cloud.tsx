@@ -77,7 +77,7 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
       priceIsMonetary: true,
       button: {
         style: 'outlined',
-        title: 'Buy now',
+        title: 'Free access',
         to: 'https://share-eu1.hsforms.com/1KWJxgKzNQWOjR9r5blC41wextgn'
       },
       features: [
