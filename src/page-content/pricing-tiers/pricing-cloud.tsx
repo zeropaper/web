@@ -52,11 +52,7 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
         },
         {
           icon: Check,
-          title: (
-            <>
-              Production Limits apply
-            </>
-          )
+          title: <>Production Limits apply</>
         }
       ]
     },

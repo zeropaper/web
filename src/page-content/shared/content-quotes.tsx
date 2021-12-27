@@ -170,7 +170,7 @@ export const hydraQuotes: QuoteProps = {
       ),
       person: `Corey Burmeister`,
       jobTitle: `Author, Discogs`
-    },
+    }
   ]
 }
 
