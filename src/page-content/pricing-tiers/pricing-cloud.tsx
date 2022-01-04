@@ -117,7 +117,7 @@ export const pricingCloud: Pick<PricingProps, 'cloud'> = {
       ),
       button: {
         title: 'Apply now',
-        to: 'https://form.typeform.com/to/OCuquFBA#plan=growth',
+        to: 'https://share-eu1.hsforms.com/10iDKMSYNQ7eABY-CtnQPtAextgn',
         style: 'outlined'
       },
       features: [
