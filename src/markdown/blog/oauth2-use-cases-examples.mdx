@@ -4,14 +4,14 @@ path: '/oauth2-openid-connect-do-you-need-use-cases-examples/'
 title: You probably do not need OAuth2 / OpenID Connect
 
 seo:
-  description:
+  description: |
     Learn when you really need to integrate OAuth2 and OpenID Connect!
   title: You probably don't need OAuth2 / OpenID Connect!
 
 publishedAt: '2022-01-02'
 author: aeneasr
 
-teaser: >
+teaser: |
   Adding OAuth2 / OpenID Connect to your application is a complex process. This
   article will help you understand why you probably do not need OAuth2 / OpenID
   Connect!
@@ -31,6 +31,28 @@ and OpenID Connect world:
 
 Those two projects spawned the very company that raised series A and the website
 you're currently looking at!
+
+<p>
+  <video autoplay muted loop playsInline>
+    <source
+      src="../../videos/articles/oauth2-use-cases-examples/oauth2-flow-animated.mp4"
+      type="video/mp4"
+    />
+    <source
+      src="../../videos/articles/oauth2-use-cases-examples/oauth2-flow-animated.webm"
+      type="video/webm"
+    />
+  </video>
+</p>
+<p>
+  <small>
+    The OAuth2 Flow, animated (
+    <a href={'https://dev.to/hem/oauth-2-0-flows-explained-in-gifs-2o7a'}>
+      Source
+    </a>
+    ).
+  </small>
+</p>
 
 Before reading on please note that this article is an **opinion piece**. My
 intention is to save you valuable time developing the wrong things at the wrong
@@ -235,15 +257,15 @@ these cases, office A (Google Mail) might not trust office B (Google Earth) to
 access data without user consent. Large organizations can afford the extra cost
 of training, implementation, testing, and maintenance of complex systems. But
 even then - sign in to your Google profile and you will not find OAuth2 or
-OpenID Connect but instead a regular login flow: Post the HTML form to a server,
-receive a cookie!
+OpenID Connect (or they hide it really, really well) but instead a regular login
+flow: Post the HTML form to a server, receive a cookie!
 
-![Google does not use OpenID Connect](../../images/oauth2-use-cases-examples/google-noidc.png)
+![Google does not use OpenID Connect](../../images/articles/oauth2-use-cases-examples/google-noidc.png)
 
 A counter example to this is Amazon which uses OpenID Connect to sign you into
 their Amazon store.
 
-![Amazon uses OpenID Connect](../../images/oauth2-use-cases-examples/amazon-idc.png)
+![Amazon uses OpenID Connect](../../images/articles/oauth2-use-cases-examples/amazon-oidc.png)
 
 #### First and Third Party at the same time
 
@@ -399,12 +421,13 @@ OpenID Connect) are involved:
 >   Note that some of the Auth0 SDKs do provide some support for application
 >   sessions; please check the documentation to see if there is any local SDK
 >   session removal that needs to be done.
-> - Auth0 Session Layer Logout: You can log users out of the Auth0 session layer
->   by redirecting them to the Auth0 Logout endpoint so Auth0 can clear the SSO
->   cookie.
-> - Identity Provider Session Layer Logout: It is not necessary to log the users
->   out of this session layer, but you can use Auth0 to force the logout if
->   required.
+
+- Auth0 Session Layer Logout: You can log users out of the Auth0 session layer
+  > by redirecting them to the Auth0 Logout endpoint so Auth0 can clear the SSO
+  > cookie.
+- Identity Provider Session Layer Logout: It is not necessary to log the users
+  > out of this session layer, but you can use Auth0 to force the logout if
+  > required.
 
 ### Session Management III: Storage
 
@@ -502,8 +525,8 @@ OAuth2 tokens have a scope. The scope is usually something like `read:user` or
 > OAuth is not suitable for user authorization. The fact that you have an access
 > token that allows you to act on the user’s behalf does not mean that the user
 > can perform an action.
->
-> [_Source_](https://www.scottbrady91.com/oauth/oauth-is-not-user-authorization)
+
+[_Source_](https://www.scottbrady91.com/oauth/oauth-is-not-user-authorization)
 
 An access token represents that the client application has been authorized by
 the user. It states what a user told a third party application (consent!) can do
